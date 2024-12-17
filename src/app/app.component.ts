@@ -11,6 +11,7 @@ import { FormsModule, FormGroup } from '@angular/forms';
   imports: [CommonModule, FormsModule],
 })
 export class AppComponent {
+  title: string = 'My Angular Application';
   userObj: USER = new USER();
   http = inject(HttpClient);
   users: USER[] = [];
