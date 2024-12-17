@@ -1,0 +1,49 @@
+<div class="main">
+  <div class="form-container">
+    <h2>We'd Love to Hear From You!</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="userObj.name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      />
+
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="userObj.email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
+
+      <label for="mobile">Mobile Number</label>
+      <input
+        type="tel"
+        id="mobile"
+        [(ngModel)]="userObj.mobile"
+        name="mobile"
+        placeholder="Enter your mobile number"
+        pattern="[0-9]{10}"
+        required
+      />
+
+      <label for="comments">Your Comments</label>
+      <textarea
+        id="comments"
+        name="feedback"
+        [(ngModel)]="userObj.feedback"
+        rows="5"
+        placeholder="Tell us about your experience..."
+        required
+      ></textarea>
+
+      <button type="submit" (click)="onSaveUser()">Submit Feedback</button>
+    </form>
+  </div>
+</div>
