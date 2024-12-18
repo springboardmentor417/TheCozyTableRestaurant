@@ -13,6 +13,46 @@
       "email": "jane@example.com",
       "mobile": "9876543210",
       "feedback": []
+    },
+    {
+      "id": "8f96",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "09059545745",
+      "feedback": "good",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5
+    },
+    {
+      "id": "52b4",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "09059545745",
+      "feedback": "good",
+      "rating": 5,
+      "foodQuality": 3.5,
+      "valueForMoney": 5
+    },
+    {
+      "id": "f716",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "09059545745",
+      "feedback": "good",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5
+    },
+    {
+      "id": "ec75",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "09059545745",
+      "feedback": "good",
+      "rating": 4,
+      "foodQuality": 5,
+      "valueForMoney": 5
     }
   ]
 }

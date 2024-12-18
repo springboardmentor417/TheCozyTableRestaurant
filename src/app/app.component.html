@@ -1,49 +1,97 @@
-<div class="main">
+<div class="main container">
   <div class="form-container">
-    <h2>We'd Love to Hear From You!</h2>
+    <h2 class="text">We'd Love to Hear From You!</h2>
     <form>
-      <label for="name">Full Name</label>
-      <input
-        type="text"
-        id="name"
-        [(ngModel)]="userObj.name"
-        name="name"
-        placeholder="Enter your name"
-        required
-      />
+      <div class="inline form-row">
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="userObj.name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
 
-      <label for="email">Email Address</label>
-      <input
-        type="email"
-        id="email"
-        [(ngModel)]="userObj.email"
-        name="email"
-        placeholder="Enter your email"
-        required
-      />
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="userObj.email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
 
-      <label for="mobile">Mobile Number</label>
-      <input
-        type="tel"
-        id="mobile"
-        [(ngModel)]="userObj.mobile"
-        name="mobile"
-        placeholder="Enter your mobile number"
-        pattern="[0-9]{10}"
-        required
-      />
+        <input
+          type="tel"
+          id="mobile"
+          [(ngModel)]="userObj.mobile"
+          name="mobile"
+          placeholder="Enter your mobile number"
+          pattern="[0-9]{10}"
+          required
+        />
+      </div>
 
-      <label for="comments">Your Comments</label>
       <textarea
         id="comments"
+        required
         name="feedback"
         [(ngModel)]="userObj.feedback"
         rows="5"
         placeholder="Tell us about your experience..."
-        required
       ></textarea>
-
-      <button type="submit" (click)="onSaveUser()">Submit Feedback</button>
+      <div class="rateing">
+        <div class="stars">
+          <label>Rating:</label>
+          <app-star-rateing
+            [maxRating]="5"
+            [color]="'#9f01ea'"
+            [size]="32"
+            (onSetRating)="handleRating($event)"
+          ></app-star-rateing>
+        </div>
+        <div>
+          <div>
+            <label>Food Quality</label>
+            <mat-slider
+              min="1"
+              max="5"
+              step="0.5"
+              [(ngModel)]="foodQuality"
+              name="foodQuality"
+            >
+              <input
+                matSliderThumb
+                matSliderThumb
+                [(ngModel)]="foodQuality"
+                name="foodQuality"
+                value="1.5"
+              />
+            </mat-slider>
+          </div>
+          <div>
+            <label>Value for money</label>
+            <mat-slider
+              min="1"
+              max="5"
+              step="0.5"
+              [(ngModel)]="valueForMoney"
+              name="valueForMoney"
+            >
+              <input
+                matSliderThumb
+                value="1.5"
+                matSliderThumb
+                [(ngModel)]="valueForMoney"
+                name="valueForMoney"
+              />
+            </mat-slider>
+          </div>
+        </div>
+      </div>
     </form>
+    <button class="btn btn--green" type="submit" (click)="onSaveUser()">
+      Submit Feedback
+    </button>
   </div>
 </div>
