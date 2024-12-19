@@ -1,10 +1,13 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StarRateingComponent } from '../app/star-rateing/star-rateing.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +20,9 @@ import { MatSliderModule } from '@angular/material/slider';
     StarRateingComponent,
     MatSlideToggleModule,
     MatSliderModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
 })
 export class AppComponent {
@@ -26,24 +32,34 @@ export class AppComponent {
   userRating: number = 0;
   foodQuality: number = 0;
   valueForMoney: number = 0;
+  selectedDate: string = '';
 
-  onSaveUser() {
-    this.userObj.rating = this.userRating;
-    this.userObj.foodQuality = this.foodQuality;
-    this.userObj.valueForMoney = this.valueForMoney;
-
-    this.http
-      .post<USER>('http://localhost:3000/users', this.userObj)
-      .subscribe((res: USER) => {
-        alert('thank you for you feedback');
-        this.users.push(this.userObj);
-        console.log(this.userObj);
-      });
+  formatDate(date: Date): string {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 
   handleRating(rating: number): void {
     this.userRating = rating;
     console.log('Selected rating:', rating);
+  }
+
+  onSaveUser(feedbackForm: any) {
+    const formattedDate = this.formatDate(new Date(this.selectedDate));
+    this.userObj.selectedDate = formattedDate;
+    if (feedbackForm.invalid) {
+      alert('Please fill all the mandatory fields.');
+    } else {
+      this.http
+        .post<USER>('http://localhost:3000/users', this.userObj)
+        .subscribe((res: USER) => {
+          alert('thank you for you feedback');
+          this.users.push(this.userObj);
+          console.log(this.userObj);
+        });
+    }
   }
 }
 export class USER {
@@ -54,6 +70,7 @@ export class USER {
   rating: number;
   foodQuality: number;
   valueForMoney: number;
+  selectedDate: string;
 
   constructor() {
     this.name = '';
@@ -63,5 +80,6 @@ export class USER {
     this.rating = 0;
     this.foodQuality = 0;
     this.valueForMoney = 0;
+    this.selectedDate = '';
   }
 }

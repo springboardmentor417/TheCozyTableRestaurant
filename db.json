@@ -53,6 +53,17 @@
       "rating": 4,
       "foodQuality": 5,
       "valueForMoney": 5
+    },
+    {
+      "id": "e05e",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "hhhhhhhhhhhhhhhhhhhhhhh",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "19/12/2024"
     }
   ]
 }

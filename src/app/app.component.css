@@ -1,4 +1,3 @@
-/* General Reset */
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 * {
   margin: 0;
@@ -6,6 +5,105 @@
   outline: none;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+
+.container form {
+  padding: 30px 0 0 0;
+}
+.container form .form-row {
+  display: flex;
+  margin: 32px 0;
+}
+form .form-row .input-data {
+  width: 100%;
+  height: 40px;
+  margin: 0 20px;
+  position: relative;
+}
+form .form-row .textarea {
+  height: 70px;
+}
+.input-data .in-data,
+.textarea textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+}
+.input-data .in-data:focus ~ label,
+.textarea textarea:focus ~ label,
+.input-data .in-data:valid ~ label,
+.textarea textarea:valid ~ label {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #3498db;
+}
+
+.input-data label {
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-data .underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input-data .underline:before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data .in-data:focus ~ .underline:before,
+.input-data .in-data:valid ~ .underline:before,
+.textarea textarea:focus ~ .underline:before,
+.textarea textarea:valid ~ .underline:before {
+  transform: scale(1);
+}
+.submit-btn .input-data {
+  overflow: hidden;
+  height: 45px !important;
+  width: 25% !important;
+}
+.submit-btn .input-data .inner {
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(
+    right,
+    #56d8e4,
+    #9f01ea,
+    #56d8e4,
+    #9f01ea
+  );
+  transition: all 0.4s;
+}
+.submit-btn .input-data:hover .inner {
+  left: 0;
+}
+.submit-btn .input-data .in-data {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 body {
@@ -83,7 +181,7 @@ label {
   color: #555;
 }
 
-input,
+.in-data,
 textarea {
   margin-bottom: 20px;
   padding: 10px;
@@ -92,23 +190,22 @@ textarea {
   font-size: 14px;
 }
 
-input:focus,
+.in-data:focus,
 textarea:focus {
   border-color: #007bff;
   outline: none;
-  box-shadow: 0px 0px 4px rgba(0, 123, 255, 0.3);
 }
 
 textarea {
   resize: vertical;
 }
 
-input {
+.in-data {
   width: 300px;
 }
 .inline {
   display: flex;
-  gap: 60px;
+  gap: 40px;
 }
 /* button {
   background-color: #007bff;
@@ -126,18 +223,35 @@ mat-slider {
 }
 
 .rateing {
-  display: grid;
-  align-content: center;
-  grid-auto-flow: column;
-  grid-row: unset;
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  background: none;
+}
+mat-form-field {
+  background-color: white;
+  display: block;
 }
 
 .stars {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 10px;
 }
+
+.small-slider {
+  width: 150px;
+}
+
+/* .small-slider .mat-slider-track {
+  height: 5px;
+}
+
+.small-slider .mat-slider-thumb {
+  width: 10px;
+  height: 10px;
+} */
 
 .btn,
 .btn:link,
@@ -187,4 +301,52 @@ mat-slider {
   left: 0;
   z-index: -1;
   transition: all 0.4s;
+}
+
+.food-container {
+  display: flex;
+  gap: 100px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.first-slider {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.first-slider-2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rateing {
+  display: flex;
+  align-items: baseline;
+  padding: 15px 0;
+  align-content: space-between;
+}
+
+.date {
+  margin-top: 20px;
+}
+
+::ng-deep .mdc-text-field--filled {
+  background-color: transparent !important;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
