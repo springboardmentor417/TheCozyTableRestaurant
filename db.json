@@ -97,6 +97,45 @@
       "foodQuality": 3,
       "valueForMoney": 3,
       "selectedDate": "21/12/2024"
+    },
+    {
+      "id": "831d",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "i3hruhdbsjf",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "c0c5",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "i3hruhdbsjf",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
+      "imageError": ""
+    },
+    {
+      "id": "30ef",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "wjwjhwwjsbw",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": null,
+      "imageError": ""
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -11,16 +11,25 @@ import { MatInputModule } from '@angular/material/input';
 import { inject } from '@angular/core';
 import { StarRateingComponent } from '../../../star-rateing/star-rateing.component';
 
-
 @Component({
   selector: 'app-feedback-form',
   standalone: true,
-  imports: [CommonModule,FormsModule,MatSlideToggleModule,MatSliderModule,MatDatepickerModule,MatNativeDateModule,MatInputModule,HttpClientModule,StarRateingComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    HttpClientModule,
+    StarRateingComponent,
+  ],
   templateUrl: './feedback-form.component.html',
-  styleUrl: './feedback-form.component.css'
+  styleUrl: './feedback-form.component.css',
 })
 export class FeedbackFormComponent {
-userObj: USER = new USER();
+  userObj: USER = new USER();
   http = inject(HttpClient);
   users: USER[] = [];
   userRating: number = 0;
@@ -36,17 +45,22 @@ userObj: USER = new USER();
     return `${day}/${month}/${year}`;
   }
 
-  handleRating(rating: number): void {
-    this.userRating = rating;
-    console.log('Selected rating:', rating);
+  // handleRating(rating: number): void {
+  //   this.userRating = rating;
+  //   console.log('Selected rating:', rating);
+  // }
+
+  isValidEmail(email: string): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   }
+
   onImageUpload(event: Event): void {
     const input = event.target as HTMLInputElement;
-    
+
     if (input?.files && input.files.length > 0) {
       const file = input.files[0];
-  
-     
+
       const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
       if (!validImageTypes.includes(file.type)) {
         this.userObj.imageError = 'Only JPEG or PNG images are allowed.';
@@ -55,36 +69,54 @@ userObj: USER = new USER();
         this.userObj.imageError = 'File size should not exceed 2MB.';
         this.userObj.image = null;
       } else {
-        
         this.userObj.imageError = '';
         const imagePath = '/uploads/images/' + file.name;
         this.userObj.image = imagePath;
       }
     }
   }
-  
-  
 
   onSaveUser(feedbackForm: any) {
     const formattedDate = this.formatDate(new Date(this.selectedDate));
     this.userObj.selectedDate = formattedDate;
-    
-    if (feedbackForm.invalid) {
-      alert('Please fill all the mandatory fields.');
-    } else {
-     
-      this.http
-        .post<USER>('http://localhost:3000/users', this.userObj)
-        .subscribe((res: USER) => {
-          alert('Thank you for your feedback');
-          this.users.push(this.userObj);
-          console.log(this.userObj);
-        });
+
+    switch (true) {
+      case !this.userObj.name: {
+        alert('Please enter a valid name(minimum 3 charecters).');
+        return;
+      }
+      case !this.isValidEmail(this.userObj.email): {
+        alert('Please enter a email address or a valid email address.');
+        return;
+      }
+      case !this.userObj.feedback: {
+        alert('please give tell us your experience atleast in 10 charecters');
+        return;
+      }
+      case !this.userObj.mobile || this.userObj.mobile.length !== 10: {
+        alert('please enter the mobile number or a valid mobile number');
+        return;
+      }
+      case !this.selectedDate: {
+        alert('Please select the date.');
+        return;
+      }
+      case feedbackForm.valid: {
+        this.http
+          .post<USER>('http://localhost:3000/users', this.userObj)
+          .subscribe((res: USER) => {
+            alert('thank you for you feedback');
+            this.users.push(this.userObj);
+            console.log(this.userObj);
+          });
+        return;
+      }
+      default:
+        alert('unotherized action');
+        throw new Error('unotherized action');
     }
   }
-  
 }
-
 
 export class USER {
   name: string;
@@ -96,7 +128,7 @@ export class USER {
   valueForMoney: number;
   selectedDate: string;
   image: string | null;
-  imageError: string; 
+  imageError: string;
 
   constructor() {
     this.name = '';
