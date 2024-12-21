@@ -66,6 +66,7 @@
       "selectedDate": "19/12/2024"
     },
     {
+<<<<<<< HEAD
       "id": "4a14",
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
@@ -74,6 +75,27 @@
       "rating": 5,
       "foodQuality": 5,
       "valueForMoney": 5,
+=======
+      "id": "f94d",
+      "name": "Swathi",
+      "email": "yswathi174@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "Good . The food was very yummy. ",
+      "rating": 3,
+      "foodQuality": 2,
+      "valueForMoney": 2.5,
+      "selectedDate": "19/12/2024"
+    },
+    {
+      "id": "bb2e",
+      "name": "Swathi",
+      "email": "yswathi174@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "Good. The ffood was really yummy",
+      "rating": 3,
+      "foodQuality": 3.5,
+      "valueForMoney": 3.5,
+>>>>>>> 24bbecb643d5ac99575048e0ca88017ee35b3243
       "selectedDate": "20/12/2024"
     }
   ]

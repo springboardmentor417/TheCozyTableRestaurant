@@ -1,85 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { StarRateingComponent } from '../app/star-rateing/star-rateing.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [RouterOutlet,CommonModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [
-    CommonModule,
-    FormsModule,
-    StarRateingComponent,
-    MatSlideToggleModule,
-    MatSliderModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-  ],
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  userObj: USER = new USER();
-  http = inject(HttpClient);
-  users: USER[] = [];
-  userRating: number = 0;
-  foodQuality: number = 0;
-  valueForMoney: number = 0;
-  selectedDate: string = '';
-
-  formatDate(date: Date): string {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  }
-
-  handleRating(rating: number): void {
-    this.userRating = rating;
-    console.log('Selected rating:', rating);
-  }
-
-  onSaveUser(feedbackForm: any) {
-    const formattedDate = this.formatDate(new Date(this.selectedDate));
-    this.userObj.selectedDate = formattedDate;
-    if (feedbackForm.invalid) {
-      alert('Please fill all the mandatory fields.');
-    } else {
-      this.http
-        .post<USER>('http://localhost:3000/users', this.userObj)
-        .subscribe((res: USER) => {
-          alert('thank you for you feedback');
-          this.users.push(this.userObj);
-          console.log(this.userObj);
-        });
-    }
-  }
-}
-export class USER {
-  name: string;
-  email: string;
-  mobile: string;
-  feedback: any;
-  rating: number;
-  foodQuality: number;
-  valueForMoney: number;
-  selectedDate: string;
-
-  constructor() {
-    this.name = '';
-    this.email = '';
-    this.mobile = '';
-    this.feedback = '';
-    this.rating = 0;
-    this.foodQuality = 0;
-    this.valueForMoney = 0;
-    this.selectedDate = '';
-  }
+  title = 'dec';
 }
