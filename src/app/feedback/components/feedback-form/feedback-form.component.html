@@ -103,6 +103,21 @@
                 </mat-slider>
               </div>
             </div>
+            <div>
+              <label> Show us your plate 🍽️</label>
+            </div>
+            <div class="input-data">
+              <!-- <label for="imageUpload">Upload Image</label> -->
+              <input
+                type="file"
+                id="imageUpload"
+                (change)="onImageUpload($event)"
+                accept="image/*"
+              />
+              <div *ngIf="userObj.imageError" class="error">
+                Please upload a valid image file.
+              </div>
+            </div>
           </div>
   
           <div class="rateing">
@@ -120,7 +135,7 @@
                 <input
                   matInput
                   [matDatepicker]="picker"
-                  placeholder="Choose a date"
+                  placeholder="Date of visit "
                   [(ngModel)]="selectedDate"
                   name="selectedDate"
                 />
@@ -131,6 +146,7 @@
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </div>
+              
           </div>
         </div>
         <div class="btn-container">
