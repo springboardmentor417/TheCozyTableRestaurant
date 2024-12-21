@@ -99,6 +99,7 @@
       "selectedDate": "21/12/2024"
     },
     {
+<<<<<<< HEAD
       "id": "5657",
       "name": "Swathi",
       "email": "yswathi174@gmail.com",
@@ -122,6 +123,43 @@
       "valueForMoney": 2,
       "selectedDate": "21/12/2024",
       "image": "/uploads/images/besite_birthday_surprise.png",
+      "id": "831d",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "i3hruhdbsjf",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "c0c5",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "i3hruhdbsjf",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
+      "imageError": ""
+    },
+    {
+      "id": "30ef",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "wjwjhwwjsbw",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": null,
+>>>>>>> 16024927e08aae8a700bb3323bfe4ff6b923f296
       "imageError": ""
     }
   ]
