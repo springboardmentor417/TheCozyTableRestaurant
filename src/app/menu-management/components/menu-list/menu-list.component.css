@@ -1,0 +1,46 @@
+.menu-container {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: rgba(93, 47, 59, 0.8);
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  img {
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  footer {
+    background-color: rgba(93, 47, 59, 0.8); /* Same color as header */
+    color: #fff;
+    padding-top: 30px;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    position:relative;
+    bottom: 0;
+    width: 100%;
+  }
+  .footer p {
+    margin: 0;
+  }
+
+  
+
