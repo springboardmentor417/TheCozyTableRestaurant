@@ -1,0 +1,39 @@
+
+
+<div class="cart-container">
+
+   <h2>CART</h2>
+       <table>
+  <tr>
+    <th>ITEM</th>
+    <th>price</th>
+    <th>quantity</th>
+    <th>subtotal</th>
+    
+  </tr>
+  <tr *ngFor="let getCartDetail of getCartDetails">
+    <td class="item-cell">
+        <img src="{{getCartDetail.img}}" alt="samosa" width="200" height="200">
+        <div class="item-details">
+            <h4>{{getCartDetail.name}}</h4>
+            <p>{{getCartDetail.type}}</p>
+        </div>
+         <td>{{getCartDetail.currentPrice}}</td>
+    <td class="item-quantity"> 
+        <div class="quantity-selector">
+        <button type="button" class="btn btn-danger">+</button>
+        <span>2</span>
+        <button type="button" class="btn btn-success">-</button>
+    </div>
+    </td>
+    <td>{{getCartDetail.currentPrice}}</td>
+  </tr>
+ 
+        </table>
+
+        <div class="total">TOTAL:150  </div>
+        <div class="order-button">
+          <button type="button" class=" order-btn btn btn-success">PLACE ORDER</button>
+        </div>
+        
+ </div>
