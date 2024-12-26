@@ -1,0 +1,69 @@
+<div class="container mt-4">
+    <!-- Dashboard Header -->
+    <header class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h3">Admin Dashboard</h1>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </header>
+  
+    <!-- Admin Controls -->
+    <div class="row">
+      <!-- Manage Orders -->
+      <div class="col-md-4 mb-4">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Manage Orders</h5>
+            <p class="card-text">View and update pending orders.</p>
+            <button class="btn btn-primary" (click)="navigateTo('manage-orders')">Go to Orders</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Manage Menu -->
+      <div class="col-md-4 mb-4">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Manage Menu</h5>
+            <p class="card-text">Add, update, or remove menu items.</p>
+            <button class="btn btn-success" (click)="navigateTo('manage-menu')">Go to Menu</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Manage Reservations -->
+      <div class="col-md-4 mb-4">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Manage Reservations</h5>
+            <p class="card-text">Approve or decline table bookings.</p>
+            <button class="btn btn-warning" (click)="navigateTo('manage-reservations')">Go to Reservations</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Feedback and Reports -->
+    <div class="row">
+      <!-- User Feedback -->
+      <div class="col-md-6 mb-4">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">View Feedback</h5>
+            <p class="card-text">Read customer feedback and suggestions.</p>
+            <button class="btn btn-info" (click)="navigateTo('feedback')">Go to Feedback</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Sales Reports -->
+      <div class="col-md-6 mb-4">
+        <div class="card text-center shadow">
+          <div class="card-body">
+            <h5 class="card-title">Sales Reports</h5>
+            <p class="card-text">Analyze daily, weekly, and monthly sales.</p>
+            <button class="btn btn-secondary" (click)="navigateTo('sales-reports')">Go to Reports</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

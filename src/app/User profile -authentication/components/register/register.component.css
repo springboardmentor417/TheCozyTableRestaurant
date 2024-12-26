@@ -1,0 +1,78 @@
+/* Apply a background image to the whole page */
+
+.register-container {
+  background: url('/assets/Starter.jpg') no-repeat center center;
+  background-size: cover; /* Ensure the image covers the entire background */
+  min-height: 100vh; /* Make sure the background image covers the full screen */
+}
+
+/* Center the form container */
+.container {
+  background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-sizing: border-box; /* Include padding in the width calculation */
+  backdrop-filter: blur(10px); /* Blur the background behind the form */
+}
+
+/* Style the form labels */
+/* Make form labels bold */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold; /* Make labels bold */
+  color: red;
+}
+
+
+/* Style the form inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Style the submit button */
+form button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Success message styling */
+.success {
+  color: #28a745; /* Bootstrap success color */
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 500px;
+  }
+}

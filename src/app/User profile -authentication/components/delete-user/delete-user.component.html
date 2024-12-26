@@ -1,0 +1,62 @@
+<div class="container update-container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4">Delete User Details</h2>
+
+      <!-- Reactive Form -->
+      <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+        <!-- User ID Input -->
+        <div class="form-group mb-3">
+          <label for="userId" class="form-label">User ID</label>
+          <input
+            id="userId"
+            type="text"
+            class="form-control"
+            formControlName="id"
+            placeholder="Enter User ID"
+          />
+          <div *ngIf="deleteForm.get('id')?.invalid && deleteForm.get('id')?.touched" class="text-danger mt-1">
+            <small *ngIf="deleteForm.get('id')?.errors?.['required']">User ID is required.</small>
+          </div>
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Enter your email"
+          />
+          <div *ngIf="deleteForm.get('email')?.invalid && deleteForm.get('email')?.touched" class="text-danger mt-1">
+            <small *ngIf="deleteForm.get('email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="deleteForm.get('email')?.errors?.['email']">Enter a valid email address.</small>
+          </div>
+        </div>
+
+        <!-- Phone Number Input -->
+        <div class="form-group mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input
+            id="phone"
+            type="number"
+            class="form-control"
+            formControlName="phone"
+            placeholder="Enter your phone number"
+          />
+          <div *ngIf="deleteForm.get('phone')?.invalid && deleteForm.get('phone')?.touched" class="text-danger mt-1">
+            <small *ngIf="deleteForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+            <small *ngIf="deleteForm.get('phone')?.errors?.['pattern']">Enter a valid phone number.</small>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-danger" [disabled]="deleteForm.invalid">Delete User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

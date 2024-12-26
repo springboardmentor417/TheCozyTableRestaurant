@@ -1,0 +1,81 @@
+<div class="home-header">
+  <h1>{{ restaurantName }}</h1>
+  <p>Welcome to our restaurant management system!</p>
+</div>
+<div class="grid-container">
+  <!-- Form Section -->
+  <div class="login-container">
+    <h2 class="text-center">Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Username Field -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          id="username"
+          type="text"
+          class="form-control"
+          formControlName="username"
+          placeholder="Enter your username"
+        />
+        <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="text-danger">
+          <small *ngIf="loginForm.get('username')?.errors?.['required']">Username is required.</small>
+          <small *ngIf="loginForm.get('username')?.errors?.['minlength']">
+            Username must be at least 3 characters long.
+          </small>
+          <small *ngIf="loginForm.get('username')?.errors?.['maxlength']">
+            Username cannot exceed 30 characters.
+          </small>
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          </small>
+          <small *ngIf="loginForm.get('password')?.errors?.['maxlength']">
+            Password is wrong.
+          </small>
+          <small *ngIf="loginForm.get('password')?.errors?.['pattern']">
+            Password is incorrect.
+          </small>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="btn btn-primary w-100"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </form>
+
+    <!-- Error Message -->
+    <p 
+      *ngIf="errorMessage" 
+      class="text-danger text-center mt-3"
+    >
+      {{ errorMessage }}
+    </p>
+
+    <!-- Navigation Buttons -->
+   
+  </div>
+
+  <!-- Image Section -->
+  <div class="image-container">
+    <img src="/assets/Dinning_out.jpg" alt="Image" class="img-fluid" />
+  </div>
+</div>

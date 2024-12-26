@@ -1,0 +1,36 @@
+{
+  "users": [
+    
+    {
+      "id": "ee94",
+      "username": "Mohammed",
+      "password": "cr7@75545",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave, Khurshid ",
+      "role":"customer"
+    },
+    {
+      "id": "dfc3",
+      "username": "Saurabh",
+      "password": "cr7@75545",
+      "email": "mohammedobara@gmail.com",
+      "phone": "7304373810",
+      "address": "Adil tower b.p marine academy m.g road",
+      "role":"customer"
+    },
+    {
+      "id": "1dc",
+      "username": "MohammedObaray",
+      "password": "admin@1237",
+      "role": "admin"
+    },
+    {
+      "id": "2dc",
+      "username": "Mohammed",
+      "password": "admin@123",
+      "role": "admin"
+    }
+    
+  ]
+}
