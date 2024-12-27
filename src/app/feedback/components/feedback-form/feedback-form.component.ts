@@ -76,9 +76,16 @@ export class FeedbackFormComponent {
     }
   }
 
+  validatePhoneNumber(phoneNumber: any) {
+    const phoneRegex = /^[6-9]\d{9}$/;
+    return phoneRegex.test(phoneNumber);
+  }
+
   onSaveUser(feedbackForm: any) {
     const formattedDate = this.formatDate(new Date(this.selectedDate));
     this.userObj.selectedDate = formattedDate;
+
+    const today = this.formatDate(new Date());
 
     switch (true) {
       case !this.userObj.name: {
@@ -89,18 +96,24 @@ export class FeedbackFormComponent {
         alert('Please enter a email address or a valid email address.');
         return;
       }
-      case !this.userObj.feedback: {
-        alert('please give tell us your experience atleast in 10 charecters');
+      case !this.validatePhoneNumber(this.userObj.mobile): {
+        alert('please enter the valid mobile number');
         return;
       }
-      case !this.userObj.mobile || this.userObj.mobile.length !== 10: {
-        alert('please enter the mobile number or a valid mobile number');
+      case !this.userObj.feedback: {
+        alert('please give tell us your experience atleast in 10 charecters');
         return;
       }
       case !this.selectedDate: {
         alert('Please select the date.');
         return;
       }
+
+      case formattedDate !== today: {
+        alert("Please enter today's date.");
+        return;
+      }
+
       case feedbackForm.valid: {
         this.http
           .post<USER>('http://localhost:3000/users', this.userObj)
