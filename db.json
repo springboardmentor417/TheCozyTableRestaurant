@@ -35,11 +35,12 @@
       "imageError": ""
     },
     {
-      "id": "30ef",
+
+      "id": "831d",
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
       "mobile": "9059545745",
-      "feedback": "wjwjhwwjsbw",
+      "feedback": "i3hruhdbsjf",
       "rating": 5,
       "foodQuality": 5,
       "valueForMoney": 5,
@@ -48,30 +49,16 @@
       "imageError": ""
     },
     {
-      "id": "6bf0",
-      "name": "Swathi",
-      "email": "yswathi174@gmail.com",
-      "mobile": "9941294332",
-      "feedback": "good. the food was very delicious",
-      "rating": 4,
-      "foodQuality": 3,
-      "valueForMoney": 4.5,
-      "selectedDate": "22/11/2024",
-      "image": null,
-      "imageError": ""
-    },
-    {
-      "id": "ad10",
-      "name": "Swathi",
-      "email": "nothinggg0607@gmail.com",
-      "mobile": "9941294332",
-      "feedback": "amazing ambiance and taste",
-      "rating": 2,
-      "foodQuality": 1.5,
-      "valueForMoney": 1.5,
-      "selectedDate": "18/10/2024",
-      "image": null,
+      "id": "c0c5",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "i3hruhdbsjf",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "21/12/2024",
+      "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
       "imageError": ""
     }
-  ]
-}
+   
