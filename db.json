@@ -1,40 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "John Doe",
-      "email": "john@example.com",
-      "mobile": "1234567890",
-      "feedback": []
-    },
-    {
-      "id": "2",
-      "name": "Jane Smith",
-      "email": "jane@example.com",
-      "mobile": "9876543210",
-      "feedback": []
-    },
-    {
-      "id": "8f96",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "09059545745",
-      "feedback": "good",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5
-    },
-    {
-      "id": "52b4",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "09059545745",
-      "feedback": "good",
-      "rating": 5,
-      "foodQuality": 3.5,
-      "valueForMoney": 5
-    },
-    {
       "id": "f716",
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
@@ -43,49 +9,6 @@
       "rating": 5,
       "foodQuality": 5,
       "valueForMoney": 5
-    },
-    {
-      "id": "ec75",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "09059545745",
-      "feedback": "good",
-      "rating": 4,
-      "foodQuality": 5,
-      "valueForMoney": 5
-    },
-    {
-      "id": "e05e",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "hhhhhhhhhhhhhhhhhhhhhhh",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5,
-      "selectedDate": "19/12/2024"
-    },
-    {
-      "id": "4a14",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "hpoodniislw",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5,
-      "selectedDate": "20/12/2024"
-    },
-    {
-      "id": "27ba",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "uhhuufhiwbfiue",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5,
-      "selectedDate": "21/12/2024"
     },
     {
       "id": "1445",
@@ -112,42 +35,6 @@
       "imageError": ""
     },
     {
-      "id": "1c4d",
-      "name": "Swathi",
-      "email": "yswathi174gmail.com",
-      "mobile": "9941294332",
-      "feedback": "good , the food was yummy",
-      "rating": 4,
-      "foodQuality": 3,
-      "valueForMoney": 2,
-      "selectedDate": "21/12/2024",
-      "image": "/uploads/images/besite_birthday_surprise.png",
-      "id": "831d",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "i3hruhdbsjf",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5,
-      "selectedDate": "21/12/2024",
-      "image": null,
-      "imageError": ""
-    },
-    {
-      "id": "c0c5",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "i3hruhdbsjf",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5,
-      "selectedDate": "21/12/2024",
-      "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
-      "imageError": ""
-    },
-    {
       "id": "30ef",
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
@@ -157,6 +44,32 @@
       "foodQuality": 5,
       "valueForMoney": 5,
       "selectedDate": "21/12/2024",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "6bf0",
+      "name": "Swathi",
+      "email": "yswathi174@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "good. the food was very delicious",
+      "rating": 4,
+      "foodQuality": 3,
+      "valueForMoney": 4.5,
+      "selectedDate": "22/11/2024",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "ad10",
+      "name": "Swathi",
+      "email": "nothinggg0607@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "amazing ambiance and taste",
+      "rating": 2,
+      "foodQuality": 1.5,
+      "valueForMoney": 1.5,
+      "selectedDate": "18/10/2024",
       "image": null,
       "imageError": ""
     }
