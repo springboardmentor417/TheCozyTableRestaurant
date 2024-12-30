@@ -7,7 +7,7 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Price</th>
+        <th>Price(&#8377;)</th>
         <th>Category</th>
         <th>Item availability</th>
         <th>Image</th>
@@ -26,7 +26,7 @@
         </td>
         <td>
           <input *ngIf="editMode[i]" [(ngModel)]="item.price" type="number" placeholder="Enter price" />
-          <span *ngIf="!editMode[i]">RS.{{ item.price }}</span>
+          <span *ngIf="!editMode[i]">&#8377;{{ item.price }}</span>
         </td>
         <td>
           <select *ngIf="editMode[i]" [(ngModel)]="item.category">
