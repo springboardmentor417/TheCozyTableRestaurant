@@ -118,7 +118,7 @@ export class FeedbackFormComponent {
 
       case feedbackForm.valid: {
         this.http
-          .post<USER>('http://localhost:3000/users', this.userObj)
+          .post<USER>('http://localhost:3000/feedback', this.userObj)
           .subscribe((res: USER) => {
             // alert('thank you for you feedback');
             this.users.unshift(res);

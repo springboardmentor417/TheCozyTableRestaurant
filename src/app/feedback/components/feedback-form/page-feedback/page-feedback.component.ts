@@ -20,7 +20,7 @@ export class PageFeedbackComponent implements OnInit {
 
   getUsers() {
     this.http
-      .get<feedback[]>('http://localhost:3000/users')
+      .get<feedback[]>('http://localhost:3000/feedback')
       .subscribe((res) => {
         this.userList = res;
       });

@@ -31,7 +31,7 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const jsonUrl = 'http://localhost:3000/users';
+    const jsonUrl = 'http://localhost:3000/feedback';
 
     this.http.get(jsonUrl).subscribe(
       (response: any) => {
