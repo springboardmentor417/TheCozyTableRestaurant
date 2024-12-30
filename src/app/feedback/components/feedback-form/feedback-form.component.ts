@@ -9,6 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { StarRateingComponent } from '../../../star-rateing/star-rateing.component';
 
 @Component({
@@ -30,13 +31,14 @@ import { StarRateingComponent } from '../../../star-rateing/star-rateing.compone
 })
 export class FeedbackFormComponent {
   userObj: USER = new USER();
-  http = inject(HttpClient);
   users: USER[] = [];
   userRating: number = 0;
   foodQuality: number = 0;
   valueForMoney: number = 0;
   selectedDate: string = '';
   imageError: string = '';
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   formatDate(date: Date): string {
     const day = String(date.getDate()).padStart(2, '0');
@@ -118,9 +120,10 @@ export class FeedbackFormComponent {
         this.http
           .post<USER>('http://localhost:3000/users', this.userObj)
           .subscribe((res: USER) => {
-            alert('thank you for you feedback');
+            // alert('thank you for you feedback');
             this.users.push(this.userObj);
             console.log(this.userObj);
+            this.router.navigate(['/ack-page']);
           });
         return;
       }
