@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { NgFor } from '@angular/common';
 
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';  // Import CommonModule
 import { CartService } from '../../services/cart.service';
 
@@ -14,7 +16,7 @@ import { CartService } from '../../services/cart.service';
 export class CartComponent implements OnInit {
   getCartDetails: any = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,private router: Router) {}
 
   ngOnInit(): void {
     this.cartDetails();
@@ -66,5 +68,11 @@ export class CartComponent implements OnInit {
       (total: number, item: any) => total + item.quantity * item.currentPrice,
       0
     );
+  }
+  
+
+
+  goToOrder(): void {
+    this.router.navigate(['/order']);
   }
 }

@@ -17,8 +17,8 @@ export class HomeComponent {
       img: "../../assets/OIP (1).jpg",
       name: "samosa",
       type: "starter",
-      currentPrice: 135,
-      originalPrice: 150,
+      currentPrice: 35,
+      originalPrice: 50,
       discount: 10,
       quantity: 1 
     },

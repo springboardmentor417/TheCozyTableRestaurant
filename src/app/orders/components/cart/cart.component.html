@@ -21,17 +21,17 @@
           <button
             type="button"
             class="btn btn-danger"
-            (click)="increaseQuantity(cartItem)"
+            (click)="decreaseQuantity(cartItem)"
           >
-            +
+            -
           </button>
           <span>{{ cartItem.quantity }}</span>
           <button
             type="button"
             class="btn btn-success"
-            (click)="decreaseQuantity(cartItem)"
+            (click)="increaseQuantity(cartItem)"
           >
-            -
+            +
           </button>
         </div>
       </td>
@@ -41,7 +41,7 @@
   <div class="total">
     TOTAL: {{ calculateTotal() }}
   </div>
-  <div class="order-button">
-    <button type="button" class="btn btn-success">PLACE ORDER</button>
+  <div class="cart-summary">
+    <button type="button" class="btn btn-success"(click)="goToOrder()">CONTINUE</button>
   </div>
 </div>

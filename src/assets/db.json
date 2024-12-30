@@ -1,31 +1,20 @@
 {
   "cart": [
     {
-      "id": "7138",
+      "id": "58c9",
+      "foodID": 1,
+      "img": "../../assets/OIP (1).jpg",
+      "name": "samosa",
+      "type": "starter",
+      "currentPrice": 35,
+      "originalPrice": 50,
+      "discount": 10,
+      "quantity": 8
+    },
+    {
+      "id": "9cfc",
       "foodID": 4,
       "img": "../../assets/OIP (3).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 135,
-      "originalPrice": 150,
-      "discount": 10,
-      "quantity": 4
-    },
-    {
-      "id": "e4bb",
-      "foodID": 3,
-      "img": "../../assets/OIP (2).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 150,
-      "originalPrice": 135,
-      "discount": 10,
-      "quantity": 1
-    },
-    {
-      "id": "0e80",
-      "foodID": 2,
-      "img": "../../assets/OIP.jpg",
       "name": "samosa",
       "type": "starter",
       "currentPrice": 135,
