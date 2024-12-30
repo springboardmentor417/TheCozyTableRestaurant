@@ -1,0 +1,22 @@
+{
+  "menu-items": [
+    {
+      "id": "1bdd",
+      "name": "Angoori Gulab Jamun",
+      "description": "Serves 1 | A bliss to gobble up these small spongy pearl shaped slightly warm gulab jamuns(12 Nos) . A perfect mithai to conclude your meal.\nKcal- 466\n",
+      "price": 169,
+      "category": "Desserts",
+      "imageUrl": "https://i.pinimg.com/originals/41/cb/d0/41cbd0fa79954489295f5faa285ff163.jpg",
+      "availability": true
+    },
+    {
+      "id": "f915",
+      "name": "Mutton Rogan Josh",
+      "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+      "price": 350,
+      "category": "Main Course",
+      "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+      "availability": true
+    }
+  ]
+}
