@@ -35,7 +35,6 @@
       "imageError": ""
     },
     {
-
       "id": "831d",
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
@@ -60,7 +59,19 @@
       "selectedDate": "21/12/2024",
       "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
       "imageError": ""
+    },
+    {
+      "id": "1175",
+      "name": "Swathi",
+      "email": "yswathi174@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "Good, the food was very yummy",
+      "rating": 1,
+      "foodQuality": 4.5,
+      "valueForMoney": 4,
+      "selectedDate": "29/12/2024",
+      "image": null,
+      "imageError": ""
     }
   ]
 }
-   

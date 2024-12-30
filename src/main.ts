@@ -9,6 +9,6 @@ bootstrapApplication(AppComponent, {
   ...appConfig, // Spread existing appConfig
   providers: [
     ...(appConfig.providers || []), // Include existing providers from appConfig
-    provideHttpClient(), provideAnimationsAsync()             // Add HttpClient provider
+    provideHttpClient(), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync()             // Add HttpClient provider
   ]
 }).catch((err) => console.error(err));
