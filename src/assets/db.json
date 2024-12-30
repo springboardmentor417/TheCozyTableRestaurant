@@ -1,6 +1,5 @@
 {
   "users": [
-    
     {
       "id": "ee94",
       "username": "Mohammed",
@@ -8,7 +7,7 @@
       "email": "mohammedobaray@gmail.com",
       "phone": "7304373810",
       "address": "401, Sterling Enclave, Khurshid ",
-      "role":"customer"
+      "role": "customer"
     },
     {
       "id": "dfc3",
@@ -17,7 +16,7 @@
       "email": "mohammedobara@gmail.com",
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
-      "role":"customer"
+      "role": "customer"
     },
     {
       "id": "1dc",
@@ -30,7 +29,15 @@
       "username": "Mohammed",
       "password": "admin@123",
       "role": "admin"
+    },
+    {
+      "id": "cdf5",
+      "username": "Obaray",
+      "password": "md@5545",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave, Khurshid ",
+      "role":"customer"
     }
-    
   ]
 }

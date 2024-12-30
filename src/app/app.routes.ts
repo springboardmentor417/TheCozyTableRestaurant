@@ -7,6 +7,7 @@ import { DeleteUserComponent } from './User profile -authentication/components/d
 import { NgModule } from '@angular/core';
 import { UserWelcomeComponent } from './User profile -authentication/components/user-welcome/user-welcome.component';
 import { AdminWelcomeComponent } from './User profile -authentication/components/admin-welcome/admin-welcome.component';
+import { UserDetailsComponent } from './User profile -authentication/components/user-details/user-details.component';
 
 export const routes: Routes = [
     {path:'login' ,component:LoginComponent },
@@ -16,7 +17,8 @@ export const routes: Routes = [
     {path:'deleteUser', component:DeleteUserComponent},
     { path: '', redirectTo: '/Home', pathMatch: 'full' },
     {path:'userWelcome' , component:UserWelcomeComponent},
-    {path:'adminWelcome' , component:AdminWelcomeComponent}
+    {path:'adminWelcome' , component:AdminWelcomeComponent},
+    {path:'userDetails', component:UserDetailsComponent}
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

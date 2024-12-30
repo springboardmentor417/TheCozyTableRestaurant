@@ -28,17 +28,35 @@ export class LoginComponent { loginForm: FormGroup;
           Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])/),
         ],
       ],
+      email:[],
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
+      const { username, password, email } = this.loginForm.value;
   
-      this.authService.getUsers(username, password).subscribe(
-        (users: any[]) => {
-          const user = users.find(u => u.username === username && u.password === password); // Filter user here
+      this.authService.getUsers(username, password, email).subscribe(
+        (users) => {
+          const user = users.find(
+            (u) => u.username === username && u.password === password &&  
+            
+            (u.email === email || !email) // Allow users without email to log in
+  
+          );
           if (user) {
+            console.log('Login successful:', user);
+  
+            // Store user details in localStorage
+            const userDetails = {
+              id: user.id,
+              username: user.username,
+              email:user.email,
+              role: user.role,
+            };
+            localStorage.setItem('currentUser', JSON.stringify(userDetails));
+  
+            // Navigate to the appropriate page based on the user's role
             if (user.role === 'admin') {
               alert('Welcome Admin!');
               this.router.navigate(['/adminWelcome']);
@@ -46,19 +64,20 @@ export class LoginComponent { loginForm: FormGroup;
               alert('Welcome Customer!');
               this.router.navigate(['/userWelcome']);
             } else {
-              this.errorMessage = 'User role is undefined';
+              console.error('User role is undefined');
             }
           } else {
-            this.errorMessage = 'Invalid username or password';
+            console.error('Invalid credentials');
+            alert('Invalid username or password.');
           }
         },
-        (error: any) => {
+        (error) => {
           console.error('Error during login:', error);
-          this.errorMessage = 'An error occurred while logging in';
+          alert('An error occurred while logging in.');
         }
       );
     } else {
-      this.errorMessage = 'Please fill in the form correctly';
+      alert('Please fill in the form correctly.');
     }
   }
   

@@ -14,8 +14,8 @@ export class HomeComponent {
   restaurantName: string = 'Welcome to Cozi Restaurant Management';
   // Define image paths pointing to images in the assets folder
   imagePaths = [
-    'assets/CoolDine.jpg',
     'assets/Dinning.jpg',
+    'assets/CoolDine.jpg',
     'assets/lifedine.jpg',
     'assets/NightDine.jpg',
     'assets/tables.jpg',

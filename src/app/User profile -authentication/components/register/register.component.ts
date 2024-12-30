@@ -56,6 +56,16 @@ export class RegisterComponent {
           console.log('User added:', response);
           this.successMessage = 'User registered successfully!';
           this.registerForm.reset();
+  
+          // Save user details in local storage
+          const userDetails = {
+            id: response.id,
+            username: response.username,
+            email:response.email,
+            number:response.number,
+            role: response.role,
+          };
+          localStorage.setItem('currentUser', JSON.stringify(userDetails));
         },
         error: (err: any) => {
           console.error('Error adding user:', err);
