@@ -3,6 +3,7 @@ import { FeedbackFormComponent } from './feedback/components/feedback-form/feedb
 import { AdminchartComponent } from './feedback/adminComponent/adminchart/adminchart.component';
 import { AppComponent } from './app.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
+import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
 
 export const routes: Routes = [
   {
@@ -14,8 +15,12 @@ export const routes: Routes = [
     component: AdminchartComponent,
   },
   {
-    path: 'ack-page',
+    path: 'ackpage',
     component: AckPageComponent,
+  },
+  {
+    path: 'reply',
+    component: PageFeedbackComponent,
   },
   {
     path: '',
