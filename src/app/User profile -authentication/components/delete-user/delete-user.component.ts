@@ -22,7 +22,7 @@ export class DeleteUserComponent {
         // username: ['', [Validators.required, Validators.minLength(3)]],
         // password: ['', [Validators.required, Validators.minLength(6)]],
         email: ['', [Validators.required, Validators.email,Validators.minLength(6),Validators.maxLength(30)]],
-        phone: ['',[Validators.required, Validators.pattern(/^[0-9]{10}$/)]]
+        phone: ['',[Validators.required, Validators.pattern(/^[1-9][0-9]{9}$/)]]
       });
     }
   

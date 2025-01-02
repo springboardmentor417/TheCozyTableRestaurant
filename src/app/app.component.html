@@ -1,62 +1,7 @@
-<nav>
-    <ul>
-         <li><a routerLink="/Home">Home</a> </li>
-         <li><a routerLink="/login">Login</a> </li>
-         
-         <li><a routerLink="/Register">Register</a> </li>
-    </ul>
-    
-    
-    </nav>
-    
+
+    <app-header></app-header>
+
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
 
 
-    <footer>
-         <div class="footer-container">
-             <!-- Follow Us Section -->
-             <div class="footer-section follow-us">
-                 <div class="logo-icon">
-                     ☕
-                 </div>
-                 <h3>Follow</h3>
-                 <div class="social-icons">
-                     <a href="#"><i class="fab fa-twitter"></i></a>
-                     <a href="#"><i class="fab fa-facebook"></i></a>
-                     <a href="#"><i class="fab fa-instagram"></i></a>
-                     <a href="#"><i class="fab fa-youtube"></i></a>
-                 </div>
-                 <div class="address">
-                     <p>1234 Street Name</p>
-                     <p>City, AA 99999</p>
-                 </div>
-             </div>
-       
-             <!-- Opening Hours Section -->
-             <div class="footer-section opening-hours">
-                 <h3>Opening Hours</h3>
-                 <ul>
-                     <li>Monday: 11:00 - 18:00</li>
-                     <li>Tuesday: 11:00 - 18:00</li>
-                     <li>Wednesday: 11:00 - 18:00</li>
-                     <li>Thursday: 11:00 - 18:00</li>
-                     <li>Friday: 11:00 - 18:00</li>
-                     <li>Saturday: 11:00 - 18:00</li>
-                     <li>Sunday: Closed</li>
-                 </ul>
-             </div>
-       
-             <!-- Contact Us Section -->
-             <div class="footer-section contact-us">
-                 <h3>Contact Us</h3>
-                 <form>
-                     <input type="text" placeholder="Name" required>
-                     <input type="text" placeholder="Phone" required>
-                     <textarea placeholder="Message" rows="4" required></textarea>
-                     <button type="submit">Send</button>
-                 </form>
-             </div>
-         </div>
-       </footer>
-         <p>Contact us at 123-456-789 | Address: 123 Foodie Street, Taste Town</p>
-       

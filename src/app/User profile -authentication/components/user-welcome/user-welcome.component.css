@@ -1,73 +1,106 @@
-/* Styling for h2 */
+  /* General Styles */
 h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Quick Actions */
+.quick-actions {
+  margin-bottom: 20px;
+}
+
+.quick-actions .btn {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+/* Notifications */
+.card-body ul {
+  padding-left: 15px;
+}
+
+.card-body ul li {
+  margin-bottom: 5px;
+}
+
+/* Logout Button */
+.text-center .btn-danger {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* third */
+/* General Styles */
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Quick Actions */
+.quick-actions .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Lists */
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
   }
-  
-  /* Styling for the navigation container */
-  .nav-container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px 20px;
+
+  .quick-actions .btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
   }
-  
-  /* Styling for navigation buttons */
-  a {
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    color: white;
-    margin-left: 10px;
-  }
-  
-  a.btn-warning {
-    background-color: #ffc107;
-    border: none;
-  }
-  
-  a.btn-warning:hover {
-    background-color: #e0a800;
-  }
-  
-  a.btn-danger {
-    background-color: #dc3545;
-    border: none;
-  }
-  
-  a.btn-danger:hover {
-    background-color: #c82333;
-  }
-  
-  /* Styling for the header */
-  .home-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .home-header h1 {
-    font-size: 3rem;
-    color: #dc7012;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    text-transform: uppercase;
-  }
-  
-  /* Paragraph styles */
-  .restaurant-description,
-  .additional-description {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.6;
-    font-style: italic;
-  }
-  
-  /* Image styles */
-  img {
-    max-width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
+}

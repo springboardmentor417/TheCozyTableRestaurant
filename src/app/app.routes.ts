@@ -10,12 +10,12 @@ import { AdminWelcomeComponent } from './User profile -authentication/components
 import { UserDetailsComponent } from './User profile -authentication/components/user-details/user-details.component';
 
 export const routes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     {path:'login' ,component:LoginComponent },
     {path:'Home' ,component:HomeComponent},
     {path:'Register' , component:RegisterComponent},
     {path:'updateUser',component:UpdateUserComponent},
     {path:'deleteUser', component:DeleteUserComponent},
-    { path: '', redirectTo: '/Home', pathMatch: 'full' },
     {path:'userWelcome' , component:UserWelcomeComponent},
     {path:'adminWelcome' , component:AdminWelcomeComponent},
     {path:'userDetails', component:UserDetailsComponent}

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { ServicesService } from '../../services/services.service';
 
 @Component({
@@ -41,7 +40,7 @@ export class RegisterComponent {
         '',
         [
           Validators.required,
-          Validators.pattern(/^[0-9]{10}$/), // Phone number must be 10 digits
+          Validators.pattern(/^[1-9][0-9]{9}$/), // Phone number must be 10 digits
         ],
       ],
       address: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],
