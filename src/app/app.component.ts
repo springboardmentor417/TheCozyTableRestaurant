@@ -2,19 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { RouterOutlet } from '@angular/router';
-import { AdminComponent } from './feedback/components/admin/admin.component';
-
-import { ReservationComponent } from "./reservations/components/reservation/reservation.component";
-
-
 
 @Component({
   selector: 'app-root',
   standalone: true,
 
-  imports: [RouterOutlet, CommonModule, AdminComponent],
-
-  imports: [ReservationComponent],
+  imports: [RouterOutlet, CommonModule],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

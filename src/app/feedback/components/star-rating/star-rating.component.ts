@@ -1,15 +1,14 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 @Component({
-  selector: 'app-star-rateing',
+  selector: 'app-star-rating',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './star-rateing.component.html',
-  styleUrls: ['./star-rateing.component.css'],
+  templateUrl: './star-rating.component.html',
+  styleUrl: './star-rating.component.css'
 })
-export class StarRateingComponent {
-  @Input() maxRating: number = 5;
+export class StarRatingComponent {
+ @Input() maxRating: number = 5;
   @Input() color: string = '#fcc419';
   @Input() size: number = 24;
   @Output() onSetRating = new EventEmitter<number>();
@@ -29,4 +28,5 @@ export class StarRateingComponent {
   clearTemporaryRating(): void {
     this.tempRating = 0;
   }
+
 }

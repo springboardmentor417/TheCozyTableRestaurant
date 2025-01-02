@@ -10,7 +10,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { StarRateingComponent } from '../../../star-rateing/star-rateing.component';
+import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({
   selector: 'app-feedback-form',
@@ -24,8 +24,8 @@ import { StarRateingComponent } from '../../../star-rateing/star-rateing.compone
     MatNativeDateModule,
     MatInputModule,
     HttpClientModule,
-    StarRateingComponent,
-  ],
+    StarRatingComponent
+],
   templateUrl: './feedback-form.component.html',
   styleUrl: './feedback-form.component.css',
 })
