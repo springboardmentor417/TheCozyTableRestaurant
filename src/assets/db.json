@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": "ee94",
+      "username": "Mohammed",
+      "password": "cr7@75545",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave, Khurshid ",
+      "role": "customer"
+    },
+    {
+      "id": "dfc3",
+      "username": "Saurabh",
+      "password": "cr7@75545",
+      "email": "mohammedobara@gmail.com",
+      "phone": "7304373810",
+      "address": "Adil tower b.p marine academy m.g road",
+      "role": "customer"
+    },
+    {
+      "id": "1dc",
+      "username": "MohammedObaray",
+      "password": "admin@1237",
+      "role": "admin"
+    },
+    {
+      "id": "2dc",
+      "username": "Mohammed",
+      "password": "admin@123",
+      "role": "admin"
+    },
+    {
+      "id": "cdf5",
+      "username": "Obaray",
+      "password": "md@5545",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave, Khurshid ",
+      "role": "customer"
+    },
+    {
+      "id": "a818",
+      "username": "Mohammed",
+      "password": "admin@123",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "9140016617",
+      "address": "Adil tower b. p. marine academy m. g. roads"
+    },
+    {
+      "id": "d5e2",
+      "username": "Obaray12",
+      "password": "Arpit123@",
+      "email": "mishra12@gmail.com",
+      "phone": "9140016617",
+      "address": "punjab Adil tower b. p. marine academy m. g. roads",
+      "role": "customer"
+    },
+    {
+      "id": "3a63",
+      "username": "Saurabh12",
+      "password": "cr7@755451",
+      "email": "mohamm122222@gmail.com",
+      "phone": "9140016645",
+      "address": "Uttar Pradesh India ",
+      "role": "customer"
+    },
+    {
+      "id": "1bd6",
+      "username": "Arpit123",
+      "password": "Qwe123@",
+      "email": "arpitmishra123@gmail.com",
+      "phone": "9140016456",
+      "address": "Uttar Pradesh Jalandhar Punjab 144005",
+      "role": "customer"
+    },
+    {
+      "id": "6efc",
+      "username": "Arpit5555",
+      "password": "Qwe123@",
+      "email": "nnnarpitmishra123@gmail.com",
+      "phone": "9140016488",
+      "address": "Uttar Pradesh India 🇮🇳 "
+    }
+  ]
+}
