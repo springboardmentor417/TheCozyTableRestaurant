@@ -157,7 +157,6 @@
       "imageError": ""
     },
     {
-<<<<<<< HEAD
       "id": "f201",
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
@@ -166,8 +165,9 @@
       "rating": 5,
       "foodQuality": 5,
       "valueForMoney": 5,
-      "selectedDate": "02/01/2025",
-=======
+      "selectedDate": "02/01/2025"
+    },
+    {
       "id": "049d",
       "name": "Swathi",
       "email": "yswathi174@gmail.com",
@@ -177,7 +177,7 @@
       "foodQuality": 4,
       "valueForMoney": 4.5,
       "selectedDate": "30/12/2024",
->>>>>>> 0d1e9090a3452095e67afe5531964f27c64afc03
+
       "image": null,
       "imageError": ""
     }
