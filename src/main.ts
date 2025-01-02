@@ -1,6 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+// Extend appConfig with additional providers
+bootstrapApplication(AppComponent, {
+  ...appConfig, // Spread existing appConfig
+  providers: [
+    ...(appConfig.providers || []), // Include existing providers from appConfig
+    provideHttpClient(),
+    provideAnimationsAsync(), // Add HttpClient provider
+  ],
+}).catch((err) => console.error(err));

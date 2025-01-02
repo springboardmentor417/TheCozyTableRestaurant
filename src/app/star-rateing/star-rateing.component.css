@@ -1,0 +1,9 @@
+.star-container {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.star {
+  transition: color 0.2s;
+}
