@@ -8,17 +8,22 @@ import { ReservationComponent } from "./reservations/components/reservation/rese
 
 
 
+import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
+
+import { AddMenuItemComponent } from './menu-management/components/add-menu-item/add-menu-item.component';
 @Component({
   selector: 'app-root',
   standalone: true,
+
 
   imports: [RouterOutlet, CommonModule, AdminComponent],
 
   imports: [ReservationComponent],
 
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'AngularProject';
+  title = 'menu-management';
 }
