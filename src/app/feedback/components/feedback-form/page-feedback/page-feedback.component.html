@@ -1,7 +1,48 @@
-<div class="feedback-container">
-  <div *ngFor="let item of userList; let i = index" class="container">
-    <p class="text">{{ item.name }}</p>
-    <p>{{ item.selectedDate }}</p>
-    <p>{{ item.feedback }}</p>
+<div class="review-container" *ngFor="let item of userList; let i = index">
+  <div class="review-card">
+    <div class="review-head">
+      <img
+        src="../../../../../assets/user-profile.png"
+        alt="user profile"
+        class="profile-image"
+      />
+      <p>
+        <strong>{{ item.name }}</strong>
+      </p>
+    </div>
+    <p class="review-date">Reviewed on {{ item.selectedDate }}</p>
+    <p><strong>Feedback:</strong> {{ item.feedback }}</p>
+    <div class="star-rating">
+      <span
+        *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+        [class.filled]="i < item.rating"
+        class="star"
+      >
+        ★
+      </span>
+    </div>
+
+    <p><strong>Rating:</strong> {{ item.rating }}/5</p>
+    <button
+      *ngIf="item.adminReply && item.adminReply.trim() && !item.showReplyForm"
+      (click)="item.showReplyForm = true"
+    >
+      View Reply
+    </button>
+
+    <!-- Admin Reply Section (visible when showAdminReply is true) -->
+    <div *ngIf="item.showReplyForm">
+      <hr />
+      <div class="admin-reply">
+        <strong>Admin's Reply:</strong>
+        <p>{{ item.adminReply }}</p>
+      </div>
+    </div>
+    <button
+      *ngIf="item.adminReply && item.adminReply.trim() && item.showReplyForm"
+      (click)="item.showReplyForm = false"
+    >
+      close
+    </button>
   </div>
 </div>

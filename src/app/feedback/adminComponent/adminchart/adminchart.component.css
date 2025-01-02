@@ -65,3 +65,7 @@ canvas {
   width: auto;
   border-radius: 5px;
 }
+
+.reply-page {
+  margin-top: 300px;
+}

@@ -145,6 +145,8 @@ export class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
+  adminReply: any;
+  showReplyForm: boolean;
 
   constructor() {
     this.name = '';
@@ -155,7 +157,10 @@ export class USER {
     this.foodQuality = 0;
     this.valueForMoney = 0;
     this.selectedDate = '';
+    this.adminReply = '';
     this.image = null;
+    this.showReplyForm = false;
+
     this.imageError = '';
   }
 }

@@ -1,0 +1,41 @@
+<div class="reviews-grid">
+  <div class="review-card" *ngFor="let item of userList">
+    <div class="star-rating">
+      <span
+        *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+        [class.filled]="i < item.rating"
+        class="star"
+      >
+        ★
+      </span>
+    </div>
+    <div class="review-header">
+      <img
+        src="../../../../../assets/user-profile.png"
+        alt="Default profile picture"
+        class="profile-image"
+      />
+      <div class="review-info">
+        <p class="review-name">{{ item.name }}</p>
+        <p class="review-date">{{ item.selectedDate }}</p>
+      </div>
+    </div>
+
+    <p class="review-feedback">{{ item.feedback }}</p>
+    <div class="admin-reply">
+      <button (click)="toggleReplyForm(item)">Reply</button>
+
+      <div *ngIf="item.showReplyForm">
+        <textarea
+          [(ngModel)]="item.adminReply"
+          placeholder="Write a reply..."
+        ></textarea>
+        <button (click)="submitReply(item)">Submit</button>
+      </div>
+
+      <div *ngIf="item.adminReply">
+        <p class="admin-reply-text">Admin: {{ item.adminReply }}</p>
+      </div>
+    </div>
+  </div>
+</div>
