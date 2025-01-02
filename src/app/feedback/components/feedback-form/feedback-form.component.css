@@ -336,12 +336,23 @@ mat-form-field {
   margin-top: 20px;
 }
 
+.mat-form-field-wrapper {
+  background-color: #f0f8ff; /* Light blue background */
+  border-radius: 4px;
+}
+
+.mat-calendar {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
 ::ng-deep .mdc-text-field--filled {
   background-color: transparent !important;
 }
 
 .error {
-  color: red;
+  color: rgb(255, 0, 0);
   font-size: 12px;
 }
 

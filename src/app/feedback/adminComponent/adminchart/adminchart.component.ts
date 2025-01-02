@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -9,7 +15,7 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [HttpClientModule, MatCardModule],
   templateUrl: './adminchart.component.html',
-  styleUrls: ['./adminchart.component.css']
+  styleUrls: ['./adminchart.component.css'],
 })
 export class AdminchartComponent implements OnInit, AfterViewInit {
   data: any;
@@ -25,15 +31,21 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const jsonUrl = 'http://localhost:3000/users';
+    const jsonUrl = 'http://localhost:3000/feedback';
 
     this.http.get(jsonUrl).subscribe(
       (response: any) => {
         this.data = response || [];
 
         const ratingCounts = this.extractRatingCounts(this.data, 'rating');
-        const foodQualityCounts = this.extractRatingCounts(this.data, 'foodQuality');
-        const valueForMoneyCounts = this.extractRatingCounts(this.data, 'valueForMoney');
+        const foodQualityCounts = this.extractRatingCounts(
+          this.data,
+          'foodQuality'
+        );
+        const valueForMoneyCounts = this.extractRatingCounts(
+          this.data,
+          'valueForMoney'
+        );
         const monthlySales = this.extractMonthlySales(this.data);
 
         // console.log('Rating counts:', ratingCounts);
@@ -81,8 +93,18 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
 
   extractMonthlySales(data: any): { [key: string]: number } {
     const monthNames = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
 
     const monthlySales: { [key: string]: number } = {};
@@ -99,19 +121,45 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
   }
 
   createPieChart(ratingCounts: { [key: number]: number }): void {
-    this.createChart('feedbackChart', 'pie', ratingCounts, 'Ratings Distribution', 'Rating');
+    this.createChart(
+      'feedbackChart',
+      'pie',
+      ratingCounts,
+      'Ratings Distribution',
+      'Rating'
+    );
   }
 
   createDoughnutChart(foodQualityCounts: { [key: number]: number }): void {
-    this.createChart('foodQualityChart', 'doughnut', foodQualityCounts, 'Food Quality Distribution', 'Quality');
+    this.createChart(
+      'foodQualityChart',
+      'doughnut',
+      foodQualityCounts,
+      'Food Quality Distribution',
+      'Quality'
+    );
   }
 
-  createDoughnutChartForValueForMoney(valueForMoneyCounts: { [key: number]: number }): void {
-    this.createChart('valueForMoneyChart', 'doughnut', valueForMoneyCounts, 'Value for Money Distribution', 'Value');
+  createDoughnutChartForValueForMoney(valueForMoneyCounts: {
+    [key: number]: number;
+  }): void {
+    this.createChart(
+      'valueForMoneyChart',
+      'doughnut',
+      valueForMoneyCounts,
+      'Value for Money Distribution',
+      'Value'
+    );
   }
 
   createBarChart(monthlySales: { [key: string]: number }): void {
-    this.createChart('salesBarChart', 'bar', monthlySales, 'Monthly Sales Outcomes', ''); // Removed the prefix "Month"
+    this.createChart(
+      'salesBarChart',
+      'bar',
+      monthlySales,
+      'Monthly Sales Outcomes',
+      ''
+    ); // Removed the prefix "Month"
   }
 
   createChart(
@@ -130,9 +178,9 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
     if (canvas) {
       const labels = Object.keys(dataObj).map((key) => {
         if (itemLabelPrefix) {
-          return `${itemLabelPrefix} ${key}`;  
+          return `${itemLabelPrefix} ${key}`;
         }
-        return key;  
+        return key;
       });
       const data = Object.values(dataObj);
 
@@ -140,25 +188,27 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
         type: type,
         data: {
           labels: labels,
-          datasets: [{
-            label: label,
-            data: data,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1,
-          }]
+          datasets: [
+            {
+              label: label,
+              data: data,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
           responsive: true,
@@ -171,7 +221,7 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
             },
           },
           scales: type === 'bar' ? { y: { beginAtZero: true } } : undefined,
-        }
+        },
       });
 
       this.charts.push(chart);

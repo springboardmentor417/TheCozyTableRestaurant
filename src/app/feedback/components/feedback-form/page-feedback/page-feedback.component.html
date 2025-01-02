@@ -1,0 +1,7 @@
+<div class="feedback-container">
+  <div *ngFor="let item of userList; let i = index" class="container">
+    <p class="text">{{ item.name }}</p>
+    <p>{{ item.selectedDate }}</p>
+    <p>{{ item.feedback }}</p>
+  </div>
+</div>
