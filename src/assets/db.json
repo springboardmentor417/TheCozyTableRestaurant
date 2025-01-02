@@ -1,0 +1,70 @@
+{
+  "tables": [
+    {
+      "id": 1,
+      "date": "2024-12-20",
+      "time": "19:00",
+      "seats": 4,
+      "isReserved": false
+    },
+    {
+      "id": 2,
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2,
+      "isReserved": false
+    },
+    {
+      "id": 3,
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2,
+      "isReserved": false
+    },
+    {
+      "id": 4,
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2,
+      "isReserved": false
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "tableId": 2,
+      "customerName": "John Doe",
+      "contact": "1234567890",
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2
+    },
+    {
+      "id": "079a",
+      "tableId": "3",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "date": "2024-12-31",
+      "time": "18:35",
+      "seats": 2
+    },
+    {
+      "id": "5424",
+      "tableId": "1",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "date": "2024-12-31",
+      "time": "18:39",
+      "seats": 2
+    },
+    {
+      "id": "f584",
+      "tableId": "4",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "date": "2024-12-31",
+      "time": "18:45",
+      "seats": 2
+    }
+  ]
+}
