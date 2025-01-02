@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Menu Item</title>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h1>Cozy Table</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#orders">Orders</a></li>
+        <li><a href="#logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Add Menu Item</h2>
+    <!-- Form Start -->
+    <form [formGroup]="addMenuItemForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Item Name</label>
+        <input id="name" type="text" formControlName="name" class="form-control" />
+        <div *ngIf="addMenuItemForm.get('name')?.invalid && addMenuItemForm.get('name')?.touched" class="text-danger">
+          Name is required and must be alphabetic.
+        </div>
+        <!-- Display error message if item already exists -->
+        <div *ngIf="nameErrorMessage" class="error">{{ nameErrorMessage }}</div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+        <div *ngIf="addMenuItemForm.get('description')?.invalid && addMenuItemForm.get('description')?.touched" class="text-danger">
+          Description is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" type="number" formControlName="price" placeholder="(In Rupees Only)" class="form-control" />
+        <div *ngIf="addMenuItemForm.get('price')?.invalid && addMenuItemForm.get('price')?.touched" class="text-danger">
+          Price must be greater than 0 and less than 1200.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" formControlName="category" class="form-control">
+          <option value="" disabled>Select a category</option>
+          <option value="Appetizers">Appetizers</option>
+          <option value="Starters">Starters</option>
+          <option value="Main Course">Main Course</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Rice">Rice</option>
+          <option value="Drinks">Drinks</option>
+          <option value="Bread">Bread</option>
+        </select>
+        <div *ngIf="addMenuItemForm.get('category')?.invalid && addMenuItemForm.get('category')?.touched" class="text-danger">
+          Category is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input id="imageUrl" type="text" formControlName="imageUrl" class="form-control" />
+        <div *ngIf="addMenuItemForm.get('imageUrl')?.invalid && addMenuItemForm.get('imageUrl')?.touched" class="text-danger">
+          Image URL is required.
+        </div>
+        <div *ngIf="imageUrlErrorMessage" class="error">{{ imageUrlErrorMessage }}</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="addMenuItemForm.invalid">Add Menu Item</button>
+    </form>
+    <!-- Form End -->
+  </div>
+
+</body>
+</html>

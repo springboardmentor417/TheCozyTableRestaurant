@@ -1,0 +1,78 @@
+.feedback-container {
+  display: flex; /* Enable flex layout */
+  flex-direction: column-reverse; /* Reverse the order of children */
+  /* Add spacing between items */
+}
+
+/* Card style for each feedback */
+.container {
+  background-color: #ffffff;
+  width: 500px; /* White background */
+  border: 1px solid #e0e0e0; /* Light gray border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 20px; /* Padding for content */
+  margin: 16px; /* Space between cards and center alignment */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  max-width: 900px; /* Limit the card width */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+/* Hover effect for card */
+.container:hover {
+  transform: scale(1.03); /* Slight zoom-in */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Name text styling */
+.text {
+  font-size: 20px; /* Larger font size */
+  font-weight: 600; /* Semi-bold */
+  color: #2c3e50; /* Dark blue-gray */
+  margin-bottom: 8px; /* Space below */
+}
+
+/* Date text styling */
+.container p:nth-child(2) {
+  font-size: 14px; /* Smaller font size for date */
+  color: #95a5a6; /* Light gray color */
+  margin-bottom: 12px; /* Space below */
+  font-style: italic; /* Italicized date */
+}
+
+/* Feedback text styling */
+.container p:nth-child(3) {
+  font-size: 16px; /* Standard readable size */
+  color: #34495e; /* Darker gray */
+  line-height: 1.6; /* Line spacing for readability */
+  padding-left: 30px;
+}
+
+/* Center alignment */
+.container {
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Remove scrollbar and enhance responsiveness */
+div::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Edge, Safari */
+}
+
+div {
+  -ms-overflow-style: none; /* Hides scrollbar in IE and Edge */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px; /* Reduce padding on smaller screens */
+    margin: 12px auto; /* Adjust margin for smaller viewports */
+  }
+
+  .text {
+    font-size: 18px; /* Adjust font size for smaller devices */
+  }
+}
