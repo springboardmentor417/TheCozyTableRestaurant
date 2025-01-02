@@ -10,10 +10,18 @@ import { ReservationComponent } from "./reservations/components/reservation/rese
 
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 
+
 import { AddMenuItemComponent } from './menu-management/components/add-menu-item/add-menu-item.component';
 @Component({
   selector: 'app-root',
   standalone: true,
+
+  imports: [CommonModule, RouterOutlet,HeaderComponent],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-demo-app';
 
 
   imports: [RouterOutlet, CommonModule, AdminComponent],
@@ -26,4 +34,5 @@ import { AddMenuItemComponent } from './menu-management/components/add-menu-item
 })
 export class AppComponent {
   title = 'menu-management';
+
 }

@@ -1,0 +1,33 @@
+nav {
+    background-color: rgba(60, 57, 60, 0.466) !important;
+}
+
+.cart-icon {
+    position: relative;
+    top: -5px;
+}
+
+.cart-icon i {
+    font-size: 25px;
+}
+
+.cart-value {
+    position: absolute;
+    top: 4px;
+    right: -1px;
+    background: white;
+    border: 1px solid black;
+    border-radius:50%;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 4px 10px;
+    z-index: 10;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+
+    text-align: center;
+}
