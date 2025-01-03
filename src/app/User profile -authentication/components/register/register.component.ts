@@ -49,7 +49,7 @@ export class RegisterComponent {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      const newUser = this.registerForm.value;
+      const newUser = { ...this.registerForm.value, role: 'customer' }; // Add role as customer
       this.service.addUser(newUser).subscribe({
         next: (response: any) => {
           console.log('User added:', response);
@@ -60,8 +60,8 @@ export class RegisterComponent {
           const userDetails = {
             id: response.id,
             username: response.username,
-            email:response.email,
-            number:response.number,
+            email: response.email,
+            number: response.number,
             role: response.role,
           };
           localStorage.setItem('currentUser', JSON.stringify(userDetails));
@@ -72,4 +72,5 @@ export class RegisterComponent {
       });
     }
   }
+  
 }

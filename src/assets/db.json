@@ -54,6 +54,24 @@
       "email": "vimal@teknoturf.com",
       "phone": "7871055597",
       "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
+    },
+    {
+      "id": "1ff4",
+      "username": "Ronaldo",
+      "password": "cr7@75545",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
+      "role": "customer"
+    },
+    {
+      "id": "6ecd",
+      "username": "Paulo",
+      "password": "juve@123",
+      "email": "mohammedubare7@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
+      "role": "customer"
     }
   ],
   "tables": [
