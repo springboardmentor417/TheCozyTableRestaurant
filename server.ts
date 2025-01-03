@@ -1,56 +1,61 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
-import express from 'express';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import express, { Request, Response } from 'express';
+import cors from 'cors';
 
-// The Express app is exported so that it can be used by serverless Functions.
-export function app(): express.Express {
-  const server = express();
-  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+const app = express();
+const port = 3000;
 
-  const commonEngine = new CommonEngine();
+// Middleware
+app.use(cors());
+app.use(express.json()); // Replaces bodyParser.json()
 
-  server.set('view engine', 'html');
-  server.set('views', browserDistFolder);
-
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
-  server.get('*.*', express.static(browserDistFolder, {
-    maxAge: '1y'
-  }));
-
-  // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
-
-    commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-      })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
-  });
-
-  return server;
+// Define the type for a menu item
+interface MenuItem {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  imageUrl: string;
 }
 
-function run(): void {
-  const port = process.env['PORT'] || 4000;
+// In-memory array to store menu items (replace with database in production)
+let menuItems: MenuItem[] = [];
 
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
-}
+// API Endpoint to Add Menu Item
+app.post('/api/menu', (req: Request, res: Response) => {
+  const { name, description, price, category, imageUrl } = req.body;
 
-run();
+  // Validate input data
+  if (!name || !description || typeof price !== 'number' || !category || !imageUrl) {
+    return res.status(400).json({ message: 'All fields are required and price must be a number' });
+  }
+
+  // Create a new menu item object
+  const newMenuItem: MenuItem = {
+    id: menuItems.length + 1, // Auto-increment the ID
+    name,
+    description,
+    price,
+    category,
+    imageUrl,
+  };
+
+  // Add the new item to the in-memory array
+  menuItems.push(newMenuItem);
+
+  // Send the newly added item as a response
+  return res.status(201).json(newMenuItem);
+});
+
+// API Endpoint to Get All Menu Items
+app.get('/api/menu', (_req: Request, res: Response) => {
+  if (menuItems.length === 0) {
+    return res.status(404).json({ message: 'No menu items found' });
+  }
+  return res.status(200).json(menuItems);
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});

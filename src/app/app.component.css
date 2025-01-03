@@ -1,0 +1,159 @@
+/* General page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: yellowgreen; /* Soft background color */
+}
+
+/* Styling for the navigation bar */
+nav {
+    background-color: #1e1e2f; /* Deep navy background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centering the navbar */
+}
+
+nav ul li {
+    margin-right: 1.5rem;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6363; /* Light red hover effect */
+}
+
+/* Styling the active route */
+nav ul li a.active {
+    color: #ffd700; /* Gold color for active link */
+    border-bottom: 2px solid #ffd700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center; /* Centering for smaller screens */
+    }
+
+    nav ul li {
+        margin-bottom: 1rem;
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+}
+footer {
+    background-image: url('/assets/Dinning_out.jpg'); /* Add your background image path here */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 10px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  /* Section Styling */
+  .footer-section {
+    flex: 1;
+    margin: 20px;
+    max-width: 300px;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  /* Follow Us Styling */
+  .follow-us .logo-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+    color: #f0e68c;
+    font-size: 1.2em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #ffcc00;
+  }
+  
+  .address p {
+    margin: 5px 0;
+  }
+  
+  /* Opening Hours Styling */
+  .opening-hours ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .opening-hours li {
+    margin: 5px 0;
+  }
+  
+  /* Contact Us Styling */
+  .contact-us form input,
+  .contact-us form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .contact-us form button {
+    background-color: #f0e68c;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .contact-us form button:hover {
+    background-color: #ffcc00;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+  ul{
+    color: black;
+  }

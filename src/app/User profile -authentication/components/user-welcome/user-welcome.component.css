@@ -1,0 +1,106 @@
+  /* General Styles */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Quick Actions */
+.quick-actions {
+  margin-bottom: 20px;
+}
+
+.quick-actions .btn {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+/* Notifications */
+.card-body ul {
+  padding-left: 15px;
+}
+
+.card-body ul li {
+  margin-bottom: 5px;
+}
+
+/* Logout Button */
+.text-center .btn-danger {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* third */
+/* General Styles */
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Quick Actions */
+.quick-actions .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Lists */
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .quick-actions .btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
