@@ -9,7 +9,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
-import { ReplyPageComponent } from '../reply-page/reply-page.component';
+
+import { ReplyPageComponent } from '../../adminComponent/reply-page/reply-page.component';
 
 @Component({
   selector: 'app-adminchart',

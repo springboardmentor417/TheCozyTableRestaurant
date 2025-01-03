@@ -6,12 +6,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './star-rating.component.html',
 
-  styleUrl: './star-rating.component.css'
-})
-export class StarRatingComponent {
- @Input() maxRating: number = 5;
-
-  styleUrls: ['./star-rating.component.css'],
+  styleUrl: './star-rating.component.css',
 })
 export class StarRatingComponent {
   @Input() maxRating: number = 5;
@@ -34,5 +29,4 @@ export class StarRatingComponent {
   clearTemporaryRating(): void {
     this.tempRating = 0;
   }
-
 }

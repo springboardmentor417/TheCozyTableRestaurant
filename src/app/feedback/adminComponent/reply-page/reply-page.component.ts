@@ -41,6 +41,7 @@ export class ReplyPageComponent {
         .patch(`http://localhost:3000/feedback/${item.id}`, updatedItem)
         .subscribe((res) => {
           console.log('Reply saved successfully', res);
+          item.showReplyForm = false;
         });
     } else {
       console.log('Reply is empty.');

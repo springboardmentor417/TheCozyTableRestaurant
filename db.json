@@ -9,7 +9,8 @@
       "rating": 5,
       "foodQuality": 3,
       "valueForMoney": 3,
-      "selectedDate": "21/12/2024"
+      "selectedDate": "21/12/2024",
+      "adminReply": "hi"
     },
     {
       "id": "5657",
@@ -36,7 +37,8 @@
       "valueForMoney": 5,
       "selectedDate": "21/12/2024",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "hi"
     },
     {
       "id": "c0c5",
@@ -49,7 +51,8 @@
       "valueForMoney": 5,
       "selectedDate": "21/11/2024",
       "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "Thank you"
     },
     {
       "id": "8c45",
@@ -62,7 +65,8 @@
       "valueForMoney": 5,
       "selectedDate": "30/12/2024",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "hi"
     },
     {
       "id": "bbf1",
@@ -130,7 +134,6 @@
       "image": null,
       "imageError": ""
     },
-
     {
       "id": "049d",
       "name": "Swathi",
@@ -141,7 +144,6 @@
       "foodQuality": 4,
       "valueForMoney": 4.5,
       "selectedDate": "30/12/2024",
-
       "image": null,
       "imageError": ""
     },
@@ -156,7 +158,8 @@
       "valueForMoney": 2.5,
       "selectedDate": "02/01/2025",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "thank you"
     }
   ]
 }

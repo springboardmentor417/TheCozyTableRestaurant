@@ -13,8 +13,6 @@ import { HeaderComponent } from './User profile -authentication/components/heade
   selector: 'app-root',
   standalone: true,
 
-  imports: [RouterOutlet, CommonModule],
-
   imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent],
 
   templateUrl: './app.component.html',

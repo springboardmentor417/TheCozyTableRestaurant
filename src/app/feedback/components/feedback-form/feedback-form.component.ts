@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -8,8 +6,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import { inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({
@@ -23,15 +21,11 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    HttpClientM
-    StarRatingComponent
-],
-
- 
-  
-
+    HttpClientModule,
+    StarRatingComponent,
+  ],
   templateUrl: './feedback-form.component.html',
-  styleUrl: './feedback-form.component.css',
+  styleUrls: ['./feedback-form.component.css'],
 })
 export class FeedbackFormComponent {
   userObj: USER = new USER();
@@ -50,11 +44,6 @@ export class FeedbackFormComponent {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
-
-  // handleRating(rating: number): void {
-  //   this.userRating = rating;
-  //   console.log('Selected rating:', rating);
-  // }
 
   isValidEmail(email: string): boolean {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -138,7 +127,7 @@ export class FeedbackFormComponent {
   }
 }
 
-export class USER {
+class USER {
   name: string;
   email: string;
   mobile: string;
@@ -149,8 +138,6 @@ export class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
-  adminReply: any;
-  showReplyForm: boolean;
 
   constructor() {
     this.name = '';
@@ -161,10 +148,7 @@ export class USER {
     this.foodQuality = 0;
     this.valueForMoney = 0;
     this.selectedDate = '';
-    this.adminReply = '';
     this.image = null;
-    this.showReplyForm = false;
-
     this.imageError = '';
   }
 }
