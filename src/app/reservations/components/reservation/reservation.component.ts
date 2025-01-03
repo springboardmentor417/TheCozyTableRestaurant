@@ -129,7 +129,7 @@ export class ReservationComponent {
     }
 
     const tableId = Number(this.reservationData.tableId);
-    const selectedTable = this.tables.find(table => table.id === tableId);
+    const selectedTable = this.tables.find(table => table.id == tableId);
 
     if (!selectedTable) {
       alert('Selected table does not exist.');
