@@ -7,10 +7,10 @@ import { CartService } from '../../services/cart.service';
   selector: 'app-home',
   standalone: true,
   imports: [NgFor],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './homeCart.component.html',
+  styleUrls: ['./homeCart.component.css']
 })
-export class HomeComponent {
+export class HomeCartComponent {
   foodArray = [
     {
       foodID: 1,

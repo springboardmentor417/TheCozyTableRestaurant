@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { HttpClientModule } from '@angular/common/http';
 import { MenuService } from '../../services/menu.service';
 import { CommonModule } from '@angular/common';
-
+import { MenuListComponent } from '../menu-list/menu-list.component';
 @Component({
   selector: 'app-add-menu-item',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, CommonModule],
+  imports: [ReactiveFormsModule, HttpClientModule, CommonModule,MenuListComponent],
   templateUrl: './add-menu-item.component.html',
   styleUrls: ['./add-menu-item.component.css']
 })

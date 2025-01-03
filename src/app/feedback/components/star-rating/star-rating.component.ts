@@ -5,10 +5,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-star-rateing',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './star-rateing.component.html',
-  styleUrls: ['./star-rateing.component.css'],
+  templateUrl: './star-rating.component.html',
+  styleUrls: ['./star-rating.component.css'],
 })
-export class StarRateingComponent {
+export class StarRatingComponent {
   @Input() maxRating: number = 5;
   @Input() color: string = '#fcc419';
   @Input() size: number = 24;

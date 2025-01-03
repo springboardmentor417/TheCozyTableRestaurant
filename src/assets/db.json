@@ -40,47 +40,155 @@
       "role": "customer"
     },
     {
-      "id": "a818",
-      "username": "Mohammed",
-      "password": "admin@123",
-      "email": "mohammedobaray@gmail.com",
-      "phone": "9140016617",
-      "address": "Adil tower b. p. marine academy m. g. roads"
+      "id": "7b90",
+      "username": "vimal",
+      "password": "582001@vimal",
+      "email": "vimal@teknoturf.com",
+      "phone": "7871055597",
+      "address": "15/11,keesahan kuzhy "
     },
     {
-      "id": "d5e2",
-      "username": "Obaray12",
-      "password": "Arpit123@",
-      "email": "mishra12@gmail.com",
-      "phone": "9140016617",
-      "address": "punjab Adil tower b. p. marine academy m. g. roads",
-      "role": "customer"
+      "id": "68a6",
+      "username": "vimal",
+      "password": "582001vimal@",
+      "email": "vimal@teknoturf.com",
+      "phone": "7871055597",
+      "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "date": "2024-12-20",
+      "time": "19:00",
+      "seats": 4,
+      "isReserved": false
     },
     {
-      "id": "3a63",
-      "username": "Saurabh12",
-      "password": "cr7@755451",
-      "email": "mohamm122222@gmail.com",
-      "phone": "9140016645",
-      "address": "Uttar Pradesh India ",
-      "role": "customer"
+      "id": "2",
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2,
+      "isReserved": false
     },
     {
-      "id": "1bd6",
-      "username": "Arpit123",
-      "password": "Qwe123@",
-      "email": "arpitmishra123@gmail.com",
-      "phone": "9140016456",
-      "address": "Uttar Pradesh Jalandhar Punjab 144005",
-      "role": "customer"
+      "id": "3",
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2,
+      "isReserved": false
     },
     {
-      "id": "6efc",
-      "username": "Arpit5555",
-      "password": "Qwe123@",
-      "email": "nnnarpitmishra123@gmail.com",
-      "phone": "9140016488",
-      "address": "Uttar Pradesh India 🇮🇳 "
+      "id": "4",
+      "date": "2024-12-20",
+      "time": "20:00",
+      "seats": 2,
+      "isReserved": false
+    }
+  ],
+  "reservations": [
+    {
+      "id": "1388",
+      "tableId": "1",
+      "customerName": "vimal",
+      "contact": "7871055597",
+      "date": "2025-01-03",
+      "time": "12:30",
+      "seats": 2
+    }
+  ],
+  "menu-items": [
+    {
+      "id": "1bdd",
+      "name": "Angoori Gulab Jamun",
+      "description": "Serves 1 | A bliss to gobble up these small spongy pearl shaped slightly warm gulab jamuns(12 Nos) . A perfect mithai to conclude your meal.\nKcal- 466\n",
+      "price": 170,
+      "category": "Rice",
+      "imageUrl": "https://i.pinimg.com/originals/41/cb/d0/41cbd0fa79954489295f5faa285ff163.jpg",
+      "availability": false
+    },
+    {
+      "id": "f915",
+      "name": "Mutt Rogan Josh",
+      "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+      "price": 356,
+      "category": "Main Course",
+      "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+      "availability": true
+    }
+  ],
+  "cart": [
+    {
+      "id": "58c9",
+      "foodID": 1,
+      "img": "../../assets/OIP (1).jpg",
+      "name": "samosa",
+      "type": "starter",
+      "currentPrice": 35,
+      "originalPrice": 50,
+      "discount": 10,
+      "quantity": 3
+    },
+    {
+      "id": "9cfc",
+      "foodID": 4,
+      "img": "../../assets/OIP (3).jpg",
+      "name": "samosa",
+      "type": "starter",
+      "currentPrice": 135,
+      "originalPrice": 150,
+      "discount": 10,
+      "quantity": 1
+    },
+    {
+      "id": "1bc1",
+      "foodID": 2,
+      "img": "../../assets/OIP.jpg",
+      "name": "samosa",
+      "type": "starter",
+      "currentPrice": 135,
+      "originalPrice": 150,
+      "discount": 10,
+      "quantity": 1
+    }
+  ],
+  "feedback": [
+    {
+      "id": "1445",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "uediebdiedbu",
+      "rating": 5,
+      "foodQuality": 3,
+      "valueForMoney": 3,
+      "selectedDate": "21/12/2024"
+    },
+    {
+      "id": "5657",
+      "name": "Swathi",
+      "email": "yswathi174@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "good. the food was very tasty",
+      "rating": 4,
+      "foodQuality": 4,
+      "valueForMoney": 2,
+      "selectedDate": "21/12/2024",
+      "image": "/uploads/images/besite_birthday_surprise.png",
+      "imageError": ""
+    },
+    {
+      "id": "67c9",
+      "name": "vaniyha",
+      "email": "vani@gmail.com",
+      "mobile": "9916100678",
+      "feedback": "overall good",
+      "rating": 0,
+      "foodQuality": 2,
+      "valueForMoney": 2.5,
+      "selectedDate": "03/01/2025",
+      "image": null,
+      "imageError": ""
     }
   ]
 }
