@@ -1,0 +1,32 @@
+<section class="home">
+<div class="foods-container">
+    <div class="foods">
+        <div class="col-md-3" *ngFor="let food of foodArray">
+            <div class="box">
+                <div class="food-img">
+                    <img src="{{food.img}}" alt="p1">
+                </div>
+                <div class="content">
+                    <div class="food-name">{{food.name}}</div>
+                    <div class="food-type">{{food.type}}</div>
+                    <div class="price">
+                      <span class="current-price">RS{{food.currentPrice}}</span>
+                       <span class="original-price">RS{{food.originalPrice}}</span>
+                       <span class="Discount">{{food.discount}}%</span>
+                    </div>
+                   
+                    <button type="button" class="btn btn-primary" (click)="addCart(food)" >Add to Cart</button>
+                
+                </div>
+                
+                
+                
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+        </section>
+ 
+    

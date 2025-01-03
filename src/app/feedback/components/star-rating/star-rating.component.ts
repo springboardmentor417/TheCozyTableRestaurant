@@ -5,10 +5,16 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './star-rating.component.html',
+
   styleUrl: './star-rating.component.css'
 })
 export class StarRatingComponent {
  @Input() maxRating: number = 5;
+
+  styleUrls: ['./star-rating.component.css'],
+})
+export class StarRatingComponent {
+  @Input() maxRating: number = 5;
   @Input() color: string = '#fcc419';
   @Input() size: number = 24;
   @Output() onSetRating = new EventEmitter<number>();

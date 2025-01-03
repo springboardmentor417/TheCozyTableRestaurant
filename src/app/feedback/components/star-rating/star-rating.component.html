@@ -1,4 +1,5 @@
 <div class="star-container">
+
     <ng-container *ngFor="let star of [].constructor(maxRating); let i = index">
       <span
         class="star"
@@ -15,3 +16,20 @@
     </ng-container>
   </div>
   
+
+  <ng-container *ngFor="let star of [].constructor(maxRating); let i = index">
+    <span
+      class="star"
+      [ngStyle]="{
+        color: tempRating > i || rating > i ? color : '#ddd',
+        fontSize: size + 'px'
+      }"
+      (click)="handleRate(i + 1)"
+      (mouseenter)="setTemporaryRating(i + 1)"
+      (mouseleave)="clearTemporaryRating()"
+    >
+      ★
+    </span>
+  </ng-container>
+</div>
+

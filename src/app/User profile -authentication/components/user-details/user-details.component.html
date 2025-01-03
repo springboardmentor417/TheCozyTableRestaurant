@@ -1,0 +1,13 @@
+<div class="home-header">
+  <h1>{{ restaurantName }}</h1>
+  <p>Welcome to our restaurant management system!</p>
+</div><div *ngIf="currentUser">
+    <h2>User Profile</h2>
+    <p><strong>ID:</strong> {{ currentUser.id }}</p>
+    <p><strong>Username:</strong> {{ currentUser.username }}</p>
+    <p><strong>Email:</strong> {{ currentUser.email }}</p>
+    <p><strong>Role:</strong> {{ currentUser.role }}</p>
+  </div>
+
+
+    

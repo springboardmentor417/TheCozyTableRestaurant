@@ -1,8 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+
 import { StarRatingComponent } from './star-rating.component';
 
 describe('StarRatingComponent', () => {
+
+import { StarRatingComponent } from './star-rateing.component';
+
+describe('StarRateingComponent', () => {
+
   let component: StarRatingComponent;
   let fixture: ComponentFixture<StarRatingComponent>;
 
