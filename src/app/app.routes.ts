@@ -60,13 +60,6 @@ export const routes: Routes = [
     path: 'reply',
     component: PageFeedbackComponent,
   },
-  {
-    path: '',
-    redirectTo: 'feedback',
-    pathMatch: 'full', // Default route
-  },
-   
-
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
