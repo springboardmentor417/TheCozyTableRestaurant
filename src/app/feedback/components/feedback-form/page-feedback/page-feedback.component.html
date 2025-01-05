@@ -24,13 +24,13 @@
 
     <p><strong>Rating:</strong> {{ item.rating }}/5</p>
     <button
+      class="button"
       *ngIf="item.adminReply && item.adminReply.trim() && !item.showReplyForm"
       (click)="item.showReplyForm = true"
     >
       View Reply
     </button>
 
-    <!-- Admin Reply Section (visible when showAdminReply is true) -->
     <div *ngIf="item.showReplyForm">
       <hr />
       <div class="admin-reply">
@@ -39,6 +39,7 @@
       </div>
     </div>
     <button
+      class="button"
       *ngIf="item.adminReply && item.adminReply.trim() && item.showReplyForm"
       (click)="item.showReplyForm = false"
     >

@@ -23,14 +23,16 @@
 
     <p class="review-feedback">{{ item.feedback }}</p>
     <div class="admin-reply">
-      <button (click)="toggleReplyForm(item)">Reply</button>
+      <button (click)="toggleReplyForm(item)" class="button">
+        {{ item.showReplyForm ? "Close" : "Reply" }}
+      </button>
 
       <div *ngIf="item.showReplyForm">
         <textarea
           [(ngModel)]="item.adminReply"
           placeholder="Write a reply..."
         ></textarea>
-        <button (click)="submitReply(item)">Submit</button>
+        <button (click)="submitReply(item)" class="button">Submit</button>
       </div>
     </div>
   </div>
