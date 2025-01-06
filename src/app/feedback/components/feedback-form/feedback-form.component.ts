@@ -114,7 +114,7 @@ export class FeedbackFormComponent {
           .post<USER>('http://localhost:3000/feedback', this.userObj)
           .subscribe((res: USER) => {
             // alert('thank you for you feedback');
-            this.users.unshift(res);
+            this.users.unshift(this.userObj);
             console.log(this.userObj);
             this.router.navigate(['/ackpage']);
           });
