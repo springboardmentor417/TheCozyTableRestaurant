@@ -43,9 +43,25 @@
               </div>
             </div>
 
+            <!-- Phone Number Input -->
+        <div class="form-group mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input
+            id="phone"
+            type="text"
+            class="form-control"
+            formControlName="phone"
+            placeholder="Enter your phone number"
+          />
+          <div *ngIf="updateForm.get('phone')?.invalid && updateForm.get('phone')?.touched" class="text-danger">
+            <small *ngIf="updateForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+            <small *ngIf="updateForm.get('phone')?.errors?.['pattern']">Enter a valid phone number.</small>
+          </div>
+        </div>
+
             <!-- Password Input -->
             <div class="form-group mb-3">
-              <label for="password" class="form-label">Password</label>
+              <label for="password" class="form-label">NewPassword</label>
               <input
                 id="password"
                 type="password"

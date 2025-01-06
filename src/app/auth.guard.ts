@@ -7,6 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   if (currentUser) {
     // If user is logged in, allow access
+    
     return true;
   } else {
     // If user is not logged in, alert and redirect to login
