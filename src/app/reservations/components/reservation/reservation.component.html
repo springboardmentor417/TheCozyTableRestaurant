@@ -1,102 +1,46 @@
-<h2>The Cozy Table Restaurant</h2>
-<form #reservationForm="ngForm" (ngSubmit)="reserveTable()" novalidate>
-  <div>
-    <label for="tableId">Select Table:</label>
-    <select [(ngModel)]="reservationData.tableId" name="tableId" required #tableId="ngModel">
-      <option value="" disabled>Select a table</option>
-      <option *ngFor="let table of tables" [value]="table.id"
-        [ngClass]="{'status-available': !table.isReserved, 'status-reserved': table.isReserved}">
-        Table {{ table.id }} - Seats: {{ table.seats }} - {{ table.isReserved ? 'Reserved' : 'Available' }}
-      </option>
-    </select>
-    <div *ngIf="tableId.invalid && tableId.touched" class="error">
-      Please select a table.
+<div class="container">
+  <label for="date">Select Date:</label>
+  <input type="date" (change)="onDateChange($event)" />
+</div>
+<div class="table-container" *ngIf="availableTables.length > 0">
+  <h3>Available Tables for {{ selectedDate }}:</h3>
+  <div *ngFor="let table of availableTables">
+    <h4>Table {{ table.id }} (Seats: {{ table.seats }})</h4>
+    <div>
+      <button
+        *ngFor="let slot of table.timeSlots"
+        class="slot"
+        [ngClass]="{ 'reserved': slot.isReserved, 'available': !slot.isReserved }"
+        [disabled]="slot.isReserved"
+        (click)="reserveTimeSlot(table.id, slot.time)"
+      >
+        {{ slot.time }} - {{ slot.isReserved ? 'Reserved' : 'Available' }}
+      </button>
     </div>
   </div>
-
-  <div>
-    <label for="customerName">Name:</label>
-    <input [(ngModel)]="reservationData.customerName" name="customerName" required minlength="2" pattern="^[a-zA-Z ]+$"
-      #customerName="ngModel" />
-    <div *ngIf="customerName.invalid && customerName.touched" class="error">
-      Name is required and must be at least 2 characters long.
-      Only letters and spaces are allowed.
+</div>
+<div *ngIf="showReservationForm" class="reservation-form">
+  <h3>Reservation Form</h3>
+  <form (ngSubmit)="submitReservation()">
+    <div>
+      <label for="customerName">Name:</label>
+      <input [(ngModel)]="reservationData.customerName" name="customerName" required />
     </div>
-  </div>
-
-  <div>
-    <label for="contact">Contact:</label>
-    <input
-      [(ngModel)]="reservationData.contact"
-      name="contact"
-      required
-      pattern="^[1-9][0-9]{9}$"
-      #contact="ngModel"
-    />
-    <div *ngIf="contact.invalid && contact.touched" class="error">
-      Contact is required and must be a valid 10-digit number that does not start with 0.
+    <div>
+      <label for="contact">Contact:</label>
+      <input [(ngModel)]="reservationData.contact" name="contact" required />
     </div>
-  </div>
-  
-
-  <div>
-    <label for="date">Date:</label>
-    <input type="date" [(ngModel)]="reservationData.date" name="date" required (change)="validateDate()"
-      #date="ngModel" />
-    <div *ngIf="date.invalid && date.touched" class="error">
-      Date is required
+    <div>
+      <label for="seats">Seats:</label>
+      <input
+        type="number"
+        [(ngModel)]="reservationData.seats"
+        name="seats"
+        [max]="selectedTable?.seats"
+        required
+      />
     </div>
-    <div *ngIf="isDateOutOfRange" class="error">
-      Please select a date within the next 7 days.
-    </div>
-  </div>
-  
-
-  <div>
-    <label for="time">Time:</label>
-    <input type="time" [(ngModel)]="reservationData.time" name="time" required (change)="validateTime()"
-      #time="ngModel" />
-    
-    <!-- Error messages for time validation -->
-    <div *ngIf="isInvalidTime" class="error">
-      Please select a time within the restaurant's operating hours (9:00 AM to 11:00 PM).
-    </div>
-    
-    <div *ngIf="isTimeInPast" class="error">
-      The time cannot be in the past. Please select a valid future time.
-    </div>
-  </div>
-  
-
-  <div>
-    <label for="seats">No. of people:</label>
-    <input type="number" [(ngModel)]="reservationData.seats" name="seats" required min="1" #seats="ngModel" />
-    <div *ngIf="seats.invalid && seats.touched" class="error">
-      Please enter a valid number of seats (at least 1).
-    </div>
-  </div>
-
-  <button type="submit" [disabled]="reservationForm.invalid">Reserve Table</button>
-</form>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Table ID</th>
-      <th>Seats</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let table of tables">
-      <td>{{ table.id }}</td>
-      <td>{{ table.seats }}</td>
-      <td>
-        <span [class.status-available]="!table.isReserved" [class.status-reserved]="table.isReserved">
-          {{ table.isReserved ? 'Reserved' : 'Available' }}
-        </span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <button type="submit">Submit</button>
+    <button type="button" (click)="showReservationForm = false">Cancel</button>
+  </form>
+</div>
