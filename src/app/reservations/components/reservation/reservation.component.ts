@@ -41,8 +41,6 @@ export class ReservationComponent {
     },
   ];
 
-  // availableTables: (Table & { timeSlots: TimeSlot[] })[] = [];
-  // selectedDate = '';
   reservationData = {
     tableId: 0,
     date: '',
@@ -51,73 +49,111 @@ export class ReservationComponent {
     contact: '',
     seats: 1,
   };
-  availableTables: any[] = [];
+
   selectedDate: string = '';
-  selectedTable: any = null;
-  selectedTimeSlot: string | null = null;
+  selectedTable: Table | null = null;
+  timeSlots: TimeSlot[] = [];
   showReservationForm: boolean = false;
-  // reservationData = {
-  //   customerName: '',
-  //   contact: '',
-  //   seats: 1,
-  // };
+  minDate: string = '';
+  maxDate: string = '';
+  isDateValid: boolean = false;
 
   constructor(private reservationService: ReservationService) {}
+
+  ngOnInit() {
+    this.setDateRange();
+  }
+
+  setDateRange() {
+    const currentDate = new Date();
+    this.minDate = this.formatDate(currentDate);
+
+    const maxDate = new Date();
+    maxDate.setDate(currentDate.getDate() + 7); // Allow reservations within the next 7 days
+    this.maxDate = this.formatDate(maxDate);
+  }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
   onDateChange(event: Event) {
     const input = event.target as HTMLInputElement;
     this.selectedDate = input.value;
-    this.filterAvailableTables();
+
+    // Validate the selected date
+    this.isDateValid = this.isValidDate(this.selectedDate);
+
+    if (!this.isDateValid) {
+      alert('Invalid date selected. Please choose a date within the next 7 days.');
+      this.selectedDate = '';
+      this.selectedTable = null;
+      this.timeSlots = [];
+    } else {
+      this.selectedTable = null; // Reset selected table
+      this.timeSlots = []; // Reset time slots
+    }
   }
 
-  filterAvailableTables() {
-    this.availableTables = this.tables.map((table) => {
-      const reservations = table.reservations[this.selectedDate] || {};
-      const timeSlots = this.generateTimeSlots().map((time) => ({
-        time,
-        isReserved: !!reservations[time],
-      }));
-      return { ...table, timeSlots };
-    });
+  isValidDate(date: string): boolean {
+    return date >= this.minDate && date <= this.maxDate;
   }
 
-  reserveTimeSlot(tableId: number, time: string) {
-    this.selectedTable = this.tables.find((t) => t.id === tableId);
-    this.selectedTimeSlot = time;
+  selectTable(table: Table) {
+    if (!this.isDateValid) {
+      alert('Please select a valid date first.');
+      return;
+    }
+
+    this.selectedTable = table;
+    this.loadTableAvailability();
+  }
+
+  loadTableAvailability() {
+    if (!this.selectedTable || !this.selectedDate) return;
+
+    const reservations = this.selectedTable.reservations[this.selectedDate] || {};
+    this.timeSlots = this.generateTimeSlots().map((time) => ({
+      time,
+      isReserved: !!reservations[time],
+    }));
+  }
+
+  reserveTimeSlot(time: string) {
+    if (!this.selectedTable) return;
+
     this.showReservationForm = true;
+    this.reservationData = {
+      tableId: this.selectedTable.id,
+      date: this.selectedDate,
+      time,
+      customerName: '',
+      contact: '',
+      seats: 1,
+    };
   }
 
   submitReservation() {
-    if (!this.selectedTable || !this.selectedTimeSlot) return;
-  
+    if (!this.selectedTable || !this.reservationData.time) return;
+
     const table = this.selectedTable;
     const date = this.selectedDate;
-    const time = this.selectedTimeSlot;
-  
-    // Ensure the reservations object structure exists
+    const time = this.reservationData.time;
+
     if (!table.reservations[date]) {
       table.reservations[date] = {};
     }
     table.reservations[date][time] = true;
-  
-    // Prepare the reservation data
-    const reservationData = {
-      tableId: table.id,
-      date,
-      time,
-      customerName: this.reservationData.customerName,
-      contact: this.reservationData.contact,
-      seats: this.reservationData.seats,
-    };
-  
-    // Send the reservation to the mock server
-    this.reservationService.addReservation(reservationData).subscribe(() => {
+
+    this.reservationService.addReservation(this.reservationData).subscribe(() => {
       alert('Reservation confirmed!');
       this.showReservationForm = false;
-      this.filterAvailableTables(); // Refresh available tables
+      this.loadTableAvailability(); // Refresh availability
     });
   }
-  
 
   generateTimeSlots() {
     const slots: string[] = [];

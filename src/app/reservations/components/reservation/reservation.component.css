@@ -1,223 +1,170 @@
-/* General Styling */
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f8fb;
-  color: #212529;
-}
-
-h3, h4 {
-  color: #495057;
-  margin-bottom: 10px;
+/* General Container Styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 20px;
+  font-family: 'Arial', sans-serif;
 }
 
 label {
   font-weight: bold;
-  margin-bottom: 8px;
-  display: block;
+  margin-bottom: 5px;
+  color: #444;
 }
 
-.error {
-  color: #d9534f;
-  font-size: 0.9em;
-  margin-top: 5px;
+input[type="date"], input[type="number"], input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Container */
-.container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Styling */
-form {
-  margin-top: 20px;
-}
-
-form div {
-  margin-bottom: 15px;
-}
-
-input[type="date"],
-input[type="number"],
-input[type="text"],
-input[type="time"],
-select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-top: 5px;
-  background-color: #f8f9fa;
-  transition: all 0.3s ease;
-}
-
-input:focus, select:focus {
-  border-color: #80bdff;
-  background-color: #ffffff;
+input:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #4caf50;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.5);
 }
 
-button {
+/* Table List */
+.table-list {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.table-btn {
   padding: 12px 20px;
-  font-size: 1rem;
+  margin: 10px 5px;
+  background: linear-gradient(45deg, #ab0cba, #128518);
+  color: white;
   border: none;
   border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* Buttons */
-button[type="submit"] {
-  background-color: #28a745;
-  color: #ffffff;
-}
-
-button[type="submit"]:hover {
-  background-color: #218838;
-}
-
-button[type="button"] {
-  background-color: #6c757d;
-  color: #ffffff;
-}
-
-button[type="button"]:hover {
-  background-color: #5a6268;
-}
-
-/* Table & Time Slot Buttons */
-.table-container {
-  margin-top: 20px;
-}
-
-h4 {
-  margin-bottom: 10px;
-}
-
-button.slot {
-  margin: 5px;
-  padding: 10px 15px;
-  font-size: 0.9em;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-button.slot.reserved {
-  background-color: #dee2e6;
-  color: #6c757d;
-  cursor: not-allowed;
-}
-
-button.slot.available {
-  background-color: #007bff;
-  color: #ffffff;
-}
-
-button.slot.available:hover {
-  background-color: #0056b3;
+.table-btn:hover {
+  background: linear-gradient(45deg, #317d34, #237127);
   transform: scale(1.05);
 }
 
-button.slot:hover {
-  border-color: #adb5bd;
+/* Time Slot Buttons */
+.slot {
+  margin: 8px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slot.available {
+  background: linear-gradient(45deg, #17851b, #1cb223);
+  color: white;
+}
+
+.slot.available:hover {
+  background: linear-gradient(45deg, #2a752e, #228127);
+  transform: scale(1.1);
+}
+
+.slot.reserved {
+  background: linear-gradient(45deg, #f44336, #d32f2f);
+  color: white;
+  cursor: not-allowed;
 }
 
 /* Reservation Form */
 .reservation-form {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
 }
 
 .reservation-form h3 {
-  text-align: center;
-  color: #333;
   margin-bottom: 20px;
-}
-
-.reservation-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
 }
 
 .reservation-form label {
+  display: block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   color: #555;
 }
 
-.reservation-form input[type="text"],
-.reservation-form input[type="number"],
-.reservation-form input[type="tel"],
-.reservation-form button {
+.reservation-form input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease-in-out;
-}
-
-.reservation-form input:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .reservation-form button {
-  cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
+  padding: 12px 20px;
+  margin-right: 10px;
   border: none;
-  font-weight: bold;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.reservation-form button:hover {
-  background-color: #0056b3;
+.reservation-form button[type="submit"] {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+}
+
+.reservation-form button[type="submit"]:hover {
+  background: linear-gradient(45deg, #339af0, #007bff);
+  transform: scale(1.05);
 }
 
 .reservation-form button[type="button"] {
-  background-color: #6c757d;
+  background: linear-gradient(45deg, #6c757d, #495057);
+  color: white;
 }
 
 .reservation-form button[type="button"]:hover {
-  background-color: #5a6268;
+  background: linear-gradient(45deg, #868e96, #6c757d);
+  transform: scale(1.05);
 }
 
-
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
+    margin: 10px;
+  }
+
+  .table-btn, .slot {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .reservation-form {
     padding: 15px;
   }
 
-  button.slot {
-    padding: 8px 10px;
-    font-size: 0.8em;
-  }
-
-  input[type="date"],
-  input[type="number"],
-  input[type="text"],
-  input[type="time"],
-  select {
-    font-size: 0.9rem;
-    padding: 10px;
+  .reservation-form button {
+    font-size: 14px;
+    padding: 10px 15px;
   }
 }

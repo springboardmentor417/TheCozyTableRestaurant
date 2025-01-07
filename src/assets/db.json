@@ -58,17 +58,17 @@
   ],
   "tables": [
     {
-      "id": 1,
+      "id": "1",
       "seats": 4,
       "reservations": {}
     },
     {
-      "id": 2,
+      "id": "2",
       "seats": 2,
       "reservations": {}
     },
     {
-      "id": 3,
+      "id": "3",
       "seats": 6,
       "reservations": {}
     }
@@ -84,172 +84,40 @@
       "seats": 2
     },
     {
-      "id": "4f95",
+      "id": "6859",
       "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "46d2",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "3095",
-      "tableId": 2,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "54cd",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "a467",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "manjula",
-      "contact": "1234567890",
-      "seats": 5
-    },
-    {
-      "id": "3786",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "e1c9",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "656b",
-      "date": "2025-01-05",
-      "time": {
-        "time": "11:00",
-        "isReserved": false
-      },
-      "tableId": 1,
-      "customerName": "",
-      "contact": "",
-      "seats": 1
-    },
-    {
-      "id": "2d77",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": {
-        "time": "11:00",
-        "isReserved": false
-      },
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "4a1d",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "fdd3",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "18f3",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "4e93",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "11:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "94db",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "d049",
-      "tableId": 1,
-      "date": "2025-01-05",
+      "date": "2025-01-07",
       "time": "12:00",
       "customerName": "manjula",
       "contact": "1234567890",
       "seats": 3
     },
     {
-      "id": "14f5",
+      "id": "8550",
       "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "6e0f",
-      "tableId": 1,
-      "date": "2025-01-06",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "9b76",
-      "tableId": 1,
-      "date": "2025-01-05",
+      "date": "2025-01-10",
       "time": "13:00",
       "customerName": "manjula",
       "contact": "1234567890",
       "seats": 3
+    },
+    {
+      "id": "59ba",
+      "tableId": 1,
+      "date": "2025-01-10",
+      "time": "10:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "04d8",
+      "tableId": 1,
+      "date": "2025-01-08",
+      "time": "10:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 6
     }
   ],
   "menu-items": [

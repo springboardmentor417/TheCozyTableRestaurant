@@ -1,22 +1,24 @@
 <div class="container">
   <label for="date">Select Date:</label>
-  <input type="date" (change)="onDateChange($event)" />
+  <input type="date" (change)="onDateChange($event)" [min]="minDate" [max]="maxDate" />
 </div>
-<div class="table-container" *ngIf="availableTables.length > 0">
-  <h3>Available Tables for {{ selectedDate }}:</h3>
-  <div *ngFor="let table of availableTables">
-    <h4>Table {{ table.id }} (Seats: {{ table.seats }})</h4>
-    <div>
-      <button
-        *ngFor="let slot of table.timeSlots"
-        class="slot"
-        [ngClass]="{ 'reserved': slot.isReserved, 'available': !slot.isReserved }"
-        [disabled]="slot.isReserved"
-        (click)="reserveTimeSlot(table.id, slot.time)"
-      >
-        {{ slot.time }} - {{ slot.isReserved ? 'Reserved' : 'Available' }}
-      </button>
-    </div>
+<div *ngIf="isDateValid" class="table-list">
+  <h3>Tables:</h3>
+  <div *ngFor="let table of tables">
+    <button (click)="selectTable(table)" class="table-btn">
+      Table {{ table.id }} (Seats: {{ table.seats }})
+    </button>
+  </div>
+</div>
+
+<div *ngIf="selectedTable && timeSlots.length > 0">
+  <h3>Availability for Table {{ selectedTable.id }} on {{ selectedDate }}:</h3>
+  <div>
+    <button *ngFor="let slot of timeSlots" class="slot"
+      [ngClass]="{ 'reserved': slot.isReserved, 'available': !slot.isReserved }" [disabled]="slot.isReserved"
+      (click)="reserveTimeSlot(slot.time)">
+      {{ slot.time }} - {{ slot.isReserved ? 'Reserved' : 'Available' }}
+    </button>
   </div>
 </div>
 <div *ngIf="showReservationForm" class="reservation-form">
@@ -32,15 +34,10 @@
     </div>
     <div>
       <label for="seats">Seats:</label>
-      <input
-        type="number"
-        [(ngModel)]="reservationData.seats"
-        name="seats"
-        [max]="selectedTable?.seats"
-        required
-      />
+      <input type="number" [(ngModel)]="reservationData.seats" name="seats" [max]="selectedTable?.seats || 0"
+        required />
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!isValidDate(selectedDate)">Submit</button>
     <button type="button" (click)="showReservationForm = false">Cancel</button>
   </form>
 </div>
