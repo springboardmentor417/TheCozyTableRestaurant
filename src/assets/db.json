@@ -54,6 +54,14 @@
       "email": "vimal@teknoturf.com",
       "phone": "7871055597",
       "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
+    },
+    {
+      "id": "fe83",
+      "username": "anand",
+      "password": "A@123456",
+      "email": "anand.12@gmail.com",
+      "phone": "1234567890",
+      "address": "Durgapur, West Bengal"
     }
   ],
   "tables": [
