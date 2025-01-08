@@ -1,12 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 @Component({
-  selector: 'app-star-rateing',
+  selector: 'app-star-rating',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.css'],
+
+  styleUrl: './star-rating.component.css',
 })
 export class StarRatingComponent {
   @Input() maxRating: number = 5;

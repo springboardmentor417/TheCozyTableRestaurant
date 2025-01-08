@@ -14,7 +14,7 @@ import { AddMenuItemComponent } from './menu-management/components/add-menu-item
 import { HomeCartComponent } from './orders/components/home/homeCart.component';
 import { HeaderComponent } from './orders/components/header/header.component';
 import { CartComponent } from './orders/components/cart/cart.component';
-import { OrderComponent } from './orders/components/order/order.component'; 
+import { OrderComponent } from './orders/components/order/order.component';
 import { ReservationComponent } from './reservations/components/reservation/reservation.component';
 
 import { FeedbackFormComponent } from './feedback/components/feedback-form/feedback-form.component';
@@ -24,19 +24,26 @@ import { AckPageComponent } from './feedback/components/feedback-form/ack-page/a
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 
-
 export const routes: Routes = [
-    {path:'login' ,component:LoginComponent },
-    {path:'Home' ,component:HomeComponent},
-    {path:'Register' , component:RegisterComponent},
-    {path:'updateUser',component:UpdateUserComponent},
-    {path:'deleteUser', component:DeleteUserComponent},
-    { path: '', redirectTo: '/Home', pathMatch: 'full' },
-    {path:'userWelcome' , component:UserWelcomeComponent},
-    {path:'adminWelcome' , component:AdminWelcomeComponent},
-    {path:'userDetails', component:UserDetailsComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'Home', component: HomeComponent },
+  { path: 'Register', component: RegisterComponent },
+  { path: 'updateUser', component: UpdateUserComponent },
+  { path: 'deleteUser', component: DeleteUserComponent },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
+  { path: 'userWelcome', component: UserWelcomeComponent },
+  { path: 'adminWelcome', component: AdminWelcomeComponent },
+  { path: 'userDetails', component: UserDetailsComponent },
 
-    {path:'reservation', component:ReservationComponent},
+  { path: 'reservation', component: ReservationComponent },
+
+
+ // { path: 'add-menu-item', component: AddMenuItemComponent },
+
+  { path: 'homeCart', component: HomeCartComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'order', component: OrderComponent },
 
     { path: 'add-menu-item', component: AddMenuItemComponent },
     {path: 'app-menu-list',component:MenuListComponent},
@@ -45,7 +52,7 @@ export const routes: Routes = [
     {path:'cart', component: CartComponent },
     { path: 'order', component: OrderComponent },
 
-    {
+  {
     path: 'feedback',
     component: FeedbackFormComponent,
   },
@@ -63,7 +70,7 @@ export const routes: Routes = [
   },
 ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
