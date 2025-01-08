@@ -22,6 +22,7 @@ import { AdminchartComponent } from './feedback/components/adminchart/adminchart
 import { AppComponent } from './app.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
+import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 
 
 export const routes: Routes = [
@@ -38,7 +39,7 @@ export const routes: Routes = [
     {path:'reservation', component:ReservationComponent},
 
     { path: 'add-menu-item', component: AddMenuItemComponent },
-
+    {path: 'app-menu-list',component:MenuListComponent},
     {path:'homeCart', component:HomeCartComponent },
     {path:'header', component: HeaderComponent },
     {path:'cart', component: CartComponent },
