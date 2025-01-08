@@ -19,6 +19,7 @@ import { FeedbackFormComponent } from './feedback/components/feedback-form/feedb
 import { AdminchartComponent } from './feedback/components/adminchart/adminchart.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
+
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
 
 export const routes: Routes = [
