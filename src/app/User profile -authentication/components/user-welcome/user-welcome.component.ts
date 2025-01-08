@@ -62,11 +62,11 @@ loyaltyPoints: number = 50; // Example value
     if (isPlatformBrowser(this.platformId)) {
       localStorage.clear();
     }
-    if (confirm('Are you sur;e you want to log out?')) {
-      this.router.navigate(['/login'])
+    if (confirm('Are you sure you want to log out?')) {
+      this.router.navigate(['/login']);
     }
-
   }
+  
   
   addReview(): void {
     this.router.navigate(['/add-review']);

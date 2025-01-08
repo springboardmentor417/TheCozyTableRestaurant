@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgbCarouselModule], // Import NgbCarouselModule
+  imports: [CommonModule, FormsModule, NgbCarouselModule,RouterModule], // Import NgbCarouselModule
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

@@ -19,6 +19,13 @@ export class UpdateUserComponent {
     this.updateForm = this.fb.group({
       id: ['', Validators.required], // User ID is required
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      phone: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[1-9][0-9]{9}$/), // Phone number must be 10 digits
+        ],
+      ],
       password: [
         '',
         [
@@ -42,7 +49,8 @@ export class UpdateUserComponent {
 
   onUpdate(): void {
     if (this.updateForm.valid) {
-      const updatedUser = this.updateForm.value;
+      const updatedUser = { ...this.updateForm.value, role: 'customer' };
+     
 
       // Call the service's updateUser method
       this.service.updateUser(updatedUser).subscribe({
