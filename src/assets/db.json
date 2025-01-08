@@ -54,36 +54,31 @@
       "email": "vimal@teknoturf.com",
       "phone": "7871055597",
       "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
+    },
+    {
+      "id": "fe83",
+      "username": "anand",
+      "password": "A@123456",
+      "email": "anand.12@gmail.com",
+      "phone": "1234567890",
+      "address": "Durgapur, West Bengal"
     }
   ],
   "tables": [
     {
-      "id": "1",
-      "date": "2024-12-20",
-      "time": "19:00",
+      "id": 1,
       "seats": 4,
-      "isReserved": false
+      "reservations": {}
     },
     {
-      "id": "2",
-      "date": "2024-12-20",
-      "time": "20:00",
+      "id": 2,
       "seats": 2,
-      "isReserved": false
+      "reservations": {}
     },
     {
-      "id": "3",
-      "date": "2024-12-20",
-      "time": "20:00",
-      "seats": 2,
-      "isReserved": false
-    },
-    {
-      "id": "4",
-      "date": "2024-12-20",
-      "time": "20:00",
-      "seats": 2,
-      "isReserved": false
+      "id": 3,
+      "seats": 6,
+      "reservations": {}
     }
   ],
   "reservations": [
@@ -95,6 +90,174 @@
       "date": "2025-01-03",
       "time": "12:30",
       "seats": 2
+    },
+    {
+      "id": "4f95",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "10:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 2
+    },
+    {
+      "id": "46d2",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "13:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 2
+    },
+    {
+      "id": "3095",
+      "tableId": 2,
+      "date": "2025-01-05",
+      "time": "14:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "54cd",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "a467",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "14:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 5
+    },
+    {
+      "id": "3786",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "10:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "e1c9",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "10:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "656b",
+      "date": "2025-01-05",
+      "time": {
+        "time": "11:00",
+        "isReserved": false
+      },
+      "tableId": 1,
+      "customerName": "",
+      "contact": "",
+      "seats": 1
+    },
+    {
+      "id": "2d77",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": {
+        "time": "11:00",
+        "isReserved": false
+      },
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "4a1d",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "13:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "fdd3",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "18f3",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "14:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "4e93",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "11:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 2
+    },
+    {
+      "id": "94db",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "d049",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "14f5",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "6e0f",
+      "tableId": 1,
+      "date": "2025-01-06",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "9b76",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "13:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 3
     }
   ],
   "menu-items": [
