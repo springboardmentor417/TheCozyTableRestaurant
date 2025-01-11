@@ -72,8 +72,6 @@
       "seats": 2,
       "isReserved": true
 
-      "reservations": {}
-
     },
     {
       "id": 2,
@@ -105,6 +103,7 @@
       "date": "2025-01-10",
       "time": "17:48",
       "seats": 2
+    },{
       "id": "4f95",
       "tableId": 1,
       "date": "2025-01-05",
