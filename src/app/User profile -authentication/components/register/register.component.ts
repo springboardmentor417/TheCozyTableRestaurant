@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 // import { HttpClient } from '@angular/common/http';
 import { ServicesService } from '../../services/services.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
@@ -49,7 +50,7 @@ export class RegisterComponent {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      const newUser = this.registerForm.value;
+      const newUser = { ...this.registerForm.value, role: 'customer' }; // Add role as customer
       this.service.addUser(newUser).subscribe({
         next: (response: any) => {
           console.log('User added:', response);
@@ -60,8 +61,8 @@ export class RegisterComponent {
           const userDetails = {
             id: response.id,
             username: response.username,
-            email:response.email,
-            number:response.number,
+            email: response.email,
+            number: response.number,
             role: response.role,
           };
           localStorage.setItem('currentUser', JSON.stringify(userDetails));
@@ -72,4 +73,5 @@ export class RegisterComponent {
       });
     }
   }
+  
 }
