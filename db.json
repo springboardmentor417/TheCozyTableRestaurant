@@ -9,7 +9,8 @@
       "rating": 5,
       "foodQuality": 3,
       "valueForMoney": 3,
-      "selectedDate": "21/12/2024"
+      "selectedDate": "21/12/2024",
+      "adminReply": "hi"
     },
     {
       "id": "5657",
@@ -22,7 +23,8 @@
       "valueForMoney": 2,
       "selectedDate": "21/12/2024",
       "image": "/uploads/images/besite_birthday_surprise.png",
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "Thank you for your feed back"
     },
     {
       "id": "831d",
@@ -35,7 +37,8 @@
       "valueForMoney": 5,
       "selectedDate": "21/12/2024",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "hi"
     },
     {
       "id": "c0c5",
@@ -48,7 +51,8 @@
       "valueForMoney": 5,
       "selectedDate": "21/11/2024",
       "image": "/uploads/images/Screenshot 2024-07-19 205825.png",
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "Thank you"
     },
     {
       "id": "8c45",
@@ -61,7 +65,8 @@
       "valueForMoney": 5,
       "selectedDate": "30/12/2024",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "hi"
     },
     {
       "id": "bbf1",
@@ -74,7 +79,8 @@
       "valueForMoney": 5,
       "selectedDate": "30/12/2024",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "helllo"
     },
     {
       "id": "220f",
@@ -100,7 +106,8 @@
       "valueForMoney": 5,
       "selectedDate": "30/12/2024",
       "image": null,
-      "imageError": ""
+      "imageError": "",
+      "adminReply": "thank you"
     },
     {
       "id": "a03f",
@@ -110,19 +117,6 @@
       "feedback": "joejediehepeqhf",
       "rating": 5,
       "foodQuality": 4,
-      "valueForMoney": 5,
-      "selectedDate": "30/12/2024",
-      "image": null,
-      "imageError": ""
-    },
-    {
-      "id": "c3ca",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "jndeeieediwed",
-      "rating": 5,
-      "foodQuality": 5,
       "valueForMoney": 5,
       "selectedDate": "30/12/2024",
       "image": null,
@@ -142,19 +136,6 @@
       "imageError": ""
     },
     {
-      "id": "0eda",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "kkwjndiuwud",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 5,
-      "selectedDate": "30/12/2024",
-      "image": null,
-      "imageError": ""
-    },
-    {
       "id": "049d",
       "name": "Swathi",
       "email": "yswathi174@gmail.com",
@@ -164,6 +145,45 @@
       "foodQuality": 4,
       "valueForMoney": 4.5,
       "selectedDate": "30/12/2024",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "05cf",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "gooddddddddddddddd",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 4,
+      "selectedDate": "06/01/2025",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "9e6a",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "fooddddddd",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 5,
+      "selectedDate": "06/01/2025",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "9f9d",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "uuuuuuuuuuuuu",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 4.5,
+      "selectedDate": "06/01/2025",
       "image": null,
       "imageError": ""
     }

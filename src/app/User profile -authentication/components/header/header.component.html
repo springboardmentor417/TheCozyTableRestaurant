@@ -1,33 +1,28 @@
 <nav class="navbar">
-    <!-- Logo with clickable area -->
-    <div class="logo">
-        <a routerLink="/Home">
-            <img src="assets/logo.JPG" alt="Cozy Restaurant">
-        </a>
-        <a routerLink="/Home" >
-        <h2 class="logo-title"><b>Cozy Table</b></h2></a>
-    </div>
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-        <li><a routerLink="/Home">Home</a></li>
-        <li><a routerLink="/Home">Menu</a></li>
-        <li><a routerLink="/Home">About us</a></li>
-        <li><a routerLink="/Home">Contact Us</a></li>
-        <li><a routerLink="/login">Login</a></li>
-        
-    </ul>
- </nav>
+
+  <!-- Logo -->
+  <div class="logo">
+    <a routerLink="/Home">
+      <img src="assets/logo.JPG" alt="Cozy Restaurant" />
+    </a>
+    <a routerLink="/Home">
+      <h2 class="logo-title"><b>Cozy Table</b></h2>
+    </a>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a routerLink="/Home">Home</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/homeCart">Menu</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/reservation">Reserve</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/cart">Cart</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/feedback">Feedback</a></li>
+    <li><a routerLink="/Home">About Us</a></li>
+    <li><a routerLink="/login">Login</a></li>
+  </ul>
+</nav>
+
  
-
-
-
-
-
-
-
-
-
-
  
 <!-- 
  

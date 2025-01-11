@@ -27,7 +27,7 @@ export class ServicesService {
 
   // ✅ Delete a User
   deleteUser(userId: any): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${userId}`);
+    return this.http.delete<any>(`${this.apiUrl}/${userId}`);  // Correctly use the userId in the URL
   }
 
   // 🔐 -------- Local Storage Session Functionality -------- 🔐
