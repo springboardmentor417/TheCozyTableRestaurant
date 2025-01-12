@@ -26,9 +26,9 @@ navigateTo(route: string): void {
   switch (route) {
     case 'view-orders': this.router.navigate(['/admin/orders']); break;
     case 'update-orders': this.router.navigate(['/admin/orders/update']); break;
-    case 'add-menu': this.router.navigate(['/admin/menu/add']); break;
-    case 'update-menu': this.router.navigate(['/admin/menu/update']); break;
-    case 'delete-menu': this.router.navigate(['/admin/menu/delete']); break;
+    case 'add-menu': this.router.navigate(['/add-menu-item']); break;
+    case 'update-menu': this.router.navigate(['/add-menu-item']); break;
+    case 'delete-menu': this.router.navigate(['/add-menu-item']); break;
     case 'approve-reservations': this.router.navigate(['/admin/reservations/approve']); break;
     case 'decline-reservations': this.router.navigate(['/admin/reservations/decline']); break;
     case 'view-users': this.router.navigate(['/admin/users']); break;
