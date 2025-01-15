@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-ack-page',
+  selector: 'app-redirect-page',
   standalone: true,
   imports: [],
-  templateUrl: './ack-page.component.html',
-  styleUrl: './ack-page.component.css',
+  templateUrl: './redirect-page.component.html',
+  styleUrl: './redirect-page.component.css',
 })
-export class AckPageComponent {
+export class RedirectPageComponent {
   constructor(private router: Router) {}
 
   onViewReply() {
-    this.router.navigate(['/reply']);
+    this.router.navigate(['/feedback']);
     console.log('hi');
   }
 }
