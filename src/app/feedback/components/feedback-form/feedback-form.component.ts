@@ -80,21 +80,16 @@ export class FeedbackFormComponent {
     const formattedDate = this.formatDate(new Date(this.selectedDate));
     this.userObj.selectedDate = formattedDate;
 
+    const username = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.userObj.name = username.username;
+    this.userObj.email = username.email;
+    this.userObj.mobile = username.phone;
+    console.log(username);
+    console.log(this.userObj.name);
+
     const today = this.formatDate(new Date());
 
     switch (true) {
-      case !this.userObj.name: {
-        alert('Please enter a valid name(minimum 3 charecters).');
-        return;
-      }
-      case !this.isValidEmail(this.userObj.email): {
-        alert('Please enter a email address or a valid email address.');
-        return;
-      }
-      case !this.validatePhoneNumber(this.userObj.mobile): {
-        alert('please enter the valid mobile number');
-        return;
-      }
       case !this.userObj.feedback: {
         alert('please give tell us your experience atleast in 10 charecters');
         return;

@@ -2,182 +2,128 @@ import { Component } from '@angular/core';
 import { ReservationService } from '../../services/reservation.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+interface TimeSlot {
+  time: string;
+  isReserved: boolean;
+}
 
 interface Table {
   id: number;
-  name: string;
-  isReserved: boolean;
   seats: number;
+  reservations: {
+    [date: string]: { [time: string]: boolean };
+  };
+  timeSlots?: TimeSlot[];
 }
-
 @Component({
   selector: 'app-reservation',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css'],
+  styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent {
-  tables: Table[] = [];
+  tables: Table[] = [
+    {
+      id: 1,
+      seats: 4,
+      reservations: {},
+    },
+    {
+      id: 2,
+      seats: 6,
+      reservations: {},
+    },
+    {
+      id: 3,
+      seats: 2,
+      reservations: {},
+    },
+  ];
+
+  // availableTables: (Table & { timeSlots: TimeSlot[] })[] = [];
+  // selectedDate = '';
   reservationData = {
-    tableId: '',
-    customerName: '',
-    contact: '',
+    tableId: 0,
     date: '',
     time: '',
-    seats: '',
+    customerName: '',
+    contact: '',
+    seats: 1,
   };
-  isInvalidDate: boolean = false;
-  isDateOutOfRange: boolean = false;
-  isInvalidTime: boolean = false;
-  isTimeInPast: boolean = false;
+  availableTables: any[] = [];
+  selectedDate: string = '';
+  selectedTable: any = null;
+  selectedTimeSlot: string | null = null;
+  showReservationForm: boolean = false;
+  // reservationData = {
+  //   customerName: '',
+  //   contact: '',
+  //   seats: 1,
+  // };
 
   constructor(private reservationService: ReservationService) {}
 
-  ngOnInit(): void {
-    this.loadTables();
+  onDateChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.selectedDate = input.value;
+    this.filterAvailableTables();
   }
 
-  validateDate(): void {
-    const today = new Date();
-    const selectedDate = new Date(this.reservationData.date);
-
-    // Reset the time to ensure we only compare dates (ignoring the time part)
-    today.setHours(0, 0, 0, 0);
-    selectedDate.setHours(0, 0, 0, 0);
-
-    // Get the date 7 days from today
-    const sevenDaysFromNow = new Date();
-    sevenDaysFromNow.setDate(today.getDate() + 7);
-
-    // Check if the selected date is within the range of today and 7 days from now
-    if (selectedDate < today || selectedDate > sevenDaysFromNow) {
-      this.isInvalidDate = true;
-      this.isDateOutOfRange = true; // Flag to show the error message
-    } else {
-      this.isInvalidDate = false;
-      this.isDateOutOfRange = false; // Valid date
-    }
-  }
-  validateContact(): boolean {
-    const contactPattern = /^[1-9][0-9]{9}$/;
-    if (!contactPattern.test(this.reservationData.contact)) {
-      alert(
-        'Invalid contact number. It must be a 10-digit number and cannot start with 0.'
-      );
-      return false;
-    }
-    return true;
+  filterAvailableTables() {
+    this.availableTables = this.tables.map((table) => {
+      const reservations = table.reservations[this.selectedDate] || {};
+      const timeSlots = this.generateTimeSlots().map((time) => ({
+        time,
+        isReserved: !!reservations[time],
+      }));
+      return { ...table, timeSlots };
+    });
   }
 
-  validateTime(): void {
-    const selectedTime = new Date(`1970-01-01T${this.reservationData.time}:00`); // Time only (no date)
-    const currentDateTime = new Date();
-
-    // Reset current time date to make sure we're only comparing times (no date)
-    currentDateTime.setFullYear(1970, 0, 1); // Set to a dummy date
-    currentDateTime.setSeconds(0, 0); // Ensure comparison is done only by hour and minute
-
-    // Restaurant working hours (e.g., 9:00 AM to 11:00 PM)
-    const openingTime = new Date('1970-01-01T09:00:00'); // 9:00 AM
-    const closingTime = new Date('1970-01-01T23:00:00'); // 11:00 PM
-
-    // Check if selected time is within working hours
-    if (selectedTime < openingTime || selectedTime > closingTime) {
-      this.isInvalidTime = true; // Time is out of working hours
-    } else {
-      this.isInvalidTime = false; // Time is within working hours
-    }
-
-    // Check if selected time is in the past (before current time)
-    if (selectedTime <= currentDateTime) {
-      this.isTimeInPast = true; // Time is in the past
-    } else {
-      this.isTimeInPast = false; // Time is not in the past
-    }
+  reserveTimeSlot(tableId: number, time: string) {
+    this.selectedTable = this.tables.find((t) => t.id === tableId);
+    this.selectedTimeSlot = time;
+    this.showReservationForm = true;
   }
 
-  reserveTable(): void {
-    // Ensure all required fields are filled and valid
-    if (
-      !this.reservationData.tableId ||
-      !this.reservationData.customerName ||
-      !this.reservationData.contact ||
-      !this.reservationData.date ||
-      !this.reservationData.time ||
-      !this.reservationData.seats
-    ) {
-      alert('Please fill out all fields correctly before submitting.');
-      return;
+  submitReservation() {
+    if (!this.selectedTable || !this.selectedTimeSlot) return;
+  
+    const table = this.selectedTable;
+    const date = this.selectedDate;
+    const time = this.selectedTimeSlot;
+  
+    // Ensure the reservations object structure exists
+    if (!table.reservations[date]) {
+      table.reservations[date] = {};
     }
-
-    if (!this.validateContact()) {
-      return;
-    }
-
-    // Validate the date before proceeding
-    this.validateDate();
-    if (this.isInvalidDate) {
-      return;
-    }
-
-    this.validateTime();
-    if (this.isInvalidTime || this.isTimeInPast) {
-      return;
-    }
-
-    const tableId = Number(this.reservationData.tableId);
-    const selectedTable = this.tables.find((table) => table.id === tableId);
-
-    if (!selectedTable) {
-      alert('Selected table does not exist.');
-      return;
-    }
-
-    if (selectedTable.isReserved) {
-      alert('This table is already reserved. Please choose another table.');
-      return;
-    }
-
-    this.reservationService.makeReservation(this.reservationData).subscribe(
-      () => {
-        alert('Reservation Successful!');
-        selectedTable.isReserved = true;
-        this.updateTableStatus(selectedTable);
-      },
-      (error) => {
-        console.error('Error making reservation:', error);
-        alert('Failed to make reservation. Please try again.');
-      }
-    );
+    table.reservations[date][time] = true;
+  
+    // Prepare the reservation data
+    const reservationData = {
+      tableId: table.id,
+      date,
+      time,
+      customerName: this.reservationData.customerName,
+      contact: this.reservationData.contact,
+      seats: this.reservationData.seats,
+    };
+  
+    // Send the reservation to the mock server
+    this.reservationService.addReservation(reservationData).subscribe(() => {
+      alert('Reservation confirmed!');
+      this.showReservationForm = false;
+      this.filterAvailableTables(); // Refresh available tables
+    });
   }
+  
 
-  updateTableStatus(table: Table): void {
-    this.reservationService.updateTable(table.id, table).subscribe(
-      () => {
-        console.log(`Table ${table.id} status updated to reserved.`);
-        this.loadTables();
-      },
-      (error) => {
-        console.error('Error updating table status:', error);
-        // alert('Failed to update table status. Please try again.');
-      }
-    );
+  generateTimeSlots() {
+    const slots: string[] = [];
+    for (let hour = 9; hour <= 23; hour++) {
+      slots.push(`${hour.toString().padStart(2, '0')}:00`);
+    }
+    return slots;
   }
-
-  loadTables(): void {
-    this.reservationService.getTables().subscribe(
-      (data: Table[]) => {
-        this.tables = data;
-        console.log('Tables loaded successfully:', this.tables);
-      },
-      (error) => {
-        console.error('Failed to load tables:', error);
-        alert('Unable to load tables. Please check your network or server.');
-      }
-    );
-  }
-}
-function elseif(arg0: boolean) {
-  throw new Error('Function not implemented.');
 }

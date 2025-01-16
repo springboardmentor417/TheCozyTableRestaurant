@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ServicesService } from '../../services/services.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent { 
+export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
   restaurantName: string = 'Welcome to Cozi Restaurant Management';
+  isLoggedIn: boolean = false;
 
   constructor(
-    private fb: FormBuilder, 
-    private authService: ServicesService, 
+    private fb: FormBuilder,
+    private authService: ServicesService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -33,6 +34,10 @@ export class LoginComponent {
         ],
       ],
     });
+
+    // Check login status
+    const currentUser = localStorage.getItem('currentUser');
+    this.isLoggedIn = !!currentUser;
   }
 
   onSubmit(): void {
@@ -52,28 +57,27 @@ export class LoginComponent {
             const userDetails = {
               id: user.id,
               username: user.username,
-              email: user.email ,
-              phone: user.phone ,
-              address: user.address ,
+              email: user.email,
+              phone: user.phone,
+              address: user.address,
               role: user.role || 'customer',
             };
 
             localStorage.setItem('currentUser', JSON.stringify(userDetails));
+            this.isLoggedIn = true;
+
             // Navigate based on user role
             if (user.role === 'admin') {
               alert('Welcome Admin!');
               this.router.navigate(['/adminWelcome']);
             } else if (user.role === 'customer') {
               alert('Welcome Customer!');
-              this.router.navigate(['/userWelcome']);
+              this.router.navigate(['/userDetails']);
             } else {
               console.error('User role is undefined');
               alert('User role is undefined. Please contact support.');
             }
-          
-          } 
-         
-          else {
+          } else {
             console.error('Invalid credentials');
             alert('Invalid username or password.');
           }
@@ -86,5 +90,13 @@ export class LoginComponent {
     } else {
       alert('Please fill in the form correctly.');
     }
+  }
+
+  logout(): void {
+    // Clear user details from localStorage
+    localStorage.removeItem('currentUser');
+    this.isLoggedIn = false;
+    alert('You have been logged out successfully.');
+    this.router.navigate(['/Home']);
   }
 }

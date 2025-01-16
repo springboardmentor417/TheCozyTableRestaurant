@@ -1,69 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  isLoggedIn = false; // Tracks login status
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    // Check login status from localStorage
+    const currentUser = localStorage.getItem('currentUser');
+    this.isLoggedIn = !!currentUser; // Convert to boolean
+  }
+
+  // Logout method to clear user session
+  logout(): void {
+    localStorage.removeItem('currentUser');
+    this.isLoggedIn = false; // Update login status
+    this.router.navigate(['/login']); // Redirect to login
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Component } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { ServicesService } from '../../services/services.service';
-// import { CommonModule } from '@angular/common';
-
-// @Component({
-//   selector: 'app-header',
-//   standalone: true,
-//   imports: [CommonModule], // Ensure CommonModule is imported
-//   templateUrl: './header.component.html',
-//   styleUrls: ['./header.component.css'],
-// })
-// export class HeaderComponent {
-//   isLoggedIn: boolean = false;
-//   username: string = '';
-
-//   constructor(private authService: ServicesService, private router: Router) {}
-
-//   ngOnInit() {
-//     this.checkLoginStatus();
-//   }
-
-//   checkLoginStatus() {
-//     const user = this.authService.getLocalUser();
-//     this.isLoggedIn = !!user; // Check if user exists in localStorage
-//     this.username = user?.username || '';
-//   }
-
-//   logout() {
-//     this.authService.clearLocalUser();
-//     this.isLoggedIn = false;
-//     this.username = '';
-//     this.router.navigate(['/login']);
-//   }
-// }
