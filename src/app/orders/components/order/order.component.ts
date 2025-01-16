@@ -1,8 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+
 
 @Component({
   selector: 'app-order',
+  
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
@@ -23,27 +27,39 @@ export class OrderComponent implements OnInit {
     Onlinepayments:'UPI id(Gpay/phonepay/paytm)'
 
   };
-  
+  // Cart details and summary
+  getCartDetails: any = [];
+  deliveryFee = 80.0;
+  promotionApplied = 20.0;
 
-  // Properties for order summary
-  orderSummary = {
-    items: 1733.00,
-    deliveryFee: 80.00,
-    promotionApplied: 20.00,
-    savings: 540.00,
-    discountPercent: 23
-  };
+  constructor(private cartService: CartService, private router: Router) {}
 
-  // Computed property for the total amount
-  get totalAmount(): number {
-    return this.orderSummary.items + this.orderSummary.deliveryFee - this.orderSummary.promotionApplied;
+  ngOnInit(): void {
+    this.fetchCartDetails();
   }
 
-  constructor() {}
+  // Fetch cart details
+  fetchCartDetails() {
+    this.cartService.getCartDetails().subscribe(
+      (response) => {
+        this.getCartDetails = response;
+        console.log('Cart details fetched:', this.getCartDetails);
+      },
+      (error) => {
+        console.error('Error fetching cart details:', error);
+      }
+    );
+  }
 
-  ngOnInit(): void {}
-
-  // Method to handle place order button click
+  // Calculate total amount
+  get totalAmount(): number {
+    const cartTotal = this.getCartDetails.reduce(
+      (total: number, item: any) => total + item.quantity * item.currentPrice,
+      0
+    );
+    return cartTotal + this.deliveryFee - this.promotionApplied;
+  }
+// Method to handle place order button click
   placeOrder(): void {
     alert('Order placed successfully!');
   }
