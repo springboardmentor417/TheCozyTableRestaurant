@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Menu</h1>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <label for="search">Search by Name:</label>
+    <input 
+      type="text" 
+      id="search" 
+      [(ngModel)]="searchKeyword" 
+      (input)="onSearchChange()" 
+      placeholder="Enter item name to search"
+    />
+  </div>
+
+  <!-- Category Filter -->
+  <div class="filter">
+    <label for="category">Filter by Category:</label>
+    <select id="category" [(ngModel)]="selectedCategory" (change)="onCategoryChange(selectedCategory)">
+      <option value="">All</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+
+  <!-- Price Range Filter -->
+  <div class="filter">
+    <label for="price">Filter by Price:</label>
+    <input 
+      type="number" 
+      id="price" 
+      [(ngModel)]="priceRange" 
+      (change)="onPriceChange()" 
+      placeholder="Enter max price"
+    />
+    <div *ngIf="priceWarning" class="warning">
+      Price exceeds the available range!
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Menu Items List -->
+  <div class="menu-list">
+    <div *ngIf="menuItems.length === 0" class="no-items">No items found</div>
+    <div *ngFor="let item of filteredMenuItems" class="menu-item">
+      <img [src]="item.imageUrl" alt="{{ item.name }}" class="menu-item-image" />
+      <div class="menu-item-details">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <p><strong>&#8377;{{ item.price }}</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
