@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -8,8 +6,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import { inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({
@@ -27,7 +25,7 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
     StarRatingComponent,
   ],
   templateUrl: './feedback-form.component.html',
-  styleUrl: './feedback-form.component.css',
+  styleUrls: ['./feedback-form.component.css'],
 })
 export class FeedbackFormComponent {
   userObj: USER = new USER();
@@ -46,11 +44,6 @@ export class FeedbackFormComponent {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
-
-  // handleRating(rating: number): void {
-  //   this.userRating = rating;
-  //   console.log('Selected rating:', rating);
-  // }
 
   isValidEmail(email: string): boolean {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -121,7 +114,7 @@ export class FeedbackFormComponent {
           .post<USER>('http://localhost:3000/feedback', this.userObj)
           .subscribe((res: USER) => {
             // alert('thank you for you feedback');
-            this.users.unshift(res);
+            this.users.unshift(this.userObj);
             console.log(this.userObj);
             this.router.navigate(['/ackpage']);
           });
@@ -134,7 +127,7 @@ export class FeedbackFormComponent {
   }
 }
 
-export class USER {
+class USER {
   name: string;
   email: string;
   mobile: string;

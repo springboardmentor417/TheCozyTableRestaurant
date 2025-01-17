@@ -14,7 +14,7 @@
   <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
     <a routerLink="/book-table" class="btn btn-outline-success btn-lg">📅 Book a Table</a>
     <a routerLink="/menu" class="btn btn-outline-warning btn-lg">🛒 View Menu</a>
-    <a routerLink="/updateUser" class="btn btn-outline-primary btn-lg">👤 Update Profile</a>
+   
   </div>
 
   <div class="row g-4">
@@ -27,7 +27,7 @@
           <p><strong>Email:</strong> {{ email }}</p>
           <p><strong>Phone:</strong> {{ phone || 'Not Provided' }}</p>
           <p><strong>Address:</strong> {{ address }}</p>
-          <a routerLink="/updateUser" class="btn btn-primary btn-sm">Update Profile</a>
+         
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <div class="card-header bg-success text-white">📅 My Reservations</div>
         <div class="card-body">
           <p *ngIf="reservations?.length === 0">No reservations found.</p>
-          <a routerLink="/book-table" class="btn btn-success btn-sm">Book a Table</a>
+          <a routerLink="/reservation" class="btn btn-success btn-sm">Book a Table</a>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
         <div class="card-header bg-warning text-dark">🛒 My Orders</div>
         <div class="card-body">
           <p *ngIf="orders?.length === 0">No recent orders.</p>
-          <a routerLink="/menu" class="btn btn-warning btn-sm">View Menu</a>
+          <a routerLink="/homeCart" class="btn btn-warning btn-sm">View Menu</a>
         </div>
       </div>
     </div>
