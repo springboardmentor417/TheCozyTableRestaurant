@@ -58,7 +58,7 @@
   ],
   "tables": [
     {
-      "id": 1,
+      "id": "1",
       "seats": 4,
       "isReserved": false
     },
@@ -70,12 +70,12 @@
       "isReserved": true
     },
     {
-      "id": 2,
+      "id": "2",
       "seats": 2,
       "reservations": {}
     },
     {
-      "id": 3,
+      "id": "3",
       "seats": 6,
       "reservations": {}
     }
@@ -276,6 +276,24 @@
       "price": 356,
       "category": "Main Course",
       "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+      "availability": true
+    },
+    {
+      "id": "c5b2",
+      "name": "Egg Masala",
+      "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+      "price": 217,
+      "category": "Main Course",
+      "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+      "availability": true
+    },
+    {
+      "id": "d59e",
+      "name": "Butter Naan",
+      "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+      "price": 45,
+      "category": "Bread",
+      "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
       "availability": true
     }
   ],
