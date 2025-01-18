@@ -35,12 +35,18 @@ export const routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'order', component: OrderComponent },
   { path: 'feedback', component: FeedbackFormComponent, canActivate: [authGuard] },
-  { path: 'adminchart', component: AdminchartComponent },
+  
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
-  {path:'adminreply',component: ReplyPageComponent },
+  
   {path: 'redirect', component: RedirectPageComponent },
-  {path: 'admin',component: AdminNavComponent },
+  {path: 'admin',
+  component: AdminNavComponent,
+  children:[
+    { path: 'adminchart', component: AdminchartComponent },
+    {path:'adminreply',component: ReplyPageComponent },
+    ],
+  },
   {
     path: 'userDetails',
     component: UserDetailsComponent,
