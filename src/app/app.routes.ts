@@ -24,7 +24,7 @@ import { AckPageComponent } from './feedback/components/feedback-form/ack-page/a
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 import { MenuCategoryComponent } from './menu-management/menu-category/menu-category.component';
-
+import { MenuItemNavComponent } from './menu-management/menu_nav/menu-item-nav.component';
 
 export const routes: Routes = [
     {path:'login' ,component:LoginComponent },
@@ -42,11 +42,26 @@ export const routes: Routes = [
     { path: 'add-menu-item', component: AddMenuItemComponent },
     {path: 'app-menu-list',component:MenuListComponent},
     {path:'app-menu-category',component:MenuCategoryComponent},
+    {path:'app-menu-item-nav',component:MenuItemNavComponent},
     {path:'homeCart', component:HomeCartComponent },
     {path:'header', component: HeaderComponent },
     {path:'cart', component: CartComponent },
     { path: 'order', component: OrderComponent },
+    { path: 'menu', component: MenuItemNavComponent,
 
+      children: [
+        {
+          path: 'add-menu-item',
+          component: AddMenuItemComponent,
+        },
+        {
+         path:'menu-list',
+         component:MenuListComponent,
+        },
+        { path: 'menu-category',
+          component: MenuCategoryComponent }
+      ],      
+     },
     {
     path: 'feedback',
     component: FeedbackFormComponent,
