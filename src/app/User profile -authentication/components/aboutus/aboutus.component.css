@@ -1,0 +1,254 @@
+.image-container {
+  position: relative; /* Ensures text and pseudo-elements can be positioned over the image */
+  width: 100%; /* Full width of the parent container */
+  overflow: hidden; /* Prevent content overflow */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.image-container {
+  position: relative; /* Ensures text and pseudo-elements can be positioned over the image */
+  width: 100%; /* Full width of the parent container */
+  overflow: hidden; /* Prevent content overflow */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.image-container img {
+  width: 100%; /* Responsive full width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container */
+  display: block; /* Remove any inline spacing for images */
+}
+
+/* Semi-transparent overlay */
+.image-container::before {
+  content: ""; /* Empty content for the overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+  z-index: 1; /* Place behind text but above the image */
+  pointer-events: none; /* Ensure it doesn’t interfere with interactions */
+}
+
+.image-container .text-overlay {
+  position: absolute; /* Position text over the image */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the content */
+  color: white; /* Text color for visibility */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  z-index: 2; /* Place above the overlay */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for text */
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for zoom effects */
+}
+
+.text-overlay h1 {
+  font-size: 2.5rem; /* Adjust headline size */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.text-overlay p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: bold;
+  max-width: 80%; /* Limit paragraph width */
+  margin: 0 auto;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
+}
+
+/* Zoom effect on hover */
+.text-overlay:hover p {
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .text-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .text-overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-overlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .text-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+
+  /* Specific styling for Sanjeev Kapoor's image */
+.chef-image.sanjeev {
+    max-height: 315px; /* Adjust height as needed */
+    object-fit: cover; /* Ensure the image fills the defined height while maintaining aspect ratio */
+    width: auto; /* Ensure width adjusts proportionally */
+  }
+  
+    
+/* Chef card styles */
+.chef-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .chef-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chef-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .chef-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+  }
+  
+  /* Chef details hidden initially */
+.chef-details {
+    font-family: 'Arial', sans-serif; /* Change to preferred font family */
+    font-size: 1rem; /* Adjust the font size */
+    font-weight: 500; /* Medium weight for better readability */
+    font-style: italic; /* Adds a stylish italic effect */
+    color: #444; /* Slightly darker text for better contrast */
+    margin-top: 15px;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide content overflow */
+    opacity: 0; /* Invisible initially */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Smooth slide and fade-in effect */
+  }
+  
+  /* Show details on hover */
+.chef-card:hover .chef-details {
+    max-height: 100px; /* Adjust based on content height */
+    opacity: 1; /* Fully visible */
+    font-weight: 600; /* Slightly bolder font when visible */
+    font-style: oblique; /* Remove italic effect when hovered */
+    color: #444; /* Slightly darker text for better contrast */
+  }
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .chef-name {
+      font-size: 1rem;
+    }
+    .chef-details {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .chef-name {
+      font-size: 0.9rem;
+    }
+  }
+  
+
+  /* Parallax Section */
+  .parallax-section {
+    position: relative;
+    background-image: url('/assets/Kitchen.jpg'); /* Replace with your image path */
+    background-attachment: fixed; /* Creates the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .parallax-section .content {
+    text-align: center;
+    color: white; /* Default text color for visibility */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for text */
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+    
+  }
+  
+  .parallax-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth zoom and color transition */
+  }
+  
+  .parallax-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth zoom and color transition */
+  }
+  
+  /* Hover Effect */
+  .parallax-section h2:hover,
+  .parallax-section p:hover {
+    transform: scale(1.1); /* Zoom the text */
+    color: #f39c12; /* Change text color */
+  }
+  
+  /* Optional: Hover Effect for Content Container */
+  .parallax-section .content:hover {
+    transform: scale(1.05); /* Slight zoom for the whole content block */
+  }
+  
+/* Ensure border is displayed on the map */
+/* #map {
+  width: 100%;
+  height: 400px
+  border: 3px solid black !important; Bold black border, enforce with !important 
+  transition: transform 0.3s ease-in-out;  Smooth zoom effect 
+} */
+
+/* Apply zoom on hover */
+/* #map:hover {
+  transform: scale(1.05); Zoom effect
+} */
+
+/* Heading styles with zoom effect */
+/* h2 {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #4CAF50;
+  transition: transform 0.3s ease-in-out;
+} */
+
+/* h2:hover {
+  transform: scale(1.1);
+} */
+
+/* Ensure no border override */
+/* .map-container {
+  border: 15px solid black !important;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  Optional shadow 
+} */
+
+/* .rounded {
+  border-radius: 30px;
+} */
+
+/* Reusable hover-zoom class */
+/* .hover-zoom:hover {
+  transform: scale(1.05);
+} */
