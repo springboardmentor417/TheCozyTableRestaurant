@@ -1,13 +1,18 @@
 
 /* General Styles */
-.body{
+/* General Styles */
+.body {
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: hsla(11, 95%, 40%, 0.247);
+  background-image: url('/assets/TajLife2v.webp'); /* Replace with the path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .container {
   display: flex;
   justify-content: center;

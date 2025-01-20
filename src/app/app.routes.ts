@@ -22,7 +22,12 @@ import { PageFeedbackComponent } from './feedback/components/feedback-form/page-
 
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
 
+import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
+import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
+
 export const routes: Routes = [
+ 
+  {path: 'aboutus', component:AboutusComponent},
   { path: 'login', component: LoginComponent },
   { path: 'userDetails', component: UserDetailsComponent },
   { path: 'Register', component: RegisterComponent },
@@ -37,6 +42,7 @@ export const routes: Routes = [
   { path: 'admin', component: AdminchartComponent },
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
+  {path: 'ui,', component:HomepageUIComponent},
   
   {
     path: 'userDetails',

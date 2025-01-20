@@ -1,33 +1,58 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
-  private apiUrl = 'http://localhost:3000/users'; // JSON Server API URL
+  private loginStatusSubject = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.loginStatusSubject.asObservable();
+
+  setLoginStatus(status: boolean): void {
+    this.loginStatusSubject.next(status);
+  }
+
+   // Check login status
+   getLoginStatus(): boolean {
+    return this.loginStatusSubject.value; // Return current value
+  }
+  logout(): void {
+    if (this.isLocalStorageAvailable()) {
+      localStorage.clear();
+    }
+    // Update login status to false
+    this.setLoginStatus(false);
+  }
+  
+ 
+  
+
+  private apiUrl = 'http://localhost:3000/users'; // Corrected base URL to point to '/users'
 
   constructor(private http: HttpClient) {}
 
   // ✅ Fetch All Users
-  getUsers(username: any, password: any): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getUsers(username: string, password: string): Observable<any> {
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map((users) => users.find((user) => user.username === username && user.password === password))
+    );
   }
+  
 
   // ✅ Add a New User
   addUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, user);
+    return this.http.post<any>(this.apiUrl, user); // Adds a user to the 'users' array in db.json
   }
 
   // ✅ Update User Details
   updateUser(user: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${user.id}`, user);
+    return this.http.put<any>(`${this.apiUrl}/${user.id}`, user); // Updates user by ID
   }
 
   // ✅ Delete a User
-  deleteUser(userId: any): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${userId}`);  // Correctly use the userId in the URL
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${userId}`); // Deletes user by ID
   }
 
   // 🔐 -------- Local Storage Session Functionality -------- 🔐
