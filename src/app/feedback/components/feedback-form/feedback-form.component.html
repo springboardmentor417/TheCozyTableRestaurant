@@ -2,60 +2,6 @@
   <div class="form-container">
     <h2 class="text">We'd Love to Hear From You!</h2>
     <form #feedbackForm="ngForm" novalidate>
-      <div class="inline form-row">
-        <div class="input-data">
-          <input
-            class="in-data"
-            type="text"
-            id="name"
-            [(ngModel)]="userObj.name"
-            name="name"
-            #name="ngModel"
-            minlength="3"
-            required
-          />
-          <div *ngIf="name.invalid && name.touched" class="error">
-            Name is required.
-          </div>
-          <div class="underline"></div>
-          <label for="">Enter your name</label>
-        </div>
-        <div class="input-data">
-          <input
-            class="in-data"
-            type="email"
-            id="email"
-            [(ngModel)]="userObj.email"
-            name="email"
-            required
-            #email="ngModel"
-          />
-          <div *ngIf="email.invalid && email.touched" class="error">
-            Valid email is required.
-          </div>
-          <div class="underline"></div>
-          <label for="">Enter your email</label>
-        </div>
-
-        <div class="input-data">
-          <input
-            class="in-data"
-            type="tel"
-            id="mobile"
-            [(ngModel)]="userObj.mobile"
-            name="mobile"
-            pattern="[0-9]{10}"
-            required
-            #mobile="ngModel"
-          />
-          <div *ngIf="mobile.invalid && mobile.touched" class="error">
-            Mobile number is required (min 10 digits).
-          </div>
-          <div class="underline"></div>
-          <label for="">Enter Mobile number</label>
-        </div>
-      </div>
-
       <textarea
         id="comments"
         required

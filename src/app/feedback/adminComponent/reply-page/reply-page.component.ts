@@ -34,7 +34,7 @@ export class ReplyPageComponent {
   submitReply(item: any) {
     if (item.adminReply.trim()) {
       const updatedItem = {
-        adminReply: item.adminReply, // Only send the updated admin reply
+        adminReply: item.adminReply,
       };
 
       this.http
