@@ -19,10 +19,11 @@ import { FeedbackFormComponent } from './feedback/components/feedback-form/feedb
 import { AdminchartComponent } from './feedback/components/adminchart/adminchart.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
-import { RedirectPageComponent } from './feedback/components/redirect-page/redirect-page.component';
 
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
-
+import { RedirectPageComponent } from './feedback/components/redirect-page/redirect-page.component';
+import { AdminNavComponent } from './feedback/components/admin-nav/admin-nav.component';
+import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-page.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'userDetails', component: UserDetailsComponent },
@@ -38,15 +39,26 @@ export const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'order', component: OrderComponent },
+
   {
     path: 'feedback',
     component: FeedbackFormComponent,
     canActivate: [authGuard],
   },
   { path: 'admin', component: AdminchartComponent },
+
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
+
   { path: 'redirect', component: RedirectPageComponent },
+  {
+    path: 'admin',
+    component: AdminNavComponent,
+    children: [
+      { path: 'adminchart', component: AdminchartComponent },
+      { path: 'adminreply', component: ReplyPageComponent },
+    ],
+  },
 
   {
     path: 'userDetails',
