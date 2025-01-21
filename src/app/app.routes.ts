@@ -26,27 +26,27 @@ import { MenuListComponent } from './menu-management/components/menu-list/menu-l
 import { MenuCategoryComponent } from './menu-management/menu-category/menu-category.component';
 import { MenuItemNavComponent } from './menu-management/menu_nav/menu-item-nav.component';
 
+import { HomeComponent } from './User profile -authentication/components/home/home.component';
+import { RedirectPageComponent } from './feedback/components/redirect-page/redirect-page.component';
+import { AdminNavComponent } from './feedback/components/admin-nav/admin-nav.component';
+import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-page.component';
+
+import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
+import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
+
 export const routes: Routes = [
-    {path:'login' ,component:LoginComponent },
-    {path:'Home' ,component:HomeComponent},
-    {path:'Register' , component:RegisterComponent},
-    {path:'updateUser',component:UpdateUserComponent},
-    {path:'deleteUser', component:DeleteUserComponent},
-    { path: '', redirectTo: '/Home', pathMatch: 'full' },
-    {path:'userWelcome' , component:UserWelcomeComponent},
-    {path:'adminWelcome' , component:AdminWelcomeComponent},
-    {path:'userDetails', component:UserDetailsComponent},
-
-    {path:'reservation', component:ReservationComponent},
-
-    { path: 'add-menu-item', component: AddMenuItemComponent },
+ 
+  {path: 'aboutus', component:AboutusComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'userDetails', component: UserDetailsComponent },
+  { path: 'Register', component: RegisterComponent },
+  { path: 'adminWelcome', component: AdminWelcomeComponent },
+  { path: 'reservation', component: ReservationComponent, canActivate: [authGuard] },
+   { path: 'add-menu-item', component: AddMenuItemComponent },
     {path: 'app-menu-list',component:MenuListComponent},
     {path:'app-menu-category',component:MenuCategoryComponent},
     {path:'app-menu-item-nav',component:MenuItemNavComponent},
-    {path:'homeCart', component:HomeCartComponent },
-    {path:'header', component: HeaderComponent },
-    {path:'cart', component: CartComponent },
-    { path: 'order', component: OrderComponent },
+  
     { path: 'menu', component: MenuItemNavComponent,
 
       children: [
@@ -62,17 +62,24 @@ export const routes: Routes = [
           component: MenuCategoryComponent }
       ],      
      },
-    {
-    path: 'feedback',
-    component: FeedbackFormComponent,
-  },
-  {
-    path: 'admin',
-    component: AdminchartComponent,
-  },
-  {
-    path: 'ackpage',
-    component: AckPageComponent,
+  
+  { path: 'homeCart', component: HomeCartComponent, canActivate: [authGuard] },
+  { path: 'header', component: HeaderComponent },
+  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
+  { path: 'order', component: OrderComponent },
+  { path: 'feedback', component: FeedbackFormComponent, canActivate: [authGuard] },
+  
+  { path: 'ackpage', component: AckPageComponent },
+  { path: 'reply', component: PageFeedbackComponent },
+  {path: 'ui,', component:HomepageUIComponent},
+  
+  {path: 'redirect', component: RedirectPageComponent },
+  {path: 'admin',
+  component: AdminNavComponent,
+  children:[
+    { path: 'adminchart', component: AdminchartComponent },
+    {path:'adminreply',component: ReplyPageComponent },
+    ],
   },
   {
     path: 'reply',

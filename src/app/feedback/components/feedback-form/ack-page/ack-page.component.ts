@@ -1,17 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-
-// const routes: Routes = [
-//   // Define your routes here
-//   { path: 'ack-page', component: AckPageComponent },
-// ];
-
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-
-//   exports: [RouterModule],
-// })
 
 @Component({
   selector: 'app-ack-page',
