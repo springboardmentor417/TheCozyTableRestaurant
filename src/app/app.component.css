@@ -157,3 +157,25 @@ footer {
 ul {
   color: black;
 }
+/* Ensure the app container fills the viewport */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height for viewport */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full height for the container */
+}
+
+main.content {
+  flex: 1; /* Push the footer to the bottom */
+  padding: 20px; /* Optional padding for content */
+}
+
+app-footer {
+  margin: 0; /* Remove any unintended spacing */
+}
