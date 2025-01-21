@@ -427,7 +427,6 @@
       "password": "admin@123",
       "role": "admin"
     },
-   
     {
       "id": "68a6",
       "username": "vimal",
@@ -462,14 +461,12 @@
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
       "role": "customer"
-
     }
   ],
   "tables": [
     {
-      "id": 1,
+      "id": "1",
       "seats": 4,
-
       "isReserved": false
     },
     {
@@ -508,7 +505,9 @@
       "date": "2025-01-10",
       "time": "17:48",
       "seats": 2
-    },{
+
+    },
+    {
       "id": "4f95",
       "tableId": 1,
       "date": "2025-01-05",
@@ -680,7 +679,7 @@
   "menu-items": [
     {
       "id": "f915",
-      "name": "Mutt Rogan Josh",
+      "name": "Mutton Rogan Josh",
       "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
       "price": 356,
       "category": "Main Course",
@@ -688,12 +687,21 @@
       "availability": true
     },
     {
-      "id": "2d54",
-      "name": "Biryani",
-      "description": "Tandoori Roasted Biryani With Boneless strips",
-      "price": 250,
+      "id": "c5b2",
+      "name": "Egg Masala",
+      "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+      "price": 217,
       "category": "Main Course",
-      "imageUrl": "\"https://www.shutterstock.com/shutterstock/photos/2080100593/display_1500/stock-photo-chicken-lucknowi-biryani-full-tandoor-2080100593.jpg\"",
+      "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+      "availability": true
+    },
+    {
+      "id": "d59e",
+      "name": "Butter Naan",
+      "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+      "price": 45,
+      "category": "Bread",
+      "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
       "availability": true
     }
   ],

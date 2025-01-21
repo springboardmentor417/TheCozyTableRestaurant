@@ -1,0 +1,27 @@
+
+
+<mat-sidenav-container class="tp-container" style="height: 100vh;">
+    <!-- Sidenav -->
+    <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+        <br><br><br><mat-divider></mat-divider>
+        <a mat-list-item routerLink="/menu/add-menu-item" routerLinkActive="active-link">
+          <mat-icon>add</mat-icon>Add Menu Item</a>
+        <br>
+        <a mat-list-item routerLink="/menu/menu-list" routerLinkActive="active-link">
+          <mat-icon>list</mat-icon>Manage menu items</a>
+        <br>
+        <a mat-list-item routerLink="/menu/menu-category" routerLinkActive="active-link">
+          <mat-icon>menu_book</mat-icon>
+          View menu catalog</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Main Content -->
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  
+  
