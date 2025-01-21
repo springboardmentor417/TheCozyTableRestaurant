@@ -13,8 +13,8 @@ import { ServicesService } from '../../services/services.service';
 export class UserWelcomeComponent implements OnInit {
   reservations: any[] = [];
 orders: any[] = [];
-// payments: any[] = [];
-// loyaltyPoints: number = 50; // Example value
+ payments: any[] = [];
+ loyaltyPoints: number = 50; // Example value
 
   loading: boolean = true;
   username: string = '';
@@ -58,15 +58,6 @@ orders: any[] = [];
       this.loading = false;
     }, 1000);
   }
-
-  logout(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.clear();
-      this.service.logout();
-      this.router.navigate(['/login']);
-    }
-  }
-  
   
   addReview(): void {
     this.router.navigate(['/add-review']);

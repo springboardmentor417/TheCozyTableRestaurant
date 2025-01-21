@@ -1,0 +1,18 @@
+.admin-dashboard {
+   display: flex;
+   min-height: 100vh; /* Ensures it takes full screen height by default */
+ }
+ 
+ .sidebar {
+   width: 250px;
+   background-color: #f8f9fa;
+   min-height: 100vh; /* Sidebar always spans the full page height */
+ }
+ 
+ .content {
+   flex-grow: 1;
+   padding: 20px;
+   background-color: #ffffff;
+   overflow: auto; /* Ensures content scrolls if it's too large */
+ }
+ 

@@ -24,6 +24,8 @@ import { HomeComponent } from './User profile -authentication/components/home/ho
 
 import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
+import { UserManagementComponent } from './User profile -authentication/components/user-management/user-management.component';
+import { AdmindetailsComponent } from './User profile -authentication/components/admindetails/admindetails.component';
 
 export const routes: Routes = [
  
@@ -44,6 +46,20 @@ export const routes: Routes = [
   { path: 'reply', component: PageFeedbackComponent },
   {path: 'ui,', component:HomepageUIComponent},
   
+ 
+  {
+    path: 'admindetails',
+    component: AdmindetailsComponent, // Admin Layout
+    children: [
+      { path: 'adminWelcome', component: AdminWelcomeComponent },
+      { path: 'UserManagement', component: UserManagementComponent },
+      { path: '', redirectTo: 'adminWelcome', pathMatch: 'full' }, // Default child route
+     { path: '', redirectTo: 'admindetails/adminWelcome', pathMatch: 'full' }, // Redirect root to Admin Dashboard
+     { path: '**', redirectTo: 'admindetails/adminWelcome' }, // Fallback for unmatched routes
+    ],
+  },
+
+  
   {
     path: 'userDetails',
     component: UserDetailsComponent,
@@ -51,7 +67,10 @@ export const routes: Routes = [
       { path: 'updateUser', component: UpdateUserComponent },
       { path: 'deleteUser', component: DeleteUserComponent },
       { path: 'userWelcome', component: UserWelcomeComponent ,canActivate: [authGuard]},
-      { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }, // Default child route
+      { path: '', redirectTo: '/userDetails/userWelcome', pathMatch: 'full' },
+      { path: '**', redirectTo: '/userDetails/userWelcome', pathMatch: 'full' },
+    
+      // Default child route
     ],
   },
   
