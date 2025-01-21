@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
+
 
 @Component({
   selector: 'app-feedback-form',
@@ -44,6 +45,12 @@ export class FeedbackFormComponent {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
+
+  orderedItems = [
+    { name: 'Pizza Margherita', quantity: 1, price: 120 },
+    { name: 'Spaghetti Carbonara', quantity: 2, price: 150 },
+    { name: 'Tiramisu', quantity: 1, price: 180 },
+  ];
 
   isValidEmail(email: string): boolean {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -133,6 +140,7 @@ class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
+  orderedItems: any[];
 
   constructor() {
     this.name = '';
@@ -145,5 +153,6 @@ class USER {
     this.selectedDate = '';
     this.image = null;
     this.imageError = '';
+    this.orderedItems=[];
   }
 }

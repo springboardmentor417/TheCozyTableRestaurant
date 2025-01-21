@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: ServicesService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
@@ -43,16 +44,12 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-
+  
       this.authService.getUsers(username, password).subscribe(
-        (users) => {
-          const user = users.find(
-            (u) => u.username === username && u.password === password
-          );
-
+        (user) => {
           if (user) {
             console.log('Login successful:', user);
-
+  
             // Save user details in localStorage
             const userDetails = {
               id: user.id,
@@ -62,9 +59,12 @@ export class LoginComponent {
               address: user.address,
               role: user.role || 'customer',
             };
-
-            localStorage.setItem('currentUser', JSON.stringify(userDetails));
-            this.isLoggedIn = true;
+  
+            this.authService.setLocalUser(userDetails); // Use service method for local storage
+            this.authService.setLoginStatus(true); // Notify login status
+          
+  
+            this.cdr.detectChanges(); // Trigger change detection
 
             // Navigate based on user role
             if (user.role === 'admin') {
@@ -91,12 +91,15 @@ export class LoginComponent {
       alert('Please fill in the form correctly.');
     }
   }
+  
+  
 
   logout(): void {
     // Clear user details from localStorage
     localStorage.removeItem('currentUser');
-    this.isLoggedIn = false;
+    this.authService.setLoginStatus(false);
     alert('You have been logged out successfully.');
     this.router.navigate(['/Home']);
+    this.cdr.detectChanges;
   }
 }

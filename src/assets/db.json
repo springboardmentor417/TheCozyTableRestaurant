@@ -412,7 +412,6 @@
       "password": "admin@123",
       "role": "admin"
     },
-   
     {
       "id": "68a6",
       "username": "vimal",
@@ -447,14 +446,12 @@
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
       "role": "customer"
-
     }
   ],
   "tables": [
     {
-      "id": 1,
+      "id": "1",
       "seats": 4,
-
       "isReserved": false
     },
     {
@@ -463,15 +460,14 @@
       "time": "20:00",
       "seats": 2,
       "isReserved": true
-
     },
     {
-      "id": 2,
+      "id": "2",
       "seats": 2,
       "reservations": {}
     },
     {
-      "id": 3,
+      "id": "3",
       "seats": 6,
       "reservations": {}
     }
@@ -487,7 +483,6 @@
       "seats": 2
     },
     {
-
       "id": "684a",
       "tableId": "2",
       "customerName": "Mohammed riyaz obaray",
@@ -495,7 +490,8 @@
       "date": "2025-01-10",
       "time": "17:48",
       "seats": 2
-    },{
+    },
+    {
       "id": "4f95",
       "tableId": 1,
       "date": "2025-01-05",
@@ -694,7 +690,7 @@
       "currentPrice": 35,
       "originalPrice": 50,
       "discount": 10,
-      "quantity": 12
+      "quantity": 2
     },
     {
       "id": "9cfc",
@@ -705,7 +701,7 @@
       "currentPrice": 135,
       "originalPrice": 150,
       "discount": 10,
-      "quantity": 6
+      "quantity": 1
     },
     {
       "id": "1bc1",
@@ -716,7 +712,7 @@
       "currentPrice": 135,
       "originalPrice": 150,
       "discount": 10,
-      "quantity": 13
+      "quantity": 1
     },
     {
       "id": "388d",
@@ -727,7 +723,7 @@
       "currentPrice": 150,
       "originalPrice": 135,
       "discount": 10,
-      "quantity": 7
+      "quantity": 1
     }
   ],
   "feedback": [
