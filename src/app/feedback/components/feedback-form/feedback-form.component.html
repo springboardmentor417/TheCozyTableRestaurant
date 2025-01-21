@@ -65,6 +65,26 @@
           </div>
         </div>
 
+        <div class="ordered-items-section">
+          <h3>Your Ordered Items</h3>
+          <table class="ordered-items-table">
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of orderedItems">
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price | currency:'INR':'symbol' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="rateing">
           <div class="stars">
             <label>Rating</label>
