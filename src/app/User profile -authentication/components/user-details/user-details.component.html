@@ -1,13 +1,18 @@
-<div class="home-header">
-  <h1>{{ restaurantName }}</h1>
-  <p>Welcome to our restaurant management system!</p>
-</div><div *ngIf="currentUser">
-    <h2>User Profile</h2>
-    <p><strong>ID:</strong> {{ currentUser.id }}</p>
-    <p><strong>Username:</strong> {{ currentUser.username }}</p>
-    <p><strong>Email:</strong> {{ currentUser.email }}</p>
-    <p><strong>Role:</strong> {{ currentUser.role }}</p>
+<header class="header">
+  <div class="header-content">
+    <h1>Welcome to Manage Yourself With Cozi Restaurant</h1>
   </div>
+</header>
+<div class="container d-flex">
+  <!-- Vertical Navigation Bar -->
+  <nav class="nav flex-column bg-light p-3" style="width: 200px; min-height: 100vh; border-right: 1px solid #ddd;">
+    <a class="nav-link text-dark" routerLink="userWelcome" routerLinkActive="active">User Welcome</a>
+    <a class="nav-link text-dark" routerLink="updateUser" routerLinkActive="active">Update User</a>
+    <a class="nav-link text-dark" routerLink="deleteUser" routerLinkActive="active">Delete User</a>
+  </nav>
 
-
-    
+  <!-- Dynamic Content Area -->
+  <div class="content p-3 flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

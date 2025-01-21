@@ -11,10 +11,10 @@ body {
   background: -webkit-linear-gradient(
     right,
     #56d8e4 20%,
-    /* Start with light blue */ #9f01ea 40%,
-    /* Transition to purple */ #56d8e4 60%,
-    /* Light blue in the middle */ #9f01ea 80%,
-    /* Transition back to purple */ #56d8e4 100% /* End with light blue */
+    #9f01ea 40%,
+    #56d8e4 60%,
+    #9f01ea 80%,
+    #56d8e4 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -27,11 +27,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  column-gap: 5px;
+  column-gap: 30px;
+  row-gap: 50px;
   justify-items: center;
-  gap: 50px;
-  align-items: center;
-  margin-top: 30px;
+  align-items: start;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .left-column,
@@ -43,25 +46,39 @@ body {
 
 mat-card {
   background-color: #ffffff;
-  padding: 10px;
+  padding: 20px;
+  margin: 15px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 650px;
+  max-width: 400px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-mat-card h2 {
-  color: #736f6f;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
 canvas {
   max-width: 100%;
-  height: 300px;
-  width: auto;
+  width: 100%;
+  height: auto;
   border-radius: 5px;
+}
+
+.reply-page {
+  width: 100%;
+  margin-top: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  mat-card {
+    max-width: 90%;
+    margin: 10px auto;
+  }
 }

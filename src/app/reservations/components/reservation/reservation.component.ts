@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReservationService } from '../../services/reservation.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 interface TimeSlot {
   time: string;
   isReserved: boolean;
@@ -15,28 +16,29 @@ interface Table {
   };
   timeSlots?: TimeSlot[];
 }
+
 @Component({
   selector: 'app-reservation',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css']
+  styleUrls: ['./reservation.component.css'],
 })
 export class ReservationComponent {
   tables: Table[] = [
     {
       id: 1,
-      seats: 4,
+      seats: 2,
       reservations: {},
     },
     {
       id: 2,
-      seats: 6,
+      seats: 4,
       reservations: {},
     },
     {
       id: 3,
-      seats: 2,
+      seats: 6,
       reservations: {},
     },
   ];
@@ -89,17 +91,19 @@ export class ReservationComponent {
 
     if (!this.isDateValid) {
       alert('Invalid date selected. Please choose a date within the next 7 days.');
-      this.selectedDate = '';
-      this.selectedTable = null;
-      this.timeSlots = [];
+      this.resetSelection();
     } else {
-      this.selectedTable = null; // Reset selected table
-      this.timeSlots = []; // Reset time slots
+      this.resetSelection();
     }
   }
 
   isValidDate(date: string): boolean {
     return date >= this.minDate && date <= this.maxDate;
+  }
+
+  resetSelection() {
+    this.selectedTable = null;
+    this.timeSlots = [];
   }
 
   selectTable(table: Table) {
@@ -143,16 +147,24 @@ export class ReservationComponent {
     const date = this.selectedDate;
     const time = this.reservationData.time;
 
+    // Mark the time slot as reserved locally
     if (!table.reservations[date]) {
       table.reservations[date] = {};
     }
     table.reservations[date][time] = true;
 
-    this.reservationService.addReservation(this.reservationData).subscribe(() => {
-      alert('Reservation confirmed!');
-      this.showReservationForm = false;
-      this.loadTableAvailability(); // Refresh availability
-    });
+    // Persist the reservation to the backend
+    this.reservationService.addReservation(this.reservationData).subscribe(
+      () => {
+        alert('Reservation confirmed!');
+        this.showReservationForm = false;
+        this.loadTableAvailability(); // Refresh time slots
+      },
+      (error) => {
+        console.error('Error saving reservation:', error);
+        alert('Failed to save reservation. Please try again later.');
+      }
+    );
   }
 
   generateTimeSlots() {
