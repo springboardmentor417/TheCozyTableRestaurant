@@ -26,14 +26,14 @@ import { MenuListComponent } from './menu-management/components/menu-list/menu-l
 import { MenuCategoryComponent } from './menu-management/menu-category/menu-category.component';
 import { MenuItemNavComponent } from './menu-management/menu_nav/menu-item-nav.component';
 
-import { HomeComponent } from './User profile -authentication/components/home/home.component';
+//import { HomeComponent } from './User profile -authentication/components/home/home.component';
 import { RedirectPageComponent } from './feedback/components/redirect-page/redirect-page.component';
 import { AdminNavComponent } from './feedback/components/admin-nav/admin-nav.component';
 import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-page.component';
 
 import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
-
+import { authGuard } from './auth.guard';
 export const routes: Routes = [
  
   {path: 'aboutus', component:AboutusComponent},
