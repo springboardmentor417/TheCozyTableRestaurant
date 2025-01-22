@@ -22,7 +22,10 @@ export class PageFeedbackComponent implements OnInit {
     this.http
       .get<feedback[]>('http://localhost:3000/feedback')
       .subscribe((res) => {
-        this.userList = res;
+        this.userList = res.map((item) => ({
+          ...item,
+          showReplyForm: false,
+        }));
       });
   }
 }
@@ -35,6 +38,8 @@ interface feedback {
   rating: number;
   foodQuality: number;
   valueForMoney: number;
+  adminReply: any;
+  showReplyForm: boolean;
   selectedDate: string;
   image: string | null;
   imageError: string;

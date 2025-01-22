@@ -3,19 +3,9 @@
     {
       "id": "ee94",
       "username": "Mohammed",
-      "password": "cr7@75545",
+      "phone": "9421025825",
+      "password": "md@5545",
       "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave, Khurshid ",
-      "role": "customer"
-    },
-    {
-      "id": "dfc3",
-      "username": "Saurabh",
-      "password": "cr7@75545",
-      "email": "mohammedobara@gmail.com",
-      "phone": "7304373810",
-      "address": "Adil tower b.p marine academy m.g road",
       "role": "customer"
     },
     {
@@ -30,23 +20,7 @@
       "password": "admin@123",
       "role": "admin"
     },
-    {
-      "id": "cdf5",
-      "username": "Obaray",
-      "password": "md@5545",
-      "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave, Khurshid ",
-      "role": "customer"
-    },
-    {
-      "id": "7b90",
-      "username": "vimal",
-      "password": "582001@vimal",
-      "email": "vimal@teknoturf.com",
-      "phone": "7871055597",
-      "address": "15/11,keesahan kuzhy "
-    },
+   
     {
       "id": "68a6",
       "username": "vimal",
@@ -54,14 +28,41 @@
       "email": "vimal@teknoturf.com",
       "phone": "7871055597",
       "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
+    },
+    {
+      "id": "1ff4",
+      "username": "Ronaldo",
+      "password": "cr7@75545",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
+      "role": "customer"
+    },
+    {
+      "id": "6ecd",
+      "username": "Paulo",
+      "password": "juve@123",
+      "email": "mohammedubare7@gmail.com",
+      "phone": "7304373810",
+      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
+      "role": "customer"
+    },
+    {
+      "id": "4321",
+      "username": "Liza",
+      "password": "khan@123",
+      "email": "mohammedobaray@gmail.com",
+      "phone": "7304373810",
+      "address": "Adil tower b.p marine academy m.g road",
+      "role": "customer"
+
     }
   ],
   "tables": [
     {
-      "id": "1",
-      "date": "2024-12-20",
-      "time": "19:00",
+      "id": 1,
       "seats": 4,
+
       "isReserved": false
     },
     {
@@ -69,21 +70,18 @@
       "date": "2024-12-20",
       "time": "20:00",
       "seats": 2,
-      "isReserved": false
+      "isReserved": true
+
     },
     {
-      "id": "3",
-      "date": "2024-12-20",
-      "time": "20:00",
+      "id": 2,
       "seats": 2,
-      "isReserved": false
+      "reservations": {}
     },
     {
-      "id": "4",
-      "date": "2024-12-20",
-      "time": "20:00",
-      "seats": 2,
-      "isReserved": false
+      "id": 3,
+      "seats": 6,
+      "reservations": {}
     }
   ],
   "reservations": [
@@ -95,18 +93,186 @@
       "date": "2025-01-03",
       "time": "12:30",
       "seats": 2
+    },
+    {
+
+      "id": "684a",
+      "tableId": "2",
+      "customerName": "Mohammed riyaz obaray",
+      "contact": "7304373810",
+      "date": "2025-01-10",
+      "time": "17:48",
+      "seats": 2
+    },{
+      "id": "4f95",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "10:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 2
+    },
+    {
+      "id": "46d2",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "13:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 2
+    },
+    {
+      "id": "3095",
+      "tableId": 2,
+      "date": "2025-01-05",
+      "time": "14:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "54cd",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "a467",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "14:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 5
+    },
+    {
+      "id": "3786",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "10:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "e1c9",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "10:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "656b",
+      "date": "2025-01-05",
+      "time": {
+        "time": "11:00",
+        "isReserved": false
+      },
+      "tableId": 1,
+      "customerName": "",
+      "contact": "",
+      "seats": 1
+    },
+    {
+      "id": "2d77",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": {
+        "time": "11:00",
+        "isReserved": false
+      },
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "4a1d",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "13:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "fdd3",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "18f3",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "14:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "4e93",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "11:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 2
+    },
+    {
+      "id": "94db",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "d049",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "14f5",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "6e0f",
+      "tableId": 1,
+      "date": "2025-01-06",
+      "time": "12:00",
+      "customerName": "sakshi",
+      "contact": "1234567890",
+      "seats": 3
+    },
+    {
+      "id": "9b76",
+      "tableId": 1,
+      "date": "2025-01-05",
+      "time": "13:00",
+      "customerName": "manjula",
+      "contact": "1234567890",
+      "seats": 3
     }
   ],
   "menu-items": [
-    {
-      "id": "1bdd",
-      "name": "Angoori Gulab Jamun",
-      "description": "Serves 1 | A bliss to gobble up these small spongy pearl shaped slightly warm gulab jamuns(12 Nos) . A perfect mithai to conclude your meal.\nKcal- 466\n",
-      "price": 170,
-      "category": "Rice",
-      "imageUrl": "https://i.pinimg.com/originals/41/cb/d0/41cbd0fa79954489295f5faa285ff163.jpg",
-      "availability": false
-    },
     {
       "id": "f915",
       "name": "Mutt Rogan Josh",
@@ -114,6 +280,15 @@
       "price": 356,
       "category": "Main Course",
       "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+      "availability": true
+    },
+    {
+      "id": "2d54",
+      "name": "Biryani",
+      "description": "Tandoori Roasted Biryani With Boneless strips",
+      "price": 250,
+      "category": "Main Course",
+      "imageUrl": "\"https://www.shutterstock.com/shutterstock/photos/2080100593/display_1500/stock-photo-chicken-lucknowi-biryani-full-tandoor-2080100593.jpg\"",
       "availability": true
     }
   ],
@@ -127,7 +302,7 @@
       "currentPrice": 35,
       "originalPrice": 50,
       "discount": 10,
-      "quantity": 4
+      "quantity": 3
     },
     {
       "id": "9cfc",
@@ -138,7 +313,7 @@
       "currentPrice": 135,
       "originalPrice": 150,
       "discount": 10,
-      "quantity": 5
+      "quantity": 1
     },
     {
       "id": "1bc1",
@@ -160,7 +335,18 @@
       "currentPrice": 150,
       "originalPrice": 135,
       "discount": 10,
-      "quantity": 1
+      "quantity": 13
+    },
+    {
+      "id": "388d",
+      "foodID": 3,
+      "img": "../../assets/OIP (2).jpg",
+      "name": "samosa",
+      "type": "starter",
+      "currentPrice": 150,
+      "originalPrice": 135,
+      "discount": 10,
+      "quantity": 7
     }
   ],
   "feedback": [
@@ -198,6 +384,19 @@
       "foodQuality": 2,
       "valueForMoney": 2.5,
       "selectedDate": "03/01/2025",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "4d13",
+      "name": "Mohammed riyaz obaray",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "nice food ",
+      "rating": 2,
+      "foodQuality": 3,
+      "valueForMoney": 2.5,
+      "selectedDate": "04/01/2025",
       "image": null,
       "imageError": ""
     }

@@ -1,78 +1,105 @@
-.feedback-container {
-  display: flex; /* Enable flex layout */
-  flex-direction: column-reverse; /* Reverse the order of children */
-  /* Add spacing between items */
+.review-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #f5efff, #e0e7ff);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
-/* Card style for each feedback */
-.container {
-  background-color: #ffffff;
-  width: 500px; /* White background */
-  border: 1px solid #e0e0e0; /* Light gray border */
-  border-radius: 12px; /* Rounded corners */
-  padding: 20px; /* Padding for content */
-  margin: 16px; /* Space between cards and center alignment */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  max-width: 900px; /* Limit the card width */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+.review-card {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Hover effect for card */
-.container:hover {
-  transform: scale(1.03); /* Slight zoom-in */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+.review-card:last-child {
+  border-bottom: none;
 }
 
-/* Name text styling */
-.text {
-  font-size: 20px; /* Larger font size */
-  font-weight: 600; /* Semi-bold */
-  color: #2c3e50; /* Dark blue-gray */
-  margin-bottom: 8px; /* Space below */
+.review-card p {
+  margin: 5px 0;
 }
 
-/* Date text styling */
-.container p:nth-child(2) {
-  font-size: 14px; /* Smaller font size for date */
-  color: #95a5a6; /* Light gray color */
-  margin-bottom: 12px; /* Space below */
-  font-style: italic; /* Italicized date */
+.star {
+  font-size: 20px;
+  color: #ddd;
+  margin-right: 2px;
 }
 
-/* Feedback text styling */
-.container p:nth-child(3) {
-  font-size: 16px; /* Standard readable size */
-  color: #34495e; /* Darker gray */
-  line-height: 1.6; /* Line spacing for readability */
-  padding-left: 30px;
+.star.filled {
+  color: #f39c12;
+}
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
 }
 
-/* Center alignment */
-.container {
-  text-align: left;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.review-head {
+  display: flex;
+  flex-basis: auto;
 }
 
-/* Remove scrollbar and enhance responsiveness */
-div::-webkit-scrollbar {
-  display: none; /* Hides scrollbar in Chrome, Edge, Safari */
+.review-head p {
+  align-self: center;
+  padding-left: 10px;
 }
 
-div {
-  -ms-overflow-style: none; /* Hides scrollbar in IE and Edge */
-  scrollbar-width: none; /* Hides scrollbar in Firefox */
+.review-date {
+  padding-left: 50px;
+}
+.review-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .container {
-    padding: 16px; /* Reduce padding on smaller screens */
-    margin: 12px auto; /* Adjust margin for smaller viewports */
-  }
+.button {
+  background: linear-gradient(90deg, #56d8e4, #9f01ea);
+  border: none;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-  .text {
-    font-size: 18px; /* Adjust font size for smaller devices */
-  }
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 250%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-45deg);
+  transition: left 0.4s ease;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
