@@ -43,7 +43,7 @@ h2 {
   font-size: 36px;
   font-weight: 600;
   background: -webkit-linear-gradient(135deg, #56d8e4, #9f01ea);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -124,10 +124,6 @@ textarea:focus {
 .mat-slider {
   width: 100%;
   margin: 10px 0;
-}
-
-.ordered-items-section {
-  margin-top: 20px;
 }
 
 .ordered-items-table {
