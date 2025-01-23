@@ -7,6 +7,7 @@ import { Observable, switchMap } from 'rxjs';
 })
 export class CartService {
   private apiUrl = 'http://localhost:3000/cart';
+  private ordersUrl = 'http://localhost:3000/orders'; 
 
   constructor(private http: HttpClient) {}
 
@@ -41,5 +42,12 @@ export class CartService {
   removeCartItem(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
- 
+  
+//   saveOrder(order: any): Observable<any> {
+//     return this.http.post(this.ordersUrl, order);
+//   }
+// }
+saveOrder(order: any): Observable<any> {
+  return this.http.post(this.ordersUrl, order);
+}
 }

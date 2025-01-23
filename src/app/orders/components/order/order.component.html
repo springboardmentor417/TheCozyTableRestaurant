@@ -16,17 +16,15 @@
       <h3><strong>Payment Method</strong></h3>
       <div class="content">
         <p>{{ paymentMethod.cash }}</p>
-        <p>{{ paymentMethod.credit }}</p>
-        <p>{{ paymentMethod.Onlinepayments}}</p>
         
        
     <!-- Order Summary Section -->
     <div class="section">
       <h3><strong>Order Summary</strong></h3>
       <div class="content">
-        <!-- <div *ngFor="let item of getCartDetails" class="cart-item">
+        <div *ngFor="let item of getCartDetails" class="cart-item">
           <p>{{ item.name }} (x{{ item.quantity }}): ₹{{ item.quantity * item.currentPrice }}</p>
-        </div> -->
+        </div>
         <!-- <p>Cart Amount: ₹{{ calculateTotal() }}</p> -->
         <p>Delivery Fee: ₹{{ deliveryFee }}</p>
         <p>Promotion Applied: -₹{{promotionApplied }}</p>
@@ -41,5 +39,6 @@
       <button class="place-order-btn" (click)="placeOrder()">Place Your Order</button>
     </div>
   </div>
+
   
 

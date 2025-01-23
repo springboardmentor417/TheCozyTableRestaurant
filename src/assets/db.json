@@ -20,7 +20,6 @@
       "password": "admin@123",
       "role": "admin"
     },
-   
     {
       "id": "68a6",
       "username": "vimal",
@@ -55,14 +54,21 @@
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
       "role": "customer"
-
+    },
+    {
+      "id": "bba2",
+      "username": "Aparna ",
+      "password": "9342163318@",
+      "email": "aparnadevi0704@gmail.com",
+      "phone": "9342163318",
+      "address": "1/11 chennai",
+      "role": "customer"
     }
   ],
   "tables": [
     {
-      "id": 1,
+      "id": "1",
       "seats": 4,
-
       "isReserved": false
     },
     {
@@ -71,15 +77,14 @@
       "time": "20:00",
       "seats": 2,
       "isReserved": true
-
     },
     {
-      "id": 2,
+      "id": "2",
       "seats": 2,
       "reservations": {}
     },
     {
-      "id": 3,
+      "id": "3",
       "seats": 6,
       "reservations": {}
     }
@@ -95,7 +100,6 @@
       "seats": 2
     },
     {
-
       "id": "684a",
       "tableId": "2",
       "customerName": "Mohammed riyaz obaray",
@@ -103,7 +107,8 @@
       "date": "2025-01-10",
       "time": "17:48",
       "seats": 2
-    },{
+    },
+    {
       "id": "4f95",
       "tableId": 1,
       "date": "2025-01-05",
@@ -294,7 +299,7 @@
   ],
   "cart": [
     {
-      "id": "58c9",
+      "id": "68d6",
       "foodID": 1,
       "img": "../../assets/OIP (1).jpg",
       "name": "samosa",
@@ -302,13 +307,13 @@
       "currentPrice": 35,
       "originalPrice": 50,
       "discount": 10,
-      "quantity": 3
+      "quantity": 1
     },
     {
-      "id": "9cfc",
+      "id": "de71",
       "foodID": 4,
       "img": "../../assets/OIP (3).jpg",
-      "name": "samosa",
+      "name": "briyani",
       "type": "starter",
       "currentPrice": 135,
       "originalPrice": 150,
@@ -316,37 +321,167 @@
       "quantity": 1
     },
     {
-      "id": "1bc1",
-      "foodID": 2,
-      "img": "../../assets/OIP.jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 135,
-      "originalPrice": 150,
-      "discount": 10,
-      "quantity": 5
-    },
-    {
-      "id": "d936",
+      "id": "94a8",
       "foodID": 3,
       "img": "../../assets/OIP (2).jpg",
-      "name": "samosa",
+      "name": "pav baaji",
       "type": "starter",
       "currentPrice": 150,
       "originalPrice": 135,
       "discount": 10,
-      "quantity": 13
+      "quantity": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": "da01",
+      "items": [
+        {
+          "id": "68d6",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "de71",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "94a8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 380,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Thu Jan 23 2025"
     },
     {
-      "id": "388d",
-      "foodID": 3,
-      "img": "../../assets/OIP (2).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 150,
-      "originalPrice": 135,
-      "discount": 10,
-      "quantity": 7
+      "id": "9cfc",
+      "items": [
+        {
+          "id": "68d6",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "de71",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "94a8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 2
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 530,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Thu Jan 23 2025"
+    },
+    {
+      "id": "fdc7",
+      "items": [
+        {
+          "id": "68d6",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "de71",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "94a8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 2
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 530,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Thu Jan 23 2025"
     }
   ],
   "feedback": [
