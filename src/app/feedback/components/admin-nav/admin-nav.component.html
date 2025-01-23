@@ -1,24 +1,6 @@
-<div>
-  <div class="container">
-    <img
-      src="/TheCozyTableRestaurant/src/150e15ca-6b32-42cc-b558-2e0778605358.svg"
-      alt="img"
-    />
-    <p class="text">Cozy Table</p>
-    <nav class="header-menu">
-      <div class="header-menu-item selected">
-        Menu Item 1
-        <div class="indicator"></div>
-      </div>
-      <div class="header-menu-item">Menu Item 2</div>
-      <div class="header-menu-item">Menu Item 3</div>
-    </nav>
-    <button class="button">Help</button>
-  </div>
-</div>
 <mat-sidenav-container class="tp-container" style="height: 100vh">
   <!-- Sidenav -->
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav mode="side" opened class="rounded-sidenav">
     <mat-nav-list>
       <br /><br /><br />
       <a mat-list-item routerLink="/" routerLinkActive="active-link">Home</a>
@@ -33,7 +15,7 @@
       <a
         mat-list-item
         routerLink="/admin/adminreply"
-        routerLinkActive="active-link"
+        routerLinkActive="active-link"     
         >Reply Feedback</a
       >
     </mat-nav-list>

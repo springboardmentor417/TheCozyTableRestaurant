@@ -36,6 +36,7 @@ export class FeedbackFormComponent {
   valueForMoney: number = 0;
   selectedDate: string = '';
   imageError: string = '';
+  orderedItems: OrderedItem[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -45,12 +46,6 @@ export class FeedbackFormComponent {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   }
-
-  orderedItems = [
-    { name: 'Pizza Margherita', quantity: 1, price: 120 },
-    { name: 'Spaghetti Carbonara', quantity: 2, price: 150 },
-    { name: 'Tiramisu', quantity: 1, price: 180 },
-  ];
 
   isValidEmail(email: string): boolean {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -81,6 +76,27 @@ export class FeedbackFormComponent {
   validatePhoneNumber(phoneNumber: any) {
     const phoneRegex = /^[6-9]\d{9}$/;
     return phoneRegex.test(phoneNumber);
+  }
+
+  ngOnInit(): void {
+    this.fetchOrderedItems();
+  }
+  
+ 
+
+  fetchOrderedItems(): void {
+    this.http.get<any[]>('http://localhost:3000/cart').subscribe({
+      next: (data) => {
+        this.orderedItems = data.map((item) => ({
+          name: item.name,
+          quantity: item.quantity,
+          price: item.currentPrice,
+        }));
+      },
+      error: (error) => {
+        console.error('Error fetching ordered items:', error);
+      },
+    });
   }
 
   onSaveUser(feedbackForm: any) {
@@ -129,6 +145,13 @@ export class FeedbackFormComponent {
   }
 }
 
+interface OrderedItem {
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+
 class USER {
   name: string;
   email: string;
@@ -141,6 +164,7 @@ class USER {
   image: string | null;
   imageError: string;
   orderedItems: any[];
+
 
   constructor() {
     this.name = '';

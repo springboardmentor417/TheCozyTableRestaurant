@@ -152,7 +152,9 @@
 }
 mat-sidenav {
   width: 250px; /* Adjust width as needed */
-  background-color: rgb(209, 241, 231);
+  /* background-color: rgb(213, 185, 224);
+  background: linear-gradient(90deg, #56d8e4, #9f01ea); */
+  background: linear-gradient(135deg, #f5efff, #9cadde);
 }
 /* Pressed */
 .button:hover:active {
@@ -167,3 +169,8 @@ mat-sidenav {
   font-weight: bold;
   color: #007bff; /* Highlight active link */
 }
+.rounded-sidenav {
+  border-radius: 15px; /* Adjust the value to control the curve */
+  overflow: hidden; /* Ensures child elements respect the border-radius */
+}
+
