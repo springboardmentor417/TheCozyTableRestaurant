@@ -21,18 +21,16 @@ import { AckPageComponent } from './feedback/components/feedback-form/ack-page/a
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
 
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
-
 import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
 import { UserManagementComponent } from './User profile -authentication/components/user-management/user-management.component';
 import { AdmindetailsComponent } from './User profile -authentication/components/admindetails/admindetails.component';
 
 export const routes: Routes = [
- 
-  {path: 'aboutus', component:AboutusComponent},
+  { path: 'aboutus', component: AboutusComponent },
   { path: 'login', component: LoginComponent },
   { path: 'userDetails', component: UserDetailsComponent },
-  { path: 'Register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'adminWelcome', component: AdminWelcomeComponent },
   { path: 'reservation', component: ReservationComponent, canActivate: [authGuard] },
   { path: 'add-menu-item', component: AddMenuItemComponent },
@@ -44,40 +42,30 @@ export const routes: Routes = [
   { path: 'admin', component: AdminchartComponent },
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
-  {path: 'ui,', component:HomepageUIComponent},
+  { path: 'ui', component: HomepageUIComponent }, // Fixed 'ui,' issue
   
- 
   {
     path: 'admindetails',
-    component: AdmindetailsComponent, // Admin Layout
+    component: AdmindetailsComponent, canActivate: [authGuard], // Admin Layout
     children: [
+      {path: 'UserManagement', component: UserManagementComponent},
       { path: 'adminWelcome', component: AdminWelcomeComponent },
-      { path: 'UserManagement', component: UserManagementComponent },
+      { path: 'userManagement', component: UserManagementComponent },
       { path: '', redirectTo: 'adminWelcome', pathMatch: 'full' }, // Default child route
-     { path: '', redirectTo: 'admindetails/adminWelcome', pathMatch: 'full' }, // Redirect root to Admin Dashboard
-     { path: '**', redirectTo: 'admindetails/adminWelcome' }, // Fallback for unmatched routes
     ],
   },
-
-  
   {
     path: 'userDetails',
-    component: UserDetailsComponent,
+    component: UserDetailsComponent, canActivate: [authGuard],
     children: [
       { path: 'updateUser', component: UpdateUserComponent },
       { path: 'deleteUser', component: DeleteUserComponent },
-      { path: 'userWelcome', component: UserWelcomeComponent ,canActivate: [authGuard]},
-      { path: '', redirectTo: '/userDetails/userWelcome', pathMatch: 'full' },
-      { path: '**', redirectTo: '/userDetails/userWelcome', pathMatch: 'full' },
-    
-      // Default child route
+      { path: 'userWelcome', component: UserWelcomeComponent },
+      { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }, // Default child route
     ],
   },
-  
-  { path: '', component: HomeComponent },  // Set HomeComponent as default route
-  
-  //Catch-all route, redirects to Home if no match
-   { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '', component: HomeComponent }, // Default route
+  { path: '**', redirectTo: '', pathMatch: 'full' }, // Catch-all fallback
 ];
 
 @NgModule({

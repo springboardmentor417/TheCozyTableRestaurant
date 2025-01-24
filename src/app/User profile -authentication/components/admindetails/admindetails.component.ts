@@ -14,10 +14,12 @@ export class AdmindetailsComponent {
 
   constructor(private service: ServicesService, private router: Router) {}
 
-logout() {
-  this.service.clearLocalUser();
-  if (confirm('Are you sure you want to log out?')) {
-  this.router.navigate(['/login']);
-  }
-}
-}
+  logout() {
+    if (confirm('Are you sure you want to log out?')) {
+      this.service.logout();  // Clear local storage
+      this.router.navigate(['/login']).then(() => {
+        window.location.reload();  // Force a reload to clear any cached data
+      });
+    }
+
+  }}

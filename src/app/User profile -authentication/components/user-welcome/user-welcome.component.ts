@@ -62,4 +62,14 @@ orders: any[] = [];
   addReview(): void {
     this.router.navigate(['/add-review']);
   }
+  // logout(): void {
+  //   if (isPlatformBrowser(this.platformId)) {
+  //     localStorage.removeItem('currentUser');  // Remove specific item instead of clearing all
+  //     this.service.logout();
+  //     this.router.navigate(['/login']).then(() => {
+  //       window.location.reload();  // Ensure navigation and state reset
+  //     });
+  //   }
+  // }
+  
 }

@@ -1,6 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, of, throwError } from 'rxjs';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class ServicesService {
 
   private apiUrl = 'http://localhost:3000/users'; // Base URL for users API
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router:Router) {
     const currentUser = this.getLocalUser();
     this.loginStatusSubject.next(!!currentUser);
   }
@@ -30,17 +31,21 @@ export class ServicesService {
   logout(): void {
     this.clearLocalUser();
     this.setLoginStatus(false);
+    this.router. navigate(['/login']).then(() => {
+      window.location.reload(); 
+    });
   }
+  
 
   // ----------- User Management ----------- //
   getUsers(username?: string, password?: string): Observable<any[]> {
-    if (username && password) {
-      return this.http.get<any[]>(this.apiUrl).pipe(
-        map((users) =>
-          users.filter((user) => user.username === username && user.password === password)
-        )
-      );
-    }
+    // if (username && password) {
+    //   return this.http.get<any[]>(this.apiUrl).pipe(
+    //     map((users) =>
+    //       users.filter((user) => user.username === username && user.password === password)
+    //     )
+    //   );
+    // }
     // If no username and password are provided, return all users
     return this.http.get<any[]>(this.apiUrl);
   }

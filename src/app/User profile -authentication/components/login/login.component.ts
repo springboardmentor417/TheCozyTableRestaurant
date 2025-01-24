@@ -41,7 +41,6 @@ export class LoginComponent {
     this.isLoggedIn = !!currentUser;
   }
 
-
   onSubmit(): void {
     const { username, password } = this.loginForm.value;
   
@@ -62,20 +61,22 @@ export class LoginComponent {
           this.isLoggedIn = true;
   
           if (user.role === 'admin') this.router.navigate(['/admindetails/adminWelcome']);
-          else this.router.navigate(['/userDetails']);
+          else this.router.navigate(['/userDetails/userWelcome']);
+          
+          this.authService.setLoginStatus(true); // Notify login status
+          this.cdr.detectChanges(); // Trigger change detection
         } else alert('Invalid username or password.');
       },
       error: (err) => console.error('Error fetching users:', err),
     });
   }
   
-
   logout(): void {
     // Clear user details from localStorage
     localStorage.removeItem('currentUser');
     this.authService.setLoginStatus(false);
     alert('You have been logged out successfully.');
     this.router.navigate(['/Home']);
-    this.cdr.detectChanges;
+    this.cdr.detectChanges();
   }
 }
