@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
+
 
 @Component({
   selector: 'app-feedback-form',
@@ -35,6 +36,7 @@ export class FeedbackFormComponent {
   valueForMoney: number = 0;
   selectedDate: string = '';
   imageError: string = '';
+  orderedItems: OrderedItem[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -74,6 +76,27 @@ export class FeedbackFormComponent {
   validatePhoneNumber(phoneNumber: any) {
     const phoneRegex = /^[6-9]\d{9}$/;
     return phoneRegex.test(phoneNumber);
+  }
+
+  ngOnInit(): void {
+    this.fetchOrderedItems();
+  }
+  
+ 
+
+  fetchOrderedItems(): void {
+    this.http.get<any[]>('http://localhost:3000/cart').subscribe({
+      next: (data) => {
+        this.orderedItems = data.map((item) => ({
+          name: item.name,
+          quantity: item.quantity,
+          price: item.currentPrice,
+        }));
+      },
+      error: (error) => {
+        console.error('Error fetching ordered items:', error);
+      },
+    });
   }
 
   onSaveUser(feedbackForm: any) {
@@ -122,6 +145,13 @@ export class FeedbackFormComponent {
   }
 }
 
+interface OrderedItem {
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+
 class USER {
   name: string;
   email: string;
@@ -133,6 +163,8 @@ class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
+  orderedItems: any[];
+
 
   constructor() {
     this.name = '';
@@ -145,5 +177,6 @@ class USER {
     this.selectedDate = '';
     this.image = null;
     this.imageError = '';
+    this.orderedItems=[];
   }
 }

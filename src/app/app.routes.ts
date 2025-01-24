@@ -22,11 +22,11 @@ import { AdminchartComponent } from './feedback/components/adminchart/adminchart
 import { AppComponent } from './app.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
+import { HomeComponent } from './User profile -authentication/components/home/home.component';
+
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 import { MenuCategoryComponent } from './menu-management/menu-category/menu-category.component';
 import { MenuItemNavComponent } from './menu-management/menu_nav/menu-item-nav.component';
-
-//import { HomeComponent } from './User profile -authentication/components/home/home.component';
 import { RedirectPageComponent } from './feedback/components/redirect-page/redirect-page.component';
 import { AdminNavComponent } from './feedback/components/admin-nav/admin-nav.component';
 import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-page.component';
@@ -35,12 +35,12 @@ import { HomepageUIComponent } from './User profile -authentication/components/h
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
 import { authGuard } from './auth.guard';
 export const routes: Routes = [
- 
-  {path: 'aboutus', component:AboutusComponent},
+  { path: 'aboutus', component: AboutusComponent },
   { path: 'login', component: LoginComponent },
   { path: 'userDetails', component: UserDetailsComponent },
   { path: 'Register', component: RegisterComponent },
   { path: 'adminWelcome', component: AdminWelcomeComponent },
+
   { path: 'reservation', component: ReservationComponent, canActivate: [authGuard] },
    { path: 'add-menu-item', component: AddMenuItemComponent },
     {path: 'app-menu-list',component:MenuListComponent},
@@ -63,28 +63,52 @@ export const routes: Routes = [
       ],      
      },
   
+
   { path: 'homeCart', component: HomeCartComponent, canActivate: [authGuard] },
   { path: 'header', component: HeaderComponent },
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'order', component: OrderComponent },
-  { path: 'feedback', component: FeedbackFormComponent, canActivate: [authGuard] },
-  
+
+  {
+    path: 'feedback',
+    component: FeedbackFormComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'admin', component: AdminchartComponent },
+
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
-  {path: 'ui,', component:HomepageUIComponent},
-  
-  {path: 'redirect', component: RedirectPageComponent },
-  {path: 'admin',
-  component: AdminNavComponent,
-  children:[
-    { path: 'adminchart', component: AdminchartComponent },
-    {path:'adminreply',component: ReplyPageComponent },
+
+  { path: 'ui,', component: HomepageUIComponent },
+
+  { path: 'redirect', component: RedirectPageComponent },
+  {
+    path: 'admin',
+    component: AdminNavComponent,
+    children: [
+      { path: 'adminchart', component: AdminchartComponent },
+      { path: 'adminreply', component: ReplyPageComponent },
     ],
   },
+
   {
-    path: 'reply',
-    component: PageFeedbackComponent,
+
+    path: 'userDetails',
+    component: UserDetailsComponent,
+    children: [
+      { path: 'updateUser', component: UpdateUserComponent },
+      { path: 'deleteUser', component: DeleteUserComponent },
+      {
+        path: 'userWelcome',
+        component: UserWelcomeComponent,
+        canActivate: [authGuard],
+      },
+      { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }, // Default child route
+    ],
   },
+
+  { path: '', component: HomeComponent }, // Set HomeComponent as default route
+
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

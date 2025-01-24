@@ -2,7 +2,7 @@
   background: #f5efff;
 } */
 
-.page-title {
+/* .page-title {
   line-height: 1.2;
   text-align: center;
   font-size: 41px;
@@ -21,7 +21,7 @@
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
   padding-top: 20px;
-}
+} */
 
 .chart-container {
   display: grid;
