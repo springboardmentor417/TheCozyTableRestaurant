@@ -1,3 +1,5 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
 .page {
   position: absolute;
   top: -1413px;
@@ -46,7 +48,9 @@
   left: 328px;
   width: 300px;
   height: 52px;
-  display: flex;
+}
+.tp-container {
+  /* display: flex; */
   align-items: center;
   font-family: Inter; /* Body */
   font-size: 14px;
@@ -110,6 +114,8 @@
   line-height: 22px;
   font-weight: 400;
   color: #565e6cff; /* neutral-600 */
+  flex-direction: column;
+  height: 100%;
 }
 
 /* Button */
@@ -144,6 +150,10 @@
   color: #ffffffff; /* white */
   background: #4850e4ff; /* primary-550 */
 }
+mat-sidenav {
+  width: 250px; /* Adjust width as needed */
+  background-color: rgb(209, 241, 231);
+}
 /* Pressed */
 .button:hover:active {
   color: #ffffffff; /* white */
@@ -152,4 +162,8 @@
 /* Disabled */
 .button:disabled {
   opacity: 0.4;
+}
+.active-link {
+  font-weight: bold;
+  color: #007bff; /* Highlight active link */
 }

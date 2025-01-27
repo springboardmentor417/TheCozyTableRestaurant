@@ -1,6 +1,6 @@
-body {
+/* body {
   background: #f5efff;
-}
+} */
 
 .page-title {
   line-height: 1.2;
@@ -19,8 +19,8 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 20px;
   margin-bottom: 20px;
+  padding-top: 20px;
 }
 
 .chart-container {
@@ -35,6 +35,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
+  /* background: #f5efff; */
 }
 
 .left-column,
@@ -44,7 +45,7 @@ body {
   text-align: center;
 }
 
-mat-card {
+.card {
   background-color: #ffffff;
   padding: 20px;
   margin: 15px 0;
@@ -55,6 +56,8 @@ mat-card {
   max-width: 400px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #fff5e4, #fadadd);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 canvas {
@@ -62,13 +65,6 @@ canvas {
   width: 100%;
   height: auto;
   border-radius: 5px;
-}
-
-.reply-page {
-  width: 100%;
-  margin-top: 500px;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -80,5 +76,10 @@ canvas {
   mat-card {
     max-width: 90%;
     margin: 10px auto;
+  }
+
+  .card:hover {
+    transform: translateY(-5px); /* Adds a slight upward movement on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increases the shadow for a pop-out effect */
   }
 }
