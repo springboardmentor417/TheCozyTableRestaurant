@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": "ee94",
-      "username": "Mohammed",
-      "phone": "9421025825",
-      "password": "md@5545",
-      "email": "mohammedobaray@gmail.com",
-      "role": "customer"
-    },
-    {
       "id": "1dc",
       "username": "MohammedObaray",
       "password": "admin@1237",
@@ -34,15 +26,6 @@
       "username": "Ronaldo",
       "password": "cr7@75545",
       "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "role": "customer"
-    },
-    {
-      "id": "6ecd",
-      "username": "Paulo",
-      "password": "juve@123",
-      "email": "mohammedubare7@gmail.com",
       "phone": "7304373810",
       "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
       "role": "customer"
@@ -160,7 +143,7 @@
       "currentPrice": 35,
       "originalPrice": 50,
       "discount": 10,
-      "quantity": 12
+      "quantity": 13
     },
     {
       "id": "9cfc",
@@ -244,6 +227,19 @@
       "foodQuality": 3,
       "valueForMoney": 2.5,
       "selectedDate": "04/01/2025",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "c69a",
+      "name": "Mohammed riyaz obaray",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "yfjhjhfgfffj",
+      "rating": 3,
+      "foodQuality": 3,
+      "valueForMoney": 3,
+      "selectedDate": "22/01/2025",
       "image": null,
       "imageError": ""
     }

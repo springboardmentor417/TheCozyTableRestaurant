@@ -1,14 +1,12 @@
-<header class="header">
-  <div class="header-content">
-    <h1>Welcome to Manage Yourself With Cozi Restaurant</h1>
-  </div>
-</header>
-<div class="container d-flex">
+
+
+<div class="  d-flex">
   <!-- Vertical Navigation Bar -->
-  <nav class="nav flex-column bg-light p-3" style="width: 200px; min-height: 100vh; border-right: 1px solid #ddd;">
-    <a class="nav-link text-dark" routerLink="userWelcome" routerLinkActive="active">User Welcome</a>
+  <nav class="nav flex-column bg-light p-1" style=" width: 200px; min-height: 100vh;border-right: 1px solid #ddd; ">
+    <a class="nav-link text-dark" routerLink="userWelcome" routerLinkActive="active">dashboard</a>
     <a class="nav-link text-dark" routerLink="updateUser" routerLinkActive="active">Update User</a>
     <a class="nav-link text-dark" routerLink="deleteUser" routerLinkActive="active">Delete User</a>
+      <!-- <button (click)="logout()" class="btn btn-outline-danger ">🚪 Logout</button> -->
   </nav>
 
   <!-- Dynamic Content Area -->
@@ -16,3 +14,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+

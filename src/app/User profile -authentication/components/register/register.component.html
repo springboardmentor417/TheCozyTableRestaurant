@@ -3,9 +3,9 @@
     <h2 class="text-center mb-3">Register</h2>
 
     <!-- Success Message -->
-    <div *ngIf="successMessage" class="alert alert-success text-center">
+    <!-- <div *ngIf="successMessage" class="alert alert-success text-center">
       {{ successMessage }}
-    </div>
+    </div> -->
 
     <!-- Reactive Form -->
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-4 border rounded shadow">
@@ -107,7 +107,7 @@
       </div>
 
       <p class="mt-1">Already have an account? &nbsp;&nbsp;
-        <a href="/login">Login</a>
+        <a routerLink="/login">Login</a>
       </p>
       </div>
     </form>

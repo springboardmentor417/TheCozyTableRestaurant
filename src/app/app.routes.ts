@@ -24,6 +24,7 @@ import { AckPageComponent } from './feedback/components/feedback-form/ack-page/a
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
 
+
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 import { MenuCategoryComponent } from './menu-management/menu-category/menu-category.component';
 import { MenuItemNavComponent } from './menu-management/menu_nav/menu-item-nav.component';
@@ -33,12 +34,14 @@ import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-p
 
 import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
+import { UserManagementComponent } from './User profile -authentication/components/user-management/user-management.component';
+import { AdmindetailsComponent } from './User profile -authentication/components/admindetails/admindetails.component';
 import { authGuard } from './auth.guard';
 export const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent },
   { path: 'login', component: LoginComponent },
   { path: 'userDetails', component: UserDetailsComponent },
-  { path: 'Register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'adminWelcome', component: AdminWelcomeComponent },
 
   { path: 'reservation', component: ReservationComponent, canActivate: [authGuard] },
@@ -79,6 +82,19 @@ export const routes: Routes = [
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
 
+  { path: 'ui', component: HomepageUIComponent }, // Fixed 'ui,' issue
+  
+  {
+    path: 'admindetails',
+    component: AdmindetailsComponent, canActivate: [authGuard], // Admin Layout
+    children: [
+      {path: 'UserManagement', component: UserManagementComponent},
+      { path: 'adminWelcome', component: AdminWelcomeComponent },
+      { path: 'userManagement', component: UserManagementComponent },
+      { path: '', redirectTo: 'adminWelcome', pathMatch: 'full' }, // Default child route
+    ],
+  },
+
   { path: 'ui,', component: HomepageUIComponent },
 
   { path: 'redirect', component: RedirectPageComponent },
@@ -92,12 +108,12 @@ export const routes: Routes = [
   },
 
   {
-
     path: 'userDetails',
-    component: UserDetailsComponent,
+    component: UserDetailsComponent, canActivate: [authGuard],
     children: [
       { path: 'updateUser', component: UpdateUserComponent },
       { path: 'deleteUser', component: DeleteUserComponent },
+
       {
         path: 'userWelcome',
         component: UserWelcomeComponent,
@@ -105,7 +121,7 @@ export const routes: Routes = [
       },
       { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }, // Default child route
     ],
-  },
+ 
 
   { path: '', component: HomeComponent }, // Set HomeComponent as default route
 

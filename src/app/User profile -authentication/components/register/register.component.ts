@@ -65,6 +65,7 @@ export class RegisterComponent {
         next: (response: any) => {
           console.log('User added successfully:', response);
           this.successMessage = 'User registered successfully!';
+          alert(this.successMessage);
           this.registerForm.reset();
           // Save user details
           const userDetails = {
