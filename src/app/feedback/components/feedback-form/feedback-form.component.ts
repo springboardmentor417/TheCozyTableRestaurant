@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
+
 
 @Component({
   selector: 'app-feedback-form',
@@ -35,6 +36,7 @@ export class FeedbackFormComponent {
   valueForMoney: number = 0;
   selectedDate: string = '';
   imageError: string = '';
+  orderedItems: OrderedItem[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -76,25 +78,41 @@ export class FeedbackFormComponent {
     return phoneRegex.test(phoneNumber);
   }
 
+  ngOnInit(): void {
+    this.fetchOrderedItems();
+  }
+  
+ 
+
+  fetchOrderedItems(): void {
+    this.http.get<any[]>('http://localhost:3000/cart').subscribe({
+      next: (data) => {
+        this.orderedItems = data.map((item) => ({
+          name: item.name,
+          quantity: item.quantity,
+          price: item.currentPrice,
+        }));
+      },
+      error: (error) => {
+        console.error('Error fetching ordered items:', error);
+      },
+    });
+  }
+
   onSaveUser(feedbackForm: any) {
     const formattedDate = this.formatDate(new Date(this.selectedDate));
     this.userObj.selectedDate = formattedDate;
 
+    const username = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.userObj.name = username.username;
+    this.userObj.email = username.email;
+    this.userObj.mobile = username.phone;
+    console.log(username);
+    console.log(this.userObj.name);
+
     const today = this.formatDate(new Date());
 
     switch (true) {
-      case !this.userObj.name: {
-        alert('Please enter a valid name(minimum 3 charecters).');
-        return;
-      }
-      case !this.isValidEmail(this.userObj.email): {
-        alert('Please enter a email address or a valid email address.');
-        return;
-      }
-      case !this.validatePhoneNumber(this.userObj.mobile): {
-        alert('please enter the valid mobile number');
-        return;
-      }
       case !this.userObj.feedback: {
         alert('please give tell us your experience atleast in 10 charecters');
         return;
@@ -127,6 +145,13 @@ export class FeedbackFormComponent {
   }
 }
 
+interface OrderedItem {
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+
 class USER {
   name: string;
   email: string;
@@ -138,6 +163,8 @@ class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
+  orderedItems: any[];
+
 
   constructor() {
     this.name = '';
@@ -150,5 +177,6 @@ class USER {
     this.selectedDate = '';
     this.image = null;
     this.imageError = '';
+    this.orderedItems=[];
   }
 }

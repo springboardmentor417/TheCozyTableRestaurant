@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminComponent } from './admin.component';
+import { RedirectPageComponent } from './redirect-page.component';
 
-describe('AdminComponent', () => {
-  let component: AdminComponent;
-  let fixture: ComponentFixture<AdminComponent>;
+describe('RedirectPageComponent', () => {
+  let component: RedirectPageComponent;
+  let fixture: ComponentFixture<RedirectPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminComponent]
+      imports: [RedirectPageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AdminComponent);
+    fixture = TestBed.createComponent(RedirectPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

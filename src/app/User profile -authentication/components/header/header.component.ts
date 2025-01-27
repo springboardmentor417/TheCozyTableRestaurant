@@ -9,6 +9,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-header',
   host: { 'unique-host': 'header' },
   standalone: true,
+
   imports: [RouterModule, CommonModule, NgbCarouselModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
