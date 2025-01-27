@@ -35,10 +35,7 @@
 
   <!-- Menu items -->
   <div class="menu-items">
-    <div
-      *ngFor="let item of filteredMenuItems"
-      class="menu-item"
-    >
+    <div *ngFor="let item of filteredMenuItems" class="menu-item">
       <img
         [src]="item.imageUrl"
         [alt]="item.name"
@@ -49,6 +46,14 @@
         <h2>{{ item.name }}</h2>
         <p>{{ item.description }}</p>
         <p class="menu-item-price">₹{{ item.price }}</p>
+
+        <!-- Add to Cart Button -->
+        <button 
+          *ngIf="!isAdmin" 
+          class="add-to-cart-button" 
+          (click)="addToCart(item)">
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>

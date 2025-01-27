@@ -1,7 +1,7 @@
 //team1
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './User profile -authentication/components/login/login.component';
-import { HomeComponent } from './User profile -authentication/components/home/home.component';
+
 import { RegisterComponent } from './User profile -authentication/components/register/register.component';
 import { UpdateUserComponent } from './User profile -authentication/components/update-user/update-user.component';
 import { DeleteUserComponent } from './User profile -authentication/components/delete-user/delete-user.component';
@@ -33,6 +33,7 @@ import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-p
 
 import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
  
