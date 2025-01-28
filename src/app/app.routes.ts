@@ -22,7 +22,6 @@ import { AdminchartComponent } from './feedback/components/adminchart/adminchart
 import { AppComponent } from './app.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
-import { HomeComponent } from './User profile -authentication/components/home/home.component';
 
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
 import { MenuCategoryComponent } from './menu-management/menu-category/menu-category.component';
