@@ -112,7 +112,7 @@ export class MenuCategoryComponent implements OnInit {
 
   // Check if the logged-in user is an admin
   private checkUserRole(): void {
-    const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.isAdmin = user.role === 'admin'; // Example logic for determining admin role
   }
 
