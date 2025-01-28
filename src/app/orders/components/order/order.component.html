@@ -24,7 +24,7 @@
       <div class="content">
         <div *ngFor="let item of getCartDetails" class="cart-item">
           <p>{{ item.name }} (x{{ item.quantity }}): ₹{{ item.quantity * item.currentPrice }}</p>
-        </div>
+        </div> 
         <!-- <p>Cart Amount: ₹{{ calculateTotal() }}</p> -->
         <p>Delivery Fee: ₹{{ deliveryFee }}</p>
         <p>Promotion Applied: -₹{{promotionApplied }}</p>

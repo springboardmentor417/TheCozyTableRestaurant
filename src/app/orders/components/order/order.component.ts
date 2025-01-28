@@ -6,7 +6,8 @@ import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-order',
- templateUrl: './order.component.html',
+  
+  templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
@@ -27,7 +28,7 @@ export class OrderComponent implements OnInit {
   // Cart details and summary
   getCartDetails: any = [];
    deliveryFee = 80.0;
-  promotionApplied = 20.0;
+   promotionApplied = 20.0;
 
   constructor(private cartService: CartService, private router: Router) {}
 
@@ -81,6 +82,7 @@ export class OrderComponent implements OnInit {
       }
     );
   }
+  
 }
 
 
