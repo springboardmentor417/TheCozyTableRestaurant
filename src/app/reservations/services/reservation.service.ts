@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Table } from '../components/reservation/reservation.component';
+import { Router } from '@angular/router';
 
-interface Reservation {
+export interface Reservation {
+  id: string;
   tableId: number;
   customerName: string;
   contact: string;
   date: string;
   time: string;
   seats: number;
+  status: 'pending' | 'approved' | 'rejected';
 }
 
 @Injectable({
@@ -17,24 +22,53 @@ interface Reservation {
 export class ReservationService {
   private apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public router: Router) {}
 
-  getTables(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/tables`);
+  getTables(): Observable<Table[]> {
+    return this.http.get<Table[]>(`${this.apiUrl}/tables`).pipe(catchError(this.handleError));
   }
 
-  // Fetch a specific table by id
-  getTableById(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/tables/${id}`);
+  getUserReservations(userId: number): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${this.apiUrl}/reservations?userId=${userId}`).pipe(catchError(this.handleError));
   }
-
-
-  addReservation(reservation: any): Observable<any> {
-    return this.http.post('http://localhost:3000/reservations', reservation);
-  }
-  
 
   getReservations(): Observable<Reservation[]> {
-    return this.http.get<Reservation[]>(`${this.apiUrl}/reservations`);
+    return this.http.get<Reservation[]>(`${this.apiUrl}/reservations`).pipe(catchError(this.handleError));
+  }
+
+  addReservation(reservation: Omit<Reservation, "id">): Observable<Reservation> {
+    return this.http.post<Reservation>(`${this.apiUrl}/reservations`, reservation).pipe(catchError(this.handleError));
+  }
+
+  // updateReservation(updatedReservation: Reservation): Observable<Reservation> {
+  
+  //   return this.http
+  //     .put<Reservation>(`${this.apiUrl}/reservations`, updatedReservation)
+  //     .pipe(catchError(this.handleError));
+  // }
+
+  deleteReservation(reservationId: string): Observable<void> {
+    return this.http
+      .delete<void>(`${this.apiUrl}/reservations/${reservationId}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  updateReservationStatus(id: string, status: string): Observable<Reservation> {
+    return this.http.patch<Reservation>(`${this.apiUrl}/reservations/${id}`, { status });
+  }
+  
+  getReservationById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/reservations/${id}`);
+  }
+  
+  updateReservation(reservation: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/reservations/${reservation.id}`, reservation);
+  }
+  
+  
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error.message);
+    return throwError(() => new Error('Something went wrong. Please try again later.'));
   }
 }
