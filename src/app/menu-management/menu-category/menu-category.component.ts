@@ -3,11 +3,11 @@ import { MenuService, MenuItem } from '../services/menu.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-menu-category',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule,MatIconModule],
   templateUrl: './menu-category.component.html',
   styleUrls: ['./menu-category.component.css'],
 })
