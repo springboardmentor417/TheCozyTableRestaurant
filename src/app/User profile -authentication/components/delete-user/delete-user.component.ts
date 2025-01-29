@@ -8,35 +8,49 @@ import { ServicesService } from '../../services/services.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './delete-user.component.html',
-  styleUrls: ['./delete-user.component.css']
+  styleUrls: ['./delete-user.component.css'],
 })
 export class DeleteUserComponent {
-  
   deleteForm: FormGroup;
   successMessage: string | null = null;
-  
+
   constructor(private fb: FormBuilder, private service: ServicesService) {
     this.deleteForm = this.fb.group({
-      id: ['', Validators.required], // User ID is required
-      email: ['', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(30)]],
-      phone: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{9}$/)]]
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(30),
+        ],
+      ],
     });
   }
 
   onDelete(): void {
     if (this.deleteForm.valid) {
-      const userId = this.deleteForm.value.id;  // Extract only the id from the form
+      const username = this.deleteForm.value.username; // Extract the username
 
-      // Call the service's deleteUser method
-      this.service.deleteUser(userId).subscribe({
-        next: (response: any) => {
-          console.log('User deleted successfully:', response);
-          this.successMessage = 'User deleted successfully!';
-          this.deleteForm.reset(); // Reset the form after a successful update
+      // Find the user by username and delete
+      this.service.getUsersByUsername(username).subscribe({
+        next: (user) => {
+          if (user) {
+            this.service.deleteUser(user.id).subscribe({
+              next: () => {
+                this.successMessage = `User "${username}" deleted successfully!`;
+                this.deleteForm.reset(); // Reset the form
+              },
+              error: (err) => {
+                console.error('Error deleting user:', err);
+                this.successMessage = null;
+              },
+            });
+          } else {
+            alert(`User "${username}" not found.`);
+          }
         },
-        error: (err: any) => {
-          console.error('Error deleting user:', err);
-          this.successMessage = null;
+        error: (err) => {
+          console.error('Error fetching user:', err);
         },
       });
     }
