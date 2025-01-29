@@ -23,6 +23,8 @@ import { AppComponent } from './app.component';
 import { AckPageComponent } from './feedback/components/feedback-form/ack-page/ack-page.component';
 import { PageFeedbackComponent } from './feedback/components/feedback-form/page-feedback/page-feedback.component';
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
+import { AdminComponent } from './reservations/components/admin/admin.component';
+import { EditReservationComponent } from './reservations/components/edit-reservation/edit-reservation.component';
 
 
 import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
@@ -121,10 +123,12 @@ export const routes: Routes = [
       },
       { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }, // Default child route
     ],
- 
 
-  { path: '', component: HomeComponent }, // Set HomeComponent as default route
-
+  },
+  { path: 'admin/reservations/approve', component: AdminComponent },
+  { path: 'admin/reservations/decline', component: AdminComponent },
+  { path: 'edit-reservation/:id', component: EditReservationComponent },
+  { path: '', component: HomeComponent },  // Set HomeComponent as default route
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

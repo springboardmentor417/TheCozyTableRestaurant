@@ -12,7 +12,6 @@
       "password": "admin@123",
       "role": "admin"
     },
-   
     {
       "id": "68a6",
       "username": "vimal",
@@ -38,42 +37,80 @@
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
       "role": "customer"
-
     }
   ],
   "tables": [
     {
-      "id": 1,
-      "seats": 4,
-
-      "isReserved": false
+      "id": "1",
+      "seats": 2,
+      "reservations": {}
     },
     {
       "id": "2",
       "seats": 2,
       "isReserved": true
-
     },
     {
-      "id": 2,
-      "seats": 2,
+      "id": "3",
+      "seats": 6,
       "reservations": {}
     },
     {
-      "id": 3,
-      "seats": 6,
+      "id": "4",
+      "seats": 8,
       "reservations": {}
     }
   ],
   "reservations": [
     {
-      "id": "1388",
+      "id": "883",
       "tableId": "1",
-      "customerName": "vimal",
-      "contact": "7871055597",
-      "date": "2025-01-03",
-      "time": "12:30",
-      "seats": 2
+      "date": "2025-01-28",
+      "time": "04:00 PM",
+      "customerName": "manjula",
+      "contact": "9012345678",
+      "seats": 2,
+      "status": "rejected"
+    },
+    {
+      "id": "9356",
+      "tableId": "1",
+      "date": "2025-01-28",
+      "time": "02:00 PM",
+      "customerName": "sumit",
+      "contact": "9580311350",
+      "seats": 2,
+      "status": "rejected"
+    },
+    {
+      "id": "1186",
+      "tableId": "3",
+      "date": "2025-01-28",
+      "time": "11:00 AM",
+      "customerName": "abcd",
+      "contact": "9580311390",
+      "seats": 3,
+      "status": "rejected"
+    },
+    {
+      "id": "4024",
+      "tableId": "3",
+      "date": "2025-01-28",
+      "time": "10:00 PM",
+      "customerName": "sakshi",
+      "contact": "9580311390",
+      "seats": 3,
+      "status": "rejected"
+    },
+    {
+      "id": "879",
+      "tableId": "2",
+      "date": "2025-01-28",
+      "time": "11:00 AM",
+      "customerName": "manjula",
+      "contact": "9580311358",
+      "seats": 2,
+      "status": "pending"
     },
     {
 
