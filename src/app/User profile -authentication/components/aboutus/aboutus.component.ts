@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { FooterComponent } from "../footer/footer.component";
+import { HeaderhomeComponent } from "../headerhome/headerhome.component";
 // import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @Component({
@@ -11,7 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AboutusComponent implements AfterViewInit {
   
-  // 
+ 
   private map: any;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}

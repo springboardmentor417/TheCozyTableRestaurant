@@ -1,0 +1,8 @@
+<div class="forgot-password-container">
+    <h2>Forgot Password</h2>
+    <form [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmit()">
+      <label for="contact">Enter your email or phone number:</label>
+      <input id="contact" formControlName="contact" type="text" placeholder="Email or Phone">
+      <button type="submit" [disabled]="forgotPasswordForm.invalid">Submit</button>
+    </form>
+  </div>

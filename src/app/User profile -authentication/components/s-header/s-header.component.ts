@@ -1,31 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { ServicesService } from '../../services/services.service';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-header',
-  host: { 'unique-host': 'header' },
+  selector: 'app-s-header',
   standalone: true,
-
-  imports: [RouterModule, CommonModule, NgbCarouselModule],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+    imports: [RouterModule, CommonModule],
+  templateUrl: './s-header.component.html',
+  styleUrl: './s-header.component.css'
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  isLoggedIn = false; // Tracks login status
-  private subscription: Subscription = new Subscription();
-
-  // Carousel images
-  carouselImages: string[] = [
-    'assets/TajLife2v.jpg',
-    'assets/CozyTable2v.png',
-    'assets/CozyDine2v.jpg',
-  ];
-
-  constructor(
+export class SHeaderComponent {
+  isLoggedIn: boolean | undefined;
+  subscription: any;
+constructor(
     private router: Router,
     private authService: ServicesService,
     private cdr: ChangeDetectorRef
