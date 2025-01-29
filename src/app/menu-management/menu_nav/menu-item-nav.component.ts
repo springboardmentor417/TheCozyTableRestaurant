@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule, MatNavList, MatListItem } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule } from '@angular/router';
+import { MenuCategoryComponent } from '../menu-category/menu-category.component';
 
 @Component({
   selector: 'menu',
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
     MatNavList,
     MatIconModule,
     MatDividerModule,
+    MenuCategoryComponent,
   ],
   templateUrl: './menu-item-nav.component.html',
   styleUrls: ['./menu-item-nav.component.css'],

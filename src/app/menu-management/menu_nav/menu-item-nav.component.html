@@ -1,22 +1,23 @@
-<mat-sidenav-container class="tp-container" style="height: 100vh;">
+<mat-sidenav-container *ngIf="isAdmin" class="tp-container" style="height: 100vh;">
   <!-- Sidenav -->
   <mat-sidenav mode="side" opened>
     <mat-nav-list>
       <br><br><br><mat-divider></mat-divider>
 
-      <!-- Only show if the user is an admin -->
-      <ng-container *ngIf="isAdmin">
+      <!-- Admin-Only Menu Items -->
+      <ng-container>
         <a mat-list-item routerLink="/menu/add-menu-item" routerLinkActive="active-link">
-          <mat-icon>add</mat-icon>Add Menu Item</a>
+          <mat-icon>add</mat-icon> Add Menu Item
+        </a>
         <br>
         <a mat-list-item routerLink="/menu/menu-list" routerLinkActive="active-link">
-          <mat-icon>list</mat-icon>Manage menu items</a>
+          <mat-icon>list</mat-icon> Manage menu items
+        </a>
         <br>
+        <a mat-list-item routerLink="/menu/menu-category" routerLinkActive="active-link">
+          <mat-icon>menu_book</mat-icon> View menu catalog
+        </a>
       </ng-container>
-
-      <!-- This menu item is visible to all users (admin or not) -->
-      <a mat-list-item routerLink="/menu/menu-category" routerLinkActive="active-link">
-        <mat-icon>menu_book</mat-icon>View menu catalog</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -25,3 +26,9 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<!-- Show this message if the user is not an admin -->
+<div *ngIf="!isAdmin">
+  <app-menu-category></app-menu-category>
+
+</div>
