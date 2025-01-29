@@ -1,9 +1,13 @@
+.tp-container {
+  margin-left:-50px;
+}
 mat-sidenav {
   width: 250px;
   background: linear-gradient(135deg,#fd7e14, #e0b43c); /* Gradient background */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
   border-radius: 10px;
 }
+
 
 a.mat-list-item {
   display: flex;
