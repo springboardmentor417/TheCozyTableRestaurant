@@ -1,28 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Router,RouterOutlet } from '@angular/router';
-import {MatButtonModule,} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import { MatNavList } from '@angular/material/list';
-import { MatListItem } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule, MatNavList, MatListItem } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule } from '@angular/router';
 
-import { MatDividerModule } from '@angular/material/divider';
 @Component({
   selector: 'menu',
   standalone: true,
-  imports: [RouterModule, RouterOutlet,CommonModule,MatListItem,MatSidenavModule,MatNavList,MatIconModule,
-    MatDividerModule,],
+  imports: [
+    RouterModule,
+    RouterOutlet,
+    MatListItem,
+    CommonModule,
+    MatSidenavModule,
+    MatNavList,
+    MatIconModule,
+    MatDividerModule,
+  ],
   templateUrl: './menu-item-nav.component.html',
-  styleUrl: './menu-item-nav.component.css'
+  styleUrls: ['./menu-item-nav.component.css'],
 })
-export class MenuItemNavComponent {
-  constructor(private router: Router) {}
-  ngOnInit(): void {
-    this.router.navigate(['menu/menu-category']);
-}
+export class MenuItemNavComponent implements OnInit {
+  isAdmin: boolean = false; // Flag to track admin status
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    // Navigate to the default route
+    this.router.navigate(['menu/menu-category']);
+
+    // Logic to determine if the user is an admin
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.isAdmin = user.role === 'admin'; // Set to true if the role is 'admin'
+  }
 }
