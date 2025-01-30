@@ -1,120 +1,78 @@
-
-
-  .flip-card {
-    margin-bottom: 30px; /* Add some spacing between cards */
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 300px; /* Adjust height of each flip card */
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease-in-out;
-  }
-  
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .flip-card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  .flip-card-back {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    transform: rotateY(180deg); /* Flip effect */
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); /* Flip effect on hover */
-  }
-  
-  
-  /* Styling for the text */
-  .text-about {
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 10px;
-    max-width: 90%; /* Make sure text doesn't overflow */
-  }
-  
-  /* Responsiveness */
-  @media (max-width: 768px) {
-    .flip-card {
-      height: 250px; /* Adjust height for medium screens */
-    }
-    .text-about {
-      font-size: 1rem;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .flip-card {
-      height: 200px; /* Adjust height for small screens */
-    }
-    .text-about {
-      font-size: 0.9rem;
-    }
-  }
-  
-/* Animated Gradient Background */
-/* .animated-bg-section {
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
-  padding: 50px 0;
-  text-align: center;
-  color: white;
-} */
-
-/* Animation Keyframes */
-/* @keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
-/* Text Styling */
-/* .animated-bg-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+/* Flip Card Styles */
+.flip-card {
+  margin-bottom: 30px; /* Add some spacing between cards */
+  position: relative;
+  width: 100%;
+  height: 300px; /* Adjust height as needed */
+  background-image: url('/assets/uiBG.jpg'); /* Set the background image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
 
-.animated-bg-section p {
-  font-size: 1.2rem;
+.flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: none; /* Remove the flipping transition */
+}
+
+/* .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8); 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  transform: none; 
 } */
 
+/* Text-about Styling */
+.text-about {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  max-width: 90%; /* Make sure text doesn't overflow */
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth zoom effect */
+  cursor: pointer; /* Optional: Indicates interactivity */
+}
+
+/* Hover Effect on .text-about */
+.text-about:hover {
+  transform: scale(1.1); /* Zoom effect */
+  color: #f39c12; /* Optional: Change text color on hover */
+}
+
 /* Responsiveness */
-/* @media (max-width: 768px) {
-  .animated-bg-section h2 {
-    font-size: 2rem;
+@media (max-width: 768px) {
+  .flip-card {
+    height: 250px; /* Adjust height for medium screens */
   }
-  .animated-bg-section p {
+  .text-about {
     font-size: 1rem;
   }
-} */
-/* Parallax Section */
-/* Parallax Section */
+}
+
+@media (max-width: 576px) {
+  .flip-card {
+    height: 200px; /* Adjust height for small screens */
+  }
+  .text-about {
+    font-size: 0.9rem;
+  }
+}
+
+/* Parallax Section Styling */
 .parallax-section {
   position: relative;
   background-image: url('/assets/uiBG.jpg'); /* Replace with your image */
@@ -130,7 +88,7 @@
   opacity: 1;
 }
 
-/* Content Styling */
+/* Content Styling for Parallax */
 .parallax-section .content {
   text-align: center;
   color: white;
@@ -140,7 +98,7 @@
   transition: transform 0.3s ease-in-out; /* Smooth zoom transition */
 }
 
-/* Hover Effect - Zoom */
+/* Hover Effect - Zoom for Parallax */
 .parallax-section .content:hover {
   transform: scale(1.1); /* Zoom in the content */
 }
@@ -156,7 +114,7 @@
   transform: scale(1.1); /* Zoom text */
 }
 
-/* Title and paragraph styles */
+/* Title and paragraph styles for Parallax */
 .parallax-section h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -166,7 +124,7 @@
   font-size: 1.2rem;
 }
 
-/* Responsiveness */
+/* Responsiveness for Parallax */
 @media (max-width: 768px) {
   .parallax-section h2 {
     font-size: 2rem;
@@ -175,8 +133,6 @@
     font-size: 1rem;
   }
 }
-
-
 
 /* Parallax Container */
 .parallax-container {
@@ -188,6 +144,7 @@
   align-items: center;
 }
 
+/* Parallax Background */
 .parallax-background {
   position: absolute;
   top: 0;
@@ -209,7 +166,7 @@
   padding-top: 50px; /* Optional: Adds some space at the top */
 }
 
-/* Text-about Styling */
+/* Text-about Styling for Parallax */
 .text-about {
   font-size: 1.2rem;
   font-weight: bold;
@@ -219,14 +176,13 @@
   cursor: pointer; /* Optional: Indicates interactivity */
 }
 
-/* Hover Effect on .text-about */
+/* Hover Effect on .text-about for Parallax */
 .text-about:hover {
   transform: scale(1.1); /* Zoom effect */
   color: #f39c12; /* Optional: Change text color on hover */
 }
 
-
-/* Responsiveness */
+/* Responsiveness for Parallax */
 @media (max-width: 768px) {
   .parallax-container {
     height: 400px; /* Adjust height for medium screens */
@@ -245,8 +201,7 @@
   }
 }
 
-
-/* Container styling */
+/* Container Styling */
 .container {
   max-width: 1200px; /* Limit the width for better responsiveness */
   margin: 0 auto; /* Center the container horizontally */
@@ -254,7 +209,7 @@
   padding-right: 0;
 }
 
-/* Image container styling */
+/* Image Container Styling */
 .image-container {
   position: relative;
   text-align: center;
@@ -268,7 +223,7 @@
   margin: 0 auto; /* Center each image container within the column */
 }
 
-/* Image styling */
+/* Image Styling */
 .image-container img {
   width: 100%;
   height: 100%;
@@ -276,11 +231,12 @@
   transition: transform 0.8s ease-in-out;
 }
 
+/* Rotate Image on Hover */
 .image-container:hover img {
   transform: rotate(360deg);
 }
 
-/* Text container styling */
+/* Text Container Styling for Images */
 .image-text {
   position: absolute;
   bottom: -100%; /* Initially hidden below the container */
@@ -301,7 +257,7 @@
   bottom: 0; /* Slide into view */
 }
 
-/* Zoom effect on hover */
+/* Zoom effect on hover for Image Text */
 .image-text:hover {
   transform: scale(1.1); /* Slightly enlarge the text container */
   background-color: rgba(0, 0, 0, 0.9); /* Darker background for emphasis */

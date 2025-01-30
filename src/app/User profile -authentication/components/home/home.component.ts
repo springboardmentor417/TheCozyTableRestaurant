@@ -5,13 +5,15 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import $ from 'jquery';
 import { HomepageUIComponent } from "../homepage-ui/homepage-ui.component";
+import {  HeaderhomeComponent } from "../headerhome/headerhome.component";
+import { FooterComponent } from "../footer/footer.component";
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgbCarouselModule, RouterModule, HomepageUIComponent], // Import NgbCarouselModule
+  imports: [CommonModule, FormsModule, NgbCarouselModule, RouterModule, HomepageUIComponent, FooterComponent], // Import NgbCarouselModule
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

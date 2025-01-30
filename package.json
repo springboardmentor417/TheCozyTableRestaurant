@@ -36,6 +36,10 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "tsparticles": "^3.7.1",
+    "typeface-lora": "^1.1.13",
+    "typeface-montserrat": "^1.1.13",
+    "typeface-playfair-display": "^1.1.13",
+    "typeface-roboto": "^1.1.13",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

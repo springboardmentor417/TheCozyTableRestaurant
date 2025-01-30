@@ -1,0 +1,10 @@
+<div class="update-password-container">
+    <h2>Update Password</h2>
+    <form [formGroup]="updatePasswordForm" (ngSubmit)="onSubmit()">
+      <label for="newPassword">New Password:</label>
+      <input id="newPassword" formControlName="newPassword" type="password" placeholder="New Password">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+      <button type="submit" [disabled]="updatePasswordForm.invalid">Update Password</button>
+    </form>
+  </div>
