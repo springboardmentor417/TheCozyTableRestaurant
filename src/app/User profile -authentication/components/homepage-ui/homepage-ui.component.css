@@ -23,16 +23,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/assets/uiBG.jpg'); /* Replace with your image URL */
-  background-size: cover; /* Ensure the background covers the container */
-  background-position: center; /* Center the background image */
-  z-index: -1; /* Ensure the background is behind the text */
+  background-image: url('/assets/eatFans.jpg'); /* Replace with your image URL */
+  background-size: contain;
+  background-position: center top; /* Align background to the top */
+  background-repeat: no-repeat;
+  z-index: -1;
+  padding: 20px;
+  height: calc(100% - 50px); /* Reduce the image height by 50px from the top */
+  margin-top: 50px; /* Push the background image 50px down */
 }
 
 
-
-
-/* Paradox Section */
 .paradox1 .content {
   position: relative;
   z-index: 1; /* Ensures the text is above the background */
@@ -41,8 +42,10 @@
   align-items: center;
   height: 100%;
   text-align: center;
-  padding: 0 20px;
+  padding: 20px; /* Adjust the padding around the content */
+  box-sizing: border-box; /* Ensures padding is included in the width and height */
 }
+
 
 /* Zoom and Color Change for h2 and p only on Hover */
 .paradox1 h2, .paradox1 p {
