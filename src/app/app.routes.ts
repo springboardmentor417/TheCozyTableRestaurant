@@ -1,7 +1,7 @@
 //team1
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './User profile -authentication/components/login/login.component';
-import { HomeComponent } from './User profile -authentication/components/home/home.component';
+// import { HomeComponent } from './User profile -authentication/components/home/home.component';
 import { RegisterComponent } from './User profile -authentication/components/register/register.component';
 import { UpdateUserComponent } from './User profile -authentication/components/update-user/update-user.component';
 import { DeleteUserComponent } from './User profile -authentication/components/delete-user/delete-user.component';
