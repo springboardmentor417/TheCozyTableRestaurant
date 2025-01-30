@@ -31,6 +31,7 @@
                   value="1.5"
                 />
               </mat-slider>
+              {{ userObj.foodQuality }}
             </div>
           </div>
           <div class="first-slider-2">
@@ -47,6 +48,7 @@
                   name="valueForMoney"
                 />
               </mat-slider>
+              {{ userObj.valueForMoney }}
             </div>
           </div>
           <div>
@@ -98,15 +100,16 @@
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.price | currency : "INR" : "symbol" }}</td>
                 <td>
-                  <mat-slider min="1" max="5" step="0.5" class="small-slider">
+                  <mat-slider min="1" max="5" step="1" class="small-slider">
                     <input
                       matSliderThumb
-                      value="1.5"
+                      defaultValue="0"
                       matSliderThumb
                       [(ngModel)]="item.rating"
                       name="rating"
                     />
                   </mat-slider>
+                  {{ item.rating }}
                 </td>
               </tr>
             </tbody>
