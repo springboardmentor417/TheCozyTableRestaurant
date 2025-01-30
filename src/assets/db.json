@@ -48,7 +48,7 @@
     {
       "id": "2",
       "seats": 2,
-      "isReserved": true
+      "reservations": {}
     },
     {
       "id": "3",
@@ -111,64 +111,39 @@
       "contact": "9580311358",
       "seats": 2,
       "status": "pending"
-    },
-    {
-
-      "id": "684a",
-      "tableId": "2",
-      "customerName": "Mohammed riyaz obaray",
-      "contact": "7304373810",
-      "date": "2025-01-10",
-      "time": "17:48",
-      "seats": 2
-    },
-    {
-      "id": "4f95",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "46d2",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "3095",
-      "tableId": 2,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
     }
   ],
-  "menu-items": [
-    {
-      "id": "f915",
-      "name": "Mutt Rogan Josh",
-      "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-      "price": 356,
-      "category": "Main Course",
-      "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-      "availability": true
-    },
-    {
-      "id": "2d54",
-      "name": "Biryani",
-      "description": "Tandoori Roasted Biryani With Boneless strips",
-      "price": 250,
-      "category": "Main Course",
-      "imageUrl": "\"https://www.shutterstock.com/shutterstock/photos/2080100593/display_1500/stock-photo-chicken-lucknowi-biryani-full-tandoor-2080100593.jpg\"",
-      "availability": true
-    }
+ "menu-items": [
+  {
+    "id": "f915",
+    "name": "Mutton Rogan Josh",
+    "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+    "price": 356,
+    "category": "Main Course",
+    "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+    "availability": true,
+    "rating": [1,2,3,4]
+  },
+  {
+    "id": "c5b2",
+    "name": "Egg Masala",
+    "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+    "price": 217,
+    "category": "Main Course",
+    "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+    "availability": true,
+    "rating": [2,3,4,5]
+  },
+  {
+    "id": "d59e",
+    "name": "Butter Naan",
+    "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+    "price": 45,
+    "category": "Bread",
+    "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
+    "availability": true,
+    "rating": [1,2,4,3]
+  }
   ],
   "cart": [
     {
@@ -213,7 +188,270 @@
       "currentPrice": 150,
       "originalPrice": 135,
       "discount": 10,
-      "quantity": 7
+      "quantity": 8
+    }
+  ],
+  "orders": [
+    {
+      "id": "5264",
+      "items": [
+        {
+          "id": "f124",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 2
+        },
+        {
+          "id": "357e",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "ade8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "682a",
+          "foodID": 2,
+          "img": "../../assets/OIP.jpg",
+          "name": "mini tiffen",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 550,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "64be",
+      "items": [
+        {
+          "id": "f124",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 2
+        },
+        {
+          "id": "357e",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "ade8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "682a",
+          "foodID": 2,
+          "img": "../../assets/OIP.jpg",
+          "name": "mini tiffen",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 550,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "bd75",
+      "items": [
+        {
+          "id": "f124",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "357e",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "ade8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "682a",
+          "foodID": 2,
+          "img": "../../assets/OIP.jpg",
+          "name": "mini tiffen",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 515,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "f9db",
+      "items": [
+        {
+          "id": "7f4b",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "f8c2",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 345,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "5c3e",
+      "items": [
+        {
+          "id": "7f4b",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "f8c2",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 345,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
     }
   ],
   "feedback": [
@@ -268,60 +506,43 @@
       "imageError": ""
     },
     {
-      "id": "c69a",
-      "name": "Mohammed riyaz obaray",
+      "id": "7f1b",
+      "name": "Mohammed",
       "email": "mohammedobaray@gmail.com",
-      "mobile": "7304373810",
-      "feedback": "yfjhjhfgfffj",
-      "rating": 3,
-      "foodQuality": 3,
-      "valueForMoney": 3,
-      "selectedDate": "22/01/2025",
+      "mobile": "9421025825",
+      "feedback": "nice foooood",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 3.5,
+      "selectedDate": "28/01/2025",
       "image": null,
-      "imageError": ""
-    }
-  ]
-},
-    {
-      "id": "2dc",
-      "username": "Mohammed",
-      "password": "admin@123",
-      "role": "admin"
-    },
-    {
-      "id": "68a6",
-      "username": "vimal",
-      "password": "582001vimal@",
-      "email": "vimal@test.com",
-      "phone": "7871055597",
-      "address": "Chennai"
-    },
-    {
-      "id": "1ff4",
-      "username": "Ronaldo",
-      "password": "cr7@75545",
-      "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "role": "customer"
-    },
-    {
-      "id": "6ecd",
-      "username": "Paulo",
-      "password": "juve@123",
-      "email": "mohammedubare7@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "role": "customer"
-    },
-    {
-      "id": "4321",
-      "username": "Liza",
-      "password": "khan@123",
-      "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "Adil tower b.p marine academy m.g road",
-      "role": "customer"
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 2,
+          "price": 35,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 135,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 135,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 150,
+          "rating": 5
+        }
+      ]
     }
   ]
 }
