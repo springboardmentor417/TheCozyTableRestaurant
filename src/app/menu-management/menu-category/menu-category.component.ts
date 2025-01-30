@@ -122,4 +122,9 @@ export class MenuCategoryComponent implements OnInit {
     this.filteredMenuItems = [];
     this.errorMessage = err.error?.message || 'An error occurred while fetching the menu.';
   }
+  getAverageRating(rating: number[]): number {
+    if (!rating || rating.length === 0) return 0; // Return 0 if no ratings
+    const average = rating.reduce((sum, num) => sum + num, 0) / rating.length;
+    return Math.round(average); // Round the average to the nearest integer
+  }
 }
