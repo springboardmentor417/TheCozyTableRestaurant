@@ -116,6 +116,15 @@
       "customerName": "Sakshi",
       "contact": "1234567890",
       "seats": 2
+    },
+    {
+      "id": "6e08",
+      "tableId": 2,
+      "date": "2025-01-15",
+      "time": "14:00",
+      "customerName": "Mohammed riyaz obaray",
+      "contact": "7304373810",
+      "seats": 1
     }
   ],
   "menuItems": [

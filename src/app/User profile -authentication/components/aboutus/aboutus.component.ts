@@ -7,7 +7,7 @@ import { HeaderhomeComponent } from "../headerhome/headerhome.component";
 @Component({
   selector: 'app-aboutus',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent],
   templateUrl: './aboutus.component.html',
   styleUrls: ['./aboutus.component.css'],
 })
