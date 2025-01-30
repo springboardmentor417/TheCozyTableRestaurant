@@ -1,408 +1,10 @@
 {
   "users": [
     {
-      "id": "ee94",
-      "username": "Mohammed",
-      "phone": "9421025825",
-      "password": "md@5545",
-      "email": "mohammedobaray@gmail.com",
-      "role": "customer"
-    },
-    {
       "id": "1dc",
       "username": "MohammedObaray",
       "password": "admin@1237",
       "role": "admin"
-    },
-    {
-      "users": [
-        {
-          "id": "ee94",
-          "username": "Mohammed",
-          "phone": "9421025825",
-          "password": "md@5545",
-          "email": "mohammedobaray@gmail.com",
-          "role": "customer"
-        },
-        {
-          "id": "1dc",
-          "username": "MohammedObaray",
-          "password": "admin@1237",
-          "role": "admin"
-        },
-        {
-          "id": "2dc",
-          "username": "Mohammed",
-          "password": "admin@123",
-          "role": "admin"
-        },
-        {
-          "id": "68a6",
-          "username": "vimal",
-          "password": "582001vimal@",
-          "email": "vimal@teknoturf.com",
-          "phone": "7871055597",
-          "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
-        },
-        {
-          "id": "1ff4",
-          "username": "Ronaldo",
-          "password": "cr7@75545",
-          "email": "mohammedobaray@gmail.com",
-          "phone": "7304373810",
-          "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-          "role": "customer"
-        },
-        {
-          "id": "6ecd",
-          "username": "Paulo",
-          "password": "juve@123",
-          "email": "mohammedubare7@gmail.com",
-          "phone": "7304373810",
-          "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-          "role": "customer"
-        },
-        {
-          "id": "4321",
-          "username": "Liza",
-          "password": "khan@123",
-          "email": "mohammedobaray@gmail.com",
-          "phone": "7304373810",
-          "address": "Adil tower b.p marine academy m.g road",
-          "role": "customer"
-        }
-      ],
-      "tables": [
-        {
-          "id": 1,
-          "seats": 4,
-          "isReserved": false
-        },
-        {
-          "id": "2",
-          "date": "2024-12-20",
-          "time": "20:00",
-          "seats": 2,
-          "isReserved": true
-        },
-        {
-          "id": 2,
-          "seats": 2,
-          "reservations": {}
-        },
-        {
-          "id": 3,
-          "seats": 6,
-          "reservations": {}
-        }
-      ],
-      "reservations": [
-        {
-          "id": "1388",
-          "tableId": "1",
-          "customerName": "vimal",
-          "contact": "7871055597",
-          "date": "2025-01-03",
-          "time": "12:30",
-          "seats": 2
-        },
-        {
-          "id": "684a",
-          "tableId": "2",
-          "customerName": "Mohammed riyaz obaray",
-          "contact": "7304373810",
-          "date": "2025-01-10",
-          "time": "17:48",
-          "seats": 2
-        },
-        {
-          "id": "4f95",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "10:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 2
-        },
-        {
-          "id": "46d2",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "13:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 2
-        },
-        {
-          "id": "3095",
-          "tableId": 2,
-          "date": "2025-01-05",
-          "time": "14:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "54cd",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "12:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "a467",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "14:00",
-          "customerName": "manjula",
-          "contact": "1234567890",
-          "seats": 5
-        },
-        {
-          "id": "3786",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "10:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "e1c9",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "10:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "656b",
-          "date": "2025-01-05",
-          "time": {
-            "time": "11:00",
-            "isReserved": false
-          },
-          "tableId": 1,
-          "customerName": "",
-          "contact": "",
-          "seats": 1
-        },
-        {
-          "id": "2d77",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": {
-            "time": "11:00",
-            "isReserved": false
-          },
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "4a1d",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "13:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "fdd3",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "12:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "18f3",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "14:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "4e93",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "11:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 2
-        },
-        {
-          "id": "94db",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "12:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "d049",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "12:00",
-          "customerName": "manjula",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "14f5",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "12:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "6e0f",
-          "tableId": 1,
-          "date": "2025-01-06",
-          "time": "12:00",
-          "customerName": "sakshi",
-          "contact": "1234567890",
-          "seats": 3
-        },
-        {
-          "id": "9b76",
-          "tableId": 1,
-          "date": "2025-01-05",
-          "time": "13:00",
-          "customerName": "manjula",
-          "contact": "1234567890",
-          "seats": 3
-        }
-      ],
-      "menu-items": [
-        {
-          "id": "f915",
-          "name": "Mutt Rogan Josh",
-          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-          "price": 356,
-          "category": "Main Course",
-          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-          "availability": true
-        },
-        {
-          "id": "2d54",
-          "name": "Biryani",
-          "description": "Tandoori Roasted Biryani With Boneless strips",
-          "price": 250,
-          "category": "Main Course",
-          "imageUrl": "\"https://www.shutterstock.com/shutterstock/photos/2080100593/display_1500/stock-photo-chicken-lucknowi-biryani-full-tandoor-2080100593.jpg\"",
-          "availability": true
-        }
-      ],
-      "cart": [
-        {
-          "id": "58c9",
-          "foodID": 1,
-          "img": "../../assets/OIP (1).jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 35,
-          "originalPrice": 50,
-          "discount": 10,
-          "quantity": 12
-        },
-        {
-          "id": "9cfc",
-          "foodID": 4,
-          "img": "../../assets/OIP (3).jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 6
-        },
-        {
-          "id": "1bc1",
-          "foodID": 2,
-          "img": "../../assets/OIP.jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 13
-        },
-        {
-          "id": "388d",
-          "foodID": 3,
-          "img": "../../assets/OIP (2).jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 150,
-          "originalPrice": 135,
-          "discount": 10,
-          "quantity": 7
-        }
-      ],
-      "feedback": [
-        {
-          "id": "1445",
-          "name": "Manikanta Nandyala",
-          "email": "22h45a6105@bvcits.edu.in",
-          "mobile": "9059545745",
-          "feedback": "uediebdiedbu",
-          "rating": 5,
-          "foodQuality": 3,
-          "valueForMoney": 3,
-          "selectedDate": "21/12/2024"
-        },
-        {
-          "id": "5657",
-          "name": "Swathi",
-          "email": "yswathi174@gmail.com",
-          "mobile": "9941294332",
-          "feedback": "good. the food was very tasty",
-          "rating": 4,
-          "foodQuality": 4,
-          "valueForMoney": 2,
-          "selectedDate": "21/12/2024",
-          "image": "/uploads/images/besite_birthday_surprise.png",
-          "imageError": ""
-        },
-        {
-          "id": "67c9",
-          "name": "vaniyha",
-          "email": "vani@gmail.com",
-          "mobile": "9916100678",
-          "feedback": "overall good",
-          "rating": 0,
-          "foodQuality": 2,
-          "valueForMoney": 2.5,
-          "selectedDate": "03/01/2025",
-          "image": null,
-          "imageError": ""
-        },
-        {
-          "id": "4d13",
-          "name": "Mohammed riyaz obaray",
-          "email": "mohammedobaray@gmail.com",
-          "mobile": "7304373810",
-          "feedback": "nice food ",
-          "rating": 2,
-          "foodQuality": 3,
-          "valueForMoney": 2.5,
-          "selectedDate": "04/01/2025",
-          "image": null,
-          "imageError": ""
-        }
-      ],
-      "id": "eb14"
     },
     {
       "id": "2dc",
@@ -414,24 +16,15 @@
       "id": "68a6",
       "username": "vimal",
       "password": "582001vimal@",
-      "email": "vimal@teknoturf.com",
-      "phone": "7871055597",
-      "address": "15-11,Keelasankarankuzhi\nAgasteeswaram\n"
+      "email": "vimal@test.com",
+      "phone": "7871057797",
+      "address": "test"
     },
     {
       "id": "1ff4",
       "username": "Ronaldo",
       "password": "cr7@75545",
       "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "role": "customer"
-    },
-    {
-      "id": "6ecd",
-      "username": "Paulo",
-      "password": "juve@123",
-      "email": "mohammedubare7@gmail.com",
       "phone": "7304373810",
       "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
       "role": "customer"
@@ -449,15 +42,8 @@
   "tables": [
     {
       "id": "1",
-      "seats": 4,
-      "isReserved": false
-    },
-    {
-      "id": "2",
-      "date": "2024-12-20",
-      "time": "20:00",
       "seats": 2,
-      "isReserved": true
+      "reservations": {}
     },
     {
       "id": "2",
@@ -468,215 +54,96 @@
       "id": "3",
       "seats": 6,
       "reservations": {}
+    },
+    {
+      "id": "4",
+      "seats": 8,
+      "reservations": {}
     }
   ],
   "reservations": [
     {
-      "id": "1388",
+      "id": "883",
       "tableId": "1",
-      "customerName": "vimal",
-      "contact": "7871055597",
-      "date": "2025-01-03",
-      "time": "12:30",
-      "seats": 2
+      "date": "2025-01-28",
+      "time": "04:00 PM",
+      "customerName": "manjula",
+      "contact": "9012345678",
+      "seats": 2,
+      "status": "rejected"
     },
     {
-      "id": "684a",
+      "id": "9356",
+      "tableId": "1",
+      "date": "2025-01-28",
+      "time": "02:00 PM",
+      "customerName": "sumit",
+      "contact": "9580311350",
+      "seats": 2,
+      "status": "rejected"
+    },
+    {
+      "id": "1186",
+      "tableId": "3",
+      "date": "2025-01-28",
+      "time": "11:00 AM",
+      "customerName": "abcd",
+      "contact": "9580311390",
+      "seats": 3,
+      "status": "rejected"
+    },
+    {
+      "id": "4024",
+      "tableId": "3",
+      "date": "2025-01-28",
+      "time": "10:00 PM",
+      "customerName": "sakshi",
+      "contact": "9580311390",
+      "seats": 3,
+      "status": "rejected"
+    },
+    {
+      "id": "879",
       "tableId": "2",
-      "customerName": "Mohammed riyaz obaray",
-      "contact": "7304373810",
-      "date": "2025-01-10",
-      "time": "17:48",
-      "seats": 2
-    },
-    {
-      "id": "4f95",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "46d2",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "3095",
-      "tableId": 2,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "54cd",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "a467",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "14:00",
+      "date": "2025-01-28",
+      "time": "11:00 AM",
       "customerName": "manjula",
-      "contact": "1234567890",
-      "seats": 5
-    },
-    {
-      "id": "3786",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "e1c9",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "656b",
-      "date": "2025-01-05",
-      "time": {
-        "time": "11:00",
-        "isReserved": false
-      },
-      "tableId": 1,
-      "customerName": "",
-      "contact": "",
-      "seats": 1
-    },
-    {
-      "id": "2d77",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": {
-        "time": "11:00",
-        "isReserved": false
-      },
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "4a1d",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "fdd3",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "18f3",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "4e93",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "11:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "94db",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "d049",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "manjula",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "14f5",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "6e0f",
-      "tableId": 1,
-      "date": "2025-01-06",
-      "time": "12:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    },
-    {
-      "id": "9b76",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "manjula",
-      "contact": "1234567890",
-      "seats": 3
+      "contact": "9580311358",
+      "seats": 2,
+      "status": "pending"
     }
   ],
-  "menu-items": [
-    {
-      "id": "f915",
-      "name": "Mutt Rogan Josh",
-      "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-      "price": 356,
-      "category": "Main Course",
-      "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-      "availability": true
-    },
-    {
-      "id": "2d54",
-      "name": "Biryani",
-      "description": "Tandoori Roasted Biryani With Boneless strips",
-      "price": 250,
-      "category": "Main Course",
-      "imageUrl": "\"https://www.shutterstock.com/shutterstock/photos/2080100593/display_1500/stock-photo-chicken-lucknowi-biryani-full-tandoor-2080100593.jpg\"",
-      "availability": true
-    }
+ "menu-items": [
+  {
+    "id": "f915",
+    "name": "Mutton Rogan Josh",
+    "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+    "price": 356,
+    "category": "Main Course",
+    "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+    "availability": true,
+    "rating": [1,2,3,4]
+  },
+  {
+    "id": "c5b2",
+    "name": "Egg Masala",
+    "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+    "price": 217,
+    "category": "Main Course",
+    "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+    "availability": true,
+    "rating": [2,3,4,5]
+  },
+  {
+    "id": "d59e",
+    "name": "Butter Naan",
+    "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+    "price": 45,
+    "category": "Bread",
+    "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
+    "availability": true,
+    "rating": [1,2,4,3]
+  }
   ],
   "cart": [
     {
@@ -688,7 +155,7 @@
       "currentPrice": 35,
       "originalPrice": 50,
       "discount": 10,
-      "quantity": 2
+      "quantity": 13
     },
     {
       "id": "9cfc",
@@ -699,7 +166,7 @@
       "currentPrice": 135,
       "originalPrice": 150,
       "discount": 10,
-      "quantity": 1
+      "quantity": 6
     },
     {
       "id": "1bc1",
@@ -710,7 +177,7 @@
       "currentPrice": 135,
       "originalPrice": 150,
       "discount": 10,
-      "quantity": 1
+      "quantity": 13
     },
     {
       "id": "388d",
@@ -721,7 +188,270 @@
       "currentPrice": 150,
       "originalPrice": 135,
       "discount": 10,
-      "quantity": 1
+      "quantity": 8
+    }
+  ],
+  "orders": [
+    {
+      "id": "5264",
+      "items": [
+        {
+          "id": "f124",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 2
+        },
+        {
+          "id": "357e",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "ade8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "682a",
+          "foodID": 2,
+          "img": "../../assets/OIP.jpg",
+          "name": "mini tiffen",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 550,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "64be",
+      "items": [
+        {
+          "id": "f124",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 2
+        },
+        {
+          "id": "357e",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "ade8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "682a",
+          "foodID": 2,
+          "img": "../../assets/OIP.jpg",
+          "name": "mini tiffen",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 550,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "bd75",
+      "items": [
+        {
+          "id": "f124",
+          "foodID": 1,
+          "img": "../../assets/OIP (1).jpg",
+          "name": "samosa",
+          "type": "starter",
+          "currentPrice": 35,
+          "originalPrice": 50,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "357e",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "ade8",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "682a",
+          "foodID": 2,
+          "img": "../../assets/OIP.jpg",
+          "name": "mini tiffen",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 515,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "f9db",
+      "items": [
+        {
+          "id": "7f4b",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "f8c2",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 345,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "5c3e",
+      "items": [
+        {
+          "id": "7f4b",
+          "foodID": 3,
+          "img": "../../assets/OIP (2).jpg",
+          "name": "pav baaji",
+          "type": "starter",
+          "currentPrice": 150,
+          "originalPrice": 135,
+          "discount": 10,
+          "quantity": 1
+        },
+        {
+          "id": "f8c2",
+          "foodID": 4,
+          "img": "../../assets/OIP (3).jpg",
+          "name": "briyani",
+          "type": "starter",
+          "currentPrice": 135,
+          "originalPrice": 150,
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "deliveryAddress": {
+        "name": "Aparna  S",
+        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
+        "city": "CHROMPET",
+        "state": "CHENNAI, TAMIL NADU",
+        "postalCode": "600044"
+      },
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 345,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Jan 26 2025"
     }
   ],
   "feedback": [
