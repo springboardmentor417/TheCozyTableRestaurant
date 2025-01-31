@@ -1,7 +1,7 @@
 //team1
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './User profile -authentication/components/login/login.component';
-// import { HomeComponent } from './User profile -authentication/components/home/home.component';
+
 import { RegisterComponent } from './User profile -authentication/components/register/register.component';
 import { UpdateUserComponent } from './User profile -authentication/components/update-user/update-user.component';
 import { DeleteUserComponent } from './User profile -authentication/components/delete-user/delete-user.component';
@@ -35,10 +35,11 @@ import { AdminNavComponent } from './feedback/components/admin-nav/admin-nav.com
 import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-page.component';
 
 import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
-import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
+import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component'
 import { UserManagementComponent } from './User profile -authentication/components/user-management/user-management.component';
 import { AdmindetailsComponent } from './User profile -authentication/components/admindetails/admindetails.component';
 import { authGuard } from './auth.guard';
+
 export const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent },
   { path: 'login', component: LoginComponent },

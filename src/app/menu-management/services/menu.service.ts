@@ -10,6 +10,7 @@ export interface MenuItem {
   category: string;
   imageUrl?: string; // Optional for items without an image
   availability: boolean;
+  rating:number[];
 }
 
 @Injectable({

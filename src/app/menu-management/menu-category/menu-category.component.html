@@ -35,10 +35,7 @@
 
   <!-- Menu items -->
   <div class="menu-items">
-    <div
-      *ngFor="let item of filteredMenuItems"
-      class="menu-item"
-    >
+    <div *ngFor="let item of filteredMenuItems" class="menu-item">
       <img
         [src]="item.imageUrl"
         [alt]="item.name"
@@ -46,9 +43,25 @@
         onerror="this.src='assets/default-image.jpg'"
       />
       <div class="menu-item-details">
+        <div class="menu-item-header">
         <h2>{{ item.name }}</h2>
+        <!-- Add to Cart Button -->
+        <button 
+          *ngIf="!isAdmin" 
+           
+          (click)="addToCart(item)">
+          <mat-icon class="cart-icon">shopping_cart</mat-icon>
+        </button>
+        </div>
+        <div class="rating-container">
+          <span class="rating-number">{{ getAverageRating(item.rating)}}</span>
+        <mat-icon class="star-icon">star</mat-icon>
+      </div>
         <p>{{ item.description }}</p>
         <p class="menu-item-price">₹{{ item.price }}</p>
+
+        
+        
       </div>
     </div>
   </div>
