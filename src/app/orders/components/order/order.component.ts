@@ -1,14 +1,15 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-order',
   
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
   // Properties for delivery address
@@ -17,11 +18,12 @@ export class OrderComponent implements OnInit {
     addressLine1: 'NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road',
     city: 'CHROMPET',
     state: 'CHENNAI, TAMIL NADU',
-    postalCode: '600044'
+    postalCode: '600044',
   };
 
   // Properties for payment method
   paymentMethod = {
+
     cash:'Pay on delivery (Cash/Card)',
     
   };
@@ -47,7 +49,31 @@ export class OrderComponent implements OnInit {
         console.error('Error fetching cart details:', error);
       }
     );
+  
+    cash: 'Pay on delivery (Cash/Card)',
+    credit: 'Credit card',
+    Onlinepayments: 'UPI id(Gpay/phonepay/paytm)',
+  };
+
+  // Properties for order summary
+  orderSummary = {
+    items: 1733.0,
+    deliveryFee: 80.0,
+    promotionApplied: 20.0,
+    savings: 540.0,
+    discountPercent: 23,
+  };
+
+  // Computed property for the total amount
+  get totalAmount(): number {
+    return (
+      this.orderSummary.items +
+      this.orderSummary.deliveryFee -
+      this.orderSummary.promotionApplied
+    );
   }
+
+  constructor(private router: Router) {}
 
   // Calculate total amount
   get totalAmount(): number {
@@ -59,6 +85,7 @@ export class OrderComponent implements OnInit {
   }
 
   placeOrder(): void {
+
     const orderSummary = {
       items: this.getCartDetails,
       deliveryAddress: this.deliveryAddress,
@@ -81,6 +108,10 @@ export class OrderComponent implements OnInit {
         alert('Failed to place the order. Please try again.');
       }
     );
+
+    const val = confirm('Order placed successfully!');
+    console.log(val);
+    if (val) this.router.navigate(['/redirect']);
   }
   
 }

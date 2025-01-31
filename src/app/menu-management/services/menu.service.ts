@@ -10,6 +10,7 @@ export interface MenuItem {
   category: string;
   imageUrl?: string; // Optional for items without an image
   availability: boolean;
+  rating:number[];
 }
 
 @Injectable({
@@ -24,12 +25,22 @@ export class MenuService {
   getMenuItems(): Observable<MenuItem[]> {
     return this.http.get<MenuItem[]>(this.baseUrl);
   }
+  
 
   // Add a new menu item
   addMenuItem(menuItem: MenuItem): Observable<MenuItem> {
     return this.http.post<MenuItem>(this.baseUrl, menuItem);
   }
-
+   // Get all menu items
+   getAllItems(): Observable<MenuItem[]> {
+    return this.http.get<MenuItem[]>(this.baseUrl);
+  }
+  // Get menu items by category
+  getItemsByCategory(category: string): Observable<MenuItem[]> {
+    console.log(category)
+    return this.http.get<MenuItem[]>(`${this.baseUrl}/category/${category}`);
+  }
+  
   // Update a menu item
   updateMenuItem(menuItem: FormData): Observable<MenuItem> {
     const id = menuItem.get('id'); // Extract the ID
@@ -52,5 +63,13 @@ export class MenuService {
   // Delete a menu item
   deleteMenuItem(id: number): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/${id}`);
+  }
+  // Fetch menu items by category and price range
+  getItemsByCategoryAndPrice(category: string, maxPrice: number): Observable<MenuItem[]> {
+    return this.http.get<MenuItem[]>(`/api/menu/category/${category}/price`, {
+      params: {
+        maxPrice: maxPrice.toString() // Sending maxPrice as query parameter
+      }
+    });
   }
 }

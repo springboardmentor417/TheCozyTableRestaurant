@@ -1,0 +1,48 @@
+<div class="admin-page">
+  <h2>Manage Reservations</h2>
+
+  <div *ngIf="reservations.length > 0; else noReservations">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer Name</th>
+          <th>Contact</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Seats</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations,let i = index">
+          <td>{{ reservation.id }}</td>
+          <td>{{ reservation.customerName }}</td>
+          <td>{{ reservation.contact }}</td>
+          <td>{{ reservation.date }}</td>
+          <td>{{ reservation.time }}</td>
+          <td>{{ reservation.seats }}</td>
+          <td>{{ reservation.status }}</td>
+            <!-- <button
+                *ngIf="reservation.status === 'pending'"
+                (click)="approveReservation(reservation.id)"
+              >
+                Approve
+              </button> -->
+          <td>
+            <button [disabled]="reservation.status === 'rejected'"
+              [ngClass]="{'disabled-button': reservation.status === 'rejected'}"
+              (click)="rejectReservation(reservation.id, i)">
+              Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noReservations>
+    <p>No reservations available.</p>
+  </ng-template>
+</div>

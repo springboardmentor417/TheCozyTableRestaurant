@@ -1,6 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ServicesService } from '../../services/services.service';
 
 @Component({
   selector: 'app-user-welcome',
@@ -12,8 +13,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 export class UserWelcomeComponent implements OnInit {
   reservations: any[] = [];
 orders: any[] = [];
-payments: any[] = [];
-loyaltyPoints: number = 50; // Example value
+ payments: any[] = [];
+ loyaltyPoints: number = 50; // Example value
 
   loading: boolean = true;
   username: string = '';
@@ -23,7 +24,7 @@ loyaltyPoints: number = 50; // Example value
   notifications: string[] = [];
   reviews: { dish: string; rating: number; comment: string }[] = [];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router,private service:ServicesService) {}
 
   ngOnInit(): void {
     this.loadUserData();
@@ -57,18 +58,18 @@ loyaltyPoints: number = 50; // Example value
       this.loading = false;
     }, 1000);
   }
-
-  logout(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.clear();
-    }
-    if (confirm('Are you sure you want to log out?')) {
-      this.router.navigate(['/login']);
-    }
-  }
-  
   
   addReview(): void {
     this.router.navigate(['/add-review']);
   }
+  // logout(): void {
+  //   if (isPlatformBrowser(this.platformId)) {
+  //     localStorage.removeItem('currentUser');  // Remove specific item instead of clearing all
+  //     this.service.logout();
+  //     this.router.navigate(['/login']).then(() => {
+  //       window.location.reload();  // Ensure navigation and state reset
+  //     });
+  //   }
+  // }
+  
 }

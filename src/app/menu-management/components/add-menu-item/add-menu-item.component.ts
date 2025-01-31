@@ -84,7 +84,8 @@ export class AddMenuItemComponent {
       price: this.addMenuItemForm.get('price')?.value,
       category: this.addMenuItemForm.get('category')?.value,
       imageUrl: imageUrl,
-      availability: true // Add the 'availability' property
+      availability: true, // Add the 'availability' property
+      rating: []
     };
 
     this.menuService.addMenuItem(newItem).subscribe({

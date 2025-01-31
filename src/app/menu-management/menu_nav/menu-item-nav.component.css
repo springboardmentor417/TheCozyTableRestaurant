@@ -1,0 +1,37 @@
+.tp-container {
+  margin-left:-50px;
+}
+mat-sidenav {
+  width: 250px;
+  background: linear-gradient(135deg,#fd7e14, #e0b43c); /* Gradient background */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  border-radius: 10px;
+}
+
+
+a.mat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: #fff; /* White text for better contrast */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth hover effects */
+  font-size: 1.1rem; /* Slightly larger text */
+}
+
+a.mat-list-item:hover {
+  background-color: #f7a700; /* Bright hover effect */
+  transform: translateX(5px); /* Slide effect on hover */
+}
+
+.active-link {
+  font-weight: bold;
+  color: #ffeb3b; /* Bright yellow for active links */
+  background-color: #e89611; /* Highlight active with contrasting background */
+}
+mat-icon {
+  margin-right: 5px;
+  margin-bottom: -7px;
+  color:rgb(152, 51, 18);
+}

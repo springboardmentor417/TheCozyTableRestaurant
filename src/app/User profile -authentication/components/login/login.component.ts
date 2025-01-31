@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: ServicesService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
@@ -41,62 +42,41 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-
-      this.authService.getUsers(username, password).subscribe(
-        (users) => {
-          const user = users.find(
-            (u) => u.username === username && u.password === password
-          );
-
-          if (user) {
-            console.log('Login successful:', user);
-
-            // Save user details in localStorage
-            const userDetails = {
-              id: user.id,
-              username: user.username,
-              email: user.email,
-              phone: user.phone,
-              address: user.address,
-              role: user.role || 'customer',
-            };
-
-            localStorage.setItem('currentUser', JSON.stringify(userDetails));
-            this.isLoggedIn = true;
-
-            // Navigate based on user role
-            if (user.role === 'admin') {
-              alert('Welcome Admin!');
-              this.router.navigate(['/adminWelcome']);
-            } else if (user.role === 'customer') {
-              alert('Welcome Customer!');
-              this.router.navigate(['/userDetails']);
-            } else {
-              console.error('User role is undefined');
-              alert('User role is undefined. Please contact support.');
-            }
-          } else {
-            console.error('Invalid credentials');
-            alert('Invalid username or password.');
-          }
-        },
-        (error) => {
-          console.error('Error during login:', error);
-          alert('An error occurred while logging in. Please try again later.');
-        }
-      );
-    } else {
-      alert('Please fill in the form correctly.');
-    }
+    const { username, password } = this.loginForm.value;
+  
+    this.authService.getUsers().subscribe({
+      next: (users) => {
+        const user = users.find((u: any) => u.username === username && u.password === password);
+        if (user) {
+          const userDetails = {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            phone: user.phone,
+            address: user.address,
+            role: user.role || 'customer',
+          };
+  
+          localStorage.setItem('currentUser', JSON.stringify(userDetails));
+          this.isLoggedIn = true;
+  
+          if (user.role === 'admin') this.router.navigate(['/admindetails/adminWelcome']);
+          else this.router.navigate(['/userDetails/userWelcome']);
+          
+          this.authService.setLoginStatus(true); // Notify login status
+          this.cdr.detectChanges(); // Trigger change detection
+        } else alert('Invalid username or password.');
+      },
+      error: (err) => console.error('Error fetching users:', err),
+    });
   }
-
+  
   logout(): void {
     // Clear user details from localStorage
     localStorage.removeItem('currentUser');
-    this.isLoggedIn = false;
+    this.authService.setLoginStatus(false);
     alert('You have been logged out successfully.');
     this.router.navigate(['/Home']);
+    this.cdr.detectChanges();
   }
 }

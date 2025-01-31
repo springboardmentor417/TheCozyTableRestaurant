@@ -1,0 +1,68 @@
+<div class="menu-category-container">
+  <h1>Menu's List</h1>
+
+  <!-- Filters -->
+  <div class="filters">
+    <select [(ngModel)]="selectedCategory" (change)="onCategoryChange()" class="filter-select">
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <input
+      type="text"
+      [(ngModel)]="searchKeyword"
+      (input)="onSearchChange()"
+      class="search-input"
+      placeholder="Search by name..."
+    />
+
+    <div class="price-filter">
+      <label for="priceRange">Max Price: ₹{{ priceRange }}</label>
+      <input
+        type="range"
+        id="priceRange"
+        [(ngModel)]="priceRange"
+        [max]="maxPriceAllowed"
+        (change)="onPriceChange()"
+      />
+    </div>
+  </div>
+
+  <!-- Price warning or error message -->
+  <div *ngIf="priceWarning || errorMessage" class="warning">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Menu items -->
+  <div class="menu-items">
+    <div *ngFor="let item of filteredMenuItems" class="menu-item">
+      <img
+        [src]="item.imageUrl"
+        [alt]="item.name"
+        class="menu-item-image"
+        onerror="this.src='assets/default-image.jpg'"
+      />
+      <div class="menu-item-details">
+        <div class="menu-item-header">
+        <h2>{{ item.name }}</h2>
+        <!-- Add to Cart Button -->
+        <button 
+          *ngIf="!isAdmin" 
+           
+          (click)="addToCart(item)">
+          <mat-icon class="cart-icon">shopping_cart</mat-icon>
+        </button>
+        </div>
+        <div class="rating-container">
+          <span class="rating-number">{{ getAverageRating(item.rating)}}</span>
+        <mat-icon class="star-icon">star</mat-icon>
+      </div>
+        <p>{{ item.description }}</p>
+        <p class="menu-item-price">₹{{ item.price }}</p>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
