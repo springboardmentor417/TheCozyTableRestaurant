@@ -69,10 +69,25 @@ export class CartComponent implements OnInit {
       0
     );
   }
-  
+   // Remove an item from the cart
+   removeItem(cartItem: any): void {
+    const index = this.getCartDetails.indexOf(cartItem);
+    if (index !== -1) {
+      this.getCartDetails.splice(index, 1); // Remove the item from the array
+      this.cartService.removeCartItem(cartItem.id).subscribe(
+        (response) => {
+          console.log('Item removed from cart:', response);
+        },
+        (error) => {
+          console.error('Error removing item:', error);
+        }
+      ); 
+    }
+  }
 
 
   goToOrder(): void {
     this.router.navigate(['/order']);
   }
+  
 }

@@ -1,7 +1,7 @@
 <div class="order-container">
     <!-- Delivery Address Section -->
     <div class="section">
-      <h3>Delivery Address</h3>
+      <h3><strong>Delivery Address</strong></h3>
       <div class="content">
         <p><strong>{{ deliveryAddress.name }}</strong></p>
         <p>{{ deliveryAddress.addressLine1 }}</p>
@@ -13,38 +13,32 @@
   
     <!-- Payment Method Section -->
     <div class="section">
-      <h3>Payment Method</h3>
+      <h3><strong>Payment Method</strong></h3>
       <div class="content">
         <p>{{ paymentMethod.cash }}</p>
-        <p>{{ paymentMethod.credit }}</p>
-        <p>{{ paymentMethod.Onlinepayments}}</p>
         
-        <div>
-          <label for="promo-code">Add a gift card or promotion code:</label>
-          <input type="text" id="promo-code" placeholder="Enter Code" />
-          <button>Apply</button>
-        </div>
-      </div>
-    </div>
-  
+       
     <!-- Order Summary Section -->
     <div class="section">
-      <h3>Order Summary</h3>
+      <h3><strong>Order Summary</strong></h3>
       <div class="content">
-        <p>Items: ₹{{ orderSummary.items }}</p>
-        <p>Delivery: ₹{{ orderSummary.deliveryFee }}</p>
-        <p>Promotion Applied: -₹{{ orderSummary.promotionApplied }}</p>
+        <div *ngFor="let item of getCartDetails" class="cart-item">
+          <p>{{ item.name }} (x{{ item.quantity }}): ₹{{ item.quantity * item.currentPrice }}</p>
+        </div> 
+        <!-- <p>Cart Amount: ₹{{ calculateTotal() }}</p> -->
+        <p>Delivery Fee: ₹{{ deliveryFee }}</p>
+        <p>Promotion Applied: -₹{{promotionApplied }}</p>
         <hr />
-       <p class="savings">Your Savings: ₹{{ orderSummary.savings }} ({{ orderSummary.discountPercent }}%)</p>
         <p><strong>Order Total: ₹{{ totalAmount }}</strong></p>
-
       </div>
     </div>
+    
   
     <!-- Place Order Section -->
     <div class="section">
       <button class="place-order-btn" (click)="placeOrder()">Place Your Order</button>
     </div>
   </div>
+
   
 

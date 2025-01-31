@@ -25,7 +25,7 @@ export class HomeCartComponent {
     {
       foodID: 4,
       img: "../../assets/OIP (3).jpg",
-      name: "samosa",
+      name: "briyani",
       type: "starter",
       currentPrice: 135,
       originalPrice: 150,
@@ -35,7 +35,7 @@ export class HomeCartComponent {
     {
       foodID: 2,
       img: "../../assets/OIP.jpg",
-      name: "samosa",
+      name: "mini tiffen",
       type: "starter",
       currentPrice: 135,
       originalPrice: 150,
@@ -45,7 +45,7 @@ export class HomeCartComponent {
     {
       foodID: 3,
       img: "../../assets/OIP (2).jpg",
-      name: "samosa",
+      name: "pav baaji",
       type: "starter",
       currentPrice: 150,
       originalPrice: 135,
