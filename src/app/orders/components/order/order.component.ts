@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 
 import { Router, RouterLink } from '@angular/router';
@@ -48,11 +48,7 @@ export class OrderComponent implements OnInit {
       (error) => {
         console.error('Error fetching cart details:', error);
       }
-    );
-  
-    cash: 'Pay on delivery (Cash/Card)',
-    credit: 'Credit card',
-    Onlinepayments: 'UPI id(Gpay/phonepay/paytm)',
+    );  
   };
 
   // Properties for order summary
@@ -62,18 +58,21 @@ export class OrderComponent implements OnInit {
     promotionApplied: 20.0,
     savings: 540.0,
     discountPercent: 23,
+    cash: 'Pay on delivery (Cash/Card)',
+    credit: 'Credit card',
+    Onlinepayments: 'UPI id(Gpay/phonepay/paytm)',
   };
 
   // Computed property for the total amount
-  get totalAmount(): number {
-    return (
-      this.orderSummary.items +
-      this.orderSummary.deliveryFee -
-      this.orderSummary.promotionApplied
-    );
-  }
+  // get totalAmount(): number {
+  //   return (
+  //     this.orderSummary.items +
+  //     this.orderSummary.deliveryFee -
+  //     this.orderSummary.promotionApplied
+  //   );
+  // }
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) {}
 
   // Calculate total amount
   get totalAmount(): number {
@@ -115,5 +114,3 @@ export class OrderComponent implements OnInit {
   }
   
 }
-
-
