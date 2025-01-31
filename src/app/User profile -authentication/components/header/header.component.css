@@ -43,6 +43,10 @@ body, html {
    align-items: center; /* Center-align the title under the logo */
 }
 
+.logo a {
+   text-decoration: none; /* Ensures no underline for all links inside the logo div */
+}
+
 .logo img {
    height: 50px;
 }
@@ -53,6 +57,7 @@ body, html {
    font-size: 1.2rem;
    margin-top: 5px; /* Adjust spacing below the logo */
    text-align: center;
+   text-decoration: none;
 }
 
 /* Navigation styles */
