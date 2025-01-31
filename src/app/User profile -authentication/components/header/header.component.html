@@ -15,7 +15,7 @@
         <li *ngIf="isLoggedIn"><a routerLink="/homeCart">Menu</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/reservation">Reservation</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/cart">Cart</a></li>
-        <li *ngIf="isLoggedIn"><a routerLink="/feedback">Feedback</a></li>
+        <li *ngIf="isLoggedIn && isAdmin"><a routerLink="/adminchart">Feedback</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/login">Login</a></li>
         <li><a routerLink="/aboutus">About Us</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
