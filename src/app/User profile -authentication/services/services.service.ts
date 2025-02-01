@@ -135,4 +135,7 @@ export class ServicesService {
   private isLocalStorageAvailable(): boolean {
     return typeof localStorage !== 'undefined';
   }
+
+  
+  
 }

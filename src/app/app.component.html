@@ -1,8 +1,14 @@
-<div class="app-container">
-    <app-header></app-header> <!-- Header Component -->
-    <main class="content">
-      <router-outlet></router-outlet> <!-- Home Page or Other Content -->
-    </main>
-    <app-footer></app-footer> <!-- Footer Component -->
-  </div>
+
+   <ng-container *ngIf="showMainHeader; else secondaryHeader">
+    <app-headerhome></app-headerhome>
+  </ng-container>
+  
+  <ng-template #secondaryHeader>
+    <app-s-header></app-s-header>
+  </ng-template>
+
+  <router-outlet></router-outlet>
+  
+  
+ 
   

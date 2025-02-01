@@ -1,17 +1,19 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { FooterComponent } from "../footer/footer.component";
+import { HeaderhomeComponent } from "../headerhome/headerhome.component";
 // import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @Component({
   selector: 'app-aboutus',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent],
   templateUrl: './aboutus.component.html',
   styleUrls: ['./aboutus.component.css'],
 })
 export class AboutusComponent implements AfterViewInit {
   
-  // 
+ 
   private map: any;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
