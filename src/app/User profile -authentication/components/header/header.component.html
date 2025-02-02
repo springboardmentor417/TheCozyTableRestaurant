@@ -17,7 +17,7 @@
         <li *ngIf="isLoggedIn"><a routerLink="/cart">Cart</a></li>
         <!-- <li *ngIf="isLoggedIn && isAdmin"><a routerLink="/adminchart">Feedback</a></li> -->
         <li>
-          <a routerLink="/feedback" [class.disabled]="isCustomer" [attr.aria-disabled]="isCustomer">
+          <a routerLink="/admin/adminchart" [class.disabled]="isCustomer" [attr.aria-disabled]="isCustomer">
             Feedback
           </a>
         </li>        
