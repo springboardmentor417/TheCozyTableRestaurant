@@ -6,7 +6,7 @@
   left: 5109px;
   width: 1440px;
   height: 900px;
-  background: #ffffffff;
+  background: #fff3e0; /* Soft orange background */
 }
 
 .container {
@@ -15,9 +15,9 @@
   left: 0px;
   width: 1440px;
   height: 56px;
-  background: #ffffffff; /* white */
+  background: #ffebd1; /* Lighter brown */
   border-radius: 0px;
-  box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1f;
+  box-shadow: 0px 0px 1px #6d4c41, 0px 0px 2px #6d4c41;
 }
 
 .image {
@@ -38,7 +38,7 @@
   font-size: 28px;
   line-height: 42px;
   font-weight: 700;
-  color: #000000ff;
+  color: #3e2723; /* Dark brown text */
 }
 
 /* Header Menu */
@@ -49,73 +49,50 @@
   width: 300px;
   height: 52px;
 }
+
 .tp-container {
-  /* display: flex; */
   align-items: center;
-  font-family: Inter; /* Body */
+  font-family: Inter;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
   opacity: 1;
 }
+
 /* Header Menu - Item */
 .header-menu .header-menu-item {
   padding: 15px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #565e6cff; /* neutral-600 */
-  background: #000000ff; /* transparent */
-  border-radius: 6px; /* border-m */
+  color: #6d4c41; /* Dark brown */
+  background: transparent;
+  border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
 }
+
 /* Header Menu - Selected item */
 .header-menu .header-menu-item.selected {
-  position: relative;
   font-weight: 700;
-  color: #636ae8ff; /* primary-500 */
-  background: #000000ff; /* transparent */
+  color: #ff7043; /* Orange */
+  background: transparent;
 }
+
 /* Header Menu - Selected item */
 .header-menu .header-menu-item.selected:hover:active {
-  color: #636ae8ff; /* primary-500 */
-  background: #000000ff; /* transparent */
+  color: #ff7043; /* Orange */
+  background: transparent;
 }
+
 /* Header Menu - Item with indicator */
 .header-menu .header-menu-item.selected .indicator {
   position: absolute;
   bottom: 0px;
   width: 100%;
   height: 4px;
-  background: #636ae8ff; /* primary-500 */
+  background: #ff7043; /* Orange */
   border-radius: 2px;
-}
-/* Header menu item 1 */
-.header-menu .header-menu-item:nth-child(1) {
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 700;
-  color: #636ae8ff; /* primary-500 */
-}
-/* Header menu item 2 */
-.header-menu .header-menu-item:nth-child(2) {
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #565e6cff; /* neutral-600 */
-}
-/* Header menu item 3 */
-.header-menu .header-menu-item:nth-child(3) {
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #565e6cff; /* neutral-600 */
-  flex-direction: column;
-  height: 100%;
 }
 
 /* Button */
@@ -133,44 +110,49 @@
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #ffffffff; /* white */
-  background: #636ae8ff; /* primary-500 */
-  opacity: 1;
+  color: #ffffff;
+  background: #6d4c41; /* Dark brown */
   border: none;
-  border-radius: 10px; /* border-l */
+  border-radius: 10px;
   gap: 6px;
 }
+
 .button .icon {
   width: 16px;
   height: 16px;
-  fill: #ffffffff; /* white */
+  fill: #ffffff; /* White icon */
 }
+
 /* Hover */
 .button:hover {
-  color: #ffffffff; /* white */
-  background: #4850e4ff; /* primary-550 */
+  color: #ffffff;
+  background: #ff7043; /* Orange */
 }
-mat-sidenav {
-  width: 250px; /* Adjust width as needed */
-  /* background-color: rgb(213, 185, 224);
-  background: linear-gradient(90deg, #56d8e4, #9f01ea); */
-  background: linear-gradient(135deg, #f5efff, #9cadde);
-}
+
 /* Pressed */
 .button:hover:active {
-  color: #ffffffff; /* white */
-  background: #2c35e0ff; /* primary-600 */
+  color: #ffffff;
+  background: #d84e2a; /* Darker orange */
 }
+
 /* Disabled */
 .button:disabled {
   opacity: 0.4;
 }
+
+/* Active link */
 .active-link {
   font-weight: bold;
-  color: #007bff; /* Highlight active link */
-}
-.rounded-sidenav {
-  border-radius: 15px; /* Adjust the value to control the curve */
-  overflow: hidden; /* Ensures child elements respect the border-radius */
+  color: #ff8c00; /* Orange */
 }
 
+.rounded-sidenav {
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #8b4513, #ff8c00); /* Brown and orange gradient */
+}
+
+mat-sidenav {
+  width: 250px; /* Adjust width as needed */
+  background: linear-gradient(135deg, #8b4513, #ff8c00); /* Orange to brown gradient */
+}

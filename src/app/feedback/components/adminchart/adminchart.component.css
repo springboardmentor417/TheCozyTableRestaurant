@@ -1,5 +1,5 @@
 /* body {
-  background: #f5efff;
+  background: #f5efff; 
 } */
 
 /* .page-title {
@@ -35,7 +35,7 @@
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
-  /* background: #f5efff; */
+  background: #fff3e0; /* Soft orange background */
 }
 
 .left-column,
@@ -56,8 +56,13 @@
   max-width: 400px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, #fff5e4, #fadadd);
+  background: linear-gradient(135deg, #fff5e4, #fadadd); /* Subtle brown-orange gradient */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight upward movement on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increases the shadow for a pop-out effect */
 }
 
 canvas {
@@ -67,6 +72,7 @@ canvas {
   border-radius: 5px;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .chart-container {
     grid-template-columns: 1fr;
@@ -76,10 +82,5 @@ canvas {
   mat-card {
     max-width: 90%;
     margin: 10px auto;
-  }
-
-  .card:hover {
-    transform: translateY(-5px); /* Adds a slight upward movement on hover */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increases the shadow for a pop-out effect */
   }
 }

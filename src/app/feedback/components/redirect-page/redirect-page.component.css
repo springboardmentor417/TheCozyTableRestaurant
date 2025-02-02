@@ -4,55 +4,65 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+  background-color: #f4e1d2; /* Warm beige background */
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
   text-align: center;
 }
 
+/* Icon Styling */
 .icon {
   margin-bottom: 20px;
 }
 
+/* Heading */
 h1 {
   line-height: 1.2;
   text-align: center;
   font-size: 41px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  background: -webkit-linear-gradient(
-    right,
-    #56d8e4,
-    #9f01ea,
-    #56d8e4,
-    #9f01ea
-  );
+  background: -webkit-linear-gradient(right, #8b4513, #ff8c00, #8b4513, #ff8c00);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Paragraph */
 p {
   font-size: 1.2em;
-  color: #666;
+  color: #5a3825; /* Dark brown */
 }
 
+/* Button Styling */
 .button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 24px;
   margin-top: 20px;
   font-size: 1em;
   color: white;
-  background: linear-gradient(90deg, #ff0080, #00bfff);
+  background: linear-gradient(90deg, #8b4513, #ff8c00);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Hover Effect */
 .button:hover {
-  background: linear-gradient(90deg, #00bfff, #ff0080);
+  background: linear-gradient(90deg, #ff8c00, #8b4513);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
