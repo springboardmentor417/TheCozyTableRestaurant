@@ -15,6 +15,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false; // Tracks login status
+  isCustomer = false; // Tracks if user is a customer
   isAdmin = false; // Tracks if user is an admin
   private subscription: Subscription = new Subscription();
 
@@ -37,7 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (currentUser) {
       const user = JSON.parse(currentUser);
       this.isLoggedIn = true;
-      
+      this.isCustomer = user.role === 'customer'; // Check if the user is a customer
       this.isAdmin = user.role === 'admin'; // Check if the user is an admin
     }
 
@@ -47,6 +48,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       const currentUser = localStorage.getItem('currentUser');
       if (currentUser) {
         const user = JSON.parse(currentUser);
+        this.isCustomer = user.role === 'customer';
         this.isAdmin = user.role === 'admin';
       }
       this.cdr.detectChanges();
@@ -61,6 +63,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout(): void {
     localStorage.removeItem('currentUser');
     this.authService.setLoginStatus(false); // Notify authService about logout
+    this.isCustomer = false;
     this.isAdmin = false;
     this.router.navigate(['/login']); // Redirect to login
     this.cdr.detectChanges();
