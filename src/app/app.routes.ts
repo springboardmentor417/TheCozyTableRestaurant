@@ -73,7 +73,7 @@ export const routes: Routes = [
     component: FeedbackFormComponent,
     canActivate: [authGuard],
   },
-  // { path: 'admin', component: AdminchartComponent },
+//  { path: 'adminn', component: AdminchartComponent },
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
 
