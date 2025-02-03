@@ -74,7 +74,7 @@
 .header-menu .header-menu-item.selected {
   position: relative;
   font-weight: 700;
-  color: #636ae8ff; /* primary-500 */
+  color: rgb(232, 181, 99); /* primary-500 */
   background: #000000ff; /* transparent */
 }
 /* Header Menu - Selected item */
@@ -154,7 +154,7 @@ mat-sidenav {
   width: 250px; /* Adjust width as needed */
   /* background-color: rgb(213, 185, 224);
   background: linear-gradient(90deg, #56d8e4, #9f01ea); */
-  background: linear-gradient(135deg, #f5efff, #9cadde);
+  background: linear-gradient(135deg, #ffd700, #ff7700);
 }
 /* Pressed */
 .button:hover:active {
@@ -173,4 +173,3 @@ mat-sidenav {
   border-radius: 15px; /* Adjust the value to control the curve */
   overflow: hidden; /* Ensures child elements respect the border-radius */
 }
-
