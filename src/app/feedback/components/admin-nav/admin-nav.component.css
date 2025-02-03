@@ -1,6 +1,6 @@
 mat-sidenav {
   width: 250px;
-  background: linear-gradient(135deg,#e19353, #eac45b); /* Gradient background */
+  background: linear-gradient(135deg,#edaf7b, #eac45b); /* Gradient background */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
   border-radius: 10px;
 }
