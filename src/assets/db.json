@@ -1,5 +1,4 @@
 {
-  
   "users": [
     {
       "id": "1dc",
@@ -38,197 +37,6 @@
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
       "role": "customer"
-
-    }
-  ],
-  "tables": [
-    {
-      "id": 1,
-      "seats": 4,
-
-      "isReserved": false
-    },
-    {
-      "id": "2",
-      "seats": 2,
-      "isReserved": true
-
-    },
-    {
-      "id": 2,
-      "seats": 2,
-      "reservations": {}
-    },
-    {
-      "id": 3,
-      "seats": 6,
-      "reservations": {}
-    }
-  ],
-  "reservations": [
-    {
-      "id": "1388",
-      "tableId": "1",
-      "customerName": "vimal",
-      "contact": "7871055597",
-      "date": "2025-01-03",
-      "time": "12:30",
-      "seats": 2
-    },
-    {
-
-      "id": "684a",
-      "tableId": "2",
-      "customerName": "Mohammed riyaz obaray",
-      "contact": "7304373810",
-      "date": "2025-01-10",
-      "time": "17:48",
-      "seats": 2
-    },
-    {
-      "id": "4f95",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "10:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "46d2",
-      "tableId": 1,
-      "date": "2025-01-05",
-      "time": "13:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 2
-    },
-    {
-      "id": "3095",
-      "tableId": 2,
-      "date": "2025-01-05",
-      "time": "14:00",
-      "customerName": "sakshi",
-      "contact": "1234567890",
-      "seats": 3
-    }
-  ],
-  "menu-items": [
-    {
-      "id": "f915",
-      "name": "Mutt Rogan Josh",
-      "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-      "price": 356,
-      "category": "Main Course",
-      "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-      "availability": true
-    },
-    {
-      "id": "2d54",
-      "name": "Biryani",
-      "description": "Tandoori Roasted Biryani With Boneless strips",
-      "price": 250,
-      "category": "Main Course",
-      "imageUrl": "\"https://www.shutterstock.com/shutterstock/photos/2080100593/display_1500/stock-photo-chicken-lucknowi-biryani-full-tandoor-2080100593.jpg\"",
-      "availability": true
-    }
-  ],
-  "cart": [
-    {
-      "id": "58c9",
-      "foodID": 1,
-      "img": "../../assets/OIP (1).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 35,
-      "originalPrice": 50,
-      "discount": 10,
-      "quantity": 12
-    },
-    {
-      "id": "9cfc",
-      "foodID": 4,
-      "img": "../../assets/OIP (3).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 135,
-      "originalPrice": 150,
-      "discount": 10,
-      "quantity": 6
-    },
-    {
-      "id": "1bc1",
-      "foodID": 2,
-      "img": "../../assets/OIP.jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 135,
-      "originalPrice": 150,
-      "discount": 10,
-      "quantity": 13
-    },
-    {
-      "id": "388d",
-      "foodID": 3,
-      "img": "../../assets/OIP (2).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 150,
-      "originalPrice": 135,
-      "discount": 10,
-      "quantity": 7
-    }
-  ],
-  "feedback": [
-    {
-      "id": "1445",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "uediebdiedbu",
-      "rating": 5,
-      "foodQuality": 3,
-      "valueForMoney": 3,
-      "selectedDate": "21/12/2024"
-    },
-    {
-      "id": "5657",
-      "name": "Swathi",
-      "email": "yswathi174@gmail.com",
-      "mobile": "9941294332",
-      "feedback": "good. the food was very tasty",
-      "rating": 4,
-      "foodQuality": 4,
-      "valueForMoney": 2,
-      "selectedDate": "21/12/2024",
-      "image": "/uploads/images/besite_birthday_surprise.png",
-      "imageError": ""
-    },
-    {
-      "id": "67c9",
-      "name": "vaniyha",
-      "email": "vani@gmail.com",
-      "mobile": "9916100678",
-      "feedback": "overall good",
-      "rating": 0,
-      "foodQuality": 2,
-      "valueForMoney": 2.5,
-      "selectedDate": "03/01/2025",
-      "image": null,
-      "imageError": ""
-    },
-    {
-      "id": "4d13",
-      "name": "Mohammed riyaz obaray",
-      "email": "mohammedobaray@gmail.com",
-      "mobile": "7304373810",
-      "feedback": "nice food ",
-      "rating": 2,
-      "foodQuality": 3,
-      "valueForMoney": 2.5,
-      "selectedDate": "04/01/2025",
-      "image": null,
-      "imageError": ""
     }
   ],
   "tables": [
@@ -396,6 +204,287 @@
       "originalPrice": 135,
       "discount": 10,
       "quantity": 8
+    }
+  ],
+  "feedback": [
+    {
+      "id": "1445",
+      "name": "Manikanta Nandyala",
+      "email": "22h45a6105@bvcits.edu.in",
+      "mobile": "9059545745",
+      "feedback": "uediebdiedbu",
+      "rating": 5,
+      "foodQuality": 3,
+      "valueForMoney": 3,
+      "selectedDate": "21/12/2024",
+      "adminReply": "Thank you!"
+    },
+    {
+      "id": "5657",
+      "name": "Swathi",
+      "email": "yswathi174@gmail.com",
+      "mobile": "9941294332",
+      "feedback": "good. the food was very tasty",
+      "rating": 4,
+      "foodQuality": 4,
+      "valueForMoney": 2,
+      "selectedDate": "21/12/2024",
+      "image": "/uploads/images/besite_birthday_surprise.png",
+      "imageError": ""
+    },
+    {
+      "id": "67c9",
+      "name": "vaniyha",
+      "email": "vani@gmail.com",
+      "mobile": "9916100678",
+      "feedback": "overall good",
+      "rating": 0,
+      "foodQuality": 2,
+      "valueForMoney": 2.5,
+      "selectedDate": "03/01/2025",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "4d13",
+      "name": "Mohammed riyaz obaray",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "nice food ",
+      "rating": 2,
+      "foodQuality": 3,
+      "valueForMoney": 2.5,
+      "selectedDate": "04/01/2025",
+      "image": null,
+      "imageError": ""
+    },
+    {
+      "id": "7f1b",
+      "name": "Mohammed",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "9421025825",
+      "feedback": "nice foooood",
+      "rating": 5,
+      "foodQuality": 5,
+      "valueForMoney": 3.5,
+      "selectedDate": "28/01/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 2,
+          "price": 35,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 135,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 135,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 150,
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "6534",
+      "name": "MohammedObaray",
+      "feedback": "very good food",
+      "rating": 5,
+      "foodQuality": 3.5,
+      "valueForMoney": 4,
+      "selectedDate": "02/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 35,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 6,
+          "price": 135,
+          "rating": 4
+        },
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 135,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 8,
+          "price": 150,
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "c133",
+      "name": "MohammedObaray",
+      "feedback": "Very good food",
+      "rating": 3,
+      "foodQuality": 3.5,
+      "valueForMoney": 4,
+      "selectedDate": "02/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 35,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 6,
+          "price": 135,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 135,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 8,
+          "price": 150,
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "2460",
+      "name": "MohammedObaray",
+      "feedback": "dgvuaghvouahv",
+      "rating": 4,
+      "foodQuality": 3.5,
+      "valueForMoney": 4,
+      "selectedDate": "02/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 35,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 6,
+          "price": 135,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 135,
+          "rating": 4
+        },
+        {
+          "name": "samosa",
+          "quantity": 8,
+          "price": 150,
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "22d7",
+      "name": "Mohammed",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "9421025825",
+      "feedback": "good food and quality",
+      "rating": 4,
+      "foodQuality": 4,
+      "valueForMoney": 4,
+      "selectedDate": "03/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 35,
+          "rating": 4
+        },
+        {
+          "name": "samosa",
+          "quantity": 6,
+          "price": 135,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 135,
+          "rating": 4
+        },
+        {
+          "name": "samosa",
+          "quantity": 8,
+          "price": 150,
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "d0b9",
+      "name": "Ronaldo",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "nice foo\noooood",
+      "rating": 4,
+      "foodQuality": 3.5,
+      "valueForMoney": 4.5,
+      "selectedDate": "03/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 35,
+          "rating": 4
+        },
+        {
+          "name": "samosa",
+          "quantity": 6,
+          "price": 135,
+          "rating": 5
+        },
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 135,
+          "rating": 4
+        },
+        {
+          "name": "samosa",
+          "quantity": 8,
+          "price": 150,
+          "rating": 5
+        }
+      ]
     }
   ],
   "orders": [
@@ -659,248 +748,6 @@
       "deliveryFee": 80,
       "promotionApplied": 20,
       "orderDate": "Sun Jan 26 2025"
-    }
-  ],
-  "feedback": [
-    {
-      "id": "1445",
-      "name": "Manikanta Nandyala",
-      "email": "22h45a6105@bvcits.edu.in",
-      "mobile": "9059545745",
-      "feedback": "uediebdiedbu",
-      "rating": 5,
-      "foodQuality": 3,
-      "valueForMoney": 3,
-      "selectedDate": "21/12/2024",
-      "adminReply": "Thank you!"
-    },
-    {
-      "id": "5657",
-      "name": "Swathi",
-      "email": "yswathi174@gmail.com",
-      "mobile": "9941294332",
-      "feedback": "good. the food was very tasty",
-      "rating": 4,
-      "foodQuality": 4,
-      "valueForMoney": 2,
-      "selectedDate": "21/12/2024",
-      "image": "/uploads/images/besite_birthday_surprise.png",
-      "imageError": ""
-    },
-    {
-      "id": "67c9",
-      "name": "vaniyha",
-      "email": "vani@gmail.com",
-      "mobile": "9916100678",
-      "feedback": "overall good",
-      "rating": 0,
-      "foodQuality": 2,
-      "valueForMoney": 2.5,
-      "selectedDate": "03/01/2025",
-      "image": null,
-      "imageError": ""
-    },
-    {
-      "id": "4d13",
-      "name": "Mohammed riyaz obaray",
-      "email": "mohammedobaray@gmail.com",
-      "mobile": "7304373810",
-      "feedback": "nice food ",
-      "rating": 2,
-      "foodQuality": 3,
-      "valueForMoney": 2.5,
-      "selectedDate": "04/01/2025",
-      "image": null,
-      "imageError": ""
-    },
-    {
-      "id": "7f1b",
-      "name": "Mohammed",
-      "email": "mohammedobaray@gmail.com",
-      "mobile": "9421025825",
-      "feedback": "nice foooood",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 3.5,
-      "selectedDate": "28/01/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 2,
-          "price": 35,
-          "rating": 5
-        },
-        {
-          "name": "samosa",
-          "quantity": 1,
-          "price": 135,
-          "rating": 5
-        },
-        {
-          "name": "samosa",
-          "quantity": 1,
-          "price": 135,
-          "rating": 5
-        },
-        {
-          "name": "samosa",
-          "quantity": 1,
-          "price": 150,
-          "rating": 5
-        }
-      ]
-    },
-    {
-      "id": "6534",
-      "name": "MohammedObaray",
-      "feedback": "very good food",
-      "rating": 5,
-      "foodQuality": 3.5,
-      "valueForMoney": 4,
-      "selectedDate": "02/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "c133",
-      "name": "MohammedObaray",
-      "feedback": "Very good food",
-      "rating": 3,
-      "foodQuality": 3.5,
-      "valueForMoney": 4,
-      "selectedDate": "02/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "2460",
-      "name": "MohammedObaray",
-      "feedback": "dgvuaghvouahv",
-      "rating": 4,
-      "foodQuality": 3.5,
-      "valueForMoney": 4,
-      "selectedDate": "02/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "22d7",
-      "name": "Mohammed",
-      "email": "mohammedobaray@gmail.com",
-      "mobile": "9421025825",
-      "feedback": "good food and quality",
-      "rating": 4,
-      "foodQuality": 4,
-      "valueForMoney": 4,
-      "selectedDate": "03/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
     }
   ]
 }
