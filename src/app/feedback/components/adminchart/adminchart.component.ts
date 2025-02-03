@@ -15,7 +15,7 @@ import { ReplyPageComponent } from '../../adminComponent/reply-page/reply-page.c
 @Component({
   selector: 'app-adminchart',
   standalone: true,
-  imports: [HttpClientModule, MatCardModule, ReplyPageComponent],
+  imports: [HttpClientModule, MatCardModule],
   templateUrl: './adminchart.component.html',
   styleUrls: ['./adminchart.component.css'],
 })

@@ -4,11 +4,9 @@
   gap: 40px;
   padding: 20px;
 }
-
 .review-card {
   border: 1px solid #ddd;
-  background: linear-gradient(135deg, #fff5e4, #ffd700);
-
+  background: linear-gradient(135deg, #e8e88a, #e19d65); /* Orange and Yellow Theme */
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -16,6 +14,7 @@
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 
 .review-header {
@@ -41,7 +40,7 @@
 
 .review-name {
   font-weight: bold;
-  color: rgb(232, 163, 15);
+  color: rgb(224, 157, 14);
   margin: 0;
 }
 
@@ -66,13 +65,13 @@
 }
 
 .star {
-  font-size: 20px;
-  color: #ddd; /* Default color for unfilled stars */
+  font-size: 28px;
+  color: #ffffff; /* Default color for unfilled stars */
   margin: 0 2px;
 }
 
 .star.filled {
-  color: #f39c12; /* Color for filled stars */
+  color: #ed9b18; /* Color for filled stars */
 }
 
 /* Hover Effect */
@@ -83,7 +82,7 @@
 
 /* Button Styling */
 .button {
-  background: linear-gradient(90deg, #56d8e4, #9f01ea);
+  background:#78a928;
   border: none;
   margin: 10px;
   border-radius: 8px;
@@ -107,7 +106,7 @@
   left: -100%;
   width: 300%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(110, 203, 67, 0.3);
   transform: skewX(-45deg);
   transition: left 0.4s ease;
 }

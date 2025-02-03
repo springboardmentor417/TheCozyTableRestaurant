@@ -1,66 +1,11 @@
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
-
-.page {
-  position: absolute;
-  top: -1413px;
-  left: 5109px;
-  width: 1440px;
-  height: 900px;
-  background: #ffffffff;
+mat-sidenav {
+  width: 250px;
+  background: linear-gradient(135deg,#e19353, #eac45b); /* Gradient background */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  border-radius: 10px;
 }
 
-.container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 1440px;
-  height: 56px;
-  background: #ffffffff; /* white */
-  border-radius: 0px;
-  box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1f;
-}
-
-.image {
-  position: absolute;
-  top: 10px;
-  left: 24px;
-  width: 36px;
-  height: 36px;
-  border-radius: 0px;
-}
-
-.text {
-  position: absolute;
-  top: 7px;
-  left: 70px;
-  width: 163px;
-  font-family: Archivo;
-  font-size: 28px;
-  line-height: 42px;
-  font-weight: 700;
-  color: #000000ff;
-}
-
-/* Header Menu */
-.header-menu {
-  position: absolute;
-  top: 2px;
-  left: 328px;
-  width: 300px;
-  height: 52px;
-}
-.tp-container {
-  /* display: flex; */
-  align-items: center;
-  font-family: Inter; /* Body */
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  opacity: 1;
-}
-/* Header Menu - Item */
-.header-menu .header-menu-item {
-  padding: 15px 12px;
+a.mat-list-item {
   display: flex;
   align-items: center;
   gap: 10px; /* Space between icon and text */
@@ -72,19 +17,12 @@
 }
 
 a.mat-list-item:hover {
-  background-color: #dfbb6c; /* Bright hover effect */
+  background-color: #f7a700; /* Bright hover effect */
   transform: translateX(5px); /* Slide effect on hover */
 }
-/* Disabled */
-.button:disabled {
-  opacity: 0.4;
-}
+
 .active-link {
   font-weight: bold;
-  color: #007bff; /* Highlight active link */
+  color: #ffeb3b; /* Bright yellow for active links */
+  background-color: #e89611; /* Highlight active with contrasting background */
 }
-.rounded-sidenav {
-  border-radius: 15px; /* Adjust the value to control the curve */
-  overflow: hidden; /* Ensures child elements respect the border-radius */
-}
-
