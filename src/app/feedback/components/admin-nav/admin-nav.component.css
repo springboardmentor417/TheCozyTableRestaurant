@@ -75,8 +75,8 @@
 /* Header Menu - Selected item */
 .header-menu .header-menu-item.selected {
   font-weight: 700;
-  color: #ff7043; /* Orange */
-  background: transparent;
+  color: #636ae8ff; /* primary-500 */
+  background: #000000ff; /* transparent */
 }
 
 /* Header Menu - Selected item */
@@ -128,7 +128,12 @@
   color: #ffffff;
   background: #ff7043; /* Orange */
 }
-
+mat-sidenav {
+  width: 250px; /* Adjust width as needed */
+  /* background-color: rgb(213, 185, 224);
+  background: linear-gradient(90deg, #56d8e4, #9f01ea); */
+  background: linear-gradient(135deg, #f5efff, #9cadde);
+}
 /* Pressed */
 .button:hover:active {
   color: #ffffff;
@@ -152,7 +157,3 @@
   background: linear-gradient(135deg, #8b4513, #ff8c00); /* Brown and orange gradient */
 }
 
-mat-sidenav {
-  width: 250px; /* Adjust width as needed */
-  background: linear-gradient(135deg, #8b4513, #ff8c00); /* Orange to brown gradient */
-}

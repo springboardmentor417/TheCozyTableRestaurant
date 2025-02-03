@@ -24,7 +24,13 @@ h1 {
   font-size: 41px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  background: -webkit-linear-gradient(right, #8b4513, #ff8c00, #8b4513, #ff8c00);
+  background: -webkit-linear-gradient(
+    right,
+    #56d8e4,
+    #9f01ea,
+    #56d8e4,
+    #9f01ea
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -36,18 +42,17 @@ p {
   color: #5a3825; /* Dark brown */
 }
 
-/* Button Styling */
 .button {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 10px 20px;
   margin-top: 20px;
   font-size: 1em;
   color: white;
-  background: linear-gradient(90deg, #8b4513, #ff8c00);
+  background: linear-gradient(90deg, #ff0080, #00bfff);
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
   cursor: pointer;
   font-weight: 600;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -55,14 +60,6 @@ p {
   overflow: hidden;
 }
 
-/* Hover Effect */
 .button:hover {
-  background: linear-gradient(90deg, #ff8c00, #8b4513);
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(90deg, #00bfff, #ff0080);
 }
