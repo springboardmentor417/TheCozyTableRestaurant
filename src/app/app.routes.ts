@@ -39,18 +39,16 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },  // Default route to HomeComponent
   { path: 'aboutus', component: AboutusComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'userDetails', component: UserDetailsComponent },
+  { path: 'userDetails', component: UserDetailsComponent, canActivate: [authGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'adminWelcome', component: AdminWelcomeComponent },
+  { path: 'adminWelcome', component: AdminWelcomeComponent , canActivate: [authGuard]},
   { path: 'reservation', component: ReservationComponent, canActivate: [authGuard] },
-  { path: 'add-menu-item', component: AddMenuItemComponent },
+  { path: 'add-menu-item', component: AddMenuItemComponent, },
   { path: 'app-menu-list', component: MenuListComponent },
   { path: 'app-menu-category', component: MenuCategoryComponent },
   { path: 'app-menu-item-nav', component: MenuItemNavComponent },
-  { path: 'fHeader', component: HeaderhomeComponent },
-  { path: 'sHeader', component: SHeaderComponent },
-  {path: 'forgotPass' , component:ForgotPassComponent},
-  {path:'updatePass', component:UpdatePassComponent},
+  {path: 'forgotPass' , component:ForgotPassComponent,canActivate: [authGuard]},
+  {path:'updatePass', component:UpdatePassComponent,canActivate: [authGuard]},
   {
     path: 'menu',
     component: MenuItemNavComponent,
@@ -74,9 +72,9 @@ export const routes: Routes = [
     component: AdmindetailsComponent,
     canActivate: [authGuard],
     children: [
-      { path: 'UserManagement', component: UserManagementComponent },
-      { path: 'adminWelcome', component: AdminWelcomeComponent },
-      { path: 'userManagement', component: UserManagementComponent },
+      { path: 'UserManagement', component: UserManagementComponent ,canActivate: [authGuard]},
+      { path: 'adminWelcome', component: AdminWelcomeComponent,canActivate: [authGuard] },
+      { path: 'userManagement', component: UserManagementComponent,canActivate: [authGuard] },
       { path: '', redirectTo: 'adminWelcome', pathMatch: 'full' }
     ]
   },
@@ -94,8 +92,8 @@ export const routes: Routes = [
     component: UserDetailsComponent,
     canActivate: [authGuard],
     children: [
-      { path: 'updateUser', component: UpdateUserComponent },
-      { path: 'deleteUser', component: DeleteUserComponent },
+      { path: 'updateUser', component: UpdateUserComponent,canActivate: [authGuard] },
+      { path: 'deleteUser', component: DeleteUserComponent,canActivate: [authGuard] },
       { path: 'userWelcome', component: UserWelcomeComponent, canActivate: [authGuard] },
       { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }
     ]

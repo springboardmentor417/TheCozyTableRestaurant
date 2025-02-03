@@ -7,7 +7,6 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   if (currentUser) {
     return true;
-    
   } else {
     alert('You need to log in to access this page.');
     router.navigate(['/login']);

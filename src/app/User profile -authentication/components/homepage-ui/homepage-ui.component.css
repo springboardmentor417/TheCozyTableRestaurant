@@ -1,137 +1,111 @@
-/* Flip Card Styles */
-.flip-card {
-  margin-bottom: 30px; /* Add some spacing between cards */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* Paradox Section */
+.paradox1 {
   position: relative;
-  width: 100%;
-  height: 300px; /* Adjust height as needed */
-  background-image: url('/assets/uiBG.jpg'); /* Set the background image */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
+  height: 600px; /* Full height of the viewport */
+  width: 100%; /* Full width */
+  margin-left: 20px; /* Reduce margin on the left */
+  margin-right: 60px; /* Reduce margin on the right */
+  color: white; /* Text color */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Horizontally center text */
+  align-items: center; /* Vertically center text */
+  box-sizing: border-box; /* Include margin in width and height calculation */
 }
 
-.flip-card-inner {
+/* Background Image */
+.paradox1 .background-image {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  transition: none; /* Remove the flipping transition */
-}
-
-/* .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background-color: rgba(0, 0, 0, 0.8); 
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-  transform: none; 
-} */
-
-/* Text-about Styling */
-.text-about {
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 10px;
-  max-width: 90%; /* Make sure text doesn't overflow */
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth zoom effect */
-  cursor: pointer; /* Optional: Indicates interactivity */
-}
-
-/* Hover Effect on .text-about */
-.text-about:hover {
-  transform: scale(1.1); /* Zoom effect */
-  color: #f39c12; /* Optional: Change text color on hover */
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .flip-card {
-    height: 250px; /* Adjust height for medium screens */
-  }
-  .text-about {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .flip-card {
-    height: 200px; /* Adjust height for small screens */
-  }
-  .text-about {
-    font-size: 0.9rem;
-  }
-}
-
-/* Parallax Section Styling */
-.parallax-section {
-  position: relative;
-  background-image: url('/assets/uiBG.jpg'); /* Replace with your image */
-  background-attachment: fixed; /* Creates the parallax effect */
-  background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/eatFans.jpg'); /* Replace with your image URL */
+  background-size: contain;
+  background-position: center top; /* Align background to the top */
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 400px;
+  z-index: -1;
+  padding: 20px;
+  height: calc(100% - 50px); /* Reduce the image height by 50px from the top */
+  margin-top: 50px; /* Push the background image 50px down */
+}
+
+
+.paradox1 .content {
+  position: relative;
+  z-index: 1; /* Ensures the text is above the background */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Hide overflow when zooming */
-  opacity: 1;
-}
-
-/* Content Styling for Parallax */
-.parallax-section .content {
+  height: 100%;
   text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.5); /* Optional overlay for text readability */
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out; /* Smooth zoom transition */
+  padding: 20px; /* Adjust the padding around the content */
+  box-sizing: border-box; /* Ensures padding is included in the width and height */
 }
 
-/* Hover Effect - Zoom for Parallax */
-.parallax-section .content:hover {
-  transform: scale(1.1); /* Zoom in the content */
+
+/* Zoom and Color Change for h2 and p only on Hover */
+.paradox1 h2, .paradox1 p {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  padding: 10px;
+  border-radius: 5px;
+  color: white; /* Default text color is white */
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out; /* Smooth transitions for zoom, color, and background */
 }
 
-/* Hover Effect on Title and Paragraph for better scaling */
-.parallax-section h2,
-.parallax-section p {
-  transition: transform 0.3s ease-in-out; /* Ensure smooth zoom for text */
+/* Hover Effect for h2 and p */
+.paradox1 h2:hover, .paradox1 p:hover {
+  transform: scale(1.1); /* Zoom in effect */
+  color: #000; /* Change text color to black */
+  background: rgba(255, 255, 255, 0.7); /* Change background color to white */
 }
 
-.parallax-section .content:hover h2,
-.parallax-section .content:hover p {
-  transform: scale(1.1); /* Zoom text */
-}
 
-/* Title and paragraph styles for Parallax */
-.parallax-section h2 {
+.paradox1 h2 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
 }
 
-.parallax-section p {
+.paradox1 p {
   font-size: 1.2rem;
 }
 
-/* Responsiveness for Parallax */
-@media (max-width: 768px) {
-  .parallax-section h2 {
-    font-size: 2rem;
-  }
-  .parallax-section p {
-    font-size: 1rem;
-  }
+.parallax-container {
+  position: relative; /* Ensure child elements can be positioned relative to this container */
+}
+
+.parallax-background {
+  background-image: url('/assets/BG.jpg'); /* Replace with your background image */
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Adjust the height as needed */
+}
+
+.blog-overlay {
+  position: absolute; /* Position it on top of the background */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 1; /* Ensure it appears above the background */
+}
+
+.blog-content p {
+  font-size: 1.5rem;
+  padding: 20px;
+  max-width: 80%;
+  font-family: "Oswald", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Parallax Container */
@@ -164,49 +138,6 @@
   position: relative;
   z-index: 1; /* Content on top of the background */
   padding-top: 50px; /* Optional: Adds some space at the top */
-}
-
-/* Text-about Styling for Parallax */
-.text-about {
-  font-size: 1.2rem;
-  font-weight: bold;
-  max-width: 90%;
-  padding: 10px;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth zoom effect */
-  cursor: pointer; /* Optional: Indicates interactivity */
-}
-
-/* Hover Effect on .text-about for Parallax */
-.text-about:hover {
-  transform: scale(1.1); /* Zoom effect */
-  color: #f39c12; /* Optional: Change text color on hover */
-}
-
-/* Responsiveness for Parallax */
-@media (max-width: 768px) {
-  .parallax-container {
-    height: 400px; /* Adjust height for medium screens */
-  }
-  .text-about {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .parallax-container {
-    height: 300px; /* Adjust height for small screens */
-  }
-  .text-about {
-    font-size: 0.9rem;
-  }
-}
-
-/* Container Styling */
-.container {
-  max-width: 1200px; /* Limit the width for better responsiveness */
-  margin: 0 auto; /* Center the container horizontally */
-  padding-left: 0;
-  padding-right: 0;
 }
 
 /* Image Container Styling */
