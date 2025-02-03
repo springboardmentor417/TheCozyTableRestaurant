@@ -4,18 +4,20 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+  background-color: #f4e1d2; /* Warm beige background */
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
   text-align: center;
 }
 
+/* Icon Styling */
 .icon {
   margin-bottom: 20px;
 }
 
+/* Heading */
 h1 {
   line-height: 1.2;
   text-align: center;
@@ -24,70 +26,40 @@ h1 {
   font-family: "Poppins", sans-serif;
   background: -webkit-linear-gradient(
     right,
-    #f5a402,
-    #ffbf00,
-    #edd479,
-    #ffbf00
+    #56d8e4,
+    #9f01ea,
+    #56d8e4,
+    #9f01ea
   );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Paragraph */
 p {
   font-size: 1.2em;
-  color: #666;
+  color: #5a3825; /* Dark brown */
 }
 
-.btn-container {
-  display: flex;
-  justify-content: center;
+.button {
+  display: inline-block;
+  padding: 10px 20px;
   margin-top: 20px;
-}
-.btn,
-.btn:link,
-.btn:visited {
-  background-color: #ffbf00;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 1rem 3rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.3rem;
-  color: aliceblue;
+  font-size: 1em;
+  color: white;
+  background: linear-gradient(90deg, #ff0080, #00bfff);
   border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
   cursor: pointer;
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-.btn:active,
-.btn:focus {
-  outline: none;
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.btn::after {
-  background-color: #ffbf00;
-}
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
+.button:hover {
+  background: linear-gradient(90deg, #00bfff, #ff0080);
 }

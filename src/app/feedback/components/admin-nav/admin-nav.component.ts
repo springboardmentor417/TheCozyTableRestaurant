@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-admin',
@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     MatSidenavModule,
     MatListModule,
+    MatIconModule,
     RouterModule, // Add RouterModule if you are using routing
   ],
   templateUrl: './admin-nav.component.html',
