@@ -1,7 +1,7 @@
 <div class="main container">
   <div class="form-container">
     <h2 class="text">We'd Love to Hear From You!</h2>
-    <form #feedbackForm="ngForm" novalidate>
+    <form #feedbackForm="ngForm" (ngSubmit)="onSaveUser(feedbackForm)" novalidate>
       <textarea
         id="comments"
         required
@@ -15,6 +15,7 @@
       <div *ngIf="feedback.invalid && feedback.touched" class="error">
         Feedback is required (min 10 characters).
       </div>
+
       <div class="food-container">
         <div class="slider">
           <div class="first-slider">
@@ -25,14 +26,14 @@
               <mat-slider min="1" max="5" step="0.5" class="small-slider">
                 <input
                   matSliderThumb
-                  matSliderThumb
                   [(ngModel)]="userObj.foodQuality"
                   name="foodQuality"
-                  value="1.5"
                 />
               </mat-slider>
+              {{ userObj.foodQuality }}
             </div>
           </div>
+
           <div class="first-slider-2">
             <div>
               <label>Value for money</label>
@@ -41,16 +42,16 @@
               <mat-slider min="1" max="5" step="0.5" class="small-slider">
                 <input
                   matSliderThumb
-                  value="1.5"
-                  matSliderThumb
                   [(ngModel)]="userObj.valueForMoney"
                   name="valueForMoney"
                 />
               </mat-slider>
+              {{ userObj.valueForMoney }}
             </div>
           </div>
+
           <div>
-            <label> Show us your plate 🍽️</label>
+            <label>Show us your plate 🍽️</label>
           </div>
           <div class="input-data">
             <input
@@ -63,19 +64,17 @@
               Please upload a valid image file.
             </div>
           </div>
+
           <div class="date">
             <mat-form-field>
               <input
                 matInput
                 [matDatepicker]="picker"
-                placeholder="Date of visit "
+                placeholder="Date of visit"
                 [(ngModel)]="selectedDate"
                 name="selectedDate"
               />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker"
-              ></mat-datepicker-toggle>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
@@ -93,44 +92,40 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of orderedItems">
+              <tr *ngFor="let item of orderedItems; let i = index">
                 <td>{{ item.name }}</td>
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.price | currency : "INR" : "symbol" }}</td>
                 <td>
-                  <mat-slider min="1" max="5" step="0.5" class="small-slider">
-                    <!-- <input
-                    matSliderThumb
-                    value="1.5"
-                    matSliderThumb
-                    [(ngModel)]="userObj.valueForMoney"
-                    name="valueForMoney"
-                    /> -->
+                  <mat-slider min="1" max="5" step="1" class="small-slider">
+                    <input
+                      matSliderThumb
+                      [(ngModel)]="item.rating"
+                      name="rating_{{ i }}"
+                    />
                   </mat-slider>
+                  {{ item.rating }}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="rateing">
-          <!-- <div class="stars">
-            <label>Rating</label>
+        <div class="rating">
+          <div class="stars">
+            <label>Overall Rating</label>
             <app-star-rating
               [maxRating]="5"
-              [color]="'#9f01ea'"
+              [color]="'#8b4513'"
               [size]="32"
               (onSetRating)="userObj.rating = $event"
             ></app-star-rating>
-          </div> -->
+          </div>
         </div>
       </div>
+
       <div class="btn-container">
-        <button
-          class="btn btn--green"
-          type="submit"
-          (click)="onSaveUser(feedbackForm)"
-        >
+        <button class="btn btn--green" type="submit">
           Submit Feedback
         </button>
       </div>

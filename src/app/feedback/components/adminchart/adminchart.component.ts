@@ -50,11 +50,6 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
         );
         const monthlySales = this.extractMonthlySales(this.data);
 
-        // console.log('Rating counts:', ratingCounts);
-        // console.log('Food quality counts:', foodQualityCounts);
-        // console.log('Value for Money counts:', valueForMoneyCounts);
-        // console.log('Monthly sales:', monthlySales);
-
         if (this.isBrowser) {
           if (Object.keys(ratingCounts).length > 0) {
             this.createPieChart(ratingCounts);
@@ -95,18 +90,8 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
 
   extractMonthlySales(data: any): { [key: string]: number } {
     const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
     const monthlySales: { [key: string]: number } = {};
@@ -161,7 +146,7 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
       monthlySales,
       'Monthly Sales Outcomes',
       ''
-    ); // Removed the prefix "Month"
+    );
   }
 
   createChart(
@@ -195,18 +180,18 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
               label: label,
               data: data,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 165, 0, 0.6)', // Orange
+                'rgba(255, 215, 0, 0.6)', // Gold
+                'rgba(255, 140, 0, 0.6)', // Dark Orange
+                'rgba(255, 223, 186, 0.6)', // Light Orange
+                'rgba(255, 200, 87, 0.6)', // Soft Yellow
               ],
               borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
+                'rgba(255, 140, 0, 1)',
+                'rgba(255, 215, 0, 1)',
+                'rgba(255, 165, 0, 1)',
+                'rgba(255, 223, 186, 1)',
+                'rgba(255, 200, 87, 1)',
               ],
               borderWidth: 1,
             },

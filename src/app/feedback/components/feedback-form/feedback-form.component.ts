@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -9,7 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
-
 
 @Component({
   selector: 'app-feedback-form',
@@ -81,8 +80,6 @@ export class FeedbackFormComponent {
   ngOnInit(): void {
     this.fetchOrderedItems();
   }
-  
- 
 
   fetchOrderedItems(): void {
     this.http.get<any[]>('http://localhost:3000/cart').subscribe({
@@ -91,6 +88,7 @@ export class FeedbackFormComponent {
           name: item.name,
           quantity: item.quantity,
           price: item.currentPrice,
+          rating: 0,
         }));
       },
       error: (error) => {
@@ -107,10 +105,15 @@ export class FeedbackFormComponent {
     this.userObj.name = username.username;
     this.userObj.email = username.email;
     this.userObj.mobile = username.phone;
-    console.log(username);
-    console.log(this.userObj.name);
 
     const today = this.formatDate(new Date());
+
+    this.userObj.orderedItems = this.orderedItems.map((item) => ({
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+      rating: item.rating,
+    }));
 
     switch (true) {
       case !this.userObj.feedback: {
@@ -149,8 +152,8 @@ interface OrderedItem {
   name: string;
   quantity: number;
   price: number;
+  rating: number;
 }
-
 
 class USER {
   name: string;
@@ -163,8 +166,8 @@ class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
-  orderedItems: any[];
 
+  orderedItems: any[];
 
   constructor() {
     this.name = '';
@@ -177,6 +180,7 @@ class USER {
     this.selectedDate = '';
     this.image = null;
     this.imageError = '';
-    this.orderedItems=[];
+
+    this.orderedItems = [];
   }
 }

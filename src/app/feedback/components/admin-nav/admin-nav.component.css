@@ -63,103 +63,17 @@
   padding: 15px 12px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #565e6cff; /* neutral-600 */
-  background: #000000ff; /* transparent */
-  border-radius: 6px; /* border-m */
-  cursor: pointer;
-  white-space: nowrap;
-}
-/* Header Menu - Selected item */
-.header-menu .header-menu-item.selected {
-  position: relative;
-  font-weight: 700;
-  color: #636ae8ff; /* primary-500 */
-  background: #000000ff; /* transparent */
-}
-/* Header Menu - Selected item */
-.header-menu .header-menu-item.selected:hover:active {
-  color: #636ae8ff; /* primary-500 */
-  background: #000000ff; /* transparent */
-}
-/* Header Menu - Item with indicator */
-.header-menu .header-menu-item.selected .indicator {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 4px;
-  background: #636ae8ff; /* primary-500 */
-  border-radius: 2px;
-}
-/* Header menu item 1 */
-.header-menu .header-menu-item:nth-child(1) {
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 700;
-  color: #636ae8ff; /* primary-500 */
-}
-/* Header menu item 2 */
-.header-menu .header-menu-item:nth-child(2) {
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #565e6cff; /* neutral-600 */
-}
-/* Header menu item 3 */
-.header-menu .header-menu-item:nth-child(3) {
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #565e6cff; /* neutral-600 */
-  flex-direction: column;
-  height: 100%;
+  gap: 10px; /* Space between icon and text */
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: #fff; /* White text for better contrast */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth hover effects */
+  font-size: 1.1rem; /* Slightly larger text */
 }
 
-/* Button */
-.button {
-  position: absolute;
-  top: 10px;
-  left: 1256px;
-  width: 160px;
-  height: 36px;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Inter;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #ffffffff; /* white */
-  background: #636ae8ff; /* primary-500 */
-  opacity: 1;
-  border: none;
-  border-radius: 10px; /* border-l */
-  gap: 6px;
-}
-.button .icon {
-  width: 16px;
-  height: 16px;
-  fill: #ffffffff; /* white */
-}
-/* Hover */
-.button:hover {
-  color: #ffffffff; /* white */
-  background: #4850e4ff; /* primary-550 */
-}
-mat-sidenav {
-  width: 250px; /* Adjust width as needed */
-  /* background-color: rgb(213, 185, 224);
-  background: linear-gradient(90deg, #56d8e4, #9f01ea); */
-  background: linear-gradient(135deg, #f5efff, #9cadde);
-}
-/* Pressed */
-.button:hover:active {
-  color: #ffffffff; /* white */
-  background: #2c35e0ff; /* primary-600 */
+a.mat-list-item:hover {
+  background-color: #dfbb6c; /* Bright hover effect */
+  transform: translateX(5px); /* Slide effect on hover */
 }
 /* Disabled */
 .button:disabled {

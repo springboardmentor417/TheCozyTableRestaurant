@@ -4,18 +4,20 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+  background-color: #f4e1d2; /* Warm beige background */
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
   text-align: center;
 }
 
+/* Icon Styling */
 .icon {
   margin-bottom: 20px;
 }
 
+/* Heading */
 h1 {
   line-height: 1.2;
   text-align: center;
@@ -34,9 +36,10 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+/* Paragraph */
 p {
   font-size: 1.2em;
-  color: #666;
+  color: #5a3825; /* Dark brown */
 }
 
 .button {
@@ -51,6 +54,10 @@ p {
   text-decoration: none;
   transition: background 0.3s ease;
   cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .button:hover {
