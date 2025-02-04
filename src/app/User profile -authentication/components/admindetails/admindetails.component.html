@@ -1,24 +1,121 @@
+
 <div class="admin-dashboard d-flex vh-100">
-    <!-- Static Sidebar -->
-    <nav class="sidebar bg-light p-3">
-      <h4>Admin Panel</h4>
-      <ul class="nav flex-column">
+  <!-- Static Sidebar -->
+  <nav class="sidebar bg-light p-3">
+    <h4>Admin Panel</h4>
+    <ul class="nav flex-column">
       <li class="nav-item">
-        <a routerLink="/admindetails/adminWelcome" routerLinkActive="active" class="nav-link">Dashboard</a>
-        </li>
+        <a (click)="showAdminDashboard()" class="nav-link">Dashboard</a>
+      </li>
       <li class="nav-item">
-        <a routerLink="/admindetails/UserManagement" routerLinkActive="active" class="nav-link"> <div class="col-md-4">
-            User Management
-          </div>
-        </a>
-        </li>
-      
-      </ul>
-    <!-- <button class="btn btn-outline-danger px-4 fw-bold" (click)="logout()">🚪 Logout</button> -->
-    </nav>
+        <a (click)="showUserManagement()" class="nav-link">User Management</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="showReservationManagement()" class="nav-link">Reservation Management</a>
+      </li>
+    </ul>
+  </nav>
+
   <!-- Dynamic Content Area -->
   <div class="content flex-grow-1 p-3">
-    <router-outlet></router-outlet>
+    
+  <!-- Show Dashboard (Admin Welcome Page) -->
+<div *ngIf="showDashboard">
+  <div class="bg-info p-1 text-center m-2 ">
+    <h2>🏠 Admin Dashboard</h2>
   </div>
+
+   <div class="container mt-4"> 
+    <!-- Analytics Panel -->
+     <div class="row g-4 text-center mb-4">
+      <div class="col-md-3">
+        <div class="card shadow-sm p-3 bg-primary ">
+          <h5>📊  <strong> Today's Revenue</strong></h5>
+          <p class="fw-bold">₹ {{ todayRevenue }}</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-sm p-3 bg-secondary">
+          <h5>🛒 <strong>Pending Orders</strong></h5>
+          <p class="fw-bold">{{ pendingOrders }}</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-sm p-3 bg-success">
+          <h5>📅 <strong>Upcoming Reservations</strong></h5>
+          <p class="fw-bold">{{ upcomingReservations }}</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-sm p-3 bg-warning">
+          <h5>👥 <strong>Total Customers</strong></h5>
+          <p class="fw-bold">{{ totalCustomers }}</p>
+        </div>
+      </div>
+    </div> 
+  </div>
+  
+  <app-adminchart></app-adminchart>
 </div>
 
+    <!-- User Management Section -->
+    <div *ngIf="showUsers">
+      <div class="bg-info p-1 text-center m-2">
+        <h2>👥 User Management</h2>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div *ngIf="loading" class="text-center mt-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- User Management Table -->
+      <div *ngIf="!loading" class="container mt-4">
+        <h2 class="text-center mb-4">User Details</h2>
+
+        <div *ngIf="users.length === 0" class="text-center alert alert-warning">
+          No users found.
+        </div>
+
+        <table *ngIf="users.length > 0" class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ user.id }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.address }}</td>
+              <td>{{ user.role }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Reservation Management Section -->
+    <div *ngIf="showReservations">
+      <div class="bg-info p-1 text-center m-2">
+        <h2>📅 Reservation Management</h2>
+      </div>
+      <button (click)="navigateTo('decline-reservations')" class="btn btn-primary m-2">Cancle Reservations</button>
+    </div>
+  </div>
+</div>

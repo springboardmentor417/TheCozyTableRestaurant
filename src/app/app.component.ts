@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderhomeComponent } from "./User profile -authentication/components/headerhome/headerhome.component";
 import { SHeaderComponent } from "./User profile -authentication/components/s-header/s-header.component";
 import { filter } from 'rxjs/operators';
-import { HomeComponent } from "./User profile -authentication/components/home/home.component";
-import { HomepageUIComponent } from "./User profile -authentication/components/homepage-ui/homepage-ui.component";
 import { FooterComponent } from "./User profile -authentication/components/footer/footer.component";
 
 
@@ -14,13 +12,12 @@ import { FooterComponent } from "./User profile -authentication/components/foote
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [CommonModule, SHeaderComponent, RouterOutlet, HeaderhomeComponent,]
+  // 
+  imports: [CommonModule, RouterOutlet, SHeaderComponent ,HeaderhomeComponent, FooterComponent]
 })
 export class AppComponent {
- 
 
   showMainHeader: boolean = true;
-
   constructor(private router: Router) {}
 
   ngOnInit() {

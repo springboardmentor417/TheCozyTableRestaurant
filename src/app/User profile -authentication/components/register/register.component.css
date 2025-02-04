@@ -1,5 +1,5 @@
 .body {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 .register-container {
   width: 100%;
   max-width: 600px;  /* Increased max-width for larger screens */
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
   border-radius: 15px;
