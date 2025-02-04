@@ -158,6 +158,29 @@
         4,
         3
       ]
+    },
+    {
+      "id": "c5b3",
+      "name": "samosa",
+      "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+      "price": 217,
+      "category": "Main Course",
+      "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+      "availability": true,
+      "rating": [
+        3,
+        4,
+        3,
+        3,
+        5,
+        5,
+        5,
+        5,
+        2,
+        2,
+        3,
+        3
+      ]
     }
   ],
   "cart": [
@@ -170,7 +193,7 @@
       "currentPrice": 35,
       "originalPrice": 50,
       "discount": 10,
-      "quantity": 13
+      "quantity": 1
     },
     {
       "id": "9cfc",
@@ -181,7 +204,7 @@
       "currentPrice": 135,
       "originalPrice": 150,
       "discount": 10,
-      "quantity": 6
+      "quantity": 1
     },
     {
       "id": "1bc1",
@@ -259,216 +282,27 @@
       "imageError": ""
     },
     {
-      "id": "7f1b",
-      "name": "Mohammed",
-      "email": "mohammedobaray@gmail.com",
-      "mobile": "9421025825",
-      "feedback": "nice foooood",
-      "rating": 5,
-      "foodQuality": 5,
-      "valueForMoney": 3.5,
-      "selectedDate": "28/01/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 2,
-          "price": 35,
-          "rating": 5
-        },
-        {
-          "name": "samosa",
-          "quantity": 1,
-          "price": 135,
-          "rating": 5
-        },
-        {
-          "name": "samosa",
-          "quantity": 1,
-          "price": 135,
-          "rating": 5
-        },
-        {
-          "name": "samosa",
-          "quantity": 1,
-          "price": 150,
-          "rating": 5
-        }
-      ]
-    },
-    {
-      "id": "6534",
-      "name": "MohammedObaray",
-      "feedback": "very good food",
-      "rating": 5,
-      "foodQuality": 3.5,
-      "valueForMoney": 4,
-      "selectedDate": "02/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "c133",
-      "name": "MohammedObaray",
-      "feedback": "Very good food",
-      "rating": 3,
-      "foodQuality": 3.5,
-      "valueForMoney": 4,
-      "selectedDate": "02/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "2460",
-      "name": "MohammedObaray",
-      "feedback": "dgvuaghvouahv",
-      "rating": 4,
-      "foodQuality": 3.5,
-      "valueForMoney": 4,
-      "selectedDate": "02/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "22d7",
-      "name": "Mohammed",
-      "email": "mohammedobaray@gmail.com",
-      "mobile": "9421025825",
-      "feedback": "good food and quality",
-      "rating": 4,
-      "foodQuality": 4,
-      "valueForMoney": 4,
-      "selectedDate": "03/02/2025",
-      "image": null,
-      "imageError": "",
-      "orderedItems": [
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 35,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 6,
-          "price": 135,
-          "rating": 3
-        },
-        {
-          "name": "samosa",
-          "quantity": 13,
-          "price": 135,
-          "rating": 4
-        },
-        {
-          "name": "samosa",
-          "quantity": 8,
-          "price": 150,
-          "rating": 4
-        }
-      ]
-    },
-    {
-      "id": "d0b9",
+      "id": "1e00",
       "name": "Ronaldo",
       "email": "mohammedobaray@gmail.com",
       "mobile": "7304373810",
-      "feedback": "nice foo\noooood",
+      "feedback": "Yummmmmmmmmmmmm",
       "rating": 4,
-      "foodQuality": 3.5,
-      "valueForMoney": 4.5,
-      "selectedDate": "03/02/2025",
+      "foodQuality": 2,
+      "valueForMoney": 2,
+      "selectedDate": "04/02/2025",
       "image": null,
       "imageError": "",
       "orderedItems": [
         {
           "name": "samosa",
-          "quantity": 13,
+          "quantity": 1,
           "price": 35,
-          "rating": 4
+          "rating": 5
         },
         {
           "name": "samosa",
-          "quantity": 6,
+          "quantity": 1,
           "price": 135,
           "rating": 5
         },
@@ -476,13 +310,108 @@
           "name": "samosa",
           "quantity": 13,
           "price": 135,
-          "rating": 4
+          "rating": 5
         },
         {
           "name": "samosa",
           "quantity": 8,
           "price": 150,
           "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "0269",
+      "name": "Ronaldo",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "yuuuuuuuuuuuuuuuuuum",
+      "rating": 2,
+      "foodQuality": 3,
+      "valueForMoney": 4,
+      "selectedDate": "04/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": []
+    },
+    {
+      "id": "1d43",
+      "name": "Ronaldo",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "yummmmmmmmmmmmmmmmmmmmmmmm",
+      "rating": 1,
+      "foodQuality": 4,
+      "valueForMoney": 3.5,
+      "selectedDate": "04/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": []
+    },
+    {
+      "id": "1aec",
+      "name": "Ronaldo",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "yummmmmmmmmmmmmmmmmmmmmm",
+      "rating": 4,
+      "foodQuality": 3.5,
+      "valueForMoney": 4.5,
+      "selectedDate": "04/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": []
+    },
+    {
+      "id": "ff8e",
+      "name": "Liza",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "Yummmmmmmmmmmmmmmmm",
+      "rating": 5,
+      "foodQuality": 3,
+      "valueForMoney": 3,
+      "selectedDate": "04/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": []
+    },
+    {
+      "id": "57b0",
+      "name": "Liza",
+      "email": "mohammedobaray@gmail.com",
+      "mobile": "7304373810",
+      "feedback": "yummmmmmmmmmmmmmm",
+      "rating": 2,
+      "foodQuality": 4,
+      "valueForMoney": 4,
+      "selectedDate": "04/02/2025",
+      "image": null,
+      "imageError": "",
+      "orderedItems": [
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 35,
+          "rating": 2
+        },
+        {
+          "name": "samosa",
+          "quantity": 1,
+          "price": 135,
+          "rating": 2
+        },
+        {
+          "name": "samosa",
+          "quantity": 13,
+          "price": 135,
+          "rating": 3
+        },
+        {
+          "name": "samosa",
+          "quantity": 8,
+          "price": 150,
+          "rating": 3
         }
       ]
     }

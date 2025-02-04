@@ -27,7 +27,10 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.css'],
 })
-export class FeedbackFormComponent {
+export class FeedbackFormComponent implements OnInit {
+onImageUpload($event: Event) {
+throw new Error('Method not implemented.');
+}
   userObj: USER = new USER();
   users: USER[] = [];
   userRating: number = 0;
@@ -38,44 +41,6 @@ export class FeedbackFormComponent {
   orderedItems: OrderedItem[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
-
-  formatDate(date: Date): string {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  }
-
-  isValidEmail(email: string): boolean {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  }
-
-  onImageUpload(event: Event): void {
-    const input = event.target as HTMLInputElement;
-
-    if (input?.files && input.files.length > 0) {
-      const file = input.files[0];
-
-      const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-      if (!validImageTypes.includes(file.type)) {
-        this.userObj.imageError = 'Only JPEG or PNG images are allowed.';
-        this.userObj.image = null;
-      } else if (file.size > 2 * 1024 * 1024) {
-        this.userObj.imageError = 'File size should not exceed 2MB.';
-        this.userObj.image = null;
-      } else {
-        this.userObj.imageError = '';
-        const imagePath = '/uploads/images/' + file.name;
-        this.userObj.image = imagePath;
-      }
-    }
-  }
-
-  validatePhoneNumber(phoneNumber: any) {
-    const phoneRegex = /^[6-9]\d{9}$/;
-    return phoneRegex.test(phoneNumber);
-  }
 
   ngOnInit(): void {
     this.fetchOrderedItems();
@@ -100,51 +65,81 @@ export class FeedbackFormComponent {
   onSaveUser(feedbackForm: any) {
     const formattedDate = this.formatDate(new Date(this.selectedDate));
     this.userObj.selectedDate = formattedDate;
-
+  
     const username = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.userObj.name = username.username;
     this.userObj.email = username.email;
     this.userObj.mobile = username.phone;
-
+    this.userObj.orderedItems = this.orderedItems; // Save ordered items in feedback
+  
     const today = this.formatDate(new Date());
-
-    this.userObj.orderedItems = this.orderedItems.map((item) => ({
-      name: item.name,
-      quantity: item.quantity,
-      price: item.price,
-      rating: item.rating,
-    }));
-
-    switch (true) {
-      case !this.userObj.feedback: {
-        alert('please give tell us your experience atleast in 10 charecters');
-        return;
+  
+    // Group ratings for each unique menu item
+    const menuItemRatingsMap = new Map<string, number[]>();
+  
+    this.orderedItems.forEach((item) => {
+      if (!menuItemRatingsMap.has(item.name)) {
+        menuItemRatingsMap.set(item.name, []);
       }
-      case !this.selectedDate: {
+      menuItemRatingsMap.get(item.name)?.push(item.rating);
+    });
+  
+    // Update ratings for each unique menu item
+    menuItemRatingsMap.forEach((ratings, itemName) => {
+      this.http.get<any[]>(`http://localhost:3000/menu-items?name=${itemName}`)
+        .subscribe((menuItems) => {
+          if (menuItems.length > 0) {
+            const menuItem = menuItems[0];
+  
+            // Append all collected ratings
+            const updatedRatings = [...menuItem.rating, ...ratings];
+  
+            const updatedItem = {
+              ...menuItem,
+              rating: updatedRatings,
+            };
+  
+            // Single PUT request per item
+            this.http.put(`http://localhost:3000/menu-items/${menuItem.id}`, updatedItem)
+              .subscribe(() => {
+                console.log(`Updated ratings for ${itemName}:`, updatedRatings);
+              });
+          }
+        });
+    });
+  
+    // Validate form fields
+    switch (true) {
+      case !this.userObj.feedback:
+        alert('Please tell us about your experience in at least 10 characters.');
+        return;
+      case !this.selectedDate:
         alert('Please select the date.');
         return;
-      }
-
-      case formattedDate !== today: {
+      case formattedDate !== today:
         alert("Please enter today's date.");
         return;
-      }
-
-      case feedbackForm.valid: {
-        this.http
-          .post<USER>('http://localhost:3000/feedback', this.userObj)
+      case feedbackForm.valid:
+        // Save feedback details, including ordered items
+        this.http.post<USER>('http://localhost:3000/feedback', this.userObj)
           .subscribe((res: USER) => {
-            // alert('thank you for you feedback');
             this.users.unshift(this.userObj);
-            console.log(this.userObj);
+            console.log('Feedback saved:', this.userObj);
             this.router.navigate(['/ackpage']);
           });
         return;
-      }
       default:
-        alert('unotherized action');
-        throw new Error('unotherized action');
+        alert('Unauthorized action');
+        throw new Error('Unauthorized action');
     }
+  }
+  
+
+  formatDate(date: Date): string {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 }
 
@@ -166,7 +161,6 @@ class USER {
   selectedDate: string;
   image: string | null;
   imageError: string;
-
   orderedItems: any[];
 
   constructor() {
@@ -180,7 +174,6 @@ class USER {
     this.selectedDate = '';
     this.image = null;
     this.imageError = '';
-
     this.orderedItems = [];
   }
 }
