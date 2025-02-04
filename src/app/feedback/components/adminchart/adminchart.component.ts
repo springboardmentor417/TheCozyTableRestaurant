@@ -190,11 +190,11 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
               label: label,
               data: data,
               backgroundColor: [
-                'rgb(240, 19, 67)',
-                'rgb(8, 150, 245)',
-                'rgb(250, 179, 0)',
-                'rgb(5, 255, 255)',
-                'rgb(106, 35, 247)',
+                'rgba(228, 58, 95, 0.87)',
+                'rgba(50, 159, 231, 0.92)',
+                'rgba(245, 191, 55, 0.88)',
+                'rgba(46, 240, 240, 0.92)',
+                'rgba(119, 63, 230, 0.91)',
               ],
               borderColor: [
                 'rgb(240, 19, 67)',
