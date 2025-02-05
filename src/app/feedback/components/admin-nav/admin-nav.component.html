@@ -1,23 +1,14 @@
-<mat-sidenav-container class="tp-container" style="height: 100vh">
+<mat-sidenav-container class="tp-container" style="height: 100vh;">
   <!-- Sidenav -->
-  <mat-sidenav mode="side" opened class="rounded-sidenav">
+  <mat-sidenav mode="side" opened>
     <mat-nav-list>
-      <br /><br /><br />
-      <a mat-list-item routerLink="/" routerLinkActive="active-link">Home</a>
-      <br />
-      <a
-        mat-list-item
-        routerLink="/admin/adminchart"
-        routerLinkActive="active-link"
-        >Feedback Report</a
-      >
-      <br />
-      <a
-        mat-list-item
-        routerLink="/admin/adminreply"
-        routerLinkActive="active-link"     
-        >Reply Feedback</a
-      >
+      <br><br><br><mat-divider></mat-divider>
+      <a mat-list-item routerLink="/admin/adminchart" routerLinkActive="active-link">
+        <mat-icon>assessment</mat-icon>  Feedback Report</a>
+      <br>
+      <a mat-list-item routerLink="/admin/adminreply" routerLinkActive="active-link">
+      
+        <mat-icon> message</mat-icon> Reply Feedback</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -26,3 +17,5 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+

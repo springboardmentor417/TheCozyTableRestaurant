@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { ServicesService } from '../../services/services.service';
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, FooterComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
@@ -42,7 +42,7 @@ export class RegisterComponent {
         '',
         [
           Validators.required,
-          Validators.pattern(/^[1-9][0-9]{9}$/),
+          Validators.pattern(/^[5-9][0-9]{9}$/),
         ],
       ],
       address: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],

@@ -17,8 +17,8 @@ body, html {
 }
 
 .hero-header {
-   position: relative;
-   height: 100vh; /* Full viewport height */
+   position: fixed;
+   height: 90vh; /* Full viewport height */
    width: 100vw; /* Full viewport width */
    overflow: hidden;
    display: flex;
@@ -28,8 +28,9 @@ body, html {
 
 /* Header container positioning */
 .header-container {
-   position: absolute;
+   position: fixed;
    top: 0;
+   height: 16vh; /* Full viewport height */
    width: 100%; /* Full width of the screen */
    z-index: 20; /* Ensure it's above other elements */
    display: flex;
@@ -43,6 +44,7 @@ body, html {
 /* Logo styles */
 .logo {
    display: flex;
+   margin-top: 25px;
    flex-direction: column;
    align-items: center; /* Center-align the title under the logo */
 }

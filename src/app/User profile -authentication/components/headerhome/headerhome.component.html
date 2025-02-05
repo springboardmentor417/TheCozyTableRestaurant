@@ -1,4 +1,4 @@
-<header class="hero-header">
+<!-- <header class="hero-header"> -->
   <div class="header-container">
     <div class="logo">
       <a routerLink="/Home">
@@ -16,7 +16,6 @@
         <li *ngIf="isLoggedIn"><a routerLink="/reservation">Reservation</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/cart">Cart</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/feedback">Feedback</a></li>
-        <!-- <li *ngIf="isLoggedIn"><a routerLink="/login">Login</a></li> -->
         <li><a routerLink="/aboutus">About Us</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Logout</li>
@@ -27,7 +26,7 @@
   </div> 
 
   <!-- Carousel Section -->
-  <ngb-carousel *ngIf="carouselImages && carouselImages.length > 0" [interval]="3000" [pauseOnHover]="true" [wrap]="true">
+  <!-- <ngb-carousel *ngIf="carouselImages && carouselImages.length > 0" [interval]="3000" [pauseOnHover]="true" [wrap]="true">
     <ng-template ngbSlide *ngFor="let image of carouselImages; let i = index">
       <div class="picsum-img-wrapper">
         <img [src]="image" [alt]="'Slide ' + (i + 1)" />
@@ -45,7 +44,7 @@
       <p>The Cozy Restaurant, Mumbai</p>
       <p>Special Code</p>
     </div>
-    <button class="gallery-btn">GALLERY</button>
+    <button class="gallery-btn">GALLERY</button> 
   </div>
   
-</header>
+</header>-->

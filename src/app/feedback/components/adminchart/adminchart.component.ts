@@ -15,7 +15,7 @@ import { ReplyPageComponent } from '../../adminComponent/reply-page/reply-page.c
 @Component({
   selector: 'app-adminchart',
   standalone: true,
-  imports: [HttpClientModule, MatCardModule, ReplyPageComponent],
+  imports: [HttpClientModule, MatCardModule],
   templateUrl: './adminchart.component.html',
   styleUrls: ['./adminchart.component.css'],
 })
@@ -49,11 +49,6 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
           'valueForMoney'
         );
         const monthlySales = this.extractMonthlySales(this.data);
-
-        // console.log('Rating counts:', ratingCounts);
-        // console.log('Food quality counts:', foodQualityCounts);
-        // console.log('Value for Money counts:', valueForMoneyCounts);
-        // console.log('Monthly sales:', monthlySales);
 
         if (this.isBrowser) {
           if (Object.keys(ratingCounts).length > 0) {
@@ -161,7 +156,7 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
       monthlySales,
       'Monthly Sales Outcomes',
       ''
-    ); // Removed the prefix "Month"
+    );
   }
 
   createChart(
@@ -195,18 +190,18 @@ export class AdminchartComponent implements OnInit, AfterViewInit {
               label: label,
               data: data,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
+                'rgba(228, 58, 95, 0.87)',
+                'rgba(50, 159, 231, 0.92)',
+                'rgba(245, 191, 55, 0.88)',
+                'rgba(46, 240, 240, 0.92)',
+                'rgba(119, 63, 230, 0.91)',
               ],
               borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
+                'rgb(240, 19, 67)',
+                'rgb(8, 150, 245)',
+                'rgb(250, 179, 0)',
+                'rgb(5, 255, 255)',
+                'rgb(106, 35, 247)',
               ],
               borderWidth: 1,
             },

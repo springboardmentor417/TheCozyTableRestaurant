@@ -63,7 +63,7 @@ export const routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'order', component: OrderComponent },
   { path: 'feedback', component: FeedbackFormComponent, canActivate: [authGuard] },
-  { path: 'admin', component: AdminchartComponent },
+  // { path: 'admin', component: AdminchartComponent },
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
   { path: 'ui', component: HomepageUIComponent },

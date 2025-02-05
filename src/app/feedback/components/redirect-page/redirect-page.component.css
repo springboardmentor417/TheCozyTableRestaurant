@@ -24,10 +24,10 @@ h1 {
   font-family: "Poppins", sans-serif;
   background: -webkit-linear-gradient(
     right,
-    #56d8e4,
-    #9f01ea,
-    #56d8e4,
-    #9f01ea
+    #f5a402,
+    #ffbf00,
+    #edd479,
+    #ffbf00
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -39,20 +39,55 @@ p {
   color: #666;
 }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
+.btn-container {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
-  font-size: 1em;
-  color: white;
-  background: linear-gradient(90deg, #ff0080, #00bfff);
-  border: none;
-  border-radius: 5px;
+}
+.btn,
+.btn:link,
+.btn:visited {
+  background-color: #ffbf00;
   text-decoration: none;
-  transition: background 0.3s ease;
+  font-weight: 500;
+  padding: 1rem 3rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1.3rem;
+  color: aliceblue;
+  border: none;
   cursor: pointer;
 }
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active,
+.btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
 
-.button:hover {
-  background: linear-gradient(90deg, #00bfff, #ff0080);
+.btn::after {
+  background-color: #ffbf00;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
 }
