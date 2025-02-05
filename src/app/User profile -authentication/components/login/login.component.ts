@@ -3,12 +3,11 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ServicesService } from '../../services/services.service';
-import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -61,8 +60,8 @@ export class LoginComponent {
           localStorage.setItem('currentUser', JSON.stringify(userDetails));
           this.isLoggedIn = true;
   
-          if (user.role === 'admin') this.router.navigate(['/admindetails/adminWelcome']);
-          else this.router.navigate(['/userDetails/userWelcome']);
+          if (user.role === 'admin') this.router.navigate(['/admindetails']);
+          else this.router.navigate(['/userDetails']);
           
           this.authService.setLoginStatus(true); // Notify login status
           this.cdr.detectChanges(); // Trigger change detection
@@ -72,12 +71,4 @@ export class LoginComponent {
     });
   }
   
-  logout(): void {
-    // Clear user details from localStorage
-    localStorage.removeItem('currentUser');
-    this.authService.setLoginStatus(false);
-    alert('You have been logged out successfully.');
-    this.router.navigate(['/Home']);
-    this.cdr.detectChanges();
-  }
 }

@@ -4,10 +4,6 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './User profile -authentication/components/login/login.component';
 import { HomeComponent } from './User profile -authentication/components/home/home.component';
 import { RegisterComponent } from './User profile -authentication/components/register/register.component';
-import { UpdateUserComponent } from './User profile -authentication/components/update-user/update-user.component';
-import { DeleteUserComponent } from './User profile -authentication/components/delete-user/delete-user.component';
-import { UserWelcomeComponent } from './User profile -authentication/components/user-welcome/user-welcome.component';
-import { AdminWelcomeComponent } from './User profile -authentication/components/admin-welcome/admin-welcome.component';
 import { UserDetailsComponent } from './User profile -authentication/components/user-details/user-details.component';
 import { AddMenuItemComponent } from './menu-management/components/add-menu-item/add-menu-item.component';
 import { HomeCartComponent } from './orders/components/home/homeCart.component';
@@ -25,15 +21,10 @@ import { MenuItemNavComponent } from './menu-management/menu_nav/menu-item-nav.c
 import { RedirectPageComponent } from './feedback/components/redirect-page/redirect-page.component';
 import { AdminNavComponent } from './feedback/components/admin-nav/admin-nav.component';
 import { ReplyPageComponent } from './feedback/adminComponent/reply-page/reply-page.component';
-import { HomepageUIComponent } from './User profile -authentication/components/homepage-ui/homepage-ui.component';
 import { AboutusComponent } from './User profile -authentication/components/aboutus/aboutus.component';
-import { UserManagementComponent } from './User profile -authentication/components/user-management/user-management.component';
 import { AdmindetailsComponent } from './User profile -authentication/components/admindetails/admindetails.component';
 import { authGuard } from './auth.guard';
-import { SHeaderComponent } from './User profile -authentication/components/s-header/s-header.component';
-import { HeaderhomeComponent } from './User profile -authentication/components/headerhome/headerhome.component';
 import { ForgotPassComponent } from './User profile -authentication/components/forgot-pass/forgot-pass.component';
-import { UpdatePassComponent } from './User profile -authentication/components/update-pass/update-pass.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },  // Default route to HomeComponent
@@ -41,14 +32,12 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'userDetails', component: UserDetailsComponent, canActivate: [authGuard] },
   { path: 'register', component: RegisterComponent },
-  { path: 'adminWelcome', component: AdminWelcomeComponent , canActivate: [authGuard]},
   { path: 'reservation', component: ReservationComponent, canActivate: [authGuard] },
   { path: 'add-menu-item', component: AddMenuItemComponent, },
   { path: 'app-menu-list', component: MenuListComponent },
   { path: 'app-menu-category', component: MenuCategoryComponent },
   { path: 'app-menu-item-nav', component: MenuItemNavComponent },
-  {path: 'forgotPass' , component:ForgotPassComponent,canActivate: [authGuard]},
-  {path:'updatePass', component:UpdatePassComponent,canActivate: [authGuard]},
+  {path: 'forgotPass' , component:ForgotPassComponent},
   {
     path: 'menu',
     component: MenuItemNavComponent,
@@ -66,19 +55,11 @@ export const routes: Routes = [
   { path: 'admin', component: AdminchartComponent },
   { path: 'ackpage', component: AckPageComponent },
   { path: 'reply', component: PageFeedbackComponent },
-  { path: 'ui', component: HomepageUIComponent },
-  {
-    path: 'admindetails',
-    component: AdmindetailsComponent,
-    canActivate: [authGuard],
-    children: [
-      { path: 'UserManagement', component: UserManagementComponent ,canActivate: [authGuard]},
-      { path: 'adminWelcome', component: AdminWelcomeComponent,canActivate: [authGuard] },
-      { path: 'userManagement', component: UserManagementComponent,canActivate: [authGuard] },
-      { path: '', redirectTo: 'adminWelcome', pathMatch: 'full' }
-    ]
-  },
+
+  { path: 'admindetails',component: AdmindetailsComponent,canActivate: [authGuard]},
+
   { path: 'redirect', component: RedirectPageComponent },
+
   {
     path: 'admin',
     component: AdminNavComponent,
@@ -88,16 +69,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'userDetails',
-    component: UserDetailsComponent,
-    canActivate: [authGuard],
-    children: [
-      { path: 'updateUser', component: UpdateUserComponent,canActivate: [authGuard] },
-      { path: 'deleteUser', component: DeleteUserComponent,canActivate: [authGuard] },
-      { path: 'userWelcome', component: UserWelcomeComponent, canActivate: [authGuard] },
-      { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }
-    ]
-  },
+    path: 'userDetails',component: UserDetailsComponent, canActivate: [authGuard],},
   { path: '**', redirectTo: '' }
 ];
 

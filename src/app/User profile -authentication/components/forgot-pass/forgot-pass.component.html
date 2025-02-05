@@ -1,8 +1,21 @@
-<div class="forgot-password-container">
-    <h2>Forgot Password</h2>
-    <form [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmit()">
+
+  <div class="password-reset-container">
+    <h2 *ngIf="!isUpdatingPassword">Forgot Password</h2>
+    <h2 *ngIf="isUpdatingPassword">Update Password</h2>
+  
+    <form *ngIf="!isUpdatingPassword" [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPasswordSubmit()">
       <label for="contact">Enter your email or phone number:</label>
       <input id="contact" formControlName="contact" type="text" placeholder="Email or Phone">
       <button type="submit" [disabled]="forgotPasswordForm.invalid">Submit</button>
     </form>
+  
+    <form *ngIf="isUpdatingPassword" [formGroup]="updatePasswordForm" (ngSubmit)="onUpdatePasswordSubmit()">
+      <label for="newPassword">New Password:</label>
+      <input id="newPassword" formControlName="newPassword" type="password" placeholder="New Password">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+      <button type="submit" [disabled]="updatePasswordForm.invalid">Update Password</button>
+    </form>
   </div>
+  
+ 

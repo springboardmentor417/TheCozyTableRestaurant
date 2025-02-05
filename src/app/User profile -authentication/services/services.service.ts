@@ -10,7 +10,6 @@ import { BehaviorSubject, catchError, map, Observable, of, throwError } from 'rx
 export class ServicesService {
   private loginStatusSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.loginStatusSubject.asObservable();
-
   private apiUrl = 'http://localhost:3000/users'; // Base URL for users API
 
   constructor(private http: HttpClient,private router:Router) {
@@ -35,22 +34,10 @@ export class ServicesService {
       window.location.reload(); 
     });
   }
-  
-
   // ----------- User Management ----------- //
   getUsers(username?: string, password?: string): Observable<any[]> {
-    // if (username && password) {
-    //   return this.http.get<any[]>(this.apiUrl).pipe(
-    //     map((users) =>
-    //       users.filter((user) => user.username === username && user.password === password)
-    //     )
-    //   );
-    // }
-    // If no username and password are provided, return all users
     return this.http.get<any[]>(this.apiUrl);
   }
-  
-
   addUser(user: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, user).pipe(
       catchError((error) => {
@@ -59,7 +46,6 @@ export class ServicesService {
       })
     );
   }
-
   updateUser(user: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${user.id}`, user).pipe(
       catchError((error) => {
@@ -77,10 +63,7 @@ export class ServicesService {
       })
     );
   }
-  
-
-
-  deleteUser(userId: string): Observable<any> {
+    deleteUser(userId: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${userId}`).pipe(
       catchError((error) => {
         console.error('Error deleting user:', error);
@@ -136,6 +119,4 @@ export class ServicesService {
     return typeof localStorage !== 'undefined';
   }
 
-  
-  
 }

@@ -1,15 +1,95 @@
-<!-- <app-header></app-header> -->
-<br>
-<br>
-<br>
 
+<header class="hero-header">
+<!-- Carousel Section -->
+    <ngb-carousel *ngIf="carouselImages && carouselImages.length > 0" [interval]="3000" [pauseOnHover]="true" [wrap]="true">
+    <ng-template ngbSlide *ngFor="let image of carouselImages; let i = index">
+      <div class="picsum-img-wrapper">
+        <img [src]="image" [alt]="'Slide ' + (i + 1)" />
+      </div>
+      <div class="carousel-caption">
+        <h3>Slide {{ i + 1 }}</h3>
+        <p>Enjoy the Cozy Life!</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
 
+  <div class="hero-content">
+    <h2>THE COZY TABLE, MUMBAI</h2>
+    <div class="booking-details">
+      <p>The Cozy Restaurant, Mumbai</p>
+      <p>Special Code</p>
+    </div>
+    <button class="gallery-btn">GALLERY</button>
+  </div> 
+</header> 
 
-<div class="dashboard animate__animated animate__slideInLeft">
-  <h2>Welcome to Good Vibes and Happy Times</h2>
+<div class="parallax-Section">
+  <!-- Left Section: Background Image -->
+  <div class="image-section">
+    <img src="/assets/uiBG.jpg" alt="Restaurant Ambience" />
+  </div>
+
+  <!-- Right Section: Vision Text -->
+  <div class="text-section">
+    <h2>Our Vision</h2>
+    <br>
+    <p>We strive to redefine hospitality by offering a welcoming atmosphere, fresh ingredients,and dishes crafted with love. 
+      Our goal is to make every visit special, every meal memorable, and every guest feel like family.</p>
+  </div>
 </div>
-<app-homepage-ui></app-homepage-ui>
- <br>
- <br>
- <app-footer></app-footer>
+
+<div class="parallax-container ">
+  <!-- First Section (Text Left, Image Right) -->
+  <div class="row align-items-center section flex-row-reverse">
+    <!-- Image -->
+    <div class=" image-section">
+      <img src="assets/Horizontal1.jpg" alt="Traditional Taste" class="img-fluid rounded h=100px">
+    </div>
+    <!-- Text -->
+    <div class=" text-section">
+      <h2>True Traditional Taste</h2>
+      <br>
+      <p>Experience the essence of traditional flavors with our handcrafted recipes.
+        From classic dishes to modern interpretations, we honor culinary heritage with every meal.</p>
+    </div>
+  </div>
+
+
+<!-- Second Section  (Image Left, Text Right) -->
+<div class="row align-items-center section  ">
+  <!-- Image -->
+  <div class=" image-section">
+    <img src="assets/Horizontal2.jpg" alt="Restaurant Experience" class="img-fluid rounded">
+  </div>
+  <!-- Text -->
+  <div class=" text-section">
+    <h2>Authentic Cuisine</h2>
+    <br>
+    <p>
+      At Cozy Table, we believe in bringing you an authentic dining experience. 
+      Our dishes are crafted with fresh,locally sourced ingredients, ensuring
+      every bite is a taste of tradition.</p>
+  </div>
+</div>
+</div>
+
+
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 mb-5" *ngFor="let image of images; let i = index">
+      <div class="image-container" (mouseenter)="onHover(i)" (mouseleave)="onLeave(i)"> 
+        <!-- Rotating Image -->
+        <img src="{{ image.src }}" alt="Image" class="img-fluid"> 
+        
+        <!-- Sliding Down Text -->
+        <div class="image-text" [class.visible]="image.showText">
+          {{ image.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
 
