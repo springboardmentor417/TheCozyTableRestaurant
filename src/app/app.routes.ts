@@ -34,7 +34,9 @@ import { SHeaderComponent } from './User profile -authentication/components/s-he
 import { HeaderhomeComponent } from './User profile -authentication/components/headerhome/headerhome.component';
 import { ForgotPassComponent } from './User profile -authentication/components/forgot-pass/forgot-pass.component';
 import { UpdatePassComponent } from './User profile -authentication/components/update-pass/update-pass.component';
-
+import { EditReservationComponent } from './reservations/components/edit-reservation/edit-reservation.component';
+import { TrackOrderComponent } from './orders/components/track-order/track-order.component';
+import { ManageOrdersComponent } from './orders/manage-orders/manage-orders.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },  // Default route to HomeComponent
   { path: 'aboutus', component: AboutusComponent },
@@ -46,6 +48,8 @@ export const routes: Routes = [
   { path: 'add-menu-item', component: AddMenuItemComponent, },
   { path: 'app-menu-list', component: MenuListComponent },
   { path: 'app-menu-category', component: MenuCategoryComponent },
+  { path: 'myOrders', component: TrackOrderComponent },
+  { path: 'manageOrders', component: ManageOrdersComponent },
   { path: 'menu', component: MenuItemNavComponent },
   {path: 'forgotPass' , component:ForgotPassComponent,canActivate: [authGuard]},
   {path:'updatePass', component:UpdatePassComponent,canActivate: [authGuard]},
@@ -98,6 +102,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'userWelcome', pathMatch: 'full' }
     ]
   },
+  { path: 'edit-reservation/:id', component: EditReservationComponent },
+
   { path: '**', redirectTo: '' }
 ];
 

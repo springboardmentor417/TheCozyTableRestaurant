@@ -113,82 +113,63 @@
       "status": "pending"
     }
   ],
- "menu-items": [
-  {
-    "id": "f915",
-    "name": "Mutton Rogan Josh",
-    "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-    "price": 356,
-    "category": "Main Course",
-    "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-    "availability": true,
-    "rating": [1,2,3,4]
-  },
-  {
-    "id": "c5b2",
-    "name": "Egg Masala",
-    "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
-    "price": 217,
-    "category": "Main Course",
-    "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
-    "availability": true,
-    "rating": [2,3,4,5]
-  },
-  {
-    "id": "d59e",
-    "name": "Butter Naan",
-    "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
-    "price": 45,
-    "category": "Bread",
-    "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
-    "availability": true,
-    "rating": [1,2,4,3]
-  }
+  "menu-items": [
+    {
+      "id": "f915",
+      "name": "Mutton Rogan Josh",
+      "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+      "price": 356,
+      "category": "Main Course",
+      "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+      "availability": true,
+      "rating": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "c5b2",
+      "name": "Egg Masala",
+      "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+      "price": 217,
+      "category": "Main Course",
+      "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+      "availability": true,
+      "rating": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "d59e",
+      "name": "Butter Naan",
+      "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+      "price": 45,
+      "category": "Bread",
+      "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
+      "availability": true,
+      "rating": [
+        1,
+        2,
+        4,
+        3
+      ]
+    }
   ],
   "cart": [
     {
-      "id": "58c9",
-      "foodID": 1,
-      "img": "../../assets/OIP (1).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 35,
-      "originalPrice": 50,
-      "discount": 10,
-      "quantity": 13
-    },
-    {
-      "id": "9cfc",
-      "foodID": 4,
-      "img": "../../assets/OIP (3).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 135,
-      "originalPrice": 150,
-      "discount": 10,
-      "quantity": 6
-    },
-    {
-      "id": "1bc1",
-      "foodID": 2,
-      "img": "../../assets/OIP.jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 135,
-      "originalPrice": 150,
-      "discount": 10,
-      "quantity": 13
-    },
-    {
-      "id": "388d",
-      "foodID": 3,
-      "img": "../../assets/OIP (2).jpg",
-      "name": "samosa",
-      "type": "starter",
-      "currentPrice": 150,
-      "originalPrice": 135,
-      "discount": 10,
-      "quantity": 8
+      "id": "7294",
+      "customerId": "4321",
+      "items": [
+        {
+          "itemid": "d59e",
+          "quantity": 1
+        }
+      ]
     }
   ],
   "orders": [

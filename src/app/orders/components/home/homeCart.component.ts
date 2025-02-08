@@ -58,14 +58,14 @@ export class HomeCartComponent {
 
   
   addCart(food: any) {
-    food.quantity = 1; // Initialize quantity =1 when adding to cart
-    this.cartService.addCartItem(food).subscribe(
-      (response) => {
-        console.log('Item added to cart:', response);
-      },
-      (error) => {
-        console.error('Error adding item to cart:', error);
-      }
-    );
+    // food.quantity = 1; // Initialize quantity =1 when adding to cart
+    // this.cartService.addCartItem(food).subscribe(
+    //   (response) => {
+    //     console.log('Item added to cart:', response);
+    //   },
+    //   (error) => {
+    //     console.error('Error adding item to cart:', error);
+    //   }
+    // );
   }
 }

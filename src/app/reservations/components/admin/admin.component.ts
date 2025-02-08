@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../../services/reservation.service';
 import { CommonModule } from '@angular/common';
+import { Table } from '../reservation/reservation.component';
 
 export interface Reservation {
   status: string;
@@ -23,7 +24,7 @@ export interface Reservation {
 })
 export class AdminComponent implements OnInit {
   reservations: Reservation[] = [];
-
+  tables: Table[] = [];
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit(): void {
@@ -66,10 +67,29 @@ export class AdminComponent implements OnInit {
 
   rejectReservation(reservationId: string, index: number): void {
     if (confirm('Are you sure you want to reject this reservation?')) {
+      const rejectedReservation = this.reservations[index]; // Get the specific reservation object
+  
       this.reservationService.updateReservationStatus(reservationId, 'rejected').subscribe({
         next: () => {
           alert('Reservation rejected successfully.');
-          this.reservations[index].status = 'rejected';
+          this.reservations[index].status = 'rejected'; // Update UI locally
+  
+          // Free up the time slot in the table
+          this.reservationService.updateTableAvailability(
+            this.tables,
+            rejectedReservation.tableId,
+            rejectedReservation.date,
+            rejectedReservation.time,
+            false // Mark the time slot as available
+          ).subscribe(
+            () => {
+              console.log('Time slot freed successfully.');
+              // this.loadTables();
+            },
+            (err) => {
+              console.error('Error updating table availability:', err);
+            }
+          );
         },
         error: (err) => {
           console.error('Error rejecting reservation:', err);
@@ -78,4 +98,5 @@ export class AdminComponent implements OnInit {
       });
     }
   }
-}
+  
+}  

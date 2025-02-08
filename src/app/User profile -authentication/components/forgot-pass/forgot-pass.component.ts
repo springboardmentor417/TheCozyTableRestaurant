@@ -29,8 +29,10 @@ import { CommonModule } from '@angular/common';
       });
   
       this.updatePasswordForm = this.fb.group({
-        newPassword: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
+        newPassword: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(12),
+          Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])/),]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(12),
+          Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])/),]]
       });
     }
   

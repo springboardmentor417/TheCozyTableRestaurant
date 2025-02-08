@@ -26,16 +26,15 @@
 
   <!-- Time Slots -->
   <div *ngIf="selectedTable && timeSlots.length > 0" class="time-slots">
-    <h3>
-      Availability for Table {{ selectedTable.id }} on
-      {{ selectedDate | date: 'fullDate' }}:
-    </h3>
+    <h3>Availability for Table {{ selectedTable.id }} on {{ selectedDate | date: 'fullDate' }}:</h3>
     <div class="slot-list">
       <button *ngFor="let slot of timeSlots" class="slot"
-        [ngClass]="{ 'reserved': slot.isReserved, 'available': !slot.isReserved }" [disabled]="slot.isReserved"
-        (click)="reserveTimeSlot(slot.time)">
+        [ngClass]="{ 'reserved': slot.isReserved, 'past': slot.isDisabled, 'available': !slot.isReserved && !slot.isDisabled }"
+        [disabled]="slot.isReserved || slot.isDisabled" (click)="reserveTimeSlot(slot.time)">
         <span class="slot-time">{{ slot.time }}</span>
-        <span class="slot-status">{{ slot.isReserved ? 'Reserved' : 'Available' }}</span>
+        <span class="slot-status">
+          {{ slot.isReserved ? 'Reserved' : (slot.isDisabled ? 'Past' : 'Available') }}
+        </span>
       </button>
     </div>
   </div>
@@ -63,8 +62,13 @@
       </div>
       <div class="form-group">
         <label for="seats">Seats:</label>
-        <input type="number" [(ngModel)]="reservationData.seats" name="seats" [max]="selectedTable?.seats || 0"
+        <input type="number" id="seats" [(ngModel)]="reservationData.seats" name="seats" min="1" [max]="maxSeats"
           required />
+
+        <!-- Show validation message if seat number is out of range -->
+        <div *ngIf="reservationData.seats < 1 || reservationData.seats > maxSeats">
+          <p style="color: red;">Please select a number of seats between 1 and {{maxSeats}}.</p>
+        </div>
       </div>
       <div class="form-actions">
         <button type="submit" [disabled]="reservationForm.invalid ||!isValidDate(selectedDate)">
@@ -104,8 +108,16 @@
             <td>{{ reservation.seats }}</td>
             <td>{{ reservation.contact }}</td>
             <td>
-              <button (click)="navigateToEditPage(reservation.id)">Edit</button>
-              <button (click)="deleteReservation(reservation.id)">Delete</button>
+              <button *ngIf="reservation.status !== 'rejected'" (click)="navigateToEditPage(reservation.id)">
+                Edit
+              </button>
+              <button *ngIf="reservation.status !== 'rejected'" (click)="deleteReservation(reservation.id)">
+                Delete
+              </button>
+              <!-- Display "Rejected" message if the reservation is rejected -->
+              <span *ngIf="reservation.status === 'rejected'" class="rejected-status">
+                Rejected
+              </span>
             </td>
           </tr>
         </tbody>
@@ -115,6 +127,7 @@
       </p>
     </div>
   </div>
+
 
 
   <!-- Edit Reservation Form -->

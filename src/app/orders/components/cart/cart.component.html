@@ -7,15 +7,15 @@
       <th>Quantity</th>
       <th>Subtotal</th>
     </tr>
-    <tr *ngFor="let cartItem of getCartDetails">
+    <tr *ngFor="let cartItem of itemsArray">
       <td class="item-cell">
-        <img [src]="cartItem.img" alt="Item" width="100" height="100" />
+        <img [src]="cartItem.imageUrl" alt="Item" width="100" height="100" />
         <div class="item-details">
           <h4>{{ cartItem.name }}</h4>
-          <p>{{ cartItem.type }}</p>
+          <p>{{ cartItem.category }}</p>
         </div>
       </td>
-      <td>{{ cartItem.currentPrice }}</td>
+      <td>{{ cartItem.price }}</td>
       <td class="item-quantity">
         <div class="quantity-selector">
           <button
@@ -47,7 +47,7 @@
         
 
       </td>
-      <td>{{ cartItem.quantity * cartItem.currentPrice }}</td>
+      <td>{{ cartItem.quantity * cartItem.price }}</td>
       
         
 

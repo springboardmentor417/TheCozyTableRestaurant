@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from '../../services/reservation.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { Table } from '../reservation/reservation.component';
 
 @Component({
   selector: 'app-edit-reservation',
@@ -16,7 +16,8 @@ export class EditReservationComponent implements OnInit {
   reservationId!: string;
   reservationData: any = {};
   selectedTable:any=[]
-  
+  tables: any[] = []; 
+  maxSeats: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,13 +30,35 @@ export class EditReservationComponent implements OnInit {
     
     this.loadReservation();
   }
+  loadTables() {
+    this.reservationService.getTables().subscribe(
+      (data) => {
+        this.tables = data;
   
-
+        // Now that tables are loaded, find the correct table
+        if (this.reservationData.tableId) {
+          this.selectedTable = this.tables.find(table => table.id === this.reservationData.tableId) || null;
+          console.log('Selected Table:', this.selectedTable);
+          console.log('Max Seats:', this.selectedTable?.Seats);
+        }
+      },
+      (error) => {
+        console.error('Error loading tables:', error);
+        alert('Failed to load tables. Please try again later.');
+      }
+    );
+  }
+  
+  
   loadReservation(): void {
     this.reservationService.getReservationById(this.reservationId).subscribe(
       (data) => {
         this.reservationData = data;
-        this.selectedTable=this.reservationData.tableId;
+  
+        // Ensure tables are already loaded before finding the selected table
+        this.loadTables();
+  
+        console.log('Reservation Data:', this.reservationData);
       },
       (error) => {
         console.error('Error loading reservation:', error);
@@ -43,6 +66,8 @@ export class EditReservationComponent implements OnInit {
       }
     );
   }
+  
+  
 
   updateReservation(): void {
     this.reservationService.updateReservation(this.reservationData).subscribe(

@@ -9,7 +9,6 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-headerhome',
   host: { 'unique-host': 'headerHome' },
   standalone: true,
-
   imports: [RouterModule, CommonModule, NgbCarouselModule],
   templateUrl: './headerhome.component.html',
   styleUrls: ['./headerhome.component.css'],
@@ -17,13 +16,6 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 export class HeaderhomeComponent implements OnInit, OnDestroy {
   isLoggedIn = false; // Tracks login status
   private subscription: Subscription = new Subscription();
-
-  // Carousel images
-  carouselImages: string[] = [
-    'assets/CozyTable2v.png',
-    'assets/TajLife2v.jpg',
-    'assets/CozyDine2v.jpg',
-  ];
 
   constructor(
     private router: Router,

@@ -577,4 +577,23 @@ button[type="button"]:hover {
   font-weight: bold;
 }
 
+.rejected-status {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.slot.past {
+  background-color: #6c757d; /* Grey */
+  color: white;
+  cursor: not-allowed;
+}
+
+.slot.past:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+}
+
+.slot.past:disabled {
+  background-color: #d6d8db; /* Light grey */
+  color: #8d8d8d;
+}
 

@@ -49,7 +49,7 @@
         <button 
           *ngIf="!isAdmin" 
            
-          (click)="addToCart(item)">
+          (click)="addToCart(item.id)">
           <mat-icon class="cart-icon">shopping_cart</mat-icon>
         </button>
         </div>

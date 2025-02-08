@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface MenuItem {
-  id?: number; // Optional for new items
+  id?: any; // Optional for new items
   name: string;
   description: string;
   price: number;
@@ -26,6 +26,9 @@ export class MenuService {
     return this.http.get<MenuItem[]>(this.baseUrl);
   }
   
+  getMenuItemsById(id:any): Observable<MenuItem> {
+    return this.http.get<MenuItem>(this.baseUrl+"/"+id);
+  }
 
   // Add a new menu item
   addMenuItem(menuItem: MenuItem): Observable<MenuItem> {

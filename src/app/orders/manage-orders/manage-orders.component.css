@@ -1,0 +1,112 @@
+/* General Button Styling */
+h2 {
+  text-align: center; /* Align text to the center */
+  margin-bottom: 20px; /* Add some space below the heading */
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Primary Button (Pending) */
+button.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Warning Button (Yet to be Delivered) */
+button.btn-warning {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+button.btn-warning:hover {
+  background-color: #ec971f;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Info Button (Delivered) */
+button.btn-info {
+  background-color: #5bc0de;
+  color: white;
+}
+
+button.btn-info:hover {
+  background-color: #31b0d5;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Danger Button (Cancelled) */
+button.btn-danger {
+  background-color: #d9534f;
+  color: white;
+}
+
+button.btn-danger:hover {
+  background-color: #c9302c;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Success Button (Delivery - Green) */
+button.btn-success {
+  background-color: #4caf50; /* Green color for Delivery */
+  color: white;
+}
+
+button.btn-success:hover {
+  background-color: #45a049;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Button Group Layout */
+td .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Button Group for Smaller Screens */
+@media (max-width: 768px) {
+  td .btn-group {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+  }
+}
+
+/* Button Sizing */
+button.btn-sm {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+/* Ensure buttons are well-aligned */
+button.btn-sm {
+  margin-right: 10px; /* Add space between small buttons */
+  margin-bottom: 5px;  /* Avoid overlap in smaller views */
+}
+
+/* Styling table cells with borders */
+.table th, .table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd; /* Add borders for clarity */
+  border-radius: 5px; /* Rounded corners for table cells */
+}
+
+/* Optional: Hover effects for table rows */
+.table tr:hover {
+  background-color: #f1f1f1; /* Light gray row on hover */
+}
+
+/* Hover effect on table cells */
+.table td:hover {
+  background-color: #e0e0e0; /* Light gray cell on hover */
+}
+
+/* Optional: Styling for the table header */
+.table th {
+  background-color: #007bff;
+  color: white;
+}

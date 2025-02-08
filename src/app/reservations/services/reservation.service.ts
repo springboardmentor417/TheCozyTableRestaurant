@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { Table } from '../components/reservation/reservation.component';
 import { Router } from '@angular/router';
 
 export interface Reservation {
   id: string;
+  userId:number;
   tableId: number;
   customerName: string;
   contact: string;
@@ -64,6 +65,24 @@ export class ReservationService {
   updateReservation(reservation: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/reservations/${reservation.id}`, reservation);
   }
+  
+  updateTableAvailability(tableData: Table[], tableId: number, date: string, time: string, isReserved: boolean) {
+    const updatedTables = tableData.map((table: Table) => {  // Explicitly type 'table' as 'Table'
+      if (table.id === tableId) {
+        if (!table.reservations[date]) {
+          table.reservations[date] = {};
+        }
+        
+        // Assign "pending" if isReserved is true, and "rejected" if false
+        table.reservations[date][time] = isReserved ? "pending" : "rejected";  // Change this line
+      }
+      return table;
+    });
+  
+    // Update the db.json with the new reservation status
+    return this.http.put(`${this.apiUrl}/tables`, { tables: updatedTables });
+  }
+  
   
   
 

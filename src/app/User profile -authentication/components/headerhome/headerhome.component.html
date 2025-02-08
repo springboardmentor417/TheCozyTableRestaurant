@@ -12,10 +12,10 @@
     <nav class="navigation">
       <ul>
         <li><a routerLink="/Home">Home</a></li>
-        <li *ngIf="isLoggedIn"><a routerLink="/menu">Menu</a></li>
+        <!-- <li *ngIf="isLoggedIn"><a routerLink="/homeCart">Menu</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/reservation">Reservation</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/cart">Cart</a></li>
-        <li *ngIf="isLoggedIn"><a routerLink="/feedback">Feedback</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/feedback">Feedback</a></li> -->
         <li><a routerLink="/aboutus">About Us</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Logout</li>
@@ -25,26 +25,4 @@
     
   </div> 
 
-  <!-- Carousel Section -->
-  <!-- <ngb-carousel *ngIf="carouselImages && carouselImages.length > 0" [interval]="3000" [pauseOnHover]="true" [wrap]="true">
-    <ng-template ngbSlide *ngFor="let image of carouselImages; let i = index">
-      <div class="picsum-img-wrapper">
-        <img [src]="image" [alt]="'Slide ' + (i + 1)" />
-      </div>
-      <div class="carousel-caption">
-        <h3>Slide {{ i + 1 }}</h3>
-        <p>Enjoy the Cozy Life!</p>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-
-  <div class="hero-content">
-    <h2>THE COZY TABLE, MUMBAI</h2>
-    <div class="booking-details">
-      <p>The Cozy Restaurant, Mumbai</p>
-      <p>Special Code</p>
-    </div>
-    <button class="gallery-btn">GALLERY</button> 
-  </div>
-  
-</header>-->
+ 

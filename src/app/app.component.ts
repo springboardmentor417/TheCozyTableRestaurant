@@ -7,6 +7,7 @@ import { filter } from 'rxjs/operators';
 import { HomeComponent } from "./User profile -authentication/components/home/home.component";
 import { HomepageUIComponent } from "./User profile -authentication/components/homepage-ui/homepage-ui.component";
 import { FooterComponent } from "./User profile -authentication/components/footer/footer.component";
+import { CartService } from './orders/services/cart.service';
 
 
 @Component({
@@ -21,10 +22,11 @@ export class AppComponent {
 
   showMainHeader: boolean = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private cartService: CartService) {}
 
   ngOnInit() {
     // Listen for route changes and update the header accordingly
+    this.cartService.updateCartCount();
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {

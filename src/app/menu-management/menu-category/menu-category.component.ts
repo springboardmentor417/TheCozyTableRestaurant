@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { CartService } from '../../orders/services/cart.service';
 @Component({
   selector: 'app-menu-category',
   standalone: true,
@@ -21,11 +22,12 @@ export class MenuCategoryComponent implements OnInit {
   maxPriceAllowed: number = 1200; // Maximum allowed price
   priceWarning: boolean = false; // Flag for price warning
   errorMessage: string = ''; // Error message to display
+  customerId:string='';
 
   cart: MenuItem[] = []; // List of items added to the cart
   isAdmin: boolean = false; // Flag to check if the user is an admin
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService,private cartService:CartService) {}
 
   ngOnInit(): void {
     this.fetchLatestItems(); // Fetch the latest menu items when the component initializes
@@ -103,8 +105,17 @@ export class MenuCategoryComponent implements OnInit {
   // Add item to the cart
   addToCart(item: MenuItem): void {
     if (!this.isAdmin) {
-      this.cart.push(item);
-      console.log('Item added to cart:', item);
+     console.log("itemId",item)
+    
+      this.cartService.addCartItem(item,this.customerId).subscribe(
+        response => {
+          console.log('Response received:', response);
+        },
+        error => {
+          console.error('Error:', error);
+        }
+      );
+      // console.log('Item added to cart:', item);
     } else {
       console.warn('Admins cannot add items to the cart.');
     }
@@ -113,6 +124,8 @@ export class MenuCategoryComponent implements OnInit {
   // Check if the logged-in user is an admin
   private checkUserRole(): void {
     const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.customerId=user.id;
+    console.log("customer id",this.customerId)
     this.isAdmin = user.role === 'admin'; // Example logic for determining admin role
   }
 

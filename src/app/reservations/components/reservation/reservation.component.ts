@@ -7,27 +7,29 @@ import { Router } from '@angular/router';
 
 interface TimeSlot {
   time: string;
-  isReserved: boolean;
+  isReserved: boolean | string | null;
+  isDisabled?: boolean;
 }
 
 export interface Table {
   id: number;
   seats: number;
   reservations: {
-    [date: string]: { [time: string]: boolean };
+    [date: string]: { [time: string]: 'pending' | 'rejected' | null };
   };
   timeSlots?: TimeSlot[];
 }
 
 export interface Reservation {
   id: string;
+  userId:number,
   tableId: number;
   customerName: string;
   contact: string;
   date: string;
   time: string;
   seats: number;
-  status: 'pending' | 'approved' | 'rejected'; 
+  status: 'pending' | 'rejected';
 }
 
 @Component({
@@ -61,22 +63,31 @@ export class ReservationComponent implements OnInit {
   existingReservations: Reservation[] = [];
   showEditForm: boolean = false;
   selectedReservation: Reservation | null = null;
-  
+  maxSeats: number = 1;
+  currentUser: any = null;
 
   constructor(
     private reservationService: ReservationService,
     private servicesService: ServicesService,
-    private router: Router 
-  ) {}
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.setDateRange();
     this.loadTables();
+    this.loadUser();
     this.loadUserReservations();
   }
 
   navigateToEditPage(reservationId: string): void {
     this.router.navigate(['/edit-reservation', reservationId]);
+  }
+
+  loadUser() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    if (!this.currentUser || !this.currentUser.id) {
+      console.error('No logged-in user found.');
+    }
   }
 
   loadTables() {
@@ -151,6 +162,7 @@ export class ReservationComponent implements OnInit {
     }
 
     this.selectedTable = table;
+    this.maxSeats = table.seats; 
     this.loadTableAvailability();
     this.loadExistingReservations();
   }
@@ -166,27 +178,51 @@ export class ReservationComponent implements OnInit {
       customerName: '',
       contact: '',
       seats: 1,
-      status:'pending',
+      status: 'pending',
     };
   }
 
   loadTableAvailability() {
     if (!this.selectedTable || !this.selectedDate) return;
-
+    const currentTime = new Date();
     const reservations = this.selectedTable.reservations[this.selectedDate] || {};
-    this.timeSlots = this.generateTimeSlots().map((time) => ({
-      time,
-      isReserved: !!reservations[time],
-    }));
+
+    this.timeSlots = this.generateTimeSlots().map((time) => {
+      const reservationStatus = reservations[time];
+      const isPastTime = this.isPastTime(time, currentTime,this.selectedDate); // Get the reservation status for this time slot
+      return {
+        time,
+        isReserved: reservationStatus && reservationStatus !== 'rejected' ? 'pending' : null,
+        isDisabled: isPastTime,  // Set it to "pending" or null, instead of a boolean value
+      };
+    });
+  }
+
+  isPastTime(time: string, currentTime: Date, selectedDate: string): boolean {
+    const today = this.formatDate(new Date());
+
+    if (selectedDate > today) return false; // Allow all slots for future dates
+
+    const [timePart, period] = time.split(' ');
+    let [hour, minutes] = timePart.split(':').map(Number);
+
+    if (period === 'PM' && hour !== 12) hour += 12;
+    if (period === 'AM' && hour === 12) hour = 0;
+
+    const selectedTime = new Date();
+    selectedTime.setHours(hour, minutes, 0, 0);
+
+    return selectedTime < currentTime;
   }
 
   loadExistingReservations() {
-    if (!this.selectedTable || !this.selectedDate) return;
+    if (!this.selectedTable || !this.selectedDate || !this.currentUser) return;
 
     this.existingReservations = this.userReservations.filter(
       (reservation) =>
         reservation.tableId === this.selectedTable!.id &&
-        reservation.date === this.selectedDate
+        reservation.date === this.selectedDate &&
+        reservation.userId === this.currentUser.id
     );
   }
 
@@ -218,25 +254,46 @@ export class ReservationComponent implements OnInit {
       this.reservationService.deleteReservation(reservationId).subscribe(
         () => {
           alert('Reservation deleted successfully!');
-          // Refresh reservations
-          this.loadUserReservations();
-          this.loadExistingReservations();
-          this.showEditForm = false;
+  
+          // Remove the deleted reservation from userReservations
+          this.userReservations = this.userReservations.filter(
+            (reservation) => reservation.id !== reservationId
+          );
+  
+          // Remove the deleted reservation from existingReservations
+          this.existingReservations = this.existingReservations.filter(
+            (reservation) => reservation.id !== reservationId
+          );
+  
+          // Update table reservations dynamically
+          this.tables.forEach((table) => {
+            Object.keys(table.reservations).forEach((date) => {
+              Object.keys(table.reservations[date]).forEach((time) => {
+                if (table.reservations[date][time] === 'pending' && 
+                    this.existingReservations.every(res => res.date !== date || res.time !== time)) {
+                  table.reservations[date][time] = null;
+                }
+              });
+            });
+          });
+  
+          this.loadTableAvailability(); // Refresh available time slots dynamically
         },
         (error) => {
           console.error('Error deleting reservation:', error);
-          alert('Failed to delete reservation. Please check the reservation ID and try again.');
-          this.showEditForm = false;
+          alert('Failed to delete reservation. Please try again.');
         }
       );
     }
   }
   
+  
+
 
   submitReservation() {
     // if (!this.selectedTable || !this.reservationData.time) return;
     if (!this.selectedTable || !this.reservationData.customerName ||
-      !this.reservationData.contact || 
+      !this.reservationData.contact ||
       !this.reservationData.time || !this.reservationData.seats) {
       alert('Please fill out all fields correctly before submitting.');
       return;
@@ -246,53 +303,84 @@ export class ReservationComponent implements OnInit {
       return;
     }
 
+    if (this.reservationData.seats < 1 || this.reservationData.seats > this.maxSeats) {
+      alert(`Please select a number of seats between 1 and ${this.maxSeats}.`);
+      return;
+    }
+
 
     const reservation: Reservation = {
       ...this.reservationData,
-      id: String(Math.floor(Math.random() * 10000)), // Generate string ID, // Generate a smaller random ID
+      id: String(Math.floor(Math.random() * 10000)),
+      userId: this.currentUser.id, // Generate string ID, // Generate a smaller random ID
       status: 'pending', // Make sure the status is 'pending'
     };
-    
+
 
     this.reservationService.addReservation(reservation).subscribe(
       () => {
         alert('Reservation confirmed!');
         this.showReservationForm = false;
-        this.loadTableAvailability();
-        this.loadUserReservations();
+
+        // Update reservations immediately
+        // this.loadUserReservations();
+        // this.loadExistingReservations();
+        // this.loadTableAvailability();
+
+        this.userReservations.push(reservation);
+
+        if (this.selectedTable && this.selectedDate) {
+          this.existingReservations.push(reservation);
+
+          // Update the table's reservation data
+          if (!this.selectedTable.reservations[this.selectedDate]) {
+            this.selectedTable.reservations[this.selectedDate] = {};
+          }
+          this.selectedTable.reservations[this.selectedDate][this.reservationData.time] = 'pending';
+
+          // Refresh the table availability
+          this.loadTableAvailability();
+        }
+      },
+        (error) => {
+          console.error('Error saving reservation:', error);
+          alert('Failed to save reservation. Please try again later.');
+        }
+    );
+    // this.loadTableAvailability();
+    // this.loadUserReservations();
+  }
+
+  loadUserReservations() {
+    if (!this.currentUser) return;
+
+    this.reservationService.getUserReservations(this.currentUser.id).subscribe(
+      (data) => {
+        this.userReservations = data.map((reservation) => ({
+          ...reservation,
+          status: reservation.status === 'approved' ? 'pending' : reservation.status,
+        }));
+
+        this.tables.forEach((table) => {
+          table.reservations = {};
+          this.userReservations.forEach((reservation) => {
+            if (reservation.tableId === table.id) {
+              if (!table.reservations[reservation.date]) {
+                table.reservations[reservation.date] = {};
+              }
+              table.reservations[reservation.date][reservation.time] = reservation.status;
+            }
+          });
+        });
       },
       (error) => {
-        console.error('Error saving reservation:', error);
-        alert('Failed to save reservation. Please try again later.');
+        console.error('Error loading reservations:', error);
+        alert('Failed to load reservations. Please try again later.');
       }
     );
   }
 
-  loadUserReservations() {
-    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    if (user) {
-      this.reservationService.getUserReservations(user.id).subscribe(
-        (data) => {
-          this.userReservations = data;
-          this.tables.forEach((table) => {
-            table.reservations = {};
-            this.userReservations.forEach((reservation) => {
-              if (reservation.tableId === table.id) {
-                if (!table.reservations[reservation.date]) {
-                  table.reservations[reservation.date] = {};
-                }
-                table.reservations[reservation.date][reservation.time] = true;
-              }
-            });
-          });
-        },
-        (error) => {
-          console.error('Error loading reservations:', error);
-          alert('Failed to load reservations. Please try again later.');
-        }
-      );
-    }
-  }
+
 
   generateTimeSlots() {
     const slots: string[] = [];
@@ -303,5 +391,5 @@ export class ReservationComponent implements OnInit {
     }
     return slots;
   }
-  
+
 }
