@@ -167,6 +167,14 @@
       "items": [
         {
           "itemid": "d59e",
+          "quantity": 2
+        },
+        {
+          "itemid": "c5b2",
+          "quantity": 2
+        },
+        {
+          "itemid": "f915",
           "quantity": 1
         }
       ]
