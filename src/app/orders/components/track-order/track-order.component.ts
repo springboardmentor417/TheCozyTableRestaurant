@@ -19,7 +19,9 @@ export class TrackOrderComponent implements OnInit {
 
   ngOnInit(): void {
     // Retrieve customerId from localStorage (with a check)
-    this.customerId = localStorage.getItem('customerId');
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.customerId=user.id;
+    console.log("%%%%%%%%%",this.customerId);
     
     if (this.customerId) {
       console.log('Customer ID found in localStorage:', this.customerId);

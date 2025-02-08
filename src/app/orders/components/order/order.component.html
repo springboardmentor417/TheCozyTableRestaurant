@@ -1,44 +1,44 @@
 <div class="order-container">
-    <!-- Delivery Address Section -->
-    <div class="section">
-      <h3><strong>Delivery Address</strong></h3>
-      <div class="content">
-        <p><strong>{{ deliveryAddress.name }}</strong></p>
-        <p>{{ deliveryAddress.addressLine1 }}</p>
-        <p>{{ deliveryAddress.city }}</p>
-        <p>{{ deliveryAddress.state }}, {{ deliveryAddress.postalCode }}</p>
-        
-      </div>
-    </div>
-  
-    <!-- Payment Method Section -->
-    <div class="section">
-      <h3><strong>Payment Method</strong></h3>
-      <div class="content">
-        <p>{{ paymentMethod.cash }}</p>
-        
-       
-    <!-- Order Summary Section -->
-    <div class="section">
-      <h3><strong>Order Summary</strong></h3>
-      <div class="content">
-        <div *ngFor="let item of getCartDetails" class="cart-item">
-          <p>{{ item.name }} (x{{ item.quantity }}): ₹{{ item.quantity * item.currentPrice }}</p>
-        </div> 
-        <!-- <p>Cart Amount: ₹{{ calculateTotal() }}</p> -->
-        <p>Delivery Fee: ₹{{ deliveryFee }}</p>
-        <p>Promotion Applied: -₹{{promotionApplied }}</p>
-        <hr />
-        <p><strong>Order Total: ₹{{ totalAmount }}</strong></p>
-      </div>
-    </div>
-    
-  
-    <!-- Place Order Section -->
-    <div class="section">
-      <button class="place-order-btn" (click)="placeOrder()">Place Your Order</button>
+  <!-- Delivery Address Section -->
+  <div class="section">
+    <h3><strong>Delivery Address</strong></h3>
+    <div class="content">
+      <p><strong>{{ deliveryAddress}}</strong></p>
+      <!-- <p>{{ deliveryAddress.addressLine1 }}</p>
+      <p>{{ deliveryAddress.city }}</p>
+      <p>{{ deliveryAddress.state }}, {{ deliveryAddress.postalCode }}</p> -->
+      
     </div>
   </div>
 
+  <!-- Payment Method Section -->
+  <div class="section">
+    <h3><strong>Payment Method</strong></h3>
+    <div class="content">
+      <p>{{ paymentMethod.cash }}</p>
+      
+     
+  <!-- Order Summary Section -->
+  <div class="section">
+    <h3><strong>Order Summary</strong></h3>
+    <div class="content">
+      <div *ngFor="let item of getCartDetails" class="cart-item">
+        <p>{{ item.name }} (x{{ item.quantity }}): ₹{{ item.quantity * item.price }}</p>
+      </div> 
+      <!-- <p>Cart Amount: ₹{{ calculateTotal() }}</p> -->
+      <p>Delivery Fee: ₹{{ deliveryFee }}</p>
+      <p>Promotion Applied: -₹{{promotionApplied }}</p>
+      <hr />
+      <p><strong>Order Total: ₹{{ totalAmount }}</strong></p>
+    </div>
+  </div>
   
+
+  <!-- Place Order Section -->
+  <div class="section">
+    <button class="place-order-btn" (click)="placeOrder()">Place Your Order</button>
+  </div>
+</div>
+
+
 

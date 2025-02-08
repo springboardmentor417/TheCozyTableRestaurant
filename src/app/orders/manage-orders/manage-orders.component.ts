@@ -16,19 +16,20 @@ export class ManageOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchOrders();
+
   }
 
   fetchOrders(): void {
     this.cartService.getAllOrders().subscribe((data) => {
       this.orders = data.map((order) => ({
         id: order.id,
-        customerName: order.deliveryAddress.name || "Unknown",
+        // customerName: order.deliveryAddress.name || "Unknown",
         productName: order.items.length > 0 
           ? order.items.map((item: any) => `${item.name} (*${item.quantity})`).join(', ')
           : 'No Items',
-        deliveryAddress: this.formatAddress(order.deliveryAddress),
+        deliveryAddress: order.deliveryAddress,
         totalCost: order.totalAmount,
-        status: order.status || 'Pending',
+        status: order.status || 'pending',
       }));
     });
   }

@@ -122,12 +122,7 @@
       "category": "Main Course",
       "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
       "availability": true,
-      "rating": [
-        1,
-        2,
-        3,
-        4
-      ]
+      "rating": []
     },
     {
       "id": "c5b2",
@@ -138,9 +133,8 @@
       "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
       "availability": true,
       "rating": [
-        2,
         3,
-        4,
+        3,
         5
       ]
     },
@@ -153,31 +147,17 @@
       "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
       "availability": true,
       "rating": [
-        1,
-        2,
-        4,
-        3
+        3,
+        3,
+        4
       ]
     }
   ],
   "cart": [
     {
-      "id": "7294",
+      "id": "61d0",
       "customerId": "4321",
-      "items": [
-        {
-          "itemid": "d59e",
-          "quantity": 2
-        },
-        {
-          "itemid": "c5b2",
-          "quantity": 2
-        },
-        {
-          "itemid": "f915",
-          "quantity": 1
-        }
-      ]
+      "items": []
     }
   ],
   "orders": [
@@ -441,6 +421,53 @@
       "deliveryFee": 80,
       "promotionApplied": 20,
       "orderDate": "Sun Jan 26 2025"
+    },
+    {
+      "id": "61f5",
+      "items": [
+        {
+          "id": "d59e",
+          "name": "Butter Naan",
+          "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+          "price": 45,
+          "category": "Bread",
+          "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
+          "availability": true,
+          "rating": [
+            1,
+            2,
+            4,
+            3
+          ],
+          "quantity": 1,
+          "cartId": "61d0"
+        },
+        {
+          "id": "c5b2",
+          "name": "Egg Masala",
+          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+          "price": 217,
+          "category": "Main Course",
+          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+          "availability": true,
+          "rating": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "quantity": 1,
+          "cartId": "61d0"
+        }
+      ],
+      "customerId": "4321",
+      "status": "pending",
+      "deliveryAddress": "Adil tower b.p marine academy m.g road",
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 322,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sat Feb 08 2025"
     }
   ],
   "feedback": [
@@ -529,6 +556,56 @@
           "name": "samosa",
           "quantity": 1,
           "price": 150,
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "3340",
+      "name": "Liza",
+      "feedback": "Food quality is very good.",
+      "rating": 4,
+      "foodQuality": 3,
+      "valueForMoney": 2.5,
+      "selectedDate": "08/02/2025",
+      "image": "uploads/Screenshot 2024-11-09 163244.png",
+      "orderedItems": [
+        {
+          "name": "Butter Naan",
+          "quantity": 1,
+          "price": 45,
+          "rating": 3
+        },
+        {
+          "name": "Egg Masala",
+          "quantity": 1,
+          "price": 217,
+          "rating": 3
+        }
+      ]
+    },
+    {
+      "id": "0e29",
+      "name": "Liza",
+      "feedback": "Overall a good experience",
+      "rating": 5,
+      "foodQuality": 3,
+      "valueForMoney": 4,
+      "selectedDate": "08/02/2025",
+      "image": "uploads/Screenshot 2024-11-09 163235.png",
+      "orderedItems": [
+        {
+          "itemId": "d59e",
+          "name": "Butter Naan",
+          "quantity": 1,
+          "price": 45,
+          "rating": 4
+        },
+        {
+          "itemId": "c5b2",
+          "name": "Egg Masala",
+          "quantity": 1,
+          "price": 217,
           "rating": 5
         }
       ]

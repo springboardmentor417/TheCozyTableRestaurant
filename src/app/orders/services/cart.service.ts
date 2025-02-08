@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, switchMap, forkJoin, of } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap, forkJoin, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -20,13 +20,64 @@ export class CartService {
 
   // ✅ Fetch all cart items
   getCartDetails(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get<any>(this.apiUrl);
   }
+ 
+  clearCart1(cartId: string): Observable<any> {
+    console.log("Clearing cart for:", cartId);
+  
+    return this.http.get<any[]>(this.apiUrl).pipe( // Fetch all cart data
+      switchMap((cartData) => {
+        console.log("Fetched Cart Data:", cartData);
+  
+        // Find cart based on `customerId` (or cart.id if using cartId to uniquely identify)
+        const cart = cartData.find((cart: any) => cart.customerId === cartId);
+        console.log("Found Cart:", cart);
+  
+        if (cart) {
+          const updatedCart = { ...cart, items: [] }; 
+          // this.updateCartCount();
+          return this.http.put(`${this.apiUrl}/${cart.id}`, updatedCart); // PUT request to update cart
+        } else {
+          console.error("Cart not found");
+          return throwError(() => new Error('Cart not found'));
+        }
+      })
+    );
+  }
+  // clearCart1(cartId: string): Observable<any> {
+  //   console.log("Deleting cart for:", cartId);
+  
+  //   return this.http.get<any[]>(this.apiUrl).pipe(
+  //     switchMap((cartData) => {
+  //       console.log("Fetched Cart Data:", cartData);
+  
+  //       // Find the cart by `cartId`
+  //       const cartIndex = cartData.findIndex((cart: any) => cart.id === cartId);
+  //       console.log("Found Cart:", cartIndex);
+  
+  //       if (cartIndex !== -1) {
+  //         // Remove the cart by index
+  //         cartData.splice(cartIndex, 1);
+  
+  //         // PUT request to update the cart collection (effectively deleting the cart)
+  //         return this.http.put(this.apiUrl, cartData);
+  //       } else {
+  //         console.error("Cart not found");
+  //         return throwError(() => new Error('Cart not found'));
+  //       }
+  //     })
+  //   );
+  // }
+  
+  
+  
 
-  addCartItem(itemid: any, customerId: string): Observable<any> {
-    console.log(itemid, customerId);
+
+  addCartItem(items: any, customerId: string): Observable<any> {
+    console.log(items, customerId);
     const quantity = 1;
-    const newItem = { itemid, quantity };
+    const newItem = { ...items, quantity };
   
     return this.getCartDetails().pipe(
       switchMap((cartItems: any[]) => {
@@ -35,7 +86,7 @@ export class CartService {
   
         if (existingEntry) {
           // ✅ Check if the item already exists in the cart
-          let existingItem = existingEntry.items.find((item: any) => item.itemid === itemid);
+          let existingItem = existingEntry.items.find((item: any) => item.id === items.id);
   
           if (existingItem) {
             // ✅ If the item exists, increment the quantity
@@ -64,17 +115,37 @@ export class CartService {
       })
     );
   }
-  
 
-  // ✅ Update a cart item
-   updateCart(cartItem: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${cartItem.id}`, cartItem).pipe(
-      switchMap(() => {
-        this.updateCartCount();
-        return of(cartItem);
+  updateCart(cartId: string, updatedCart: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${cartId}`, updatedCart);
+  }
+
+  removeCartItem(cartId: string, itemId: string): Observable<any> {
+    return this.getCartDetails().pipe(
+      switchMap((cartData) => {
+        const cart = cartData.find((cart: any) => cart.id === cartId);
+        if (cart) {
+          const updatedItems = cart.items.filter((item: any) => item.id !== itemId);
+          const updatedCart = { ...cart, items: updatedItems };
+  
+          return this.http.put(`${this.apiUrl}/${cartId}`, updatedCart);
+        } else {
+          return throwError(() => new Error('Cart not found'));
+        }
       })
     );
   }
+  
+
+  // ✅ Update a cart item
+  //  updateCart(cartItem: any): Observable<any> {
+  //   return this.http.put(`${this.apiUrl}/${cartItem.id}`, cartItem).pipe(
+  //     switchMap(() => {
+  //       this.updateCartCount();
+  //       return of(cartItem);
+  //     })
+  //   );
+  // }
 
  
 
@@ -125,40 +196,40 @@ export class CartService {
   //   );
   // }
 
-  removeCartItem(customerId: string, itemid: string): void {
+  // removeCartItem(customerId: string, itemid: string): void {
 
     
-  //   return this.getCartDetails().pipe(
-  //     switchMap((cart) => {
-  //       // Find the customer's cart
-  //       let customerCart = cart.find((order: { customerId: string; }) => order.customerId === customerId);
-  //       if (!customerCart) {
-  //         return of(null); // No cart found for this customer
-  //       }
+  // //   return this.getCartDetails().pipe(
+  // //     switchMap((cart) => {
+  // //       // Find the customer's cart
+  // //       let customerCart = cart.find((order: { customerId: string; }) => order.customerId === customerId);
+  // //       if (!customerCart) {
+  // //         return of(null); // No cart found for this customer
+  // //       }
   
-  //       // Remove the specific item
-  //       const tempItems = customerCart.items.filter((item: { itemid: string; }) => item.itemid !== itemid);
-  // console.log("GGGGGGGGGGGG",tempItems)
-  //       if (tempItems.length > 0) {
-  //         // ✅ If items remain, update the cart using PUT
-  //         return this.http.put(`${this.apiUrl}/${customerCart.id}`, tempItems).pipe(
-  //           switchMap(() => {
-  //             this.updateCartCount();
-  //             return of(tempItems);
-  //           })
-  //         );
-  //       } else {
-  //         // ❌ If no items remain, DELETE the cart entry
-  //         return this.http.delete(`${this.apiUrl}/${customerCart.id}`).pipe(
-  //           switchMap(() => {
-  //             this.updateCartCount();
-  //             return of(customerCart.id);
-  //           })
-  //         );
-  //       }
-  //     })
-  //   );
-  }
+  // //       // Remove the specific item
+  // //       const tempItems = customerCart.items.filter((item: { itemid: string; }) => item.itemid !== itemid);
+  // // console.log("GGGGGGGGGGGG",tempItems)
+  // //       if (tempItems.length > 0) {
+  // //         // ✅ If items remain, update the cart using PUT
+  // //         return this.http.put(`${this.apiUrl}/${customerCart.id}`, tempItems).pipe(
+  // //           switchMap(() => {
+  // //             this.updateCartCount();
+  // //             return of(tempItems);
+  // //           })
+  // //         );
+  // //       } else {
+  // //         // ❌ If no items remain, DELETE the cart entry
+  // //         return this.http.delete(`${this.apiUrl}/${customerCart.id}`).pipe(
+  // //           switchMap(() => {
+  // //             this.updateCartCount();
+  // //             return of(customerCart.id);
+  // //           })
+  // //         );
+  // //       }
+  // //     })
+  // //   );
+  // }
 
 
 

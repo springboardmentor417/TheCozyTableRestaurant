@@ -28,9 +28,16 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
   styleUrls: ['./feedback-form.component.css'],
 })
 export class FeedbackFormComponent implements OnInit {
-onImageUpload($event: Event) {
-throw new Error('Method not implemented.');
-}
+  onImageUpload(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+  
+      // Extract only the file name (or full path if needed)
+      this.userObj.image = `uploads/${file.name}`;
+    }
+  }
+  
   userObj: USER = new USER();
   users: USER[] = [];
   userRating: number = 0;
@@ -38,38 +45,56 @@ throw new Error('Method not implemented.');
   valueForMoney: number = 0;
   selectedDate: string = '';
   imageError: string = '';
-  orderedItems: OrderedItem[] = [];
+  orderedItems:any[]=[];
+  myOrders:any;
+  customerId:string='';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
+
+    const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.customerId=user.id;
+   console.log("id",this.customerId);
     this.fetchOrderedItems();
+
+
   }
 
-  fetchOrderedItems(): void {
-    this.http.get<any[]>('http://localhost:3000/cart').subscribe({
-      next: (data) => {
-        this.orderedItems = data.map((item) => ({
-          name: item.name,
-          quantity: item.quantity,
-          price: item.currentPrice,
-          rating: 0,
-        }));
-      },
-      error: (error) => {
-        console.error('Error fetching ordered items:', error);
-      },
-    });
+  fetchOrderedItems() {
+ 
+    const userId = this.customerId;  // Assuming this.customerId is set from localStorage
+  this.http.get<any[]>('http://localhost:3000/orders').subscribe({
+    next: (data) => {
+ 
+      this.orderedItems = data
+        .filter((order) => order.customerId === userId) // Filter by customerId
+        .flatMap((order) =>
+          order.items.map((item:any) => ({
+            itemId:item.id,
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            rating: 0, // Placeholder for rating
+          }))
+        );
+ 
+        console.log("%%%%%%5",this.orderedItems);
+       
+    },
+    error: (error) => {
+      console.error('Error fetching ordered items:', error);
+    },
+  });
+ 
   }
-
   onSaveUser(feedbackForm: any) {
+    console.log("*************",feedbackForm)
     const formattedDate = this.formatDate(new Date(this.selectedDate));
     this.userObj.selectedDate = formattedDate;
   
     const username = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.userObj.name = username.username;
-    this.userObj.email = username.email;
-    this.userObj.mobile = username.phone;
     this.userObj.orderedItems = this.orderedItems; // Save ordered items in feedback
   
     const today = this.formatDate(new Date());
@@ -77,7 +102,7 @@ throw new Error('Method not implemented.');
     // Group ratings for each unique menu item
     const menuItemRatingsMap = new Map<string, number[]>();
   
-    this.orderedItems.forEach((item) => {
+    this.orderedItems.forEach((item:any) => {
       if (!menuItemRatingsMap.has(item.name)) {
         menuItemRatingsMap.set(item.name, []);
       }
@@ -109,31 +134,35 @@ throw new Error('Method not implemented.');
     });
   
     // Validate form fields
-    switch (true) {
-      case !this.userObj.feedback:
-        alert('Please tell us about your experience in at least 10 characters.');
-        return;
-      case !this.selectedDate:
-        alert('Please select the date.');
-        return;
-      case formattedDate !== today:
-        alert("Please enter today's date.");
-        return;
-      case feedbackForm.valid:
-        // Save feedback details, including ordered items
-        this.http.post<USER>('http://localhost:3000/feedback', this.userObj)
-          .subscribe((res: USER) => {
-            this.users.unshift(this.userObj);
-            console.log('Feedback saved:', this.userObj);
-            this.router.navigate(['/ackpage']);
-          });
-        return;
-      default:
-        alert('Unauthorized action');
-        throw new Error('Unauthorized action');
+    if (!this.userObj.feedback) {
+      alert('Please tell us about your experience in at least 10 characters.');
+      return;
     }
-  }
+    if (!this.selectedDate) {
+      alert('Please select the date.');
+      return;
+    }
+    if (formattedDate !== today) {
+      alert("Please enter today's date.");
+      return;
+    }
+    if (!this.userObj.image) {
+      alert('Please upload an image before submitting the feedback.');
+      return;
+    }
+    if (!feedbackForm.valid) {
+      alert('Unauthorized action');
+      throw new Error('Unauthorized action');
+    }
   
+    // Save feedback details, including ordered items and image
+    this.http.post<USER>('http://localhost:3000/feedback', this.userObj)
+      .subscribe((res: USER) => {
+        this.users.unshift(this.userObj);
+        console.log('Feedback saved:', this.userObj);
+        this.router.navigate(['/ackpage']);
+      });
+  }  
 
   formatDate(date: Date): string {
     const day = String(date.getDate()).padStart(2, '0');
@@ -152,28 +181,26 @@ interface OrderedItem {
 
 class USER {
   name: string;
-  email: string;
-  mobile: string;
+  // email: string;
+  // mobile: string;
   feedback: any;
   rating: number;
   foodQuality: number;
   valueForMoney: number;
   selectedDate: string;
   image: string | null;
-  imageError: string;
   orderedItems: any[];
 
   constructor() {
     this.name = '';
-    this.email = '';
-    this.mobile = '';
+    // this.email = '';
+    // this.mobile = '';
     this.feedback = '';
     this.rating = 0;
     this.foodQuality = 0;
     this.valueForMoney = 0;
     this.selectedDate = '';
     this.image = null;
-    this.imageError = '';
     this.orderedItems = [];
   }
 }
