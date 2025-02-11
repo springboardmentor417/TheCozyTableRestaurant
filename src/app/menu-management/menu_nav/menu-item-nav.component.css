@@ -3,7 +3,9 @@
 }
 mat-sidenav {
   width: 250px;
-  background: linear-gradient(135deg,#fd7e14, #e0b43c); /* Gradient background */
+  /* background: linear-gradient(135deg,#fd7e14, #e0b43c);  */
+  /* Gradient background */
+  background-color: #ffffff;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
   border-radius: 10px;
 }
@@ -21,14 +23,18 @@ a.mat-list-item {
 }
 
 a.mat-list-item:hover {
-  background-color: #f7a700; /* Bright hover effect */
+  background-color: #f8f9fa;
+  /* background-color: #f7a700;  */
+  /* Bright hover effect */
   transform: translateX(5px); /* Slide effect on hover */
 }
 
 .active-link {
   font-weight: bold;
   color: #ffeb3b; /* Bright yellow for active links */
-  background-color: #e89611; /* Highlight active with contrasting background */
+  background-color: #f8f9fa;
+  /* background-color: #e89611;  */
+  /* Highlight active with contrasting background */
 }
 mat-icon {
   margin-right: 5px;

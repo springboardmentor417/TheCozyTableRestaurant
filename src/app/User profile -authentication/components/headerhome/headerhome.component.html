@@ -10,14 +10,32 @@
     </div>
 
     <nav class="navigation">
-      <ul>
-        <li><a routerLink="/Home">Home</a></li>
-        <!-- <li *ngIf="isLoggedIn"><a routerLink="/homeCart">Menu</a></li>
-        <li *ngIf="isLoggedIn"><a routerLink="/reservation">Reservation</a></li>
-        <li *ngIf="isLoggedIn"><a routerLink="/cart">Cart</a></li>
-        <li *ngIf="isLoggedIn"><a routerLink="/feedback">Feedback</a></li> -->
+      <ul class="nav-links">
+      
+        <!-- <li><a routerLink="/Home">Home</a></li> -->
+        <li><a routerLink="{{ homeRoute }}">Home</a></li>
+        <li *ngIf="isLoggedIn  "><a routerLink="/menu">Menu</a></li>
+        
+        <li *ngIf="isLoggedIn && !isAdmin"><a routerLink="/reservation">Reservation</a></li>
+        
+        <!-- ✅ Show "Orders" only for Admin -->
+        <li *ngIf="isLoggedIn && isAdmin"><a routerLink="/manage-orders">Manage Orders</a></li>
+  
+        <li *ngIf="isLoggedIn  && isAdmin"><a routerLink="/admin/adminchart">Feedback</a></li>
+        <li *ngIf="isLoggedIn  && !isAdmin"><a routerLink="/feedback">Feedback</a></li>
         <li><a routerLink="/aboutus">About Us</a></li>
+        <!-- ✅ Show "Cart" only for Customers -->
+        <li *ngIf="isLoggedIn && !isAdmin" class="manage-orders">
+            <a routerLink="/track-order"> My Order</a>
+        </li>
+        <li *ngIf="isLoggedIn && !isAdmin" class="cart-icon">
+          <a routerLink="/cart">
+            <i class="bi bi-cart"></i>
+            <span class="cart-count">{{ cartCount }}</span>
+          </a>
+        </li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+        &nbsp;
         <li *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Logout</li>
       </ul>
     </nav>

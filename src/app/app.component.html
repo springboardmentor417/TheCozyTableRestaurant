@@ -1,14 +1,13 @@
 
    <ng-container *ngIf="showMainHeader; else secondaryHeader">
     <app-headerhome></app-headerhome>
-  </ng-container>
+   </ng-container> 
   
   <ng-template #secondaryHeader>
     <app-s-header></app-s-header>
-  </ng-template>
+  </ng-template> 
 
   <router-outlet></router-outlet>
   
-  
- 
+      <app-footer></app-footer>  
   

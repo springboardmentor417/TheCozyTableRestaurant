@@ -47,6 +47,9 @@ totalCustomers: number = 250;
     this.showDashboard = false;
     this.showUsers = false;
     this.showReservations = true;
+    this.router.navigate(['decline'])
+    //this.router.navigate(['/admin/reservations/decline']);
+
   }
 
   showAdminDashboard(): void {
@@ -85,7 +88,7 @@ totalCustomers: number = 250;
   }
   navigateTo(route: string): void {
     switch (route) {
-    case 'decline-reservations': this.router.navigate(['/admin/reservations/decline']); break;
+    case 'decline-reservations': this.router.navigate(['/admindetails/reservations/decline']); break;
     }
    }
   }

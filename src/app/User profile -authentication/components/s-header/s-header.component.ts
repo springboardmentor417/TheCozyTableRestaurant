@@ -17,38 +17,93 @@ export class SHeaderComponent implements OnInit, OnDestroy {
   subscription: any;
   isScrolled = false;
   cartCount: number = 0;
+  homeRoute = "/Home";
 
-  constructor(private cartService: CartService,private router: Router, private authService: ServicesService) {}
+  constructor(private router: Router, private authService: ServicesService, private cartService: CartService) {}
+
+  // ngOnInit(): void {
+  //   const currentUser = localStorage.getItem('currentUser');
+  //   if (currentUser) {
+  //     const user = JSON.parse(currentUser);
+  //     this.isLoggedIn = true;
+  //     this.isAdmin = user.role === 'admin'; 
+      // Check if the user is an admin
+    // }
+
+    // Subscribe to login status changes
+  //   this.subscription = this.authService.isLoggedIn$.subscribe((status) => {
+  //     this.isLoggedIn = status;
+  //     const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  //     this.isAdmin = user.role === 'admin';
+  //   });
+  // }
+
+  // ngOnInit(): void {
+  //   const currentUser = localStorage.getItem('currentUser');
+    
+  //   if (currentUser) {
+  //     const user = JSON.parse(currentUser);
+  //     this.isLoggedIn = true;
+  //     this.isAdmin = user.role === 'admin';
+  //     this.setHomeRoute();
+  //   }
+
+    // Subscribe to authentication changes
+  //   this.subscription = this.authService.isLoggedIn$.subscribe((status) => {
+  //     this.isLoggedIn = status;
+  //     const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  //     this.isAdmin = user.role === 'admin';
+  //     this.setHomeRoute();
+  //   });
+  // }
+
+  // setHomeRoute(): void {
+  //   this.homeRoute = this.isLoggedIn ? (this.isAdmin ? "/admindetails" : "/userDetails") : "/Home";
+  // }
+  // @HostListener('window:scroll', [])
+  // onScroll(): void {
+  //   this.isScrolled = window.scrollY > 50;
+  // }
+
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 
   ngOnInit(): void {
-    
     this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count; // Update cart count dynamically
     });
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      const user = JSON.parse(currentUser);
+    const user = this.authService.getLocalUser();
+    if (user) {
       this.isLoggedIn = true;
-      this.isAdmin = user.role === 'admin'; // Check if the user is an admin
+      this.isAdmin = user.role === 'admin';
+      this.setHomeRoute();
     }
 
-    // Subscribe to login status changes
-    this.subscription = this.authService.isLoggedIn$.subscribe((status) => {
+    // Listen for authentication status changes
+    this.subscription = this.authService.isLoggedIn$.subscribe(status => {
       this.isLoggedIn = status;
-      const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
-      this.isAdmin = user.role === 'admin';
+      const user = this.authService.getLocalUser();
+      this.isAdmin = user?.role === 'admin';
+      this.setHomeRoute();
     });
   }
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    this.isScrolled = window.scrollY > 50;
+  setHomeRoute(): void {
+    if (!this.isLoggedIn) {
+      this.homeRoute = '/home'; // If no one is logged in, go to home
+    } else if (this.isAdmin) {
+      this.homeRoute = '/admindetails'; // Admin goes to admin dashboard
+    } else {
+      this.homeRoute = '/userDetails'; // Regular user goes to user details
+    }
   }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   logout(): void {
     localStorage.removeItem('currentUser');
     this.authService.setLoginStatus(false);

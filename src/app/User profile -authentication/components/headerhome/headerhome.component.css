@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
-:host {
-   display: block;
-   margin: 0;
-}
-
-/* Reset body and html to avoid spacing issues */
-body, html {
-   margin: 0;
-   padding: 0;
-   width: 100%; /* Ensure the body spans the full width of the viewport */
-   height: 100%; /* Ensure the body spans the full height of the viewport */
-   font-family: Arial, sans-serif;
-   overflow-x: hidden; /* Prevent horizontal scrolling */
-   box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
 .hero-header {
    position: fixed;
    height: 90vh; /* Full viewport height */
@@ -105,113 +89,6 @@ body, html {
    color: #f39c12; /* Change text color on hover */
 }
 
-/* Carousel section */
-.ngb-carousel {
-   position: relative;
-   width: 100%; /* Full width */
-   height: 100%; /* Full height */
-   z-index: 1; /* Ensures carousel appears below hero content */
-}
-
-.ngb-carousel img {
-   width: 100hv; /* Ensure image spans the full width of the container */
-   height: 100hv; /* Ensure image spans the full height of the container */
-   object-fit: cover; /* Maintain aspect ratio and crop excess parts */
-   display: block; /* Remove unwanted space below images */
-}
-
-/* Carousel caption */
-.ngb-carousel .carousel-caption {
-   position: absolute;
-   bottom: 10%;
-   left: 50%;
-   transform: translateX(-50%);
-   background: rgba(0, 0, 0, 0.6);
-   color: white;
-   padding: 0.5rem 1rem;
-   border-radius: 5px;
-   text-align: center;
-}
-
-.ngb-carousel .carousel-indicators {
-   position: absolute;
-   bottom: 10px;
-   left: 50%;
-   transform: translateX(-50%);
-   display: flex;
-   gap: 0.5rem;
-}
-
-.ngb-carousel .carousel-indicators button {
-   width: 10px;
-   height: 10px;
-   background-color: rgba(255, 255, 255, 0.6);
-   border: none;
-   border-radius: 50%;
-   cursor: pointer;
-}
-
-.ngb-carousel .carousel-indicators .active {
-   background-color: #d4af37;
-}
-
-/* Carousel control buttons */
-.ngb-carousel .carousel-control-prev,
-.ngb-carousel .carousel-control-next {
-   width: 5%;
-   background-color: rgba(0, 0, 0, 0.5);
-   color: white;
-   border-radius: 50%;
-   height: 40px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-}
-
-.ngb-carousel .carousel-control-prev-icon,
-.ngb-carousel .carousel-control-next-icon {
-   width: 20px;
-   height: 20px;
-   background-size: contain;
-}
-
-/* Hero content */
-.hero-content {
-   position: absolute; /* Absolute positioning to overlay carousel */
-   top: 50%; /* Center vertically */
-   left: 50%; /* Center horizontally */
-   transform: translate(-50%, -50%); /* Ensure perfect centering */
-   z-index: 2; /* Ensure it overlays the carousel */
-   color: white;
-   text-align: center;
-}
-
-.hero-content h2 {
-   font-size: 2.5rem;
-   margin-bottom: 1rem;
-   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
-}
-
-.booking-details p {
-   font-size: 1.2rem;
-   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow */
-}
-
-.gallery-btn {
-   background-color: rgba(255, 255, 255, 0.2);
-   color: white;
-   border: 1px solid white;
-   padding: 0.5rem 1.5rem;
-   border-radius: 5px;
-   cursor: pointer;
-   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.gallery-btn:hover {
-   background-color: white;
-   color: black;
-}
 
 .navigation ul li.logout-btn {
    color: white;
@@ -221,11 +98,43 @@ body, html {
    font-style: normal;
    font-size: 1.2rem;
    text-decoration: none;
-   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add smooth transition effects */
-   cursor: pointer; /* Change cursor to pointer for better UX */
+   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+   cursor: pointer; 
 }
 
 .navigation ul li.logout-btn:hover {
-   color: #f39c12; /* Matches the hover effect of other links */
-   transform: scale(1.1); /* Slight zoom effect on hover */
+   color: #f39c12; 
+   transform: scale(1.1); 
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+   position: relative;
+   top: -4px; /* Shift the entire cart icon slightly upwards */
+}
+
+.cart-icon i {
+   font-size: 2rem; /* Adjust size of the cart icon */
+   font-weight: 600; /* Make it bold */
+   transition: color 0.3s ease;
+}
+
+.cart-icon i:hover {
+   color: #ff7f50; /* Change color on hover */
+}
+/*Cart Count Styling */
+.cart-count {
+   position: absolute;
+   top: -12px; 
+   right: -8px;
+   background-color: red;
+   color: white;
+   font-size: 0.9rem;
+   font-weight: bold;
+   padding: 2px 5px;
+   border-radius: 50%;
+   border: 2px solid white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }

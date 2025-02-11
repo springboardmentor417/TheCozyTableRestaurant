@@ -1,26 +1,6 @@
 {
   "users": [
     {
-      "id": "1dc",
-      "username": "MohammedObaray",
-      "password": "admin@1237",
-      "role": "admin"
-    },
-    {
-      "id": "2dc",
-      "username": "Mohammed",
-      "password": "admin@123",
-      "role": "admin"
-    },
-    {
-      "id": "68a6",
-      "username": "vimal",
-      "password": "582001vimal@",
-      "email": "vimal@test.com",
-      "phone": "7871057797",
-      "address": "test"
-    },
-    {
       "id": "1ff4",
       "username": "Ronaldo",
       "password": "cr7@75545",
@@ -36,6 +16,33 @@
       "email": "mohammedobaray@gmail.com",
       "phone": "7304373810",
       "address": "Adil tower b.p marine academy m.g road",
+      "role": "customer"
+    },
+    {
+      "id": "6620",
+      "username": "Arpit1234",
+      "password": "123QWe@",
+      "email": "nnnarpitmishra123@gmail.com",
+      "phone": "7304373817",
+      "address": "Adil tower b. p. marine academy m. g. roads",
+      "role": "admin"
+    },
+    {
+      "id": "ef06",
+      "username": "Arpit123",
+      "password": "Asd123@",
+      "email": "mishra1998arpit@gmail.com",
+      "phone": "7398617023",
+      "address": "upAdil tower b. p. marine academy m. g. roads",
+      "role": "customer"
+    },
+    {
+      "id": "afff",
+      "username": "Arpit12",
+      "password": "123QWe@",
+      "email": "arpitmishra@gmail.com",
+      "phone": "9836251478",
+      "address": "upAdil tower b. p. marine academy m. g. roads",
       "role": "customer"
     }
   ],
@@ -110,7 +117,18 @@
       "customerName": "manjula",
       "contact": "9580311358",
       "seats": 2,
-      "status": "pending"
+      "status": "rejected"
+    },
+    {
+      "id": "9646",
+      "tableId": "1",
+      "date": "2025-02-12",
+      "time": "09:00 AM",
+      "customerName": "vip vimal",
+      "contact": "7710558994",
+      "seats": 2,
+      "status": "pending",
+      "userId": "1ff4"
     }
   ],
   "menu-items": [
@@ -122,7 +140,16 @@
       "category": "Main Course",
       "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
       "availability": true,
-      "rating": []
+      "rating": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3
+      ]
     },
     {
       "id": "c5b2",
@@ -135,7 +162,15 @@
       "rating": [
         3,
         3,
-        5
+        5,
+        2,
+        2,
+        2,
+        2,
+        4,
+        4,
+        2,
+        2
       ]
     },
     {
@@ -149,7 +184,13 @@
       "rating": [
         3,
         3,
-        4
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
       ]
     }
   ],
@@ -158,270 +199,24 @@
       "id": "61d0",
       "customerId": "4321",
       "items": []
+    },
+    {
+      "id": "8b81",
+      "customerId": "ef06",
+      "items": []
+    },
+    {
+      "id": "0c2e",
+      "customerId": "afff",
+      "items": []
+    },
+    {
+      "id": "bb92",
+      "customerId": "1ff4",
+      "items": []
     }
   ],
   "orders": [
-    {
-      "id": "5264",
-      "items": [
-        {
-          "id": "f124",
-          "foodID": 1,
-          "img": "../../assets/OIP (1).jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 35,
-          "originalPrice": 50,
-          "discount": 10,
-          "quantity": 2
-        },
-        {
-          "id": "357e",
-          "foodID": 4,
-          "img": "../../assets/OIP (3).jpg",
-          "name": "briyani",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "ade8",
-          "foodID": 3,
-          "img": "../../assets/OIP (2).jpg",
-          "name": "pav baaji",
-          "type": "starter",
-          "currentPrice": 150,
-          "originalPrice": 135,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "682a",
-          "foodID": 2,
-          "img": "../../assets/OIP.jpg",
-          "name": "mini tiffen",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        }
-      ],
-      "deliveryAddress": {
-        "name": "Aparna  S",
-        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
-        "city": "CHROMPET",
-        "state": "CHENNAI, TAMIL NADU",
-        "postalCode": "600044"
-      },
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 550,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sun Jan 26 2025"
-    },
-    {
-      "id": "64be",
-      "items": [
-        {
-          "id": "f124",
-          "foodID": 1,
-          "img": "../../assets/OIP (1).jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 35,
-          "originalPrice": 50,
-          "discount": 10,
-          "quantity": 2
-        },
-        {
-          "id": "357e",
-          "foodID": 4,
-          "img": "../../assets/OIP (3).jpg",
-          "name": "briyani",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "ade8",
-          "foodID": 3,
-          "img": "../../assets/OIP (2).jpg",
-          "name": "pav baaji",
-          "type": "starter",
-          "currentPrice": 150,
-          "originalPrice": 135,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "682a",
-          "foodID": 2,
-          "img": "../../assets/OIP.jpg",
-          "name": "mini tiffen",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        }
-      ],
-      "deliveryAddress": {
-        "name": "Aparna  S",
-        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
-        "city": "CHROMPET",
-        "state": "CHENNAI, TAMIL NADU",
-        "postalCode": "600044"
-      },
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 550,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sun Jan 26 2025"
-    },
-    {
-      "id": "bd75",
-      "items": [
-        {
-          "id": "f124",
-          "foodID": 1,
-          "img": "../../assets/OIP (1).jpg",
-          "name": "samosa",
-          "type": "starter",
-          "currentPrice": 35,
-          "originalPrice": 50,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "357e",
-          "foodID": 4,
-          "img": "../../assets/OIP (3).jpg",
-          "name": "briyani",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "ade8",
-          "foodID": 3,
-          "img": "../../assets/OIP (2).jpg",
-          "name": "pav baaji",
-          "type": "starter",
-          "currentPrice": 150,
-          "originalPrice": 135,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "682a",
-          "foodID": 2,
-          "img": "../../assets/OIP.jpg",
-          "name": "mini tiffen",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        }
-      ],
-      "deliveryAddress": {
-        "name": "Aparna  S",
-        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
-        "city": "CHROMPET",
-        "state": "CHENNAI, TAMIL NADU",
-        "postalCode": "600044"
-      },
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 515,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sun Jan 26 2025"
-    },
-    {
-      "id": "f9db",
-      "items": [
-        {
-          "id": "7f4b",
-          "foodID": 3,
-          "img": "../../assets/OIP (2).jpg",
-          "name": "pav baaji",
-          "type": "starter",
-          "currentPrice": 150,
-          "originalPrice": 135,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "f8c2",
-          "foodID": 4,
-          "img": "../../assets/OIP (3).jpg",
-          "name": "briyani",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        }
-      ],
-      "deliveryAddress": {
-        "name": "Aparna  S",
-        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
-        "city": "CHROMPET",
-        "state": "CHENNAI, TAMIL NADU",
-        "postalCode": "600044"
-      },
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 345,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sun Jan 26 2025"
-    },
-    {
-      "id": "5c3e",
-      "items": [
-        {
-          "id": "7f4b",
-          "foodID": 3,
-          "img": "../../assets/OIP (2).jpg",
-          "name": "pav baaji",
-          "type": "starter",
-          "currentPrice": 150,
-          "originalPrice": 135,
-          "discount": 10,
-          "quantity": 1
-        },
-        {
-          "id": "f8c2",
-          "foodID": 4,
-          "img": "../../assets/OIP (3).jpg",
-          "name": "briyani",
-          "type": "starter",
-          "currentPrice": 135,
-          "originalPrice": 150,
-          "discount": 10,
-          "quantity": 1
-        }
-      ],
-      "deliveryAddress": {
-        "name": "Aparna  S",
-        "addressLine1": "NO 1/11, Viswamelu Avenue, 12 Chitlapakkam Road",
-        "city": "CHROMPET",
-        "state": "CHENNAI, TAMIL NADU",
-        "postalCode": "600044"
-      },
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 345,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sun Jan 26 2025"
-    },
     {
       "id": "61f5",
       "items": [
@@ -468,6 +263,258 @@
       "deliveryFee": 80,
       "promotionApplied": 20,
       "orderDate": "Sat Feb 08 2025"
+    },
+    {
+      "id": "4ce3",
+      "items": [
+        {
+          "id": "f915",
+          "name": "Mutton Rogan Josh",
+          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+          "price": 356,
+          "category": "Main Course",
+          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+          "availability": true,
+          "rating": [],
+          "quantity": 1,
+          "cartId": "8b81"
+        },
+        {
+          "id": "c5b2",
+          "name": "Egg Masala",
+          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+          "price": 217,
+          "category": "Main Course",
+          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+          "availability": true,
+          "rating": [
+            3,
+            3,
+            5
+          ],
+          "quantity": 1,
+          "cartId": "8b81"
+        },
+        {
+          "id": "d59e",
+          "name": "Butter Naan",
+          "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+          "price": 45,
+          "category": "Bread",
+          "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
+          "availability": true,
+          "rating": [
+            3,
+            3,
+            4
+          ],
+          "quantity": 1,
+          "cartId": "8b81"
+        }
+      ],
+      "customerId": "ef06",
+      "status": "pending",
+      "deliveryAddress": "upAdil tower b. p. marine academy m. g. roads",
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 678,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Sun Feb 09 2025"
+    },
+    {
+      "id": "23d2",
+      "items": [
+        {
+          "id": "f915",
+          "name": "Mutton Rogan Josh",
+          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+          "price": 356,
+          "category": "Main Course",
+          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+          "availability": true,
+          "rating": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "quantity": 1,
+          "cartId": "0c2e"
+        }
+      ],
+      "customerId": "afff",
+      "status": "Cancelled",
+      "deliveryAddress": "upAdil tower b. p. marine academy m. g. roads",
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 416,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Mon Feb 10 2025"
+    },
+    {
+      "id": "c417",
+      "items": [
+        {
+          "id": "c5b2",
+          "name": "Egg Masala",
+          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+          "price": 217,
+          "category": "Main Course",
+          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+          "availability": true,
+          "rating": [
+            3,
+            3,
+            5,
+            2,
+            2,
+            2,
+            2
+          ],
+          "quantity": 1,
+          "cartId": "0c2e"
+        }
+      ],
+      "customerId": "afff",
+      "status": "Cancelled",
+      "deliveryAddress": "upAdil tower b. p. marine academy m. g. roads",
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 277,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Mon Feb 10 2025"
+    },
+    {
+      "id": "9640",
+      "items": [
+        {
+          "id": "f915",
+          "name": "Mutton Rogan Josh",
+          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+          "price": 356,
+          "category": "Main Course",
+          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+          "availability": true,
+          "rating": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "quantity": 3,
+          "cartId": "bb92"
+        },
+        {
+          "id": "c5b2",
+          "name": "Egg Masala",
+          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+          "price": 217,
+          "category": "Main Course",
+          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+          "availability": true,
+          "rating": [
+            3,
+            3,
+            5,
+            2,
+            2,
+            2,
+            2,
+            4,
+            4
+          ],
+          "quantity": 1,
+          "cartId": "bb92"
+        },
+        {
+          "id": "d59e",
+          "name": "Butter Naan",
+          "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
+          "price": 45,
+          "category": "Bread",
+          "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
+          "availability": true,
+          "rating": [
+            3,
+            3,
+            4,
+            2,
+            2,
+            2,
+            2
+          ],
+          "quantity": 2,
+          "cartId": "bb92"
+        }
+      ],
+      "customerId": "1ff4",
+      "status": "Yet to be Delivered",
+      "deliveryAddress": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 1435,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Tue Feb 11 2025"
+    },
+    {
+      "id": "57fb",
+      "items": [
+        {
+          "id": "f915",
+          "name": "Mutton Rogan Josh",
+          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+          "price": 356,
+          "category": "Main Course",
+          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+          "availability": true,
+          "rating": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3
+          ],
+          "quantity": 1,
+          "cartId": "bb92"
+        },
+        {
+          "id": "c5b2",
+          "name": "Egg Masala",
+          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
+          "price": 217,
+          "category": "Main Course",
+          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
+          "availability": true,
+          "rating": [
+            3,
+            3,
+            5,
+            2,
+            2,
+            2,
+            2,
+            4,
+            4,
+            2,
+            2
+          ],
+          "quantity": 1,
+          "cartId": "bb92"
+        }
+      ],
+      "customerId": "1ff4",
+      "status": "pending",
+      "deliveryAddress": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
+      "paymentMethod": "Pay on delivery (Cash/Card)",
+      "totalAmount": 633,
+      "deliveryFee": 80,
+      "promotionApplied": 20,
+      "orderDate": "Tue Feb 11 2025"
     }
   ],
   "feedback": [
@@ -476,11 +523,12 @@
       "name": "Manikanta Nandyala",
       "email": "22h45a6105@bvcits.edu.in",
       "mobile": "9059545745",
-      "feedback": "uediebdiedbu",
+      "feedback": "very nice",
       "rating": 5,
       "foodQuality": 3,
       "valueForMoney": 3,
-      "selectedDate": "21/12/2024"
+      "selectedDate": "21/12/2024",
+      "adminReply": "thank you"
     },
     {
       "id": "5657",
@@ -607,6 +655,65 @@
           "quantity": 1,
           "price": 217,
           "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "ffe6",
+      "name": "Arpit12",
+      "feedback": "very nice ",
+      "rating": 5,
+      "foodQuality": 3,
+      "valueForMoney": 3,
+      "selectedDate": "10/02/2025",
+      "image": "uploads/loing.webp",
+      "orderedItems": [
+        {
+          "itemId": "f915",
+          "name": "Mutton Rogan Josh",
+          "quantity": 1,
+          "price": 356,
+          "rating": 2
+        },
+        {
+          "itemId": "c5b2",
+          "name": "Egg Masala",
+          "quantity": 1,
+          "price": 217,
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "59cc",
+      "name": "Ronaldo",
+      "feedback": "Overall a good experience",
+      "rating": 4,
+      "foodQuality": 3,
+      "valueForMoney": 2.5,
+      "selectedDate": "11/02/2025",
+      "image": "uploads/image (3).png",
+      "orderedItems": [
+        {
+          "itemId": "f915",
+          "name": "Mutton Rogan Josh",
+          "quantity": 3,
+          "price": 356,
+          "rating": 3
+        },
+        {
+          "itemId": "c5b2",
+          "name": "Egg Masala",
+          "quantity": 1,
+          "price": 217,
+          "rating": 2
+        },
+        {
+          "itemId": "d59e",
+          "name": "Butter Naan",
+          "quantity": 2,
+          "price": 45,
+          "rating": 2
         }
       ]
     }

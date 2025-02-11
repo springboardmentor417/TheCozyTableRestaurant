@@ -44,6 +44,7 @@ export class AdminComponent implements OnInit {
         //   this.reservations = data;
         // }
         this.reservations = data;
+        console.log("data",this.reservations)
       },
       (error) => {
         console.error('Error loading reservations:', error);

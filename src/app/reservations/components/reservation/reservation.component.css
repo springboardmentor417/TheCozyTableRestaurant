@@ -238,18 +238,19 @@ button[type="button"]:hover {
 .banner {
   background: linear-gradient(45deg, #1e1a1a, #dc9912);
   color: white;
-  padding: 60px 20px;
+  padding: 30px 15px;
   text-align: center;
   border-radius: 15px;
   margin: 30px auto;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 0px;
 }
 
 .banner-content h1 {
-  font-size: 48px;
+  font-size: 30px;
   margin-bottom: 15px;
   font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); */
 }
 
 .banner-content p {

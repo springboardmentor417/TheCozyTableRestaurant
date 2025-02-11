@@ -154,7 +154,8 @@ mat-sidenav {
   width: 250px; /* Adjust width as needed */
   /* background-color: rgb(213, 185, 224);
   background: linear-gradient(90deg, #56d8e4, #9f01ea); */
-  background: linear-gradient(135deg, #ffd700, #ff7700);
+  /* background: linear-gradient(135deg, #ffd700, #ff7700); */
+  background-color: #f8f9fa;
 }
 /* Pressed */
 .button:hover:active {

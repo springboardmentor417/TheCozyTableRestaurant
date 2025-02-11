@@ -1,8 +1,4 @@
 
-/* .container{
- margin-top: -9.8%;
-} */
-
 
 .hero-image {
   position: relative;
@@ -10,8 +6,7 @@
   overflow: hidden;
   height: auto;
   max-height: 90vh;
-  /* margin-top: -8%; */
-  /* height:100vh;  */
+ 
 }
 
 /* Hero text overlay */
@@ -36,8 +31,6 @@
   width: 100%; /* Full width of the parent container */
   overflow: hidden;
   object-fit: cover;
-  /* border-radius: 10px;  */
-  /* Optional: rounded corners */
   height: 100vh;
 }
 
@@ -49,23 +42,6 @@
   object-fit: cover; /* Ensure the image covers the container */
   display: block; /* Remove any inline spacing for images */
 }
-
-/* Semi-transparent overlay */
-/* .image-container::before {
-  content: "";  */
-  /* Empty content for the overlay */
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);  */
-  /* Semi-transparent black overlay */
-  /* z-index: 1;  */
-  /* Place behind text but above the image */
-  /* pointer-events: none;  */
-  /* Ensure it doesn’t interfere with interactions */
-/* } */
 
 .image-container .text-overlay {
   position: absolute; /* Position text over the image */
