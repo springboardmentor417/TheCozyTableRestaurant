@@ -1,0 +1,127 @@
+/* Container for the track order section */
+.track-order-container {
+  padding: 20px;
+  max-width: 1200px; /* Limit the container width for better readability */
+  margin: 0 auto;
+  background-color: #f9f9f9; /* Light background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading styles */
+h2 {
+  color: #4CAF50; /* Green color for the heading */
+  font-size: 2rem; /* Larger font size */
+  margin-bottom: 20px;
+  text-align: center; /* Centered heading */
+  font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+  font-weight: 600; /* Bold weight for emphasis */
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse; /* Better table formatting */
+  border: 1px solid #ddd; /* Subtle border for table */
+}
+
+th, td {
+  padding: 12px; /* Increase padding for better readability */
+  text-align: left;
+  font-size: 1rem; /* Consistent font size */
+  border: 1px solid #ddd; /* Added border to each cell */
+}
+
+th {
+  background-color: #f2f2f2; /* Light background for headers */
+  font-weight: bold; /* Bold text for headers */
+}
+
+td {
+  background-color: #fff; /* White background for table cells */
+}
+
+td, th {
+  border-right: 1px solid #ddd; /* Added border to the right side of cells */
+}
+
+tr:last-child td {
+  border-bottom: 1px solid #ddd; /* Border for the last row */
+}
+
+tr:last-child td:last-child {
+  border-right: none; /* Remove the right border from the last cell */
+}
+
+/* Button styles */
+.btn {
+  margin-top: 10px;
+  background-color: #4CAF50; /* Matching button color with header */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px; /* Rounded corners */
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn:hover {
+  background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Progress bar styles */
+.progress {
+  margin-top: 20px;
+  height: 20px; /* Increased height for better visibility */
+  border-radius: 10px; /* Rounded edges for progress bar */
+  background-color: #f3f3f3; /* Light gray background */
+}
+
+.progress-bar {
+  height: 100%; /* Full height of the container */
+  border-radius: 10px; /* Rounded edges on progress */
+  transition: width 1s ease; /* Smooth width transition */
+}
+
+/* Specific progress bar colors */
+.progress-bar.bg-warning {
+  background-color: #ff9800; /* Lighter orange */
+}
+
+.progress-bar.bg-info {
+  background-color: #00bcd4; /* Light cyan */
+}
+
+.progress-bar.bg-success {
+  background-color: #4caf50; /* Green for success */
+}
+
+.progress-bar.bg-danger {
+  background-color: #f44336; /* Red for danger */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .track-order-container {
+    padding: 15px; /* Reduced padding for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Smaller font size on smaller screens */
+  }
+
+  .btn {
+    width: 100%; /* Full-width buttons on small screens */
+    padding: 12px;
+  }
+
+  table {
+    font-size: 0.9rem; /* Smaller font size for table text */
+  }
+
+  .progress {
+    height: 15px; /* Reduced height for progress bar */
+  }
+}

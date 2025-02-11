@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+.hero-header {
+   position: fixed;
+   height: 90vh; /* Full viewport height */
+   width: 100vw; /* Full viewport width */
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+/* Header container positioning */
+.header-container {
+   position: fixed;
+   top: 0;
+   height: 16vh; /* Full viewport height */
+   width: 100%; /* Full width of the screen */
+   z-index: 20; /* Ensure it's above other elements */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 3rem;
+   background: rgba(0, 0, 0, 0.6);
+   box-sizing: border-box; /* Ensure padding doesn't add extra space */
+}
+
+/* Logo styles */
+.logo {
+   display: flex;
+   margin-top: 25px;
+   flex-direction: column;
+   align-items: center; /* Center-align the title under the logo */
+}
+
+.logo a {
+   text-decoration: none; /* Ensures no underline for all links inside the logo div */
+}
+
+.logo img {
+   height: 50px;
+}
+
+.logo-title {
+   color: white;
+   font-family: 'Cursive', 'Georgia', sans-serif; /* Stylish font */
+   font-size: 1.2rem;
+   margin-top: 5px; /* Adjust spacing below the logo */
+   text-align: center;
+   text-decoration: none;
+}
+
+/* Navigation styles */
+.navigation {
+   position: sticky;
+   top: 0;
+   z-index: 10; /* Ensure it's above carousel but below header */
+}
+
+.navigation ul {
+   list-style: none;
+   display: flex;
+   gap: 1.5rem;
+   margin: 0;
+   padding: 0;
+}
+
+.navigation ul li {
+   position: relative;
+   transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+.navigation ul li:hover {
+   transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.navigation ul li a {
+   color: white;
+   font-family: "Oswald", serif;
+   font-optical-sizing: auto;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 1.2rem;
+   text-decoration: none;
+   transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.navigation ul li:hover a {
+   color: #f39c12; /* Change text color on hover */
+}
+
+
+.navigation ul li.logout-btn {
+   color: white;
+   font-family: "Oswald", serif;
+   font-optical-sizing: auto;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 1.2rem;
+   text-decoration: none;
+   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+   cursor: pointer; 
+}
+
+.navigation ul li.logout-btn:hover {
+   color: #f39c12; 
+   transform: scale(1.1); 
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+   position: relative;
+   top: -4px; /* Shift the entire cart icon slightly upwards */
+}
+
+.cart-icon i {
+   font-size: 2rem; /* Adjust size of the cart icon */
+   font-weight: 600; /* Make it bold */
+   transition: color 0.3s ease;
+}
+
+.cart-icon i:hover {
+   color: #ff7f50; /* Change color on hover */
+}
+/*Cart Count Styling */
+.cart-count {
+   position: absolute;
+   top: -12px; 
+   right: -8px;
+   background-color: red;
+   color: white;
+   font-size: 0.9rem;
+   font-weight: bold;
+   padding: 2px 5px;
+   border-radius: 50%;
+   border: 2px solid white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

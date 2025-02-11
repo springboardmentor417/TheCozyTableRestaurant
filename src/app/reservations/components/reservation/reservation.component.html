@@ -1,46 +1,167 @@
-<div class="container">
-  <label for="date">Select Date:</label>
-  <input type="date" (change)="onDateChange($event)" />
+<div class="banner">
+  <div class="banner-content">
+    <h1>Table Reservation</h1>
+    <p>Book your table effortlessly and enjoy the best dining experience!</p>
+  </div>
 </div>
-<div class="table-container" *ngIf="availableTables.length > 0">
-  <h3>Available Tables for {{ selectedDate }}:</h3>
-  <div *ngFor="let table of availableTables">
-    <h4>Table {{ table.id }} (Seats: {{ table.seats }})</h4>
-    <div>
-      <button
-        *ngFor="let slot of table.timeSlots"
-        class="slot"
-        [ngClass]="{ 'reserved': slot.isReserved, 'available': !slot.isReserved }"
-        [disabled]="slot.isReserved"
-        (click)="reserveTimeSlot(table.id, slot.time)"
-      >
-        {{ slot.time }} - {{ slot.isReserved ? 'Reserved' : 'Available' }}
+<div class="reservation-img" data-aos="zoom-out" data-aos-delay="200"></div>
+<div class="reservation-container">
+  <!-- Date Selection -->
+  <div class="date-picker">
+    <label for="date">Select Date:</label>
+    <input type="date" (change)="onDateChange($event)" [min]="minDate" [max]="maxDate" />
+  </div>
+
+  <!-- Table Section -->
+  <div *ngIf="isDateValid" class="table-section">
+    <h3>Select a Table:</h3>
+    <div class="table-list">
+      <button *ngFor="let table of tables" (click)="selectTable(table)" class="table-card">
+        <img class="table-image" src="assets/dining-table.png" alt="Table" />
+        <span class="table-id">Table {{ table.id }}</span>
+        <span class="table-seats">Seats: {{ table.seats }}</span>
       </button>
     </div>
   </div>
-</div>
-<div *ngIf="showReservationForm" class="reservation-form">
-  <h3>Reservation Form</h3>
-  <form (ngSubmit)="submitReservation()">
-    <div>
-      <label for="customerName">Name:</label>
-      <input [(ngModel)]="reservationData.customerName" name="customerName" required />
+
+  <!-- Time Slots -->
+  <div *ngIf="selectedTable && timeSlots.length > 0" class="time-slots">
+    <h3>Availability for Table {{ selectedTable.id }} on {{ selectedDate | date: 'fullDate' }}:</h3>
+    <div class="slot-list">
+      <button *ngFor="let slot of timeSlots" class="slot"
+        [ngClass]="{ 'reserved': slot.isReserved, 'past': slot.isDisabled, 'available': !slot.isReserved && !slot.isDisabled }"
+        [disabled]="slot.isReserved || slot.isDisabled" (click)="reserveTimeSlot(slot.time)">
+        <span class="slot-time">{{ slot.time }}</span>
+        <span class="slot-status">
+          {{ slot.isReserved ? 'Reserved' : (slot.isDisabled ? 'Past' : 'Available') }}
+        </span>
+      </button>
     </div>
-    <div>
-      <label for="contact">Contact:</label>
-      <input [(ngModel)]="reservationData.contact" name="contact" required />
+  </div>
+
+  <!-- Reservation Form -->
+  <div *ngIf="showReservationForm" class="reservation-form">
+    <h3>Complete Your Reservation</h3>
+    <form #reservationForm="ngForm" (ngSubmit)="submitReservation()">
+      <div class="form-group">
+        <label for="customerName">Name:</label>
+        <input type="text" [(ngModel)]="reservationData.customerName" name="customerName" minlength="3"
+          pattern="^[a-zA-Z ]+$" #customerName="ngModel" />
+        <div *ngIf="customerName.invalid && customerName.touched" class="error">
+          Name is required and must be at least 3 characters long.
+          Only letters and spaces are allowed.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact:</label>
+        <input type="text" [(ngModel)]="reservationData.contact" name="contact" required pattern="^[6-9][0-9]{9}$"
+          #contact="ngModel" />
+        <div *ngIf="contact.invalid && contact.touched" class="error">
+          Contact is required and must be a valid 10-digit number that does not start with 0.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="seats">Seats:</label>
+        <input type="number" id="seats" [(ngModel)]="reservationData.seats" name="seats" min="1" [max]="maxSeats"
+          required />
+
+        <!-- Show validation message if seat number is out of range -->
+        <div *ngIf="reservationData.seats < 1 || reservationData.seats > maxSeats">
+          <p style="color: red;">Please select a number of seats between 1 and {{maxSeats}}.</p>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" [disabled]="reservationForm.invalid ||!isValidDate(selectedDate)">
+          Submit
+        </button>
+        <button type="button" (click)="showReservationForm = false">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Existing Reservations Section -->
+  <div class="existing-reservations">
+    <h3>Your Existing Reservations</h3>
+    <button (click)="toggleReservationsVisibility()" class="toggle-reservations-btn">
+      {{ showExistingReservations ? 'Hide' : 'Show' }} Reservations
+    </button>
+
+    <div *ngIf="showExistingReservations" class="reservations-table-container">
+      <table *ngIf="existingReservations.length > 0" class="reservations-table">
+        <thead>
+          <tr>
+            <th>Table</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Seats</th>
+            <th>Contact</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of existingReservations">
+            <td>{{ reservation.tableId }}</td>
+            <td>{{ reservation.date | date: 'fullDate' }}</td>
+            <td>{{ reservation.time }}</td>
+            <td>{{ reservation.seats }}</td>
+            <td>{{ reservation.contact }}</td>
+            <td>
+              <button *ngIf="reservation.status !== 'rejected'" (click)="navigateToEditPage(reservation.id)">
+                Edit
+              </button>
+              <button *ngIf="reservation.status !== 'rejected'" (click)="deleteReservation(reservation.id)">
+                Delete
+              </button>
+              <!-- Display "Rejected" message if the reservation is rejected -->
+              <span *ngIf="reservation.status === 'rejected'" class="rejected-status">
+                Rejected
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="existingReservations.length === 0" class="noReservations">
+        No existing reservations found.
+      </p>
     </div>
-    <div>
-      <label for="seats">Seats:</label>
-      <input
-        type="number"
-        [(ngModel)]="reservationData.seats"
-        name="seats"
-        [max]="selectedTable?.seats"
-        required
-      />
+  </div>
+
+
+
+  <!-- Edit Reservation Form -->
+  <!-- <div *ngIf="selectedReservation" class="reservation-form">
+    <h3>Edit Reservation</h3>
+    <div *ngIf="showEditForm">
+      <form #editReservationForm="ngForm" (ngSubmit)="updateReservation()">
+        <div class="form-group">
+          <label for="customerName">Name:</label>
+          <input type="text" [(ngModel)]="selectedReservation.customerName" name="customerName" minlength="3"
+          pattern="^[a-zA-Z ]+$" #customerName="ngModel" />
+        <div *ngIf="customerName.invalid && customerName.touched" class="error">
+          Name is required and must be at least 3 characters long.
+          Only letters and spaces are allowed.
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact:</label>
+          <input type="text" [(ngModel)]="selectedReservation.contact" name="contact" required pattern="^[1-9][0-9]{9}$"
+          #contact="ngModel" />
+        <div *ngIf="contact.invalid && contact.touched" class="error">
+          Contact is required and must be a valid 10-digit number that does not start with 0.
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="seats">Seats:</label>
+          <input type="number" [(ngModel)]="selectedReservation.seats" name="seats" [max]="selectedTable?.seats || 0"
+            required />
+        </div>
+        <div class="form-actions">
+          <button type="submit" [disabled]="editReservationForm.invalid">Update</button>
+          <button type="button" (click)="showEditForm = false">Cancel</button>
+        </div>
+      </form>
     </div>
-    <button type="submit">Submit</button>
-    <button type="button" (click)="showReservationForm = false">Cancel</button>
-  </form>
-</div>
+  </div>
+</div> -->

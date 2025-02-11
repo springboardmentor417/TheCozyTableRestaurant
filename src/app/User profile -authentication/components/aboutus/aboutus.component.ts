@@ -1,6 +1,5 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-// import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @Component({
   selector: 'app-aboutus',

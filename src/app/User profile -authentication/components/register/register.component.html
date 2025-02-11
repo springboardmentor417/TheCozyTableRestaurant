@@ -1,17 +1,12 @@
 <div class="body">
   <div class="register-container container">
-    <h2 class="text-center mb-3">Register</h2>
-
-    <!-- Success Message -->
-    <div *ngIf="successMessage" class="alert alert-success text-center">
-      {{ successMessage }}
-    </div>
+    <h2 class="text-center mb-2">Registration</h2>
 
     <!-- Reactive Form -->
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-4 border rounded shadow">
-      <div class="row mb-3">
+      <div class="row mb-2">
         <!-- Username Input -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-2">
           <label for="username" class="form-label">Username</label>
           <input
             id="username"
@@ -32,7 +27,7 @@
         </div>
 
         <!-- Email Input -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-2">
           <label for="email" class="form-label">Email</label>
           <input
             id="email"
@@ -48,9 +43,9 @@
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-2">
         <!-- Password Input -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-2">
           <label for="password" class="form-label">Password</label>
           <input
             id="password"
@@ -68,7 +63,7 @@
         </div>
 
         <!-- Phone Number Input -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-md-6 mb-2">
           <label for="phone" class="form-label">Phone Number</label>
           <input
             id="phone"
@@ -86,7 +81,7 @@
 
       <div class="row mb-3">
         <!-- Address Input -->
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-16  mb-2">
           <label for="address" class="form-label">Address</label>
           <textarea
             id="address"
@@ -99,18 +94,18 @@
           </div>
         </div>
 
-        
-
       <!-- Submit Button -->
       <div class="text-center">
         <button type="submit" class="btn btn-primary w-100">Register</button>
       </div>
 
       <p class="mt-1">Already have an account? &nbsp;&nbsp;
-        <a href="/login">Login</a>
+        <a routerLink="/login">Login</a>
       </p>
       </div>
     </form>
     
   </div>
 </div>
+<br>
+<br>

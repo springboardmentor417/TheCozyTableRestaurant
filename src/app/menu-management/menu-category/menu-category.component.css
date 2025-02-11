@@ -50,11 +50,16 @@ h1 {
 }
 
 .menu-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: white;
   border-radius: 8px;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  padding: 0;
 }
 
 .menu-item:hover {
@@ -70,6 +75,16 @@ h1 {
 
 .menu-item-details {
   padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Space between title and description */
 }
 
 .menu-item-details h2 {
@@ -80,11 +95,69 @@ h1 {
 
 .menu-item-details p {
   margin: 0;
-  color: #666;
+  color: #161212;
 }
 
 .menu-item-price {
   color: #ff5722;
   font-weight: bold;
   margin-top: 10px;
+}
+
+/* .add-to-cart-button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  align-self: center;
+}
+
+.add-to-cart-button:hover {
+  background-color: #0056b3;
+} */
+button{
+  border: none;
+
+}
+.cart-icon {
+  font-size: 24px;
+  color: #f3b20e;
+  cursor: pointer;
+}
+
+.cart-icon:hover {
+  color: #e8b60f;
+}
+
+ .rating-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  color: #FFD700; /* Gold color for the star */
+  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  
+  z-index: 1;
+}
+
+.star-icon {
+  font-size: 18px;
+  color: #FFD700; 
+  margin-left: 5px;
+}
+
+.rating-number {
+  color: #fff; 
+  font-size: 1rem;
 }

@@ -1,0 +1,76 @@
+<!-- <h3>Track Your Orders</h3>
+
+
+<div *ngIf="orders && orders.length > 0; else noOrders">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Items</th>
+        <th>Total Cost</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.id }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of order.items">{{ item.name }} (x{{ item.quantity }})</li>
+          </ul>
+        </td>
+        <td>{{ order.totalAmount }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <button (click)="viewOrderStatus(order.id)">Track Status</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #noOrders>
+  <p>No orders found. Please place an order first.</p>
+</ng-template> -->
+
+<div class="container mt-4">
+  <h2> Your Orders</h2>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Items</th>
+        <th>Delivery Address</th>
+        <th>Total Cost</th>
+        <th>Order Status</th>
+        <th>Track</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.items }}</td>
+        <td>{{ order.deliveryAddress }}</td>
+        <td>₹{{ order.totalCost }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="toggleProgress(order.id)">
+            Check Order Status
+          </button>
+          <div *ngIf="showProgress[order.id]" class="progress mt-2" style="height: 20px;">
+            <div 
+              class="progress-bar progress-bar-striped progress-bar-animated {{ getProgressColor(order.status) }}"
+              role="progressbar" 
+              [style.width.%]="getProgressValue(order.status)">
+              {{ getProgressValue(order.status) }}%
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

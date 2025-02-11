@@ -1,98 +1,122 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, map, Observable, of, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServicesService {
   private loginStatusSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.loginStatusSubject.asObservable();
+  private apiUrl = 'http://localhost:3000/users'; // Base URL for users API
+
+  constructor(private http: HttpClient,private router:Router) {
+    const currentUser = this.getLocalUser();
+    this.loginStatusSubject.next(!!currentUser);
+  }
+
+  // ----------- Login Management ----------- //
 
   setLoginStatus(status: boolean): void {
     this.loginStatusSubject.next(status);
   }
 
-   // Check login status
-   getLoginStatus(): boolean {
-    return this.loginStatusSubject.value; // Return current value
+  getLoginStatus(): boolean {
+    return this.loginStatusSubject.value;
   }
+
   logout(): void {
-    if (this.isLocalStorageAvailable()) {
-      localStorage.clear();
-    }
-    // Update login status to false
+    this.clearLocalUser();
     this.setLoginStatus(false);
+    this.router. navigate(['/login']).then(() => {
+      window.location.reload(); 
+    });
   }
-  
- 
-  
-
-  private apiUrl = 'http://localhost:3000/users'; // Corrected base URL to point to '/users'
-
-  constructor(private http: HttpClient) {}
-
-  // ✅ Fetch All Users
-  getUsers(username: string, password: string): Observable<any> {
-    return this.http.get<any[]>(this.apiUrl).pipe(
-      map((users) => users.find((user) => user.username === username && user.password === password))
+  // ----------- User Management ----------- //
+  getUsers(username?: string, password?: string): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+  addUser(user: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, user).pipe(
+      catchError((error) => {
+        console.error('Error adding user:', error);
+        return throwError(() => new Error('Failed to add user'));
+      })
+    );
+  }
+  updateUser(user: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${user.id}`, user).pipe(
+      catchError((error) => {
+        console.error('Error updating user:', error);
+        return throwError(() => new Error('Failed to update user'));
+      })
     );
   }
   
-
-  // ✅ Add a New User
-  addUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, user); // Adds a user to the 'users' array in db.json
+  getUserById(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${userId}`).pipe(
+      catchError((error) => {
+        console.error('Error fetching user by ID:', error);
+        return throwError(() => new Error('Failed to fetch user details'));
+      })
+    );
+  }
+    deleteUser(userId: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${userId}`).pipe(
+      catchError((error) => {
+        console.error('Error deleting user:', error);
+        return throwError(() => new Error('Failed to delete user'));
+      })
+    );
   }
 
-  // ✅ Update User Details
-  updateUser(user: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${user.id}`, user); // Updates user by ID
+  getUsersByUsername(username: string): Observable<any> {
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map((users) => users.find((user) => user.username === username)),
+      catchError((error) => {
+        console.error('Error fetching user by username:', error);
+        return throwError(() => new Error('Failed to fetch user'));
+      })
+    );
+  }
+  
+  userExists(userId: string): Observable<boolean> {
+    return this.http.get<any>(`${this.apiUrl}/${userId}`).pipe(
+      map((user) => !!user),
+      catchError(() => of(false))
+    );
   }
 
-  // ✅ Delete a User
-  deleteUser(userId: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${userId}`); // Deletes user by ID
-  }
+  // ----------- Local Storage Utilities ----------- //
 
-  // 🔐 -------- Local Storage Session Functionality -------- 🔐
-
-  // ✅ Save User to Local Storage
   setLocalUser(user: any): void {
     if (this.isLocalStorageAvailable()) {
       localStorage.setItem('currentUser', JSON.stringify(user));
-    } else {
-      console.warn('localStorage is not available.');
     }
   }
 
-  // ✅ Retrieve User from Local Storage
   getLocalUser(): any {
     if (this.isLocalStorageAvailable()) {
       const user = localStorage.getItem('currentUser');
       return user ? JSON.parse(user) : null;
-    } else {
-      console.warn('localStorage is not available.');
-      return null;
     }
+    return null;
   }
 
-  // ✅ Clear User from Local Storage
   clearLocalUser(): void {
     if (this.isLocalStorageAvailable()) {
       localStorage.removeItem('currentUser');
-    } else {
-      console.warn('localStorage is not available.');
     }
   }
 
-  // ✅ Check if User is Logged In
   isLoggedIn(): boolean {
     return this.isLocalStorageAvailable() && !!localStorage.getItem('currentUser');
   }
 
-  // ✅ Utility: Check if Local Storage is Available
   private isLocalStorageAvailable(): boolean {
     return typeof localStorage !== 'undefined';
   }
+
 }

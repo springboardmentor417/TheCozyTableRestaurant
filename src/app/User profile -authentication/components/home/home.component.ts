@@ -4,19 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import $ from 'jquery';
-import { HomepageUIComponent } from "../homepage-ui/homepage-ui.component";
-
-
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgbCarouselModule, RouterModule, HomepageUIComponent], // Import NgbCarouselModule
+  imports: [CommonModule, FormsModule, NgbCarouselModule, RouterModule, ], // Import NgbCarouselModule
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  
+
+   // Carousel images
+    carouselImages: string[] = [
+    'assets/TajLife2v.jpg',
+    'assets/CozyTable2v.png',
+    'assets/CozyDine2v.jpg',
+  ];
+
   ngAfterViewInit() {
     $(document).ready(function () {
       $(".home-header").fadeIn(2000);
@@ -39,5 +43,19 @@ export class HomeComponent {
     });
 });}
   
-  
+images = [
+  { src: 'assets/chill.jpg', text: 'Get Started with Your Order!', showText: false },
+  { src: 'assets/Family.jpg', text: 'Enjoy Now Delicious Food with Family!', showText: false },
+  { src: 'assets/Starter1.jpg', text: 'Get Ready for Your Meal', showText: false },
+  { src: 'assets/DineSmall.jpg', text: 'Our Deserts & Drinks Will AddUp the Enlightment!', showText: false }
+];
+
+onHover(index: number): void {
+  this.images[index].showText = true;
+}
+
+onLeave(index: number): void {
+  this.images[index].showText = false;
+}
+
 }

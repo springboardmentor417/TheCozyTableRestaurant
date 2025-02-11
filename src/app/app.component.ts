@@ -1,24 +1,32 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HeaderhomeComponent } from "./User profile -authentication/components/headerhome/headerhome.component";
+import { SHeaderComponent } from "./User profile -authentication/components/s-header/s-header.component";
+import { filter } from 'rxjs/operators';
+import { FooterComponent } from "./User profile -authentication/components/footer/footer.component";
 
-import { RouterModule, RouterOutlet } from '@angular/router';
-
-import { ReservationComponent } from './reservations/components/reservation/reservation.component';
-import { MenuListComponent } from './menu-management/components/menu-list/menu-list.component';
-import { AddMenuItemComponent } from './menu-management/components/add-menu-item/add-menu-item.component';
-import { FooterComponent } from './User profile -authentication/components/footer/footer.component';
-import { HeaderComponent } from './User profile -authentication/components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-
-
-  imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent, RouterModule],
-
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  standalone: true,
+  // 
+  imports: [CommonModule, RouterOutlet, SHeaderComponent ,HeaderhomeComponent, FooterComponent]
 })
 export class AppComponent {
-  title = 'my-demo-app';
+
+  showMainHeader: boolean = true;
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    // Listen for route changes and update the header accordingly
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const mainRoutes = ['/', '/aboutus'];
+        this.showMainHeader = mainRoutes.includes(this.router.url);
+      });
+  }
 }

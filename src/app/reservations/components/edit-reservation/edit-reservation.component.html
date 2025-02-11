@@ -1,0 +1,28 @@
+<div class="edit-reservation-form">
+  <h2>Edit Reservation</h2>
+  <form #editreservationForm="ngForm" (ngSubmit)="updateReservation()">
+    <label for="name">Name:</label>
+    <input id="name" type="text" [(ngModel)]="reservationData.customerName" minlength="3" pattern="^[a-zA-Z ]+$"
+      #customerName="ngModel" name="name" required />
+    <div *ngIf="customerName.invalid && customerName.touched" class="error">
+      Name is required and must be at least 3 characters long.
+      Only letters and spaces are allowed.
+    </div>
+    <label for="contact">Contact:</label>
+    <input type="text" [(ngModel)]="reservationData.contact" name="contact" required pattern="^[6-9][0-9]{9}$"
+      #contact="ngModel" />
+    <div *ngIf="contact.invalid && contact.touched" class="error">
+      Contact is required and must be a valid 10-digit number that does not start with 0.
+    </div>
+
+    <label for="seats">Seats:</label>
+    <input type="number" [(ngModel)]="reservationData.seats" name="seats" [max]="selectedTable?.seats || 1" [min]="1" required />
+    <div *ngIf="reservationData.seats < 1 || reservationData.seats > selectedTable?.seats">
+      <p style="color: red;">Please select a number of seats between 1 and {{selectedTable?.seats}}.</p>
+    </div>
+    <div class="form-actions">
+      <button type="submit" [disabled]="editreservationForm.invalid" >Update</button>
+      <button type="button" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,24 +1,16 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensure the body covers the full height of the viewport */
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@400;500&family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap');
 
-main {
-  flex: 1; /* Allows the main content to expand and push the footer down */
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+/* General Footer Styles */
 .footer {
   background-color: #121212;
   color: #fff;
-  padding: 20px 40px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0;
 }
 
 .footer-container {
@@ -33,7 +25,7 @@ main {
 .contact-section,
 .links-section,
 .brands-section {
-  margin: 20px;
+  margin: 10px;
   flex: 1 1 200px;
 }
 
@@ -90,8 +82,8 @@ main {
 
 .footer-bottom {
   border-top: 1px solid #444;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin: 0;
+  padding-top: 10px;
   text-align: center;
   width: 100%;
 }
@@ -101,9 +93,11 @@ main {
 }
 
 .footer-bottom .footer-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .footer-bottom .footer-links a:hover {
@@ -111,10 +105,62 @@ main {
 }
 
 .sponsors-partners {
-  margin: 20px 0;
+  margin: 0;
   font-size: 0.9rem;
 }
+
 :host {
   display: block;
   margin: 0;
 }
+
+/* Custom styles for 'Our Partners' */
+.sponsors-partners h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  color: #f5a623;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sponsors-partners p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Custom styles for 'Our Brands' */
+.brands-section h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #f5a623;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.brands-section p {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.8;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Custom styles for 'COZY LIFE' and 'Our Brands' */
+.links-section h4,
+.contact-section h4 {
+  font-family: 'Oswald', serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* You can adjust the weight as per your need, e.g., 400 or 500 */
+  font-style: normal;
+}
+

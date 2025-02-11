@@ -7,7 +7,7 @@ import { ServicesService } from '../../services/services.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule,RouterModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -42,64 +42,33 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
+    const { username, password } = this.loginForm.value;
   
-      this.authService.getUsers(username, password).subscribe(
-        (user) => {
-          if (user) {
-            console.log('Login successful:', user);
+    this.authService.getUsers().subscribe({
+      next: (users) => {
+        const user = users.find((u: any) => u.username === username && u.password === password);
+        if (user) {
+          const userDetails = {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            phone: user.phone,
+            address: user.address,
+            role: user.role || 'customer',
+          };
   
-            // Save user details in localStorage
-            const userDetails = {
-              id: user.id,
-              username: user.username,
-              email: user.email,
-              phone: user.phone,
-              address: user.address,
-              role: user.role || 'customer',
-            };
+          localStorage.setItem('currentUser', JSON.stringify(userDetails));
+          this.isLoggedIn = true;
   
-            this.authService.setLocalUser(userDetails); // Use service method for local storage
-            this.authService.setLoginStatus(true); // Notify login status
+          if (user.role === 'admin') this.router.navigate(['/admindetails']);
+          else this.router.navigate(['/userDetails']);
           
-  
-            this.cdr.detectChanges(); // Trigger change detection
-
-            // Navigate based on user role
-            if (user.role === 'admin') {
-              alert('Welcome Admin!');
-              this.router.navigate(['/adminWelcome']);
-            } else if (user.role === 'customer') {
-              alert('Welcome Customer!');
-              this.router.navigate(['/userDetails']);
-            } else {
-              console.error('User role is undefined');
-              alert('User role is undefined. Please contact support.');
-            }
-          } else {
-            console.error('Invalid credentials');
-            alert('Invalid username or password.');
-          }
-        },
-        (error) => {
-          console.error('Error during login:', error);
-          alert('An error occurred while logging in. Please try again later.');
-        }
-      );
-    } else {
-      alert('Please fill in the form correctly.');
-    }
+          this.authService.setLoginStatus(true); // Notify login status
+          this.cdr.detectChanges(); // Trigger change detection
+        } else alert('Invalid username or password.');
+      },
+      error: (err) => console.error('Error fetching users:', err),
+    });
   }
   
-  
-
-  logout(): void {
-    // Clear user details from localStorage
-    localStorage.removeItem('currentUser');
-    this.authService.setLoginStatus(false);
-    alert('You have been logged out successfully.');
-    this.router.navigate(['/Home']);
-    this.cdr.detectChanges;
-  }
 }
