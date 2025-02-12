@@ -1,48 +1,30 @@
 {
   "users": [
     {
-      "id": "1ff4",
-      "username": "Ronaldo",
-      "password": "cr7@75545",
-      "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "role": "customer"
-    },
-    {
-      "id": "4321",
-      "username": "Liza",
-      "password": "khan@123",
-      "email": "mohammedobaray@gmail.com",
-      "phone": "7304373810",
-      "address": "Adil tower b.p marine academy m.g road",
-      "role": "customer"
-    },
-    {
       "id": "6620",
-      "username": "Arpit1234",
+      "username": "Arpit",
       "password": "123QWe@",
-      "email": "nnnarpitmishra123@gmail.com",
+      "email": "apoorv19@gmail.com",
       "phone": "7304373817",
       "address": "Adil tower b. p. marine academy m. g. roads",
       "role": "admin"
     },
     {
-      "id": "ef06",
-      "username": "Arpit123",
-      "password": "Asd123@",
-      "email": "mishra1998arpit@gmail.com",
-      "phone": "7398617023",
-      "address": "upAdil tower b. p. marine academy m. g. roads",
-      "role": "customer"
+      "id": "c593",
+      "username": "Admin",
+      "password": "A@1234",
+      "email": "admin123@gmail.com",
+      "phone": "8965321456",
+      "address": "15, Baurhar , Bihar ,847230",
+      "role": "admin"
     },
     {
       "id": "afff",
-      "username": "Arpit12",
-      "password": "123QWe@",
+      "username": "Customer",
+      "password": "a@1234",
       "email": "arpitmishra@gmail.com",
       "phone": "9836251478",
-      "address": "upAdil tower b. p. marine academy m. g. roads",
+      "address": "Shramik Mangal Cooperative Society, Durgapur",
       "role": "customer"
     }
   ],
@@ -120,15 +102,15 @@
       "status": "rejected"
     },
     {
-      "id": "9646",
+      "id": "3497",
       "tableId": "1",
       "date": "2025-02-12",
-      "time": "09:00 AM",
-      "customerName": "vip vimal",
-      "contact": "7710558994",
+      "time": "08:00 PM",
+      "customerName": "Anant",
+      "contact": "9534395733",
       "seats": 2,
       "status": "pending",
-      "userId": "1ff4"
+      "userId": null
     }
   ],
   "menu-items": [
@@ -148,6 +130,15 @@
         2,
         2,
         3,
+        3,
+        5,
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
         3
       ]
     },
@@ -170,7 +161,16 @@
         4,
         4,
         2,
-        2
+        2,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3
       ]
     },
     {
@@ -190,6 +190,60 @@
         2,
         2,
         2,
+        2,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "ef5f",
+      "name": "Angoori Gulab Jamun",
+      "description": "Serves 1 | A bliss to gobble up these small spongy pearl shaped slightly warm gulab jamuns(12 Nos) . A perfect mithai to conclude your meal.\nKcal- 466\n",
+      "price": 169,
+      "category": "Desserts",
+      "imageUrl": "https://i.pinimg.com/originals/41/cb/d0/41cbd0fa79954489295f5faa285ff163.jpg",
+      "availability": true,
+      "rating": [
+        4,
+        5,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "e3a8",
+      "name": "Chili Chicken",
+      "description": "Serves 1| Chili chicken is Indo-Chinese dish of bite-sized pieces of chicken in a sauce with onions , peppers, and chillies.\n296 Kcal",
+      "price": 271,
+      "category": "Starters",
+      "imageUrl": "https://www.archanaskitchen.com/images/archanaskitchen/World_Appetizers/chilli-chicken-recipe.jpg",
+      "availability": true,
+      "rating": [
+        4,
+        5,
+        3,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "c5e5",
+      "name": "Spanish Sangria",
+      "description": "Serves 1 | Spanish red wine is mixed with fruits, spices , and other stronger spirits to make sweet, refreshing drink.",
+      "price": 201,
+      "category": "Drinks",
+      "imageUrl": "https://i.pinimg.com/originals/a8/a7/59/a8a759e2098b9d389315285f69e07c4f.jpg",
+      "availability": true,
+      "rating": [
+        4,
+        4,
+        5,
+        2,
+        3,
+        1,
         2
       ]
     }
@@ -218,25 +272,8 @@
   ],
   "orders": [
     {
-      "id": "61f5",
+      "id": "651a",
       "items": [
-        {
-          "id": "d59e",
-          "name": "Butter Naan",
-          "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
-          "price": 45,
-          "category": "Bread",
-          "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
-          "availability": true,
-          "rating": [
-            1,
-            2,
-            4,
-            3
-          ],
-          "quantity": 1,
-          "cartId": "61d0"
-        },
         {
           "id": "c5b2",
           "name": "Egg Masala",
@@ -246,10 +283,54 @@
           "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
           "availability": true,
           "rating": [
+            3,
+            3,
+            5,
+            2,
+            2,
+            2,
+            2,
+            4,
+            4,
+            2,
+            2,
+            5,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "quantity": 3,
+          "cartId": "61d0"
+        },
+        {
+          "id": "f915",
+          "name": "Mutton Rogan Josh",
+          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
+          "price": 356,
+          "category": "Main Course",
+          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
+          "availability": true,
+          "rating": [
+            2,
+            2,
+            2,
+            2,
+            2,
             2,
             3,
+            3,
+            5,
             4,
-            5
+            3,
+            4,
+            4,
+            3,
+            4,
+            4
           ],
           "quantity": 1,
           "cartId": "61d0"
@@ -257,261 +338,8 @@
       ],
       "customerId": "4321",
       "status": "pending",
-      "deliveryAddress": "Adil tower b.p marine academy m.g road",
       "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 322,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sat Feb 08 2025"
-    },
-    {
-      "id": "4ce3",
-      "items": [
-        {
-          "id": "f915",
-          "name": "Mutton Rogan Josh",
-          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-          "price": 356,
-          "category": "Main Course",
-          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-          "availability": true,
-          "rating": [],
-          "quantity": 1,
-          "cartId": "8b81"
-        },
-        {
-          "id": "c5b2",
-          "name": "Egg Masala",
-          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
-          "price": 217,
-          "category": "Main Course",
-          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
-          "availability": true,
-          "rating": [
-            3,
-            3,
-            5
-          ],
-          "quantity": 1,
-          "cartId": "8b81"
-        },
-        {
-          "id": "d59e",
-          "name": "Butter Naan",
-          "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
-          "price": 45,
-          "category": "Bread",
-          "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
-          "availability": true,
-          "rating": [
-            3,
-            3,
-            4
-          ],
-          "quantity": 1,
-          "cartId": "8b81"
-        }
-      ],
-      "customerId": "ef06",
-      "status": "pending",
-      "deliveryAddress": "upAdil tower b. p. marine academy m. g. roads",
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 678,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Sun Feb 09 2025"
-    },
-    {
-      "id": "23d2",
-      "items": [
-        {
-          "id": "f915",
-          "name": "Mutton Rogan Josh",
-          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-          "price": 356,
-          "category": "Main Course",
-          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-          "availability": true,
-          "rating": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "quantity": 1,
-          "cartId": "0c2e"
-        }
-      ],
-      "customerId": "afff",
-      "status": "Cancelled",
-      "deliveryAddress": "upAdil tower b. p. marine academy m. g. roads",
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 416,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Mon Feb 10 2025"
-    },
-    {
-      "id": "c417",
-      "items": [
-        {
-          "id": "c5b2",
-          "name": "Egg Masala",
-          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
-          "price": 217,
-          "category": "Main Course",
-          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
-          "availability": true,
-          "rating": [
-            3,
-            3,
-            5,
-            2,
-            2,
-            2,
-            2
-          ],
-          "quantity": 1,
-          "cartId": "0c2e"
-        }
-      ],
-      "customerId": "afff",
-      "status": "Cancelled",
-      "deliveryAddress": "upAdil tower b. p. marine academy m. g. roads",
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 277,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Mon Feb 10 2025"
-    },
-    {
-      "id": "9640",
-      "items": [
-        {
-          "id": "f915",
-          "name": "Mutton Rogan Josh",
-          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-          "price": 356,
-          "category": "Main Course",
-          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-          "availability": true,
-          "rating": [
-            2,
-            2,
-            2,
-            2,
-            2,
-            2
-          ],
-          "quantity": 3,
-          "cartId": "bb92"
-        },
-        {
-          "id": "c5b2",
-          "name": "Egg Masala",
-          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
-          "price": 217,
-          "category": "Main Course",
-          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
-          "availability": true,
-          "rating": [
-            3,
-            3,
-            5,
-            2,
-            2,
-            2,
-            2,
-            4,
-            4
-          ],
-          "quantity": 1,
-          "cartId": "bb92"
-        },
-        {
-          "id": "d59e",
-          "name": "Butter Naan",
-          "description": "Serves 1| Indian leavened , oven-baked flatbread topped with butter.\nKcal - 445\n",
-          "price": 45,
-          "category": "Bread",
-          "imageUrl": "https://nainasindiankitchen.com/wp-content/uploads/2023/10/Butter-Naan.png",
-          "availability": true,
-          "rating": [
-            3,
-            3,
-            4,
-            2,
-            2,
-            2,
-            2
-          ],
-          "quantity": 2,
-          "cartId": "bb92"
-        }
-      ],
-      "customerId": "1ff4",
-      "status": "Yet to be Delivered",
-      "deliveryAddress": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 1435,
-      "deliveryFee": 80,
-      "promotionApplied": 20,
-      "orderDate": "Tue Feb 11 2025"
-    },
-    {
-      "id": "57fb",
-      "items": [
-        {
-          "id": "f915",
-          "name": "Mutton Rogan Josh",
-          "description": "Serves 1 | A mutton delight slow cooked with a blend of Indian spices. Kcal- 643",
-          "price": 356,
-          "category": "Main Course",
-          "imageUrl": "https://recipes.timesofindia.com/photo/53192600.cms?imgsize=130791",
-          "availability": true,
-          "rating": [
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            3,
-            3
-          ],
-          "quantity": 1,
-          "cartId": "bb92"
-        },
-        {
-          "id": "c5b2",
-          "name": "Egg Masala",
-          "description": "Serves 1 | Flavourful, delicious dish made with boiled eggs cooked in onion tomato gravy.\nKcal- 753\n",
-          "price": 217,
-          "category": "Main Course",
-          "imageUrl": "https://static.wixstatic.com/media/05c508_83ea8b46dcda47a99a8ad0db5292e8e9~mv2.jpg/v1/fit/w_1000,h_1000,al_c,q_80/file.png",
-          "availability": true,
-          "rating": [
-            3,
-            3,
-            5,
-            2,
-            2,
-            2,
-            2,
-            4,
-            4,
-            2,
-            2
-          ],
-          "quantity": 1,
-          "cartId": "bb92"
-        }
-      ],
-      "customerId": "1ff4",
-      "status": "pending",
-      "deliveryAddress": "401, Sterling Enclave,Laxmi,road, New Nana peth, ",
-      "paymentMethod": "Pay on delivery (Cash/Card)",
-      "totalAmount": 633,
+      "totalAmount": 1067,
       "deliveryFee": 80,
       "promotionApplied": 20,
       "orderDate": "Tue Feb 11 2025"

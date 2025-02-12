@@ -62,7 +62,7 @@ totalCustomers: number = 250;
     this.loading = true;
     this.service.getUsers().subscribe({
       next: (data) => {
-        this.users = data;
+        this.users = data.filter(user => user.role !== 'admin');
         this.loading = false;
       },
       error: (err) => {

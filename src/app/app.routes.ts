@@ -61,12 +61,12 @@ export const routes: Routes = [
   { path: 'admin', component: AdminchartComponent ,canActivate: [authGuard]},
   { path: 'ackpage', component: AckPageComponent,canActivate: [authGuard] },
   { path: 'reply', component: PageFeedbackComponent,canActivate: [authGuard] },
-  { path: 'decline', component: AdminComponent},
+  { path: 'decline', component: AdminComponent,canActivate: [authGuard] },
 
   { path: 'admindetails',component: AdmindetailsComponent,
     // children:[
     //   { path: 'decline', component: AdminComponent},
-    // ], canActivate: [authGuard]
+     canActivate: [authGuard]
   },
   // { path: 'admin/reservations/decline', component: AdminComponent ,canActivate: [authGuard]},
   { path: 'edit-reservation/:id', component: EditReservationComponent ,canActivate: [authGuard]},

@@ -22,7 +22,8 @@
       <li *ngIf="isLoggedIn && isAdmin"><a routerLink="/manage-orders">Manage Orders</a></li>
 
       <li *ngIf="isLoggedIn  && isAdmin"><a routerLink="/admin/adminchart">Feedback</a></li>
-      <li *ngIf="isLoggedIn  && !isAdmin"><a routerLink="/feedback">Feedback</a></li>
+      <!--
+      <li *ngIf="isLoggedIn  && !isAdmin"><a routerLink="/feedback">Feedback</a></li>-->
       <li><a routerLink="/aboutus">About Us</a></li>
       <!-- ✅ Show "Cart" only for Customers -->
       <li *ngIf="isLoggedIn && !isAdmin" class="manage-orders">
