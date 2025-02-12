@@ -146,10 +146,10 @@ export class FeedbackFormComponent implements OnInit {
       alert("Please enter today's date.");
       return;
     }
-    if (!this.userObj.image) {
-      alert('Please upload an image before submitting the feedback.');
-      return;
-    }
+    // if (!this.userObj.image) {
+    //   alert('Please upload an image before submitting the feedback.');
+    //   return;
+    // }
     if (!feedbackForm.valid) {
       alert('Unauthorized action');
       throw new Error('Unauthorized action');
